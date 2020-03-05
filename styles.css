@@ -1,0 +1,21 @@
+
+.ReactTable .-pagination button {
+  margin: 0;
+}
+
+
+@media all and (max-width: 1000px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+
+@media all and (max-width: 800px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
+
+}

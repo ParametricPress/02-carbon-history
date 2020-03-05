@@ -1,0 +1,70 @@
+[meta title:"TK Article Title" description:"TK Article Description"
+  shareImageUrl:"https://parametric.press/issue-02/tk-article-slug/static/images/share.png"
+  shareImageWidth:"880"
+  shareImageHeight:"440" /]
+
+[var name:"parametricSlug" value:"tk-article-slug" /]
+
+[Nav fullWidth:true /]
+
+[Header
+  title:`["Article", "Title"]`
+  longTitle:`["The Full", "Article Title"]`
+  date:"May 15, 2020"
+  dek:"TK TK A punchy description of why we should read your article."
+  fullWidth:true
+  authors:`[{
+    name: "",
+    role: "",
+    url: ""
+  }]`
+  doi:"https://doi.org/TK"
+  archive:`'https://parametric-press-archives.s3.amazonaws.com/issue-02/' + parametricSlug + '.warc.gz'`
+  source:`"https://github.com/ParametricPress/02-" + parametricSlug `
+/]
+
+
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tortor nunc, elementum eu ex vitae, lobortis fringilla ligula. Nunc sed nisl auctor dolor viverra dapibus sit amet et magna. Phasellus vestibulum dictum facilisis. Phasellus ut suscipit justo, ac vulputate nisi. Proin eu leo non nunc viverra egestas vitae eu augue. Vestibulum non massa in nulla interdum viverra. Vestibulum sit amet libero iaculis, maximus magna quis, dapibus lacus.
+
+ [data name:"carbonEmissions" source:"carbon-emissions.csv" /]
+
+ [Table data:carbonEmissions columns:`['Year', 'Total']` defaultPageSize:10 /]
+ [br/]
+
+ Aenean eros sem, varius quis erat sit amet, pulvinar aliquet diam. Etiam et vestibulum justo. Pellentesque commodo tristique metus at tempor. Donec cursus volutpat arcu. Etiam eget nisl mi. Cras malesuada tortor non diam auctor, vel porta tellus malesuada. Aliquam erat volutpat. Sed ut venenatis quam, sed elementum turpis. Duis bibendum consequat finibus.
+
+[var name:"clicks" value:0 /]
+[CustomComponent style:`{cursor: 'pointer'}` clickCount:clicks /]
+
+[Caption]
+You've clicked on the component above [Display value:clicks format:"d" /] times.
+[/Caption]
+
+Fusce aliquam fermentum ex. Nullam mi sem, varius rutrum diam vitae, laoreet malesuada quam. Fusce sodales nibh ut finibus condimentum. Donec eget risus ut ipsum sodales commodo. Cras ullamcorper augue velit, at finibus diam mattis vel. Ut lobortis velit eget dolor dictum tincidunt. Morbi rhoncus vehicula sapien sit amet tempor. Aliquam blandit nisi eu enim fermentum, ac varius neque venenatis. Nullam in nisi at ante mollis tempus. Nullam congue finibus nisl eu finibus. Donec porttitor non ipsum et scelerisque. In in turpis elementum justo rhoncus varius at in metus. Aliquam eget dui mi. Donec non tortor sit amet massa porttitor aliquam tristique ut metus.
+
+[var name:"updateCount" value:0 /]
+
+[CustomD3Component updateCount:updateCount /]
+
+[Button onClick:`updateCount += 1`]
+  Update.
+[/Button]
+
+Integer viverra neque ut tristique laoreet. Vestibulum malesuada molestie sapien, sed auctor magna pellentesque nec. Nunc cursus tristique nisl. Donec aliquet felis nec mollis commodo. Ut dapibus blandit quam. Fusce tellus neque, ullamcorper quis magna ac, posuere pretium leo. Sed quam augue, porttitor eget pharetra non, tincidunt in mi. Suspendisse orci dui, vehicula ac aliquam non, iaculis a lacus. Fusce a nisi gravida, vulputate nibh quis, blandit ante. Nunc fringilla risus vitae ornare convallis. Sed rhoncus dolor risus, et pulvinar neque maximus non. Nullam tempor porta risus, et sagittis felis luctus at. Vestibulum a mi eget sapien auctor malesuada egestas vitae orci.
+
+Quisque non laoreet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc euismod consectetur odio, at facilisis leo congue at. Nam vitae est nunc. Ut consequat molestie erat id interdum. Quisque rhoncus, tortor a accumsan aliquet, augue odio porta lorem, vulputate egestas felis ante vitae neque. Proin nulla sapien, interdum et lorem quis, semper facilisis sapien. Donec erat sem, interdum id efficitur eget, efficitur sit amet eros. Aenean at nisl eu dui maximus convallis. Etiam varius odio vel laoreet maximus. Duis ac lacus lorem. Aliquam rutrum dapibus sapien non porttitor.
+
+
+[AuthorBio]
+
+[b][a href:""]Your Name[/a][/b] is _TK insert bio here_.
+
+Edited by TK editor list.
+[/AuthorBio]
+
+[NextArticle slug:parametricSlug fullWidth:true /]
+
+[Footer fullWidth:true /]
+
+// Uncomment before pub
+// [Analytics google:"UA-139053456-1" tag:parametricSlug /]
