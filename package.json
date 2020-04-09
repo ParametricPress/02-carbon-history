@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "idyll --template _local.html"
+    "start": "idyll --template _local.html --no-ssr"
   },
   "idyll": {
     "css": "styles.css",
@@ -18,8 +18,9 @@
   },
   "dependencies": {
     "d3": "^5.15.0",
-    "idyll": "^4.0.7",
+    "idyll": "^4.10.3",
     "idyll-d3-component": "^2.0.0",
+    "p5": "^1.0.0",
     "parametric-components": "^2.0.2",
     "parametric-styles": "^2.0.1"
   }
