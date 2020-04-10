@@ -1,12 +1,15 @@
 const React = require('react');
+const D3Component = require('idyll-d3-component');
 const p5 = require('p5');
 let p5sketch;
 
-class p5Component extends React.Component {
+class p5Component extends D3Component {
 
   initialize(node, props) {
 
     const sketch = ( p ) => {
+
+      let parent = node;
 
       p.setup = function() {
         p.createCanvas(600, 600);
@@ -19,7 +22,7 @@ class p5Component extends React.Component {
       };
 
       p.windowResized = function() {
-        let newWidth = document.getElementById('firstsketch').offsetWidth
+        let newWidth = parent.offsetWidth
         p.resizeCanvas(newWidth, 600);
         p.background(p.random(255), p.random(255), p.random(255));
         p.text('I was updated!', p.width/2, p.height/2);
@@ -31,7 +34,7 @@ class p5Component extends React.Component {
         if (props.isVisible !== oldProps.isVisible) {
 
           setTimeout(function() {
-            let newWidth = document.getElementById('firstsketch').offsetWidth
+            let newWidth = parent.offsetWidth
             p.resizeCanvas(newWidth, 600);
             p.background(p.random(255), p.random(255), p.random(255));
             p.text('I was updated!', p.width/2, p.height/2);
@@ -52,19 +55,8 @@ class p5Component extends React.Component {
 
   }
 
-  componentWillReceiveProps(newProps) {
-    p5sketch.onUpdate(newProps, this.props);
-  }
-
-  shouldComponentUpdate() {
-    return false;
-  }
-
-  render() {
-    const { className, id, style } = this.props;
-    return (
-      <div ref={(node) => { this.initialize(node, this.props) }} className={className} id={id} style={Object.assign({ width: '100%'}, style)} />
-    );
+  update(props, oldProps) {
+    p5sketch.onUpdate(props, oldProps);
   }
 
 }
