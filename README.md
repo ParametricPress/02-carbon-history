@@ -2,6 +2,15 @@
 
 TK short description of article.
 
+## Next Steps
+
+[ ] Add p5 ppm animation
+[ ] Create plotly component with some dummy data
+[ ] Figure out how to pull in data
+[ ] Hook up plotly graph to data
+[ ] Make text correctly respond based on data
+[ ] Complete mockup of Part 1
+
 ## Local Setup
 
 To run the article locally, make sure you have NodeJS and NPM installed. Then clone or download this repository. The main file is [index.idyll](index.idyll), this file defines the article using [Idyll markdown](https://idyll-lang.org/docs/syntax).
