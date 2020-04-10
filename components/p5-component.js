@@ -18,8 +18,12 @@ class p5Component extends React.Component {
         p.circle(p.mouseX, p.mouseY, 50);
       };
 
-      p.onResize = function() {
-      }
+      p.windowResized = function() {
+        let newWidth = document.getElementById('firstsketch').offsetWidth
+        p.resizeCanvas(newWidth, 600);
+        p.background(p.random(255), p.random(255), p.random(255));
+        p.text('I was updated!', p.width/2, p.height/2);
+      };
 
       p.onUpdate = function(props, oldProps) {
 
