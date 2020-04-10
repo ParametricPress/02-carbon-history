@@ -7,19 +7,17 @@ class p5Component extends D3Component {
   initialize(node, props) {
     const sketch = ( p ) => {
 
-      let x = 100;
-      let y = 100;
-
       p.setup = () => {
-        p.createCanvas(600, 600);
+        p.createCanvas(p.windowWidth - 125, 600);
         p.background('pink');
         p.textAlign(p.CENTER, p.CENTER);
         p.textSize(20);
         p.text('p5 hooray!', p.width/2, p.height/2);
-        p.noLoop();
+        //p.noLoop();
       };
 
       p.draw = () => {
+        p.circle(p.mouseX, p.mouseY, 50);
       };
 
       p.onUpdate = function(props, oldProps) {
@@ -27,9 +25,7 @@ class p5Component extends D3Component {
         p.textAlign(p.CENTER, p.CENTER);
         p.textSize(20);
         p.text('I was updated!', p.width/2, p.height/2);
-        p.noLoop();
       };
-
 
     };
 

@@ -27,7 +27,7 @@
 
 All the carbon in a fossil fuel was once in something alive.
 
-Hundreds of millions of years ago, the dead remains of plants and microscopic plankton happened to end up in places where oxygen couldn't easily get to them. Places like the bottoms of swamps, or buried beneath sediments at the bottom of shallow seas.
+Hundreds of millions of years ago, the dead remains of plants and microscopic plankton happened to end up buried in places where oxygen couldn't easily get to them. Places like swamps in ancient forests, or beneath sediments under the sea.
 
 Normally when creatures die, they decompose, and the carbon in their bodies quickly returns to the air. But decomposition requires oxygen. In the absence of oxygen, much of that energy-rich carbon remained trapped in these geological burial grounds, lying dormant for hundreds of millions of years.
 
@@ -35,7 +35,7 @@ Over the eras, continents shifted and collided, dinosaurs came and went, plants 
 
 Meanwhile, beneath the Earth’s surface, all that dormant carbon was being heated and compressed, transforming into some of the most energy rich substances we humans have ever known — coal, oil, and natural gas.
 
-Today we’re unearthing and burning tons of this ancient carbon — about 10 billion tons of it last year — all of which ends up in the air. As a result, we’re transforming the composition of our atmosphere and, as a consequence, the climate of our planet.
+Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it last year alone. We're burning through a carbon bank account that's been quietly compounding for hundreds of millions of years. And by sending all this carbon back into the air, we’re transforming the composition of our atmosphere and, as a consequence, the climate of our planet.
 
 # Part 1: Your Birthday
 
@@ -87,14 +87,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
   [var name:"updateCount" value:0 /]
 
-  [p5Component updateCount:updateCount className:"p5" myVar:myVar /]
-
-  [Button onClick:`updateCount += 1`]
-    Update updateCount.
-  [/Button]
+  [p5Component className:"p5" myVar:myVar /]
 
   [Button onClick:`myVar += 1`]
-    Update myVar.
+    Update Sketch.
   [/Button]
 
   [/Conditional]
