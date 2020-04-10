@@ -1,8 +1,10 @@
-
 .ReactTable .-pagination button {
   margin: 0;
 }
 
+.p5 {
+  width: 100%;
+}
 
 @media all and (max-width: 1000px) {
   .idyll-root {
@@ -20,5 +22,3 @@
 
 }
 
-.p5 {
-}

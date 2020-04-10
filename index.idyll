@@ -41,17 +41,11 @@ Today we’re unearthing tons of this ancient carbon — about 10 billion tons o
 
 When you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a blip in this story. In fact, just for fun, why not actually make a guess by dragging the slider below?
 
-  [div fullWidth:true ]
-    **Full width works fine here.. but keep going** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tortor nunc, elementum eu ex vitae, lobortis fringilla ligula. Nunc sed nisl auctor dolor viverra dapibus sit amet et magna. Phasellus vestibulum dictum facilisis. Phasellus ut suscipit justo, ac vulputate nisi. Proin eu leo non nunc viverra egestas vitae eu augue. Vestibulum non massa in nulla interdum viverra. Vestibulum sit amet libero iaculis, maximus magna quis, dapibus lacus.
-  [/div]
-  [br/]
-
 [var name:"guessPercent" value:0 /]
 
 [Range value:guessPercent min:0 max:100 /]
 
 I’d guess that [Display value:guessPercent format:"d" /] percent of all human CO2 emissions occurred during my life.
-
 
 [Conditional if:`guessPercent !== 0`]
 
@@ -64,44 +58,42 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 // example for code based text
 // [Display value:`guessMade ? 'Yes' : 'No.'` /]
 
+[div fullWidth:true ]
 [Conditional if:`guessMade`]
 
-  What’s the right answer? To find out, enter your birth year, and we’ll pull up the numbers for you.
+  [TextContainer]
+    What’s the right answer? To find out, enter your birth year, and we’ll pull up the numbers for you.
 
-  [var name:"birthYear" value:"2000" /]
+    [var name:"birthYear" value:"2000" /]
 
-  I was born in: [Select value:birthYear options:`new Array(101).fill(0).map((e,i) => 1920 + i).map(e => e.toString())`  /]
+    I was born in: [Select value:birthYear options:`new Array(101).fill(0).map((e,i) => 1920 + i).map(e => e.toString())`  /]
 
-  [var name:"birthyearSelected" value:false /]
-  [Button onClick:`birthyearSelected = true`]
-    Submit Birth Year
-  [/Button]
+    [var name:"birthYearSelected" value:false /]
+    [Button onClick:`birthYearSelected = true`]
+      Submit Birth Year
+    [/Button]
+  [/TextContainer]
 
-  [Conditional if:`birthyearSelected`]
+  [Conditional if:`birthYearSelected`]
 
-  You guessed that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred in your lifetime. In reality, as of January 1, 2020, TKTK percent of all human-caused carbon dioxide emissions have occured since [Display value:birthYear format:"d" /], the year you were born.
+  [TextContainer]
 
-  And it’s not just you. Everyone alive today is in the same boat. Here, look up any age in this chart.
+    You guessed that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred in your lifetime. In reality, as of January 1, 2020, TKTK percent of all human-caused carbon dioxide emissions have occured since [Display value:birthYear format:"d" /], the year you were born.
 
-  GRAPH
+    And it’s not just you. Everyone alive today is in the same boat. Here, look up any age in this chart.
 
-  We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 30 years —  a single generation — contributed the bulk of CO2 emissions. No humans before us have ever lived through such a steep rise in carbon dioxide.
+    GRAPH
 
-  To better understand this unprecedented rate of change, let’s take a personalized tour of the history of carbon dioxide — personalized around you.
+    We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 30 years —  a single generation — contributed the bulk of CO2 emissions. No humans before us have ever lived through such a steep rise in carbon dioxide.
 
-  We’ll start in 2020, and trace our way backwards through the years in your life. On January 1, 2020, the concentration of carbon dioxide in the air was 412 parts per million, which means that 0.0412% of the air is carbon dioxide.
+    To better understand this unprecedented rate of change, let’s take a personalized tour of the history of carbon dioxide — personalized around you.
 
-  [var name:"myVar" value:23 /]
+    We’ll start in 2020, and trace our way backwards through the years in your life. On January 1, 2020, the concentration of carbon dioxide in the air was 412 parts per million, which means that 0.0412% of the air is carbon dioxide.
 
-  [var name:"updateCount" value:0 /]
+  [/TextContainer]
 
-  [div fullWidth:true ]
-    **This should be full width but isn't** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tortor nunc, elementum eu ex vitae, lobortis fringilla ligula. Nunc sed nisl auctor dolor viverra dapibus sit amet et magna. Phasellus vestibulum dictum facilisis. Phasellus ut suscipit justo, ac vulputate nisi. Proin eu leo non nunc viverra egestas vitae eu augue. Vestibulum non massa in nulla interdum viverra. Vestibulum sit amet libero iaculis, maximus magna quis, dapibus lacus.
-  [/div]
-  [br/]
-
-  [p5Component className:"p5" myVar:myVar /]
-
+  [var name:"myVar" value:0 /]
+  [p5Component className:"p5" id:"firstsketch" isVisible:birthYearSelected myVar:myVar /]
   [Button onClick:`myVar += 1`]
     Update Sketch.
   [/Button]
@@ -109,7 +101,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
   [/Conditional]
 
 [/Conditional]
-
+[/div]
 
 
 
