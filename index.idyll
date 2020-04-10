@@ -41,18 +41,26 @@ Today we’re unearthing tons of this ancient carbon — about 10 billion tons o
 
 When you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a blip in this story. In fact, just for fun, why not actually make a guess by dragging the slider below?
 
+  [div fullWidth:true ]
+    **Full width works fine here.. but keep going** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tortor nunc, elementum eu ex vitae, lobortis fringilla ligula. Nunc sed nisl auctor dolor viverra dapibus sit amet et magna. Phasellus vestibulum dictum facilisis. Phasellus ut suscipit justo, ac vulputate nisi. Proin eu leo non nunc viverra egestas vitae eu augue. Vestibulum non massa in nulla interdum viverra. Vestibulum sit amet libero iaculis, maximus magna quis, dapibus lacus.
+  [/div]
+  [br/]
+
 [var name:"guessPercent" value:0 /]
 
 [Range value:guessPercent min:0 max:100 /]
 
 I’d guess that [Display value:guessPercent format:"d" /] percent of all human CO2 emissions occurred during my life.
 
-[var name:"guessMade" value:false /]
 
-[Button onClick:`guessMade = true`]
-  Submit Guess
-[/Button]
+[Conditional if:`guessPercent !== 0`]
 
+  [var name:"guessMade" value:false /]
+  [Button onClick:`guessMade = true`]
+    Submit Guess
+  [/Button]
+
+[/Conditional]
 // example for code based text
 // [Display value:`guessMade ? 'Yes' : 'No.'` /]
 
@@ -86,6 +94,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
   [var name:"myVar" value:23 /]
 
   [var name:"updateCount" value:0 /]
+
+  [div fullWidth:true ]
+    **This should be full width but isn't** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tortor nunc, elementum eu ex vitae, lobortis fringilla ligula. Nunc sed nisl auctor dolor viverra dapibus sit amet et magna. Phasellus vestibulum dictum facilisis. Phasellus ut suscipit justo, ac vulputate nisi. Proin eu leo non nunc viverra egestas vitae eu augue. Vestibulum non massa in nulla interdum viverra. Vestibulum sit amet libero iaculis, maximus magna quis, dapibus lacus.
+  [/div]
+  [br/]
 
   [p5Component className:"p5" myVar:myVar /]
 

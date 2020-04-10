@@ -5,10 +5,14 @@ let p5sketch;
 
 class p5Component extends D3Component {
   initialize(node, props) {
+
+    console.log(node);
+    console.log(node.clientWidth, node.offsetWidth);
+
     const sketch = ( p ) => {
 
       p.setup = () => {
-        p.createCanvas(p.windowWidth - 125, 600);
+        p.createCanvas(600, 600);
         p.background('pink');
         p.textAlign(p.CENTER, p.CENTER);
         p.textSize(20);
