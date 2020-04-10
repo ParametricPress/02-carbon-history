@@ -4,12 +4,12 @@ TK short description of article.
 
 ## Next Steps
 
-[ ] Add p5 ppm animation
-[ ] Create plotly component with some dummy data
-[ ] Figure out how to pull in data
-[ ] Hook up plotly graph to data
-[ ] Make text correctly respond based on data
-[ ] Complete mockup of Part 1
+- [ ] Add p5 ppm animation
+- [ ] Create plotly component with some dummy data
+- [ ] Figure out how to pull in data
+- [ ] Hook up plotly graph to data
+- [ ] Make text respond to data
+- [ ] Complete mockup of Part 1
 
 ## Local Setup
 
