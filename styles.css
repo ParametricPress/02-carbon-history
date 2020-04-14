@@ -2,6 +2,12 @@
   margin: 0;
 }
 
+.js-plotly-plot {
+  display: block;
+  width: 100%;
+  height: 600px;
+}
+
 @media all and (max-width: 1000px) {
   .idyll-root {
     max-width: none;

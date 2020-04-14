@@ -90,13 +90,23 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     We’ll start in 2020, and trace our way backwards through the years in your life. On January 1, 2020, the concentration of carbon dioxide in the air was 412 parts per million, which means that 0.0412% of the air is carbon dioxide.
 
-    [var name:"myVar" value:0 /]
-    [p5Component isVisible:birthYearSelected myVar:myVar /]
-    [Button onClick:`myVar += 1`]
-      Update Sketch.
-    [/Button]
 
   [/TextContainer]
+
+  // p5 fullwidth test
+  [var name:"myVar" value:0 /]
+  [p5Component isVisible:birthYearSelected myVar:myVar /]
+  [Button onClick:`myVar += 1`]
+    Update Sketch.
+  [/Button]
+
+  // plotly fullwidth test
+  [var name:"myVar2" value:0 /]
+  [PlotlyComponent isVisible:birthYearSelected myVar:myVar2 /]
+  [Button onClick:`myVar2 += 1`]
+    Update Graph.
+  [/Button]
+
 
   [/Conditional]
 

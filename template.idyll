@@ -24,6 +24,27 @@
 /]
 
 
+  [var name:"redrawCount" value:0 /]
+  [ReactPlotlyComponent
+        isVisible:birthYearSelected
+        redrawCount: redrawCount
+        data:`
+          [{
+            x: [1, 2, 3],
+            y: [2, 6, 3],
+            type: 'scatter',
+            mode: 'lines+markers',
+            marker: {color: 'red'},
+          }]`
+        layout:`{
+          title: 'A Fancy Plot',
+          autosize: true}`
+    /]
+
+    [Button onClick:`redrawCount += 1`]
+      Redraw Graph.
+    [/Button]
+
  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tortor nunc, elementum eu ex vitae, lobortis fringilla ligula. Nunc sed nisl auctor dolor viverra dapibus sit amet et magna. Phasellus vestibulum dictum facilisis. Phasellus ut suscipit justo, ac vulputate nisi. Proin eu leo non nunc viverra egestas vitae eu augue. Vestibulum non massa in nulla interdum viverra. Vestibulum sit amet libero iaculis, maximus magna quis, dapibus lacus.
 
  [data name:"carbonEmissions" source:"carbon-emissions.csv" /]
