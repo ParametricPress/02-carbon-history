@@ -109,9 +109,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     You guessed that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred in your lifetime.
 
-    In reality, [Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/] percent of all human-caused carbon dioxide emissions have occurred since [Display value:birthYear format:"d" /], the year you were born.
-
-    And these numbers don't include 2020, so this percentage is only getting higher.
+    In reality, [Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/] percent of all human-caused carbon dioxide emissions have occurred between 2019 and [Display value:birthYear format:"d" /], the year you were born.
 
     And it’s not just you. Everyone alive today is in the same boat. Here, look up any age in this chart.
 
