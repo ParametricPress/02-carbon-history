@@ -9,7 +9,7 @@
 
 [Header
   title:`["Your life", "in CO2"]`
-  longTitle:`["Why you're living in", "an extraordinary time"]`
+  longTitle:`["Why we're living in", "an extraordinary time"]`
   date:"May 15, 2020"
   dek:"TK TK A punchy description of why we should read your article."
   fullWidth:true
@@ -23,11 +23,31 @@
   source:`"https://github.com/ParametricPress/02-" + parametricSlug `
 /]
 
+
+# Testing Data Load
+[data name:"co2" source:"CO2.csv" /]
+
+Data length: [Display value:`co2.length` format:"d"/]
+[br/]
+First row: [Display value:`co2[0]` format:"d"/]
+[br/]
+Last row: [Display value:`co2[co2.length - 1]` format:"d"/]
+[br/]
+CO2 in 2019: [Display value:`co2.filter(e => e.year == '2019')[0].ppm` format:"d"/] ppm
+[br/]
+CO2 in 1985: [Display value:`co2.filter(e => e.year == '1985')[0].ppm` format:"d"/] ppm
+[br/]
+CO2 in 1760: [Display value:`co2.filter(e => e.year == '1760')[0].ppm` format:"d"/] ppm
+[br/]
+Pre-industrial CO2 levels: [280 ppm](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html)
+[br/]
+
+
 # Part 0: Prehistory
 
 All the carbon in a fossil fuel was once in something alive.
 
-Hundreds of millions of years ago, the dead remains of plants and microscopic plankton happened to end up buried in places where oxygen couldn't easily get to them. Places like swamps in ancient forests, or beneath sediments under the sea.
+Hundreds of millions of years ago, the dead remains of plants and microscopic plankton happened to get buried in places where oxygen couldn't easily get to them. Places like the bottoms of swamps in ancient forests, or beneath sediments under the sea.
 
 Normally when creatures die, they decompose, and the carbon in their bodies quickly returns to the air. But decomposition requires oxygen. In the absence of oxygen, much of that energy-rich carbon remained trapped in these geological burial grounds, lying dormant for hundreds of millions of years.
 
@@ -35,11 +55,11 @@ Over the eras, continents shifted and collided, dinosaurs came and went, plants 
 
 Meanwhile, beneath the Earth’s surface, all that dormant carbon was being heated and compressed, transforming into some of the most energy rich substances we humans have ever known — coal, oil, and natural gas.
 
-Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it last year alone. We're burning through a carbon bank account that's been quietly compounding for hundreds of millions of years. And by sending all this carbon back into the air, we’re transforming the composition of our atmosphere and, as a consequence, the climate of our planet.
+Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it last year alone. We're effectively burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years. By returning all this carbon into the air, we’re transforming the composition of our atmosphere and, as a consequence, the climate of our planet.
 
 # Part 1: Your Birthday
 
-When you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a blip in this story. In fact, just for fun, why not actually make a guess by dragging the slider below?
+When you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a blip in this story. In fact, just for fun, go ahead an actually make a guess by dragging the slider below.
 
 [var name:"guessPercent" value:0 /]
 
@@ -66,7 +86,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     [var name:"birthYear" value:"2000" /]
 
-    I was born in: [Select value:birthYear options:`new Array(101).fill(0).map((e,i) => 1920 + i).map(e => e.toString())`  /]
+    I was born in: [Select value:birthYear options:`Array(96).fill(0).map((e,i) => 1920 + i).map(e => e.toString())`  /]
 
     [var name:"birthYearSelected" value:false /]
     [Button onClick:`birthYearSelected = true`]
