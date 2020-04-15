@@ -11,6 +11,7 @@
     "template": "_index.html",
     "layout": "none",
     "theme": "none",
+    "context": "./context.js",
     "components": [
       "./components",
       "./node_modules/parametric-components/dist/cjs/issue-02"

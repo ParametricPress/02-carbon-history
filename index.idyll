@@ -33,11 +33,11 @@ First row: [Display value:`co2[0]` format:"d"/]
 [br/]
 Last row: [Display value:`co2[co2.length - 1]` format:"d"/]
 [br/]
-CO2 in 2019: [Display value:`co2.filter(e => e.year == '2019')[0].ppm` format:"d"/] ppm
+CO2 in 2019: [Display value:`getCO2Level(co2, '2019')` format:"d"/] ppm
 [br/]
-CO2 in 1985: [Display value:`co2.filter(e => e.year == '1985')[0].ppm` format:"d"/] ppm
+CO2 in 1985: [Display value:`getCO2Level(co2, '1985')` format:"d"/] ppm
 [br/]
-CO2 in 1760: [Display value:`co2.filter(e => e.year == '1760')[0].ppm` format:"d"/] ppm
+CO2 in 1760: [Display value:`getCO2Level(co2, '1760')` format:"d"/] ppm
 [br/]
 Pre-industrial CO2 levels: [280 ppm](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html)
 [br/]
