@@ -119,21 +119,22 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         p.createCanvas(600, 600);
         p.textAlign(p.CENTER, p.CENTER);
         p.textSize(20);
+        p.noLoop();
       };
 
       p.draw = function() {
-        p.circle(p.mouseX, p.mouseY, 50);
+        //p.circle(p.mouseX, p.mouseY, 50);
       };
 
-      p.onResize = function() {
+      p.windowResized = function() {
         let newWidth = parent.offsetWidth
         p.resizeCanvas(newWidth, 600);
         p.onUpdate();
-      };
+      }
 
       p.onUpdate = function(props, oldProps) {
         p.background(p.random(255), p.random(255), p.random(255));
-        p.text('I was updated!', p.width/2, p.height/2);
+        p.text('p5 sketch hooray!', p.width/2, p.height/2);
       };
     }
 
