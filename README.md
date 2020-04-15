@@ -6,8 +6,8 @@ TK short description of article.
 
 - [X] Create plotly component with some dummy data
 - [X] Figure out how to pull in data
+- [X] Make text respond to data
 - [ ] Hook up plotly graph to data
-- [ ] Make text respond to data
 - [ ] Complete mockup of Part 1
 - [ ] Add p5 ppm animation
 

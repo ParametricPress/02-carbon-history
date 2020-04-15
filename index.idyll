@@ -9,7 +9,7 @@
 
 [Header
   title:`["Your life", "in CO2"]`
-  longTitle:`["Why we're living in", "an extraordinary time"]`
+  longTitle:`["Your life in", "Carbon Dioxide"]`
   date:"May 15, 2020"
   dek:"TK TK A punchy description of why we should read your article."
   fullWidth:true
@@ -75,8 +75,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
   [/Button]
 
 [/Conditional]
-// example for code based text
-// [Display value:`guessMade ? 'Yes' : 'No.'` /]
 
 [div fullWidth:true ]
 [Conditional if:`guessMade`]
@@ -98,7 +96,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
   [TextContainer]
 
-    You guessed that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred in your lifetime. In reality, as of January 1, 2020, TKTK percent of all human-caused carbon dioxide emissions have occured since [Display value:birthYear format:"d" /], the year you were born.
+    You guessed that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred in your lifetime.
+
+    In reality, [Display value:`100 * (co2.filter(e => e.year == '2019')[0].ppm - co2.filter(e => e.year == birthYear)[0].ppm) / (co2.filter(e => e.year == '2019')[0].ppm - 280)` format:"d"/] percent of all human-caused carbon dioxide emissions have occured since [Display value:birthYear format:"d" /], the year you were born. That's as of 2019, so that percentage is only getting higher.
 
     And it’s not just you. Everyone alive today is in the same boat. Here, look up any age in this chart.
 
@@ -115,15 +115,75 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
   // p5 fullwidth test
   [var name:"myVar" value:0 /]
-  [p5Component isVisible:birthYearSelected myVar:myVar /]
+  [p5Component
+    isVisible:birthYearSelected
+    myVar:myVar
+    sketch:`(p, parent) => {
+      p.setup = function() {
+        p.createCanvas(600, 600);
+        p.textAlign(p.CENTER, p.CENTER);
+        p.textSize(20);
+      };
+
+      p.draw = function() {
+        p.circle(p.mouseX, p.mouseY, 50);
+      };
+
+      p.windowResized = function() {
+        let newWidth = parent.offsetWidth
+        p.resizeCanvas(newWidth, 600);
+        p.background(p.random(255), p.random(255), p.random(255));
+        p.text('I was updated!', p.width/2, p.height/2);
+      };
+
+      p.onUpdate = function(props, oldProps) {
+
+        /* this is a hack to resize the p5 sketch once its containing conditional becomes visible */
+        if (props.isVisible !== oldProps.isVisible) {
+
+          setTimeout(function() {
+            let newWidth = parent.offsetWidth
+            p.resizeCanvas(newWidth, 600);
+            p.background(p.random(255), p.random(255), p.random(255));
+            p.text('I was updated!', p.width/2, p.height/2);
+          }, 50);
+
+        } else {
+
+          p.background(p.random(255), p.random(255), p.random(255));
+          p.text('I was updated!', p.width/2, p.height/2);
+
+        }
+
+      };
+    }
+
+    `
+    /]
+
   [Button onClick:`myVar += 1`]
     Update Sketch.
   [/Button]
 
   // plotly fullwidth test
-  [var name:"myVar2" value:0 /]
-  [PlotlyComponent isVisible:birthYearSelected myVar:myVar2 /]
-  [Button onClick:`myVar2 += 1`]
+  [var name:'data' value:`[{
+              x: [1, 2, 3, 4],
+              y: [12, 9, 15, 12],
+              mode: 'lines+markers',
+              type: 'scatter'
+            }]`
+  /]
+  [PlotlyComponent
+    isVisible:birthYearSelected
+    data: data
+    layout: `{
+              title: 'Plotly Graph Hooray!',
+              font: {size: 18}
+              }`
+    config: `{responsive: true}`
+  /]
+
+  [Button onClick:`data[0].y = Array(4).fill(0).map(e => Math.random(12))`]
     Update Graph.
   [/Button]
 

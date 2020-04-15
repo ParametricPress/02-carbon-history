@@ -6,56 +6,11 @@ let p5sketch;
 class p5Component extends D3Component {
 
   initialize(node, props) {
-
-    const sketch = ( p ) => {
-
-      let parent = node;
-
-      p.setup = function() {
-        p.createCanvas(600, 600);
-        p.textAlign(p.CENTER, p.CENTER);
-        p.textSize(20);
-      };
-
-      p.draw = function() {
-        p.circle(p.mouseX, p.mouseY, 50);
-      };
-
-      p.windowResized = function() {
-        let newWidth = parent.offsetWidth
-        p.resizeCanvas(newWidth, 600);
-        p.background(p.random(255), p.random(255), p.random(255));
-        p.text('I was updated!', p.width/2, p.height/2);
-      };
-
-      p.onUpdate = function(props, oldProps) {
-
-        /* this is a hack to resize the p5 sketch once its containing conditional becomes visible */
-        if (props.isVisible !== oldProps.isVisible) {
-
-          setTimeout(function() {
-            let newWidth = parent.offsetWidth
-            p.resizeCanvas(newWidth, 600);
-            p.background(p.random(255), p.random(255), p.random(255));
-            p.text('I was updated!', p.width/2, p.height/2);
-          }, 50);
-
-        } else {
-
-          p.background(p.random(255), p.random(255), p.random(255));
-          p.text('I was updated!', p.width/2, p.height/2);
-
-        }
-
-      };
-
-    };
-
-    p5sketch = new p5(sketch, node);
-
+    p5sketch = new p5(( p5Context ) => eval(props.sketch(p5Context, node)), node);
   }
 
   update(props, oldProps) {
+    //console.log('p5 props changed', props);
     p5sketch.onUpdate(props, oldProps);
   }
 
