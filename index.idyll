@@ -148,7 +148,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
   // plotly fullwidth test
   [var name:'data' value:`[{
               x: [1, 2, 3, 4],
-              y: [12, 9, 15, 12],
+              y: Array(4).fill(0).map(e => Math.random(10)),
               mode: 'lines+markers',
               type: 'scatter'
             }]`
@@ -159,12 +159,17 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     data: data
     layout: `{
               title: 'Plotly Graph Hooray!',
-              font: {size: 18}
+              font: {size: 18},
+              yaxis: {range: [0, 1]},
+              transition: {
+                  duration: 500,
+                  easing: 'cubic-in-out'
+                }
               }`
     config: `{responsive: true}`
   /]
 
-  [Button onClick:`data[0].y = Array(4).fill(0).map(e => Math.random(12))`]
+  [Button onClick:`data[0].y = Array(4).fill(0).map(e => Math.random(10))`]
     Update Graph.
   [/Button]
 
