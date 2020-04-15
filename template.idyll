@@ -1,27 +1,54 @@
-[meta title:"TK Article Title" description:"TK Article Description"
-  shareImageUrl:"https://parametric.press/issue-02/tk-article-slug/static/images/share.png"
-  shareImageWidth:"880"
-  shareImageHeight:"440" /]
 
-[var name:"parametricSlug" value:"tk-article-slug" /]
 
-[Nav fullWidth:true /]
+# Testing Data Load
+[data name:"co2" source:"CO2.csv" /]
 
-[Header
-  title:`["Article", "Title"]`
-  longTitle:`["The Full", "Article Title"]`
-  date:"May 15, 2020"
-  dek:"TK TK A punchy description of why we should read your article."
-  fullWidth:true
-  authors:`[{
-    name: "",
-    role: "",
-    url: ""
-  }]`
-  doi:"https://doi.org/TK"
-  archive:`'https://parametric-press-archives.s3.amazonaws.com/issue-02/' + parametricSlug + '.warc.gz'`
-  source:`"https://github.com/ParametricPress/02-" + parametricSlug `
+Data length: [Display value:`co2.length` format:"d"/]
+[br/]
+First row: [Display value:`co2[0]` format:"d"/]
+[br/]
+Last row: [Display value:`co2[co2.length - 1]` format:"d"/]
+[br/]
+CO2 in 2019: [Display value:`getCO2Level(co2, '2019')` format:"d"/] ppm
+[br/]
+CO2 in 1985: [Display value:`getCO2Level(co2, '1985')` format:"d"/] ppm
+[br/]
+CO2 in 1760: [Display value:`getCO2Level(co2, '1760')` format:"d"/] ppm
+[br/]
+Pre-industrial CO2 levels: [280 ppm](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html)
+[br/]
+
+[var name:'data' value:`[{
+            x: [1, 2, 3, 4],
+            y: [12, 9, 15, 12],
+            mode: 'lines+markers',
+            type: 'scatter'
+          }]`
 /]
+
+[div fullWidth:true ]
+  [PlotlyComponent
+    data: `[{
+              x: co2.map(e => e.year),
+              y: co2.map(e => e.ppm),
+              mode: 'lines',
+              type: 'scatter'
+            }]`
+    layout: `{
+              title: 'CO2 vs time',
+              font: {size: 18},
+              xaxis: {
+                title: 'Year'
+              },
+              yaxis: {
+                title: 'CO2 Level (parts per million)'
+              }
+              }`
+    config: `{responsive: true}`
+  /]
+[/div]
+
+
 
 
   [var name:"redrawCount" value:0 /]

@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+.slider {
+  width: 100%;
+}
+
 .js-plotly-plot {
   display: block;
   width: 100%;

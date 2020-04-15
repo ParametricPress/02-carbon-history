@@ -23,54 +23,7 @@
   source:`"https://github.com/ParametricPress/02-" + parametricSlug `
 /]
 
-
-# Testing Data Load
 [data name:"co2" source:"CO2.csv" /]
-
-Data length: [Display value:`co2.length` format:"d"/]
-[br/]
-First row: [Display value:`co2[0]` format:"d"/]
-[br/]
-Last row: [Display value:`co2[co2.length - 1]` format:"d"/]
-[br/]
-CO2 in 2019: [Display value:`getCO2Level(co2, '2019')` format:"d"/] ppm
-[br/]
-CO2 in 1985: [Display value:`getCO2Level(co2, '1985')` format:"d"/] ppm
-[br/]
-CO2 in 1760: [Display value:`getCO2Level(co2, '1760')` format:"d"/] ppm
-[br/]
-Pre-industrial CO2 levels: [280 ppm](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html)
-[br/]
-
-[var name:'data' value:`[{
-            x: [1, 2, 3, 4],
-            y: [12, 9, 15, 12],
-            mode: 'lines+markers',
-            type: 'scatter'
-          }]`
-/]
-
-[div fullWidth:true ]
-  [PlotlyComponent
-    data: `[{
-              x: co2.map(e => e.year),
-              y: co2.map(e => e.ppm),
-              mode: 'lines',
-              type: 'scatter'
-            }]`
-    layout: `{
-              title: 'CO2 vs time',
-              font: {size: 18},
-              xaxis: {
-                title: 'Year'
-              },
-              yaxis: {
-                title: 'CO2 Level (parts per million)'
-              }
-              }`
-    config: `{responsive: true}`
-  /]
-[/div]
 
 # Part 0: Prehistory
 
@@ -84,11 +37,13 @@ Over the eras, continents shifted and collided, dinosaurs came and went, plants 
 
 Meanwhile, beneath the Earth’s surface, all that dormant carbon was being heated and compressed, transforming into some of the most energy rich substances we humans have ever known — coal, oil, and natural gas.
 
-Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it last year alone. We're effectively burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years. By returning all this carbon into the air, we’re transforming the composition of our atmosphere and, as a consequence, the climate of our planet.
+Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it last year alone. In effect, we're burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years. By returning all this carbon into the air, we’re transforming the composition of our oceans and atmosphere and, as a consequence, altering the climate of our planet.
 
 # Part 1: Your Birthday
 
-When you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a blip in this story. In fact, just for fun, go ahead an actually make a guess by dragging the slider below.
+When you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a blip in this story.
+
+In fact, just for fun, go ahead an actually make a guess by dragging the slider below.
 
 [var name:"guessPercent" value:0 /]
 
@@ -127,11 +82,21 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     You guessed that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred in your lifetime.
 
-    In reality, [Display value:`100 * (co2.filter(e => e.year == '2019')[0].ppm - co2.filter(e => e.year == birthYear)[0].ppm) / (co2.filter(e => e.year == '2019')[0].ppm - 280)` format:"d"/] percent of all human-caused carbon dioxide emissions have occured since [Display value:birthYear format:"d" /], the year you were born. That's as of 2019, so that percentage is only getting higher.
+    In reality, [Display value:`100 * (co2.filter(e => e.year == '2019')[0].ppm - co2.filter(e => e.year == birthYear)[0].ppm) / (co2.filter(e => e.year == '2019')[0].ppm - 280)` format:"d"/] percent of all human-caused carbon dioxide emissions have occured since [Display value:birthYear format:"d" /], the year you were born. That's as of 2019, so this percentage is only getting higher.
 
     And it’s not just you. Everyone alive today is in the same boat. Here, look up any age in this chart.
 
-    GRAPH
+    [PlotlyComponent
+      isVisible: birthYearSelected
+      data: `[{
+                type: 'bar',
+                x: [20, 14, 23],
+                y: ['giraffes', 'orangutans', 'monkeys'],
+                orientation: 'h'
+              }]`
+      layout: `{}`
+      config: `{responsive: true}`
+    /]
 
     We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 30 years —  a single generation — contributed the bulk of CO2 emissions. No humans before us have ever lived through such a steep rise in carbon dioxide.
 
@@ -145,9 +110,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
   // p5 fullwidth test
   [var name:"myVar" value:0 /]
   [p5Component
+    className:'sketch1'
     isVisible:birthYearSelected
     myVar:myVar
     sketch:`(p, parent) => {
+
       p.setup = function() {
         p.createCanvas(600, 600);
         p.textAlign(p.CENTER, p.CENTER);
@@ -158,32 +125,15 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         p.circle(p.mouseX, p.mouseY, 50);
       };
 
-      p.windowResized = function() {
+      p.onResize = function() {
         let newWidth = parent.offsetWidth
         p.resizeCanvas(newWidth, 600);
-        p.background(p.random(255), p.random(255), p.random(255));
-        p.text('I was updated!', p.width/2, p.height/2);
+        p.onUpdate();
       };
 
       p.onUpdate = function(props, oldProps) {
-
-        /* this is a hack to resize the p5 sketch once its containing conditional becomes visible */
-        if (props.isVisible !== oldProps.isVisible) {
-
-          setTimeout(function() {
-            let newWidth = parent.offsetWidth
-            p.resizeCanvas(newWidth, 600);
-            p.background(p.random(255), p.random(255), p.random(255));
-            p.text('I was updated!', p.width/2, p.height/2);
-          }, 50);
-
-        } else {
-
-          p.background(p.random(255), p.random(255), p.random(255));
-          p.text('I was updated!', p.width/2, p.height/2);
-
-        }
-
+        p.background(p.random(255), p.random(255), p.random(255));
+        p.text('I was updated!', p.width/2, p.height/2);
       };
     }
 
@@ -202,6 +152,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
               type: 'scatter'
             }]`
   /]
+
   [PlotlyComponent
     isVisible:birthYearSelected
     data: data
