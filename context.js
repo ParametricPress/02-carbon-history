@@ -1,3 +1,6 @@
+const getCO2Level = (data, year) => data.filter(e => e.year == year)[0].ppm;
+const getCO2Fraction = (data, year) => (getCO2Level(data, '2019') - getCO2Level(data, year)) / (getCO2Level(data, '2019') - 280);
+
 module.exports = (ctx) => {
 
   // The context has loaded,
@@ -12,10 +15,9 @@ module.exports = (ctx) => {
     // Here I'm going to inject some function that we can use in the
     // browser
     ctx.update({
-       getCO2Level: (data, year) => {
-         return data.filter(e => e.year == year)[0].ppm;
-       }
-    })
+       getCO2Level: getCO2Level,
+       getCO2Fraction: getCO2Fraction
+    });
 
   })
 

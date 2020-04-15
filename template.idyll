@@ -18,6 +18,17 @@ CO2 in 1760: [Display value:`getCO2Level(co2, '1760')` format:"d"/] ppm
 Pre-industrial CO2 levels: [280 ppm](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html)
 [br/]
 
+
+[Aside]
+  [span className:"pull-number"][Display value:guessPercent format:"d" /]%[/span]
+  [span className:"pull-number-text"]
+    Your guess for the fraction of *all* human carbon dioxide emissions that have occurred in your life.
+  [/span]
+  [br/][br/]
+[/Aside]
+
+
+
 [var name:'data' value:`[{
             x: [1, 2, 3, 4],
             y: [12, 9, 15, 12],
