@@ -42,6 +42,35 @@ CO2 in 1760: [Display value:`getCO2Level(co2, '1760')` format:"d"/] ppm
 Pre-industrial CO2 levels: [280 ppm](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html)
 [br/]
 
+[var name:'data' value:`[{
+            x: [1, 2, 3, 4],
+            y: [12, 9, 15, 12],
+            mode: 'lines+markers',
+            type: 'scatter'
+          }]`
+/]
+
+[div fullWidth:true ]
+  [PlotlyComponent
+    data: `[{
+              x: co2.map(e => e.year),
+              y: co2.map(e => e.ppm),
+              mode: 'lines',
+              type: 'scatter'
+            }]`
+    layout: `{
+              title: 'CO2 vs time',
+              font: {size: 18},
+              xaxis: {
+                title: 'Year'
+              },
+              yaxis: {
+                title: 'CO2 Level (parts per million)'
+              }
+              }`
+    config: `{responsive: true}`
+  /]
+[/div]
 
 # Part 0: Prehistory
 
