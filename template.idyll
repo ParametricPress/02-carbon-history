@@ -19,13 +19,7 @@ Pre-industrial CO2 levels: [280 ppm](https://www.esrl.noaa.gov/gmd/ccgg/trends/w
 [br/]
 
 
-[Aside]
-  [span className:"pull-number"][Display value:guessPercent format:"d" /]%[/span]
-  [span className:"pull-number-text"]
-    Your guess for the fraction of *all* human carbon dioxide emissions that have occurred in your life.
-  [/span]
-  [br/][br/]
-[/Aside]
+
 
 
 

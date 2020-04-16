@@ -8,8 +8,8 @@ TK short description of article.
 - [X] Figure out how to pull in data
 - [X] Make text respond to data
 - [X] Hook up plotly graph to data
+- [X] Add p5 ppm animation
 - [ ] Complete mockup of Part 1
-- [ ] Add p5 ppm animation
 
 ## Local Setup
 

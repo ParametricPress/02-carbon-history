@@ -47,10 +47,17 @@
   /]
 [/div]
 
-
 # Prehistory
 
 All the carbon in a fossil fuel was once in something alive.
+
+[Aside]
+  [span className:"pull-number"]92%[/span]
+  [span className:"pull-number-text"]
+    The percentage of residents who are renters, and are excluded from the fund. Note, this is the most recent estimate, but this number changes often and updates are reported quarterly through WFF.
+  [/span]
+  [br/][br/]
+[/Aside]
 
 Hundreds of millions of years ago, the dead remains of plants and microscopic plankton happened to get buried in places where oxygen couldn't easily get to them. Places like the bottoms of swamps in ancient forests, or beneath sediments under the sea.
 
@@ -62,13 +69,13 @@ Meanwhile, beneath the Earth’s surface, all that dormant carbon was being heat
 
 Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it last year alone. In effect, we're burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years.
 
-And by returning all this carbon into the air, we’re transforming the composition of our oceans and atmosphere and, as a consequence, altering the climate of our planet.
+By returning all this carbon into the air, we’re transforming the composition of our oceans and atmosphere and, as a consequence, altering the climate of our planet.
 
 [hr/]
 
 # Your Birthday
 
-When you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a blip in this story.
+So when you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a tiny blip in this story.
 
 In fact, just for fun, go ahead an actually make a guess by dragging the slider below.
 
@@ -84,6 +91,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
   [Button onClick:`guessMade = true`]
     Submit Guess
   [/Button]
+  [br/]
 
 [/Conditional]
 
@@ -101,6 +109,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [Button onClick:`birthYearSelected = true`]
       Submit Birth Year
     [/Button]
+    [br/]
   [/TextContainer]
 
   [Conditional if:`birthYearSelected`]
@@ -136,7 +145,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 height: 800,
                 yaxis: {
                   title: 'Your Age',
-                  dtick: 5
+                  dtick: 5,
+                  autorange: 'reversed'
                 },
                 xaxis: {
                   title: 'Percent CO2 Emissions in Your Lifetime',
@@ -145,20 +155,120 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
               }`
       config: `{responsive: true}`
     /]
+  [caption]
+    Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that have occurred within that lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
+  [/caption]
 
-    We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed the bulk of CO2 emissions. **No humans before you have ever lived through such a steep rise in carbon dioxide.**
 
-    To better understand this unprecedented rate of change, let’s take a personalized tour of the history of carbon dioxide — personalized around you.
+    We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed the bulk of CO2 emissions.
 
-    We’ll start in 2020, and trace our way backwards through the years in your life. On January 1, 2020, the concentration of carbon dioxide in the air was 412 parts per million, which means that 0.0412% of the air is carbon dioxide.
+    **No humans before us have ever witnessed such a steep rise in carbon dioxide.** Everyone alive today is living through a great acceleration.
 
-    [var name:"myVar" value:0 /]
+    To better understand this, let’s take a personalized tour of the history of carbon dioxide — personalized around *you*. We’ll start in 2020, tracing our way backwards through the years of your life.
+
+    But we first need to know how to measure carbon dioxide. The basic unit in which we measure CO2 concentration is a *part per million*, or *ppm* for short. **A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide**. If we could actually see carbon dioxide molecules, here's what this might look like.
+
+    // p5 ppm visualization
+    [var name:"ppm" value:1 /]
+    [var name:"animate" value:false /]
     [p5Component
-      className:'sketch1'
-      isVisible:birthYearSelected
-      myVar:myVar
+      ppm: ppm
+      animate: animate
+      onEnterView: `animate = true`
+      onExitViewFully: `animate = false`
+      className: "center"
+      isVisible: birthYearSelected
       sketch:`(p, parent) => {
 
+      // visualizing ppm at different levels
+      // modifying code by Daniel Shiffman
+      // http://codingtra.in
+      // http://patreon.com/codingtrain
+      // Code for: https://youtu.be/17WoOqgXsRM
+
+      let stars, volume, depth;
+      let zoom = 6;
+      let speed = 10;
+      let concentration = 1;
+
+      function init() {
+        depth = 2 * p.width;
+        p.fill(40, 32, 68);
+        p.textSize(12);
+        p.textAlign(p.LEFT, p.CENTER);
+        p.noStroke();
+
+        volume = p.round((2*p.width) * (2*p.height) * depth / p.pow(zoom,3));
+        let numStars = p.round(volume * concentration / 1000000);
+
+        stars = [];
+        for (let i = 0; i < numStars; i++) {
+          stars.push(new Star());
+        }
+      }
+
+      p.setup = function() {
+        p.createCanvas(400, 400);
+        p.noLoop();
+        init();
+      };
+
+      p.draw = function() {
+        p.background(250);
+        p.text(concentration + ' ppm', 10, p.height - 10);
+
+        p.translate(p.width / 2, p.height / 2);
+
+        for (let star of stars) {
+          star.update();
+          star.show();
+        }
+
+      };
+
+      function Star() {
+        this.x = p.random(-p.width, p.width);
+        this.y = p.random(-p.height, p.height);
+        this.z = p.random(depth);
+
+        this.update = function() {
+
+          this.z = this.z - speed;
+
+          if (this.z < 1) {
+            this.z = depth;
+            this.x = p.random(-p.width, p.width);
+            this.y = p.random(-p.height, p.height);
+          }
+        };
+
+        this.show = function() {
+          p.circle(p.map(this.x / this.z, 0, 1, 0, p.width),
+                 p.map(this.y / this.z, 0, 1, 0, p.height),
+                 p.map(this.z, 1, depth, zoom, 1));
+        };
+      }
+
+      p.windowResized = function() {
+      }
+
+      p.onUpdate = function(props, oldProps) {
+        if (props.animate !== oldProps.animate) {
+          if (props.animate) {
+            //console.log('starting animation');
+            p.loop();
+          } else {
+            //console.log('pausing animation');
+            p.noLoop();
+          }
+        }
+        if (props.ppm !== oldProps.ppm) {
+          concentration = props.ppm;
+          init();
+        }
+      };
+
+        /*
         p.setup = function() {
           p.createCanvas(600, 600);
           p.textAlign(p.CENTER, p.CENTER);
@@ -180,14 +290,44 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           p.background(p.random(255), p.random(255), p.random(255));
           p.text('p5 sketch hooray!', p.width/2, p.height/2);
         };
+        */
       }
 
       `
       /]
 
-    [Button onClick:`myVar += 1`]
-      Update Sketch.
+    [br/]
+    1 part per million is a miniscule concentration, which is why you can barely see any CO2 molecules above. Now go ahead and pump up the ppm.
+
+    [div className:"buttonwrapper"]
+
+      [Button onClick:`ppm = 1`]
+        1 ppm
+      [/Button]
+
+      [Button onClick:`ppm = 10`]
+        10 ppm
+      [/Button]
+
+      [Button onClick:`ppm = 100`]
+        100 ppm
+      [/Button]
+
+      [Button onClick:`ppm = 1000`]
+        1000 ppm
+      [/Button]
+
+    [/div]
+    [br/]
+
+    On January 1, 2020, the carbon dioxide concentration in the air was 412 parts per million, which means that 0.0412% of the air was carbon dioxide. Use the button below to see what this looks like on the visualization above.
+
+    [Button onClick:`ppm = 412`]
+      412 ppm (2019 Value)
     [/Button]
+    [br/]
+
+    Starting from 2019, let's trace our way backwards through the years of your life.
 
   [/TextContainer]
 
