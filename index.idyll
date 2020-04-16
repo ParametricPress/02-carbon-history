@@ -162,11 +162,13 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed the bulk of CO2 emissions.
 
-    **No humans before us have ever witnessed such a steep rise in carbon dioxide.** Everyone alive today is living through a great acceleration.
+    No humans before us have ever witnessed such a steep rise in carbon dioxide. Everyone alive today is living through a great acceleration.
 
     To better understand this, let’s take a personalized tour of the history of carbon dioxide — personalized around *you*. We’ll start in 2020, tracing our way backwards through the years of your life.
 
-    But we first need to know how to measure carbon dioxide. The basic unit in which we measure CO2 concentration is a *part per million*, or *ppm* for short. **A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide**. If we could actually see carbon dioxide molecules, here's what this might look like.
+    But we first need to know how to measure carbon dioxide. The basic unit in which we measure CO2 concentration is *parts per million*, or *ppm* for short.
+
+    A one part per million (1 ppm) concentration of CO2 simply means that one out of every million parts of air is carbon dioxide. If we could actually see carbon dioxide molecules, here's what this might look like.
 
     // p5 ppm visualization
     [var name:"ppm" value:1 /]
@@ -297,7 +299,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       /]
 
     [br/]
-    1 part per million is a miniscule concentration, which is why you can barely see any CO2 molecules above. Now go ahead and pump up the ppm.
+    1 part per million is a miniscule concentration, which is why you can barely see any CO2 molecules above. Use the buttons below to increase the CO2 concentration.
 
     [div className:"buttonwrapper"]
 
@@ -313,8 +315,12 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         100 ppm
       [/Button]
 
-      [Button onClick:`ppm = 1000`]
-        1000 ppm
+      [Button onClick:`ppm = 280`]
+        280 ppm (Preindustrial Value)
+      [/Button]
+
+      [Button onClick:`ppm = 412`]
+        412 ppm (2019 Value)
       [/Button]
 
     [/div]
@@ -322,12 +328,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     On January 1, 2020, the carbon dioxide concentration in the air was 412 parts per million, which means that 0.0412% of the air was carbon dioxide. Use the button below to see what this looks like on the visualization above.
 
-    [Button onClick:`ppm = 412`]
-      412 ppm (2019 Value)
-    [/Button]
     [br/]
 
-    Starting from 2019, let's trace our way backwards through the years of your life.
+    Now that we understand how to measure CO2, let's travel backwards in our CO2 time machine, starting from 2019.
 
   [/TextContainer]
 
