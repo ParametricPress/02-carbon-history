@@ -39,6 +39,10 @@
   color: #222222;
 }
 
+.aside-container {
+  display: block;
+}
+
 @media all and (max-width: 1000px) {
   .idyll-root {
     max-width: none;
