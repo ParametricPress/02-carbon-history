@@ -10,7 +10,9 @@ class plotlyComponent extends D3Component {
   }
 
   initialize(node, props) {
+
     Plotly.newPlot(node, props.data, props.layout, props.config);
+
     this.setState((state) => {
       return {node: node}
     });
@@ -21,12 +23,12 @@ class plotlyComponent extends D3Component {
 
      // this is a hack to resize the plotly graph once its containing conditional becomes visible
     if (props.isVisible !== oldProps.isVisible) {
-      console.log('creating Plotly graph');
-      setTimeout(() => Plotly.newPlot(this.state.node, props.data, props.layout, props.config), 50);
+      // console.log('resizing Plotly graph');
+      setTimeout(() => Plotly.Plots.resize(this.state.node), 50);
     }
     else {
       // manually update graph on props change
-      console.log('updating Plotly graph');
+      // console.log('updating Plotly graph');
       Plotly.react(this.state.node, props.data, props.layout, props.config);
     }
 

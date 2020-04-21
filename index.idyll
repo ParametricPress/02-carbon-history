@@ -174,38 +174,38 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     A one part per million (1 ppm) concentration of CO2 simply means that one out of every million parts of air is carbon dioxide. If we could magically see the world from the perspective of a molecule, here's what this concetration of carbon dioxide would look like.
 
-    [var name:"ppm" value:1 /]
+    [var name:"vizppm" value:1 /]
 
     [Aside]
-      [Conditional if:`ppm == 1`]
+      [Conditional if:`vizppm == 1`]
           [span className:"pull-number"]1 ppm[/span]
           [span className:"pull-number-text"]
             1 part per million is a miniscule concentration, which is why you barely see any CO2 molecules above. From our microscopic perspective, the lone CO2 molecule might occasionally fly past you.
           [/span]
       [/Conditional]
 
-      [Conditional if:`ppm == 10`]
+      [Conditional if:`vizppm == 10`]
         [span className:"pull-number"]10 ppm[/span]
         [span className:"pull-number-text"]
           At 10 parts per million, you can start to see a handful of CO2 molecules whizzing past. At CO2 levels this low, the Earth would be a frozen, lifeless rock.
         [/span]
       [/Conditional]
 
-      [Conditional if:`ppm == 100`]
+      [Conditional if:`vizppm == 100`]
         [span className:"pull-number"]100 ppm[/span]
         [span className:"pull-number-text"]
           At 100 parts per million, we start to see more and more CO2 molecules. Carbon dioxide is Earth's thermostat. As we increase the concentration of CO2 in the air, we're dialing up the greenhouse effect, and warming up the Earth.
         [/span]
       [/Conditional]
 
-      [Conditional if:`ppm == 280`]
+      [Conditional if:`vizppm == 280`]
         [span className:"pull-number"]280 ppm[/span]
         [span className:"pull-number-text"]
           280 parts per million was the CO2 level before the Industrial Revolution kicked off. This is the era in which civilizations arose, and global average temperatures were about a degree Celsius cooler than they are today.
         [/span]
       [/Conditional]
 
-      [Conditional if:`ppm == 412`]
+      [Conditional if:`vizppm == 412`]
         [span className:"pull-number"]412 ppm[/span]
         [span className:"pull-number-text"]
           412 parts per million was the CO2 level in 2019, the year in which we also surpassed 1 degree Celsius of global warming compared to the pre-industrial era.
@@ -216,7 +216,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     // p5 ppm visualization
     [var name:"animate" value:false /]
     [p5Component
-      ppm: ppm
+      ppm: vizppm
       animate: animate
       onEnterView: `animate = true`
       onExitViewFully: `animate = false`
@@ -224,117 +224,94 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       isVisible: birthYearSelected
       sketch:`(p, parent) => {
 
-      // visualizing ppm at different levels
-      // modifying code by Daniel Shiffman
-      // http://codingtra.in
-      // http://patreon.com/codingtrain
-      // Code for: https://youtu.be/17WoOqgXsRM
+        // visualizing ppm at different levels
+        // modifying code by Daniel Shiffman
+        // http://codingtra.in
+        // http://patreon.com/codingtrain
+        // Code for: https://youtu.be/17WoOqgXsRM
 
-      let stars, volume, depth;
-      let zoom = 6;
-      let speed = 10;
-      let concentration = 1;
+        let stars, volume, depth;
+        let zoom = 6;
+        let speed = 10;
+        let concentration = 1;
 
-      function init() {
-        depth = 2 * p.width;
-        p.fill(40, 32, 68);
-        p.textSize(12);
-        p.textAlign(p.LEFT, p.CENTER);
-        p.noStroke();
+        function init() {
+          depth = 2 * p.width;
+          p.fill(40, 32, 68);
+          p.textSize(12);
+          p.textAlign(p.LEFT, p.CENTER);
+          p.noStroke();
 
-        volume = p.round((2*p.width) * (2*p.height) * depth / p.pow(zoom,3));
-        let numStars = p.round(volume * concentration / 1000000);
+          volume = p.round((2*p.width) * (2*p.height) * depth / p.pow(zoom,3));
+          let numStars = p.round(volume * concentration / 1000000);
 
-        stars = [];
-        for (let i = 0; i < numStars; i++) {
-          stars.push(new Star());
-        }
-      }
-
-      p.setup = function() {
-        p.createCanvas(400, 400);
-        p.noLoop();
-        init();
-      };
-
-      p.draw = function() {
-        p.background(250);
-        p.text(concentration + ' ppm', 10, p.height - 10);
-
-        p.translate(p.width / 2, p.height / 2);
-
-        for (let star of stars) {
-          star.update();
-          star.show();
-        }
-
-      };
-
-      function Star() {
-        this.x = p.random(-p.width, p.width);
-        this.y = p.random(-p.height, p.height);
-        this.z = p.random(depth);
-
-        this.update = function() {
-
-          this.z = this.z - speed;
-
-          if (this.z < 1) {
-            this.z = depth;
-            this.x = p.random(-p.width, p.width);
-            this.y = p.random(-p.height, p.height);
-          }
-        };
-
-        this.show = function() {
-          p.circle(p.map(this.x / this.z, 0, 1, 0, p.width),
-                 p.map(this.y / this.z, 0, 1, 0, p.height),
-                 p.map(this.z, 1, depth, zoom, 1));
-        };
-      }
-
-      p.windowResized = function() {
-      }
-
-      p.onUpdate = function(props, oldProps) {
-        if (props.animate !== oldProps.animate) {
-          if (props.animate) {
-            //console.log('starting animation');
-            p.loop();
-          } else {
-            //console.log('pausing animation');
-            p.noLoop();
+          stars = [];
+          for (let i = 0; i < numStars; i++) {
+            stars.push(new Star());
           }
         }
-        if (props.ppm !== oldProps.ppm) {
-          concentration = props.ppm;
-          init();
-        }
-      };
 
-        /*
         p.setup = function() {
-          p.createCanvas(600, 600);
-          p.textAlign(p.CENTER, p.CENTER);
-          p.textSize(20);
+          p.createCanvas(400, 400);
           p.noLoop();
+          init();
         };
 
         p.draw = function() {
-          //p.circle(p.mouseX, p.mouseY, 50);
+          p.background(250);
+          p.text(concentration + ' ppm', 10, p.height - 10);
+
+          p.translate(p.width / 2, p.height / 2);
+
+          for (let star of stars) {
+            star.update();
+            star.show();
+          }
+
         };
 
+        function Star() {
+          this.x = p.random(-p.width, p.width);
+          this.y = p.random(-p.height, p.height);
+          this.z = p.random(depth);
+
+          this.update = function() {
+
+            this.z = this.z - speed;
+
+            if (this.z < 1) {
+              this.z = depth;
+              this.x = p.random(-p.width, p.width);
+              this.y = p.random(-p.height, p.height);
+            }
+          };
+
+          this.show = function() {
+            p.circle(p.map(this.x / this.z, 0, 1, 0, p.width),
+                   p.map(this.y / this.z, 0, 1, 0, p.height),
+                   p.map(this.z, 1, depth, zoom, 1));
+          };
+        }
+
         p.windowResized = function() {
-          let newWidth = parent.offsetWidth
-          p.resizeCanvas(newWidth, 600);
-          p.onUpdate();
         }
 
         p.onUpdate = function(props, oldProps) {
-          p.background(p.random(255), p.random(255), p.random(255));
-          p.text('p5 sketch hooray!', p.width/2, p.height/2);
+          if (props.animate !== oldProps.animate) {
+            if (props.animate) {
+              //console.log('starting animation');
+              p.loop();
+            } else {
+              //console.log('pausing animation');
+              p.noLoop();
+            }
+          }
+          if (props.ppm !== oldProps.ppm) {
+            concentration = props.ppm;
+            init();
+          }
         };
-        */
+
       }
 
       `
@@ -342,23 +319,23 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     [div className:"buttonwrapper"]
 
-      [Button onClick:`ppm = 1`]
+      [Button onClick:`vizppm = 1`]
         1 ppm
       [/Button]
 
-      [Button onClick:`ppm = 10`]
+      [Button onClick:`vizppm = 10`]
         10 ppm
       [/Button]
 
-      [Button onClick:`ppm = 100`]
+      [Button onClick:`vizppm = 100`]
         100 ppm
       [/Button]
 
-      [Button onClick:`ppm = 280`]
+      [Button onClick:`vizppm = 280`]
         280 ppm
       [/Button]
 
-      [Button onClick:`ppm = 412`]
+      [Button onClick:`vizppm = 412`]
         412 ppm
       [/Button]
 
@@ -367,11 +344,12 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     Now that we understand how to measure CO2, let's travel backwards in our CO2 time machine.
 
-    We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million, which means that 0.0412% of the air was carbon dioxide.
+    We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million.
 
   [/TextContainer]
 
-  [var name:"index" value:`1` /]
+  [var name:"index" value:`2` /]
+
 
   [Button onClick:`index += 1`]
     Update Graph.
