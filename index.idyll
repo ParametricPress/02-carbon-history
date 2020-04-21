@@ -386,7 +386,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     makeAnnotation(co2, 2005, 'YouTube Created'),
                     makeAnnotation(co2, 1997, 'Titanic Released'),
                     makeAnnotation(co2, 1990, 'Home Alone Released'),
-                    makeAnnotation(co2, 2000, 'This shouldnt show up'),
                   ].filter(e => !(e.x == birthYear))
                    .concat([makeAnnotation(co2, birthYear, 'You Were Born! 🎂🎉', 0)])
               }`
