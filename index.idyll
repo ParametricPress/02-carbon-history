@@ -79,14 +79,10 @@ In fact, just for fun, go ahead an actually make a guess by dragging the slider 
 
 I’d guess that [Display value:guessPercent format:"d" /] percent of all human CO2 emissions occurred during my life.
 
-[Conditional if:`guessPercent !== 0 || debugMode`]
-
-  [var name:"guessMade" value:false /]
-  [Button onClick:`guessMade = true`]
-    Submit Guess
-  [/Button]
-
-[/Conditional]
+[var name:"guessMade" value:false /]
+[Button onClick:`guessMade = true`]
+  Submit Guess
+[/Button]
 
 [div fullWidth:true ]
 [Conditional if:`guessMade || debugMode`]
@@ -366,6 +362,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             }]`
     layout: `{
               title: 'Data Test: CO2 vs time',
+              height: 500,
               font: {size: 18},
               xaxis: {
                 title: 'Year'
@@ -391,9 +388,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
 [/Conditional]
 [/div]
-
-
-
 
 
 
