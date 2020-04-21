@@ -25,11 +25,9 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"debugMode" value:true /]
+[var name:"debugMode" value:"enabled" /]
 
-[Conditional if:`debugMode`]
-*Debug mode enabled*
-[/Conditional]
+Debug mode: [Select value:debugMode options:`['enabled', 'disabled']`  /] (disable for reader experience)
 
 # Prehistory
 
@@ -85,7 +83,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 [/Button]
 
 [div fullWidth:true ]
-[Conditional if:`guessMade || debugMode`]
+[Conditional if:`guessMade || debugMode == 'enabled'`]
 
   [TextContainer]
     What’s the right answer? To find out, select the year in which you were born, and we’ll pull up the numbers for your lifetime.
@@ -101,291 +99,334 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
   [/TextContainer]
 
-  [Conditional if:`birthYearSelected || debugMode`]
+  [Conditional if:`birthYearSelected || debugMode == 'enabled'`]
 
-  [TextContainer]
+    [TextContainer]
 
-    [Aside]
-      [span className:"pull-number"][Display value:guessPercent format:"d" /]%[/span]
-      [span className:"pull-number-text"]
-        Your guess for the fraction of all human-caused carbon dioxide emissions that occurred in your lifetime.
-      [/span]
-      [br/][br/]
-      [span className:"pull-number"][Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/]%[/span]
-      [span className:"pull-number-text"]
-        The actual fraction of all human-caused carbon dioxide emissions that occurred in your lifetime.
-      [/span]
-    [/Aside]
+      [Aside]
+        [span className:"pull-number"][Display value:guessPercent format:"d" /]%[/span]
+        [span className:"pull-number-text"]
+          Your guess for the fraction of all human-caused carbon dioxide emissions that occurred in your lifetime.
+        [/span]
+        [br/][br/]
+        [span className:"pull-number"][Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/]%[/span]
+        [span className:"pull-number-text"]
+          The actual fraction of all human-caused carbon dioxide emissions that occurred in your lifetime.
+        [/span]
+      [/Aside]
 
-    You guessed that [Display value:guessPercent format:"d" /]% of all human carbon dioxide emissions occurred in your lifetime.
+      You guessed that [Display value:guessPercent format:"d" /]% of all human carbon dioxide emissions occurred in your lifetime.
 
-    In reality, [Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions have occurred between 2019 and [Display value:birthYear format:"d" /], the year you were born.
+      In reality, [Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions have occurred between 2019 and [Display value:birthYear format:"d" /], the year you were born.
 
-    And it’s not just you. Everyone alive today is in the same boat. Here, look up any age in this chart.
+      And it’s not just you. Everyone alive today is in the same boat. Here, look up any age in this chart.
 
 
-    [var name:"ages" value:`Array(20).fill(0).map((e,i) => 5 * (i+1))` /]
-    //[var name:"percentiles" value:`ages.map(e => 100 * getCO2Fraction(co2, 2020 - e))` /]
+      [var name:"ages" value:`Array(20).fill(0).map((e,i) => 5 * (i+1))` /]
+      //[var name:"percentiles" value:`ages.map(e => 100 * getCO2Fraction(co2, 2020 - e))` /]
+
+      [PlotlyComponent
+        isVisible: birthYearSelected
+        data: `[{
+                  type: 'bar',
+                  y: ages,
+                  x: ages.map(e => 100 * getCO2Fraction(co2, 2020 - e)),
+                  text: ages.map(e => 100 * getCO2Fraction(co2, 2020 - e)).map(e => Math.round(e)+'%'),
+                  hoverinfo: 'text',
+                  orientation: 'h',
+                  marker: {
+                    color: 'black',
+                    opacity: 0.6
+                  }
+                }]`
+        layout: `{
+                  title: 'What Fraction of Human CO2 Emissions Occurred in Your Life?',
+                  height: 800,
+                  yaxis: {
+                    title: 'Your Age',
+                    dtick: 5,
+                    autorange: 'reversed'
+                  },
+                  xaxis: {
+                    title: 'Percent CO2 Emissions in Your Lifetime',
+                    range: [0, 101]
+                  }
+                }`
+        config: `{responsive: true}`
+      /]
+    [caption]
+      Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within this lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph originally created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
+    [/caption]
+
+      We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed the bulk of CO2 emissions.
+
+      No humans before us have ever witnessed such a steep rise in carbon dioxide. Everyone alive today is living through a great acceleration.
+
+      To better understand this, let’s take a personalized tour of the history of carbon dioxide — personalized around *you*. We’ll start in 2020, tracing our way backwards through the years of your life.
+
+      But we first need to know how to measure carbon dioxide. The basic unit in which we measure CO2 concentration is *parts per million*, or *ppm* for short.
+
+      A one part per million (1 ppm) concentration of CO2 simply means that one out of every million parts of air is carbon dioxide. If we could magically see the world from the perspective of a molecule, here's what this concetration of carbon dioxide would look like.
+
+      [var name:"vizppm" value:1 /]
+
+      [Aside]
+        [Conditional if:`vizppm == 1`]
+            [span className:"pull-number"]1 ppm[/span]
+            [span className:"pull-number-text"]
+              1 part per million is a miniscule concentration, which is why you barely see any CO2 molecules. From our microscopic perspective, a lone CO2 molecule occasionally flies past you.
+            [/span]
+        [/Conditional]
+
+        [Conditional if:`vizppm == 10`]
+          [span className:"pull-number"]10 ppm[/span]
+          [span className:"pull-number-text"]
+            At 10 parts per million, you can start to see a handful of CO2 molecules whizzing past. At CO2 levels this low, the Earth would be a frozen, lifeless rock.
+          [/span]
+        [/Conditional]
+
+        [Conditional if:`vizppm == 100`]
+          [span className:"pull-number"]100 ppm[/span]
+          [span className:"pull-number-text"]
+            At 100 parts per million, we start to see more and more CO2 molecules. Carbon dioxide is Earth's thermostat. As we increase the concentration of CO2 in the air, we're dialing up the greenhouse effect, and warming up the Earth.
+          [/span]
+        [/Conditional]
+
+        [Conditional if:`vizppm == 280`]
+          [span className:"pull-number"]280 ppm[/span]
+          [span className:"pull-number-text"]
+            280 parts per million was the CO2 level before the Industrial Revolution kicked off. This is the era in which civilizations arose, and global average temperatures were about a degree Celsius cooler than they are today.
+          [/span]
+        [/Conditional]
+
+        [Conditional if:`vizppm == 412`]
+          [span className:"pull-number"]412 ppm[/span]
+          [span className:"pull-number-text"]
+            412 parts per million was the CO2 level in 2019, the year in which we also surpassed 1 degree Celsius of global warming compared to the pre-industrial era.
+          [/span]
+        [/Conditional]
+      [/Aside]
+
+      // p5 ppm visualization
+      [var name:"animate" value:false /]
+      [p5Component
+        ppm: vizppm
+        animate: animate
+        onEnterView: `animate = true`
+        onExitViewFully: `animate = false`
+        className: "center"
+        isVisible: birthYearSelected
+        sketch:`(p, parent) => {
+
+          // visualizing ppm at different levels
+          // modifying code by Daniel Shiffman
+          // http://codingtra.in
+          // http://patreon.com/codingtrain
+          // Code for: https://youtu.be/17WoOqgXsRM
+
+          let stars, volume, depth;
+          let zoom = 6;
+          let speed = 10;
+          let concentration = 1;
+
+          function init() {
+            depth = 2 * p.width;
+            p.fill(40, 32, 68);
+            p.textSize(12);
+            p.textAlign(p.LEFT, p.CENTER);
+            p.noStroke();
+
+            volume = p.round((2*p.width) * (2*p.height) * depth / p.pow(zoom,3));
+            let numStars = p.round(volume * concentration / 1000000);
+
+            stars = [];
+            for (let i = 0; i < numStars; i++) {
+              stars.push(new Star());
+            }
+          }
+
+          p.setup = function() {
+            p.createCanvas(400, 400);
+            p.noLoop();
+            init();
+          };
+
+          p.draw = function() {
+            p.background(250);
+            p.text(concentration + ' ppm', 10, p.height - 10);
+
+            p.translate(p.width / 2, p.height / 2);
+
+            for (let star of stars) {
+              star.update();
+              star.show();
+            }
+
+          };
+
+          function Star() {
+            this.x = p.random(-p.width, p.width);
+            this.y = p.random(-p.height, p.height);
+            this.z = p.random(depth);
+
+            this.update = function() {
+
+              this.z = this.z - speed;
+
+              if (this.z < 1) {
+                this.z = depth;
+                this.x = p.random(-p.width, p.width);
+                this.y = p.random(-p.height, p.height);
+              }
+            };
+
+            this.show = function() {
+              p.circle(p.map(this.x / this.z, 0, 1, 0, p.width),
+                     p.map(this.y / this.z, 0, 1, 0, p.height),
+                     p.map(this.z, 1, depth, zoom, 1));
+            };
+          }
+
+          p.windowResized = function() {
+          }
+
+          p.onUpdate = function(props, oldProps) {
+            if (props.animate !== oldProps.animate) {
+              if (props.animate) {
+                //console.log('starting animation');
+                p.loop();
+              } else {
+                //console.log('pausing animation');
+                p.noLoop();
+              }
+            }
+            if (props.ppm !== oldProps.ppm) {
+              concentration = props.ppm;
+              init();
+            }
+          };
+
+        }
+
+        `
+        /]
+
+      [br/]
+      [div className:"buttonwrapper"]
+
+        [Button onClick:`vizppm = 1`]
+          1 ppm
+        [/Button]
+
+        [Button onClick:`vizppm = 10`]
+          10 ppm
+        [/Button]
+
+        [Button onClick:`vizppm = 100`]
+          100 ppm
+        [/Button]
+
+        [Button onClick:`vizppm = 280`]
+          280 ppm
+        [/Button]
+
+        [Button onClick:`vizppm = 412`]
+          412 ppm
+        [/Button]
+
+      [/div]
+      [br/]
+
+      Now, let's travel backwards through the years of your life in our CO2 time machine. We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million.
+
+    [/TextContainer]
+
+    [var name:"graphYear" value:2019 /]
 
     [PlotlyComponent
-      isVisible: birthYearSelected
+      isVisible:birthYearSelected
       data: `[{
-                type: 'bar',
-                y: ages,
-                x: ages.map(e => 100 * getCO2Fraction(co2, 2020 - e)),
-                text: ages.map(e => 100 * getCO2Fraction(co2, 2020 - e)).map(e => Math.round(e)+'%'),
-                hoverinfo: 'text',
-                orientation: 'h',
-                marker: {
-                  color: 'black',
-                  opacity: 0.6
-                }
+                x: co2.map(e => e.year),
+                y: co2.map(e => e.ppm),
+                mode: 'lines+markers',
+                type: 'scatter',
+                hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>'
               }]`
       layout: `{
-                title: 'What Fraction of Human CO2 Emissions Occurred in Your Life?',
-                height: 800,
-                yaxis: {
-                  title: 'Your Age',
-                  dtick: 5,
-                  autorange: 'reversed'
+                title: 'Carbon Dioxide Levels During Your Lifetime',
+                height: 600,
+                showlegend: false,
+                font: {
+                  size: 18
                 },
                 xaxis: {
-                  title: 'Percent CO2 Emissions in Your Lifetime',
-                  range: [0, 101]
-                }
+                  range: [graphYear - 0.5, 2019.5],
+                  title: 'Year',
+                  tickformat: 'd'
+                },
+                yaxis: {
+                  range: [
+                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.02, // min of yvalues in xrange
+                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a > b ? a : b) * 1.02 // min of yvalues in xrange
+                          ],
+                  title: 'CO2 Level (parts per million)',
+                  tickformat: 'd'
+                },
+                transition: {
+                  duration: 1000,
+                  easing: 'cubic-in-out'
+                },
+                annotations: [
+                    makeAnnotation(co2, 2019, '2019', 0),
+                    makeAnnotation(co2, 2017, 'US Leaves Paris Agreement'),
+                    makeAnnotation(co2, 2015, 'Paris Climate Agreement Signed'),
+                    makeAnnotation(co2, 2012, 'Curiosity Rover Lands on Mars'),
+                    makeAnnotation(co2, 2009, 'First Harry Potter Movie Released'),
+                    makeAnnotation(co2, 2007, 'Apple iPhone Launched'),
+                    makeAnnotation(co2, 2005, 'YouTube Created'),
+                    makeAnnotation(co2, 1997, 'Titanic Released'),
+                    makeAnnotation(co2, 1990, 'Home Alone Released'),
+                    makeAnnotation(co2, 2000, 'This shouldnt show up'),
+                  ].filter(e => !(e.x == birthYear))
+                   .concat([makeAnnotation(co2, birthYear, 'You Were Born! 🎂🎉', 0)])
               }`
       config: `{responsive: true}`
     /]
-  [caption]
-    Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within this lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph originally created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
-  [/caption]
 
-    We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed the bulk of CO2 emissions.
+    [var name:"buttonEnabled" value:true /]
 
-    No humans before us have ever witnessed such a steep rise in carbon dioxide. Everyone alive today is living through a great acceleration.
+      [div className:"buttonwrapper"]
 
-    To better understand this, let’s take a personalized tour of the history of carbon dioxide — personalized around *you*. We’ll start in 2020, tracing our way backwards through the years of your life.
+        [Button onClick:`
+          if (buttonEnabled) {
 
-    But we first need to know how to measure carbon dioxide. The basic unit in which we measure CO2 concentration is *parts per million*, or *ppm* for short.
+            buttonEnabled = false;
+            graphYear = (graphYear - 5) > birthYear - 1 ? graphYear - 5 : birthYear - 1;
 
-    A one part per million (1 ppm) concentration of CO2 simply means that one out of every million parts of air is carbon dioxide. If we could magically see the world from the perspective of a molecule, here's what this concetration of carbon dioxide would look like.
+            setTimeout(() => {
+              buttonEnabled = true;
+            }, 1000)
 
-    [var name:"vizppm" value:1 /]
-
-    [Aside]
-      [Conditional if:`vizppm == 1`]
-          [span className:"pull-number"]1 ppm[/span]
-          [span className:"pull-number-text"]
-            1 part per million is a miniscule concentration, which is why you barely see any CO2 molecules above. From our microscopic perspective, the lone CO2 molecule might occasionally fly past you.
-          [/span]
-      [/Conditional]
-
-      [Conditional if:`vizppm == 10`]
-        [span className:"pull-number"]10 ppm[/span]
-        [span className:"pull-number-text"]
-          At 10 parts per million, you can start to see a handful of CO2 molecules whizzing past. At CO2 levels this low, the Earth would be a frozen, lifeless rock.
-        [/span]
-      [/Conditional]
-
-      [Conditional if:`vizppm == 100`]
-        [span className:"pull-number"]100 ppm[/span]
-        [span className:"pull-number-text"]
-          At 100 parts per million, we start to see more and more CO2 molecules. Carbon dioxide is Earth's thermostat. As we increase the concentration of CO2 in the air, we're dialing up the greenhouse effect, and warming up the Earth.
-        [/span]
-      [/Conditional]
-
-      [Conditional if:`vizppm == 280`]
-        [span className:"pull-number"]280 ppm[/span]
-        [span className:"pull-number-text"]
-          280 parts per million was the CO2 level before the Industrial Revolution kicked off. This is the era in which civilizations arose, and global average temperatures were about a degree Celsius cooler than they are today.
-        [/span]
-      [/Conditional]
-
-      [Conditional if:`vizppm == 412`]
-        [span className:"pull-number"]412 ppm[/span]
-        [span className:"pull-number-text"]
-          412 parts per million was the CO2 level in 2019, the year in which we also surpassed 1 degree Celsius of global warming compared to the pre-industrial era.
-        [/span]
-      [/Conditional]
-    [/Aside]
-
-    // p5 ppm visualization
-    [var name:"animate" value:false /]
-    [p5Component
-      ppm: vizppm
-      animate: animate
-      onEnterView: `animate = true`
-      onExitViewFully: `animate = false`
-      className: "center"
-      isVisible: birthYearSelected
-      sketch:`(p, parent) => {
-
-        // visualizing ppm at different levels
-        // modifying code by Daniel Shiffman
-        // http://codingtra.in
-        // http://patreon.com/codingtrain
-        // Code for: https://youtu.be/17WoOqgXsRM
-
-        let stars, volume, depth;
-        let zoom = 6;
-        let speed = 10;
-        let concentration = 1;
-
-        function init() {
-          depth = 2 * p.width;
-          p.fill(40, 32, 68);
-          p.textSize(12);
-          p.textAlign(p.LEFT, p.CENTER);
-          p.noStroke();
-
-          volume = p.round((2*p.width) * (2*p.height) * depth / p.pow(zoom,3));
-          let numStars = p.round(volume * concentration / 1000000);
-
-          stars = [];
-          for (let i = 0; i < numStars; i++) {
-            stars.push(new Star());
           }
-        }
+        `]
+          Travel Back in Time
+        [/Button]
 
-        p.setup = function() {
-          p.createCanvas(400, 400);
-          p.noLoop();
-          init();
-        };
+        [Button onClick:`graphYear = 2019`]
+          Restart
+        [/Button]
 
-        p.draw = function() {
-          p.background(250);
-          p.text(concentration + ' ppm', 10, p.height - 10);
+      [/div]
 
-          p.translate(p.width / 2, p.height / 2);
+    [Conditional if:`graphYear == birthYear`]
+      [br/]
+      [TextContainer]
+        We’ve arrived at [Display value:birthYear format:"d" /], the year that you were born. Since CO2 levels have been reliably rising every year of your life, you can actually measure your age in terms of the carbon dioxide levels at your birth.
 
-          for (let star of stars) {
-            star.update();
-            star.show();
-          }
-
-        };
-
-        function Star() {
-          this.x = p.random(-p.width, p.width);
-          this.y = p.random(-p.height, p.height);
-          this.z = p.random(depth);
-
-          this.update = function() {
-
-            this.z = this.z - speed;
-
-            if (this.z < 1) {
-              this.z = depth;
-              this.x = p.random(-p.width, p.width);
-              this.y = p.random(-p.height, p.height);
-            }
-          };
-
-          this.show = function() {
-            p.circle(p.map(this.x / this.z, 0, 1, 0, p.width),
-                   p.map(this.y / this.z, 0, 1, 0, p.height),
-                   p.map(this.z, 1, depth, zoom, 1));
-          };
-        }
-
-        p.windowResized = function() {
-        }
-
-        p.onUpdate = function(props, oldProps) {
-          if (props.animate !== oldProps.animate) {
-            if (props.animate) {
-              //console.log('starting animation');
-              p.loop();
-            } else {
-              //console.log('pausing animation');
-              p.noLoop();
-            }
-          }
-          if (props.ppm !== oldProps.ppm) {
-            concentration = props.ppm;
-            init();
-          }
-        };
-
-      }
-
-      `
-      /]
-
-    [div className:"buttonwrapper"]
-
-      [Button onClick:`vizppm = 1`]
-        1 ppm
-      [/Button]
-
-      [Button onClick:`vizppm = 10`]
-        10 ppm
-      [/Button]
-
-      [Button onClick:`vizppm = 100`]
-        100 ppm
-      [/Button]
-
-      [Button onClick:`vizppm = 280`]
-        280 ppm
-      [/Button]
-
-      [Button onClick:`vizppm = 412`]
-        412 ppm
-      [/Button]
-
-    [/div]
-    [br/]
-
-    Now that we understand how to measure CO2, let's travel backwards in our CO2 time machine.
-
-    We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million.
-
-  [/TextContainer]
-
-  [var name:"index" value:`2` /]
-
-
-  [Button onClick:`index += 1`]
-    Update Graph.
-  [/Button]
-
-  // plotly fullwidth
-  [PlotlyComponent
-    isVisible:birthYearSelected
-    data: `[{
-              x: co2.map(e => e.year).slice(0, index),
-              y: co2.map(e => e.ppm).slice(0, index),
-              mode: 'lines',
-              type: 'scatter'
-            }]`
-    layout: `{
-              title: 'Data Test: CO2 vs time',
-              height: 500,
-              font: {size: 18},
-              xaxis: {
-                title: 'Year'
-              },
-              yaxis: {
-                title: 'CO2 Level (parts per million)'
-              }
-              }`
-    config: `{responsive: true}`
-  /]
-
-  [Button onClick:`index += 1`]
-    Update Graph.
-  [/Button]
-
-  [TextContainer]
-
-    Some words go here.
-
-  [/TextContainer]
-
+        I was born at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] ppm.
+      [/TextContainer]
+    [/Conditional]
   [/Conditional]
-
 [/Conditional]
 [/div]
 
