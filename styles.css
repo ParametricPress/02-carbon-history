@@ -23,8 +23,7 @@
 }
 
 .js-plotly-plot {
-  display: block;
-  width: 100%;
+  display: inline-block;
 }
 
 .pull-number {
@@ -41,6 +40,10 @@
 
 .aside-container {
   display: block;
+}
+
+.aside {
+  margin-bottom: 20px;
 }
 
 @media all and (max-width: 1000px) {

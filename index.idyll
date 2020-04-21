@@ -25,49 +25,43 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[div fullWidth:true ]
-  [PlotlyComponent
-    data: `[{
-              x: co2.map(e => e.year),
-              y: co2.map(e => e.ppm),
-              mode: 'lines',
-              type: 'scatter'
-            }]`
-    layout: `{
-              title: 'Data Test: CO2 vs time',
-              font: {size: 18},
-              xaxis: {
-                title: 'Year'
-              },
-              yaxis: {
-                title: 'CO2 Level (parts per million)'
-              }
-              }`
-    config: `{responsive: true}`
-  /]
-[/div]
+[var name:"debugMode" value:true /]
+
+[Conditional if:`debugMode`]
+*Debug mode enabled*
+[/Conditional]
 
 # Prehistory
 
 All the carbon in a fossil fuel was once in something alive.
 
-[Aside]
-  [span className:"pull-number"]92%[/span]
-  [span className:"pull-number-text"]
-    The percentage of residents who are renters, and are excluded from the fund. Note, this is the most recent estimate, but this number changes often and updates are reported quarterly through WFF.
-  [/span]
-  [br/][br/]
-[/Aside]
-
 Hundreds of millions of years ago, the dead remains of plants and microscopic plankton happened to get buried in places where oxygen couldn't easily get to them. Places like the bottoms of swamps in ancient forests, or beneath sediments under the sea.
 
-Normally when creatures die, they decompose, and the carbon in their bodies quickly returns to the air. But decomposition requires oxygen. In the absence of oxygen, much of that energy-rich carbon remained trapped in these geological burial grounds, lying dormant for hundreds of millions of years.
+[Aside]
+  [span className:"pull-number"]99%[/span]
+  [span className:"pull-number-text"]
+    The fraction of carbon in organic matter that decays into carbon dioxide. The remaining 1% that doesn't decay is the reservoir from which fossil fuels are formed.
+  [/span]
+  [br/][br/]
+  **Source**: [link text:"Chemistry of Fossil Fuels and Biofuels, Harold Schobert" url:"https://www.cambridge.org/core/books/chemistry-of-fossil-fuels-and-biofuels/55F8E62F729DF25CE4D40109440860DA" /]
+[/Aside]
+
+Normally when creatures die, they decompose, and the carbon within them quickly returns to the air. But decomposition requires oxygen. In the absence of oxygen, much of that energy-rich carbon remained trapped in these geological burial grounds, lying dormant for hundreds of millions of years.
 
 Over the eras, continents shifted and collided, dinosaurs came and went, plants invented flowers, birds took flight, and tiny mouse-like mammals hesitantly ventured out from the safety of their burrows, eventually growing into the family of animals that includes us.
 
 Meanwhile, beneath the Earth’s surface, all that dormant carbon was being heated and compressed, transforming into some of the most energy rich substances we humans have ever known — coal, oil, and natural gas.
 
-Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it last year alone. In effect, we're burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years.
+Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it in 2019 alone. In effect, we're burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years.
+
+[Aside]
+  [span className:"pull-number"]10 Billion Tons[/span]
+  [span className:"pull-number-text"]
+    In 2019, global annual fossil-fuel based carbon emissions exceeded 10 billion tons for the first time in history.
+  [/span]
+  [br/][br/]
+  **Source**: [link text:"Global Carbon Budget 2019" url:"https://www.earth-syst-sci-data.net/11/1783/2019/" /]
+[/Aside]
 
 By returning all this carbon into the air, we’re transforming the composition of our oceans and atmosphere and, as a consequence, altering the climate of our planet.
 
@@ -85,21 +79,20 @@ In fact, just for fun, go ahead an actually make a guess by dragging the slider 
 
 I’d guess that [Display value:guessPercent format:"d" /] percent of all human CO2 emissions occurred during my life.
 
-[Conditional if:`guessPercent !== 0`]
+[Conditional if:`guessPercent !== 0 || debugMode`]
 
   [var name:"guessMade" value:false /]
   [Button onClick:`guessMade = true`]
     Submit Guess
   [/Button]
-  [br/]
 
 [/Conditional]
 
 [div fullWidth:true ]
-[Conditional if:`guessMade`]
+[Conditional if:`guessMade || debugMode`]
 
   [TextContainer]
-    What’s the right answer? To find out, select the year in which you were born, and we’ll pull up the numbers for you.
+    What’s the right answer? To find out, select the year in which you were born, and we’ll pull up the numbers for your lifetime.
 
     [var name:"birthYear" value:"2000" /]
 
@@ -109,16 +102,28 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [Button onClick:`birthYearSelected = true`]
       Submit Birth Year
     [/Button]
-    [br/]
+
   [/TextContainer]
 
-  [Conditional if:`birthYearSelected`]
+  [Conditional if:`birthYearSelected || debugMode`]
 
   [TextContainer]
 
-    You guessed that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred in your lifetime.
+    [Aside]
+      [span className:"pull-number"][Display value:guessPercent format:"d" /]%[/span]
+      [span className:"pull-number-text"]
+        Your guess for the fraction of all human-caused carbon dioxide emissions that occurred in your lifetime.
+      [/span]
+      [br/][br/]
+      [span className:"pull-number"][Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/]%[/span]
+      [span className:"pull-number-text"]
+        The actual fraction of all human-caused carbon dioxide emissions that occurred in your lifetime.
+      [/span]
+    [/Aside]
 
-    In reality, [Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/] percent of all human-caused carbon dioxide emissions have occurred between 2019 and [Display value:birthYear format:"d" /], the year you were born.
+    You guessed that [Display value:guessPercent format:"d" /]% of all human carbon dioxide emissions occurred in your lifetime.
+
+    In reality, [Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions have occurred between 2019 and [Display value:birthYear format:"d" /], the year you were born.
 
     And it’s not just you. Everyone alive today is in the same boat. Here, look up any age in this chart.
 
@@ -156,9 +161,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       config: `{responsive: true}`
     /]
   [caption]
-    Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that have occurred within that lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
+    Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within this lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph originally created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
   [/caption]
-
 
     We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed the bulk of CO2 emissions.
 
@@ -168,10 +172,48 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
     But we first need to know how to measure carbon dioxide. The basic unit in which we measure CO2 concentration is *parts per million*, or *ppm* for short.
 
-    A one part per million (1 ppm) concentration of CO2 simply means that one out of every million parts of air is carbon dioxide. If we could actually see carbon dioxide molecules, here's what this might look like.
+    A one part per million (1 ppm) concentration of CO2 simply means that one out of every million parts of air is carbon dioxide. If we could magically see the world from the perspective of a molecule, here's what this concetration of carbon dioxide would look like.
+
+    [var name:"ppm" value:1 /]
+
+    [Aside]
+      [Conditional if:`ppm == 1`]
+          [span className:"pull-number"]1 ppm[/span]
+          [span className:"pull-number-text"]
+            1 part per million is a miniscule concentration, which is why you barely see any CO2 molecules above. From our microscopic perspective, the lone CO2 molecule might occasionally fly past you.
+          [/span]
+      [/Conditional]
+
+      [Conditional if:`ppm == 10`]
+        [span className:"pull-number"]10 ppm[/span]
+        [span className:"pull-number-text"]
+          At 10 parts per million, you can start to see a handful of CO2 molecules whizzing past. At CO2 levels this low, the Earth would be a frozen, lifeless rock.
+        [/span]
+      [/Conditional]
+
+      [Conditional if:`ppm == 100`]
+        [span className:"pull-number"]100 ppm[/span]
+        [span className:"pull-number-text"]
+          At 100 parts per million, we start to see more and more CO2 molecules. Carbon dioxide is Earth's thermostat. As we increase the concentration of CO2 in the air, we're dialing up the greenhouse effect, and warming up the Earth.
+        [/span]
+      [/Conditional]
+
+      [Conditional if:`ppm == 280`]
+        [span className:"pull-number"]280 ppm[/span]
+        [span className:"pull-number-text"]
+          280 parts per million was the CO2 level before the Industrial Revolution kicked off. This is the era in which civilizations arose, and global average temperatures were about a degree Celsius cooler than they are today.
+        [/span]
+      [/Conditional]
+
+      [Conditional if:`ppm == 412`]
+        [span className:"pull-number"]412 ppm[/span]
+        [span className:"pull-number-text"]
+          412 parts per million was the CO2 level in 2019, the year in which we also surpassed 1 degree Celsius of global warming compared to the pre-industrial era.
+        [/span]
+      [/Conditional]
+    [/Aside]
 
     // p5 ppm visualization
-    [var name:"ppm" value:1 /]
     [var name:"animate" value:false /]
     [p5Component
       ppm: ppm
@@ -298,9 +340,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       `
       /]
 
-    [br/]
-    1 part per million is a miniscule concentration, which is why you can barely see any CO2 molecules above. Use the buttons below to increase the CO2 concentration.
-
     [div className:"buttonwrapper"]
 
       [Button onClick:`ppm = 1`]
@@ -316,53 +355,59 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [/Button]
 
       [Button onClick:`ppm = 280`]
-        280 ppm (Preindustrial Value)
+        280 ppm
       [/Button]
 
       [Button onClick:`ppm = 412`]
-        412 ppm (2019 Value)
+        412 ppm
       [/Button]
 
     [/div]
     [br/]
 
-    On January 1, 2020, the carbon dioxide concentration in the air was 412 parts per million, which means that 0.0412% of the air was carbon dioxide. Use the button below to see what this looks like on the visualization above.
+    Now that we understand how to measure CO2, let's travel backwards in our CO2 time machine.
 
-    [br/]
-
-    Now that we understand how to measure CO2, let's travel backwards in our CO2 time machine, starting from 2019.
+    We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million, which means that 0.0412% of the air was carbon dioxide.
 
   [/TextContainer]
 
+  [var name:"index" value:`1` /]
 
-  // plotly fullwidth test
-  [var name:'data' value:`[{
-              x: [1, 2, 3, 4],
-              y: Array(4).fill(0).map(e => Math.random(10)),
-              mode: 'lines+markers',
-              type: 'scatter'
-            }]`
-  /]
+  [Button onClick:`index += 1`]
+    Update Graph.
+  [/Button]
 
+  // plotly fullwidth
   [PlotlyComponent
     isVisible:birthYearSelected
-    data: data
+    data: `[{
+              x: co2.map(e => e.year).slice(0, index),
+              y: co2.map(e => e.ppm).slice(0, index),
+              mode: 'lines',
+              type: 'scatter'
+            }]`
     layout: `{
-              title: 'Plotly Graph Hooray!',
+              title: 'Data Test: CO2 vs time',
               font: {size: 18},
-              yaxis: {range: [0, 1]},
-              transition: {
-                  duration: 500,
-                  easing: 'cubic-in-out'
-                }
+              xaxis: {
+                title: 'Year'
+              },
+              yaxis: {
+                title: 'CO2 Level (parts per million)'
+              }
               }`
     config: `{responsive: true}`
   /]
 
-  [Button onClick:`data[0].y = Array(4).fill(0).map(e => Math.random(10))`]
+  [Button onClick:`index += 1`]
     Update Graph.
   [/Button]
 
+  [TextContainer]
+
+    Some words go here.
+
+  [/TextContainer]
 
   [/Conditional]
 
