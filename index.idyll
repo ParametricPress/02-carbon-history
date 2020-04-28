@@ -38,7 +38,7 @@ Hundreds of millions of years ago, the dead remains of plants and microscopic pl
 [Aside]
   [span className:"pull-number"]99%[/span]
   [span className:"pull-number-text"]
-    The fraction of carbon in organic matter that decays into carbon dioxide. The remaining 1% that doesn't decay is the reservoir from which fossil fuels are formed.
+    Roughly 99 percent of the carbon in organic matter will decay into carbon dioxide. The remaining 1% is the reservoir from which fossil fuels are formed.
   [/span]
   [br/][br/]
   **Source**: [link text:"Chemistry of Fossil Fuels and Biofuels, Harold Schobert" url:"https://www.cambridge.org/core/books/chemistry-of-fossil-fuels-and-biofuels/55F8E62F729DF25CE4D40109440860DA" /]
@@ -50,8 +50,6 @@ Over the eras, continents shifted and collided, dinosaurs came and went, plants 
 
 Meanwhile, beneath the Earth’s surface, all that dormant carbon was being heated and compressed, transforming into some of the most energy rich substances we humans have ever known — coal, oil, and natural gas.
 
-Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it in 2019 alone. In effect, we're burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years.
-
 [Aside]
   [span className:"pull-number"]10 Billion Tons[/span]
   [span className:"pull-number-text"]
@@ -60,6 +58,8 @@ Today we’re unearthing tons of this ancient carbon — about 10 billion tons o
   [br/][br/]
   **Source**: [link text:"Global Carbon Budget 2019" url:"https://www.earth-syst-sci-data.net/11/1783/2019/" /]
 [/Aside]
+
+Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it in 2019 alone. In effect, we're burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years.
 
 By returning all this carbon into the air, we’re transforming the composition of our oceans and atmosphere and, as a consequence, altering the climate of our planet.
 
@@ -135,9 +135,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   hoverinfo: 'text',
                   orientation: 'h',
                   marker: {
-                    color: 'black',
-                    opacity: 0.6
-                  }
+                    color: '#666666'
+                  },
                 }]`
         layout: `{
                   title: 'What Fraction of Human CO2 Emissions Occurred in Your Life?',
@@ -145,12 +144,20 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   yaxis: {
                     title: 'Your Age',
                     dtick: 5,
-                    autorange: 'reversed'
+                    autorange: 'reversed',
+                    color: '#7e7e7e'
                   },
+                  paper_bgcolor: '#222222',
+                  plot_bgcolor: '#222222',
                   xaxis: {
                     title: 'Percent CO2 Emissions in Your Lifetime',
-                    range: [0, 101]
-                  }
+                    range: [0, 101],
+                    color: '#7e7e7e'
+                  },
+                  font: {
+                    family: 'Graphik Web',
+                    color: '#ffffff'
+                  },
                 }`
         config: `{responsive: true}`
       /]
@@ -352,13 +359,20 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 y: co2.map(e => e.ppm),
                 mode: 'lines+markers',
                 type: 'scatter',
-                hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>'
+                hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
+                line: {
+                  color:' #4a00fb',
+                },
+                marker: {
+                  size: 6
+                }
               }]`
       layout: `{
                 title: 'Your Life in CO2',
                 height: 700,
                 showlegend: false,
                 font: {
+                  family: 'Graphik Web',
                   size: 18
                 },
                 xaxis: {
@@ -371,7 +385,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.02, // min of yvalues in xrange
                           co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a > b ? a : b) * 1.02 // min of yvalues in xrange
                           ],
-                  title: 'CO2 Level (parts per million)',
+                  title: 'CO2 Level (in parts per million)',
                   tickformat: 'd'
                 },
                 transition: {
@@ -379,22 +393,22 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   easing: 'cubic-in-out'
                 },
                 annotations: [
-                    makeAnnotation(co2, 2019, '2019', 0),
-                    makeAnnotation(co2, 2017, 'US Leaves<br>Paris Agreement'),
-                    makeAnnotation(co2, 2015, 'Paris Climate<br>Agreement Signed'),
-                    makeAnnotation(co2, 2012, 'Curiosity Rover<br>Lands on Mars'),
-                    makeAnnotation(co2, 2007, 'iPhone<br>Launched'),
-                    makeAnnotation(co2, 2005, 'YouTube<br>Created'),
-                    makeAnnotation(co2, 2001, 'First Harry Potter<br>Movie Released'),
-                    makeAnnotation(co2, 1997, 'Titanic<br>Released'),
-                    makeAnnotation(co2, 1993, 'Jurassic Park<br>Released'),
-                    makeAnnotation(co2, 1989, 'Berlin Wall<br>Comes Down'),
-                    //makeAnnotation(co2, 1984, 'Prince Releases<br>Purple Rain'),
-                    makeAnnotation(co2, 1982, 'Michael Jackson<br>Releases Thriller'),
-                    //makeAnnotation(co2, 1980, 'Pac-Man<br>Released'),
+                    makeAnnotation(co2, graphYear, 2019, '2019', 0),
+                    makeAnnotation(co2, graphYear, 2017, 'US Leaves<br>Paris Agreement'),
+                    makeAnnotation(co2, graphYear, 2015, 'Paris Climate<br>Agreement Signed'),
+                    makeAnnotation(co2, graphYear, 2012, 'Curiosity Rover<br>Lands on Mars'),
+                    makeAnnotation(co2, graphYear, 2007, 'iPhone<br>Launched'),
+                    makeAnnotation(co2, graphYear, 2005, 'YouTube<br>Created'),
+                    makeAnnotation(co2, graphYear, 2001, 'First Harry Potter<br>Movie Released'),
+                    makeAnnotation(co2, graphYear, 1997, 'Titanic<br>Released'),
+                    makeAnnotation(co2, graphYear, 1993, 'Jurassic Park<br>Released'),
+                    makeAnnotation(co2, graphYear, 1989, 'Berlin Wall<br>Comes Down'),
+                    //makeAnnotation(co2, graphYear, 1984, 'Prince Releases<br>Purple Rain'),
+                    makeAnnotation(co2, graphYear, 1982, 'Michael Jackson<br>Releases Thriller'),
+                    //makeAnnotation(co2, graphYear, 1980, 'Pac-Man<br>Released'),
                   ].filter(e => !(e.x == birthYear))
-                   .filter(e => e.x >= birthYear)
-                   .concat([makeAnnotation(co2, birthYear, 'You Were Born!<br>🎂🎉', 0, 100,)])
+                   .filter(e => e.x >= graphYear)
+                   .concat([makeAnnotation(co2, graphYear, birthYear, 'You Were Born!<br>🎂🎉', 0, 100,)])
               }`
       config: `{responsive: true}`
     /]
