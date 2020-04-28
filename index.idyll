@@ -393,22 +393,23 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   easing: 'cubic-in-out'
                 },
                 annotations: [
-                    makeAnnotation(co2, graphYear, 2019, '2019', 0),
-                    makeAnnotation(co2, graphYear, 2017, 'US Leaves<br>Paris Agreement'),
-                    makeAnnotation(co2, graphYear, 2015, 'Paris Climate<br>Agreement Signed'),
-                    makeAnnotation(co2, graphYear, 2012, 'Curiosity Rover<br>Lands on Mars'),
-                    makeAnnotation(co2, graphYear, 2007, 'iPhone<br>Launched'),
-                    makeAnnotation(co2, graphYear, 2005, 'YouTube<br>Created'),
-                    makeAnnotation(co2, graphYear, 2001, 'First Harry Potter<br>Movie Released'),
-                    makeAnnotation(co2, graphYear, 1997, 'Titanic<br>Released'),
-                    makeAnnotation(co2, graphYear, 1993, 'Jurassic Park<br>Released'),
-                    makeAnnotation(co2, graphYear, 1989, 'Berlin Wall<br>Comes Down'),
+                    makeAnnotation(co2, graphYear, 2019, 'up', '2019', 0),
+                    makeAnnotation(co2, graphYear, 2017, 'down', 'US Leaves<br>Paris Agreement'),
+                    makeAnnotation(co2, graphYear, 2015, 'up', 'Paris Climate<br>Agreement Signed'),
+                    makeAnnotation(co2, graphYear, 2012, 'down', 'Curiosity Rover<br>Lands on Mars'),
+                    makeAnnotation(co2, graphYear, 2007, 'up', 'iPhone<br>Launched'),
+                    makeAnnotation(co2, graphYear, 2005, 'down', 'YouTube<br>Created'),
+                    makeAnnotation(co2, graphYear, 2001, 'up', 'First Harry Potter<br>Movie Released'),
+                    makeAnnotation(co2, graphYear, 1997, 'down', 'Titanic<br>Released'),
+                    makeAnnotation(co2, graphYear, 1993, 'up', 'Jurassic Park<br>Released'),
+                    makeAnnotation(co2, graphYear, 1989, 'down', 'Berlin Wall<br>Comes Down'),
                     //makeAnnotation(co2, graphYear, 1984, 'Prince Releases<br>Purple Rain'),
-                    makeAnnotation(co2, graphYear, 1982, 'Michael Jackson<br>Releases Thriller'),
+                    makeAnnotation(co2, graphYear, 1982, 'up', 'Michael Jackson<br>Releases Thriller'),
                     //makeAnnotation(co2, graphYear, 1980, 'Pac-Man<br>Released'),
                   ].filter(e => !(e.x == birthYear))
                    .filter(e => e.x >= graphYear)
-                   .concat([makeAnnotation(co2, graphYear, birthYear, 'You Were Born!<br>🎂🎉', 0, 100,)])
+                   .filter(e => e.font.size >= 7)
+                   .concat([makeAnnotation(co2, graphYear, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 100,)])
               }`
       config: `{responsive: true}`
     /]
