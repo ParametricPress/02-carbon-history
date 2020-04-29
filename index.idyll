@@ -27,7 +27,7 @@
 
 [var name:"debugMode" value:"enabled" /]
 
-Debug mode: [Select value:debugMode options:`['enabled', 'disabled']`  /] (disable for reader experience)
+Debug mode: [Select value:debugMode options:`['enabled', 'disabled']`  /] (disable for reader view)
 
 # Prehistory
 
@@ -65,7 +65,7 @@ By returning all this carbon into the air, we’re transforming the composition 
 
 [hr/]
 
-# Your Birthday
+# Part One: Your Birthday
 
 So when you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a tiny blip in this story.
 
@@ -376,14 +376,14 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   size: 18
                 },
                 xaxis: {
-                  range: [graphYear - 0.5, 2019.5],
+                  range: [graphYear == 2019 ? 2018.5 : graphYear - 2, 2019.5],
                   title: 'Year',
                   tickformat: 'd'
                 },
                 yaxis: {
                   range: [
-                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.02, // min of yvalues in xrange
-                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a > b ? a : b) * 1.02 // min of yvalues in xrange
+                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.05, // min of yvalues in xrange
+                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a > b ? a : b) * 1.05 // max of yvalues in xrange
                           ],
                   title: 'CO2 Level (in parts per million)',
                   tickformat: 'd'
@@ -401,11 +401,16 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     makeAnnotation(co2, graphYear, 2005, 'down', 'YouTube<br>Created'),
                     makeAnnotation(co2, graphYear, 2001, 'up', 'First Harry Potter<br>Movie Released'),
                     makeAnnotation(co2, graphYear, 1997, 'down', 'Titanic<br>Released'),
-                    makeAnnotation(co2, graphYear, 1993, 'up', 'Jurassic Park<br>Released'),
+                    makeAnnotation(co2, graphYear, 1991, 'up', 'Soviet Union<br>Dissolved'),
                     makeAnnotation(co2, graphYear, 1989, 'down', 'Berlin Wall<br>Comes Down'),
                     //makeAnnotation(co2, graphYear, 1984, 'Prince Releases<br>Purple Rain'),
                     makeAnnotation(co2, graphYear, 1982, 'up', 'Michael Jackson<br>Releases Thriller'),
                     //makeAnnotation(co2, graphYear, 1980, 'Pac-Man<br>Released'),
+                    makeAnnotation(co2, graphYear, 1977, 'down', 'Star Wars<br>Released'),
+                    makeAnnotation(co2, graphYear, 1969, 'up', 'Humans Land<br>on Moon'),
+                    makeAnnotation(co2, graphYear, 1957, 'up', 'Sputnik Launched'),
+                    makeAnnotation(co2, graphYear, 1945, 'down', 'World War II<br>Ends'),
+                    makeAnnotation(co2, graphYear, 1939, 'down', 'World War II<br>Begins'),
                   ].filter(e => !(e.x == birthYear))
                    .filter(e => e.x >= graphYear)
                    .filter(e => e.font.size >= 7)
@@ -414,6 +419,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       config: `{responsive: true}`
     /]
 
+    [var name:"partOneCompleted" value:false/]
     [var name:"buttonEnabled" value:true /]
 
       [div className:"buttonwrapper"]
@@ -422,7 +428,12 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           if (buttonEnabled) {
 
             buttonEnabled = false;
-            graphYear = (graphYear - 5) > birthYear - 1 ? graphYear - 5 : birthYear - 1;
+            if ((graphYear - 5) > birthYear - 1) {
+              graphYear = graphYear - 5;
+            } else {
+              graphYear = birthYear - 1;
+              partOneCompleted = true;
+            }
 
             setTimeout(() => {
               buttonEnabled = true;
@@ -439,12 +450,98 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
       [/div]
 
-    [Conditional if:`graphYear == birthYear`]
+    [Conditional if:`partOneCompleted || debugMode == 'enabled'`]
       [br/]
       [TextContainer]
         We’ve arrived at [Display value:birthYear format:"d" /], the year that you were born. Since CO2 levels have been reliably rising every year of your life, you can actually measure your age in terms of the carbon dioxide levels at your birth.
 
-        I was born at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] ppm.
+        [Aside]
+          [span className:"pull-number"][Display value:`getCO2Level(co2, birthYear)` format:"d" /] ppm[/span]
+          [span className:"pull-number-text"]
+            In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] parts per million.
+          [/span]
+        [/Aside]
+
+      [p5Component
+        className: "center"
+        birthYear: birthYear
+        sketch:`(p, parent) => {
+
+          let img; // Declare variable 'img'.
+          let candles = [];
+          let myCandles = [];
+          let scale = 0.438;
+          let ppm = 100;
+
+          p.preload = function() {
+            img = p.loadImage('static/assets/cake.png'); // Load the image
+            for (let c=0;c<10;c++) {
+              candles.push(p.loadImage('static/assets/' + c + '.png'));
+            }
+          };
+
+          p.setup = function() {
+            p.createCanvas(400, 400);
+            p.imageMode(p.CENTER);
+            p.noLoop();
+            drawStuff(birthYear);
+          };
+
+          function drawStuff(year) {
+            p.background('aliceblue');
+            myCandles = p.round(getCO2Level(co2, year)).toString().split('').map(Number).map(n => candles[n]);
+
+            p.tint(0, 0, 0, 0.66 * 255); // Tint black with 66% opacity
+            drawCake(2);
+
+            p.noTint();
+            drawCake(-2);
+
+            p.tint(0, 0, 0, 0.66 * 255); // Tint black with 66% opacity
+            drawCandles(2);
+
+            p.noTint();
+            drawCandles(-2);
+          }
+
+          function drawCake(shift = 0) {
+            p.image(img, shift + p.width/2, p.height - img.height * scale/2, img.width * scale, img.height * scale);
+          }
+
+          function drawCandles(shift = 0) {
+
+            p.image(myCandles[0],
+                    shift + p.width/2 - img.width * scale/5,
+                    p.height - img.height * scale - 0.33*myCandles[0].height * scale/2, 0.75*myCandles[0].width * scale,
+                    0.75*myCandles[0].height * scale);
+
+            p.image(myCandles[1],
+                    shift + p.width/2 , p.height - img.height * scale - 0.33*myCandles[1].height * scale/2,
+                    0.75*myCandles[1].width * scale,
+                    0.75*myCandles[1].height * scale);
+
+            p.image(myCandles[2],
+                    shift + p.width/2 + img.width * scale/5,
+                    p.height - img.height * scale - 0.33*myCandles[2].height * scale/2,
+                    0.75*myCandles[2].width * scale, 0.75*myCandles[2].height * scale);
+
+          }
+
+          p.onUpdate = function(props, oldProps) {
+            //console.log('p5 props changed', props);
+            drawStuff(props.birthYear);
+          };
+
+        }
+
+        `
+        /]
+        [br/]
+
+        How does this compare to the all the time before you were born?
+
+        # Part Two: The Birth of Industry
+
       [/TextContainer]
     [/Conditional]
   [/Conditional]

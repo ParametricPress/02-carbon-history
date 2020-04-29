@@ -1,5 +1,133 @@
 
 
+      // p5 ppm visualization
+      [var name:"animate2" value:false /]
+      [p5Component
+        ppm: viz2ppm
+        animate: animate2
+        onEnterView: `animate2 = true`
+        onExitViewFully: `animate2 = false`
+        className: "center"
+        isVisible: partOneCompleted
+        sketch:`(p, parent) => {
+
+          // visualizing ppm at different levels
+          // modifying code by Daniel Shiffman
+          // http://codingtra.in
+          // http://patreon.com/codingtrain
+          // Code for: https://youtu.be/17WoOqgXsRM
+
+          let stars, volume, depth;
+          let zoom = 6;
+          let speed = 10;
+          let concentration = getCO2Level(co2, birthYear);
+
+          function init() {
+            depth = 2 * p.width;
+            p.fill(40, 32, 68);
+            p.textSize(12);
+            p.textAlign(p.LEFT, p.CENTER);
+            p.noStroke();
+
+            volume = p.round((2*p.width) * (2*p.height) * depth / p.pow(zoom,3));
+            let numStars = p.round(volume * concentration / 1000000);
+
+            stars = [];
+            for (let i = 0; i < numStars; i++) {
+              stars.push(new Star());
+            }
+          }
+
+          p.setup = function() {
+            p.createCanvas(400, 400);
+            p.noLoop();
+            init();
+          };
+
+          p.draw = function() {
+            p.background(250);
+            p.text(concentration + ' ppm', 10, p.height - 10);
+
+            p.translate(p.width / 2, p.height / 2);
+
+            for (let star of stars) {
+              star.update();
+              star.show();
+            }
+
+          };
+
+          function Star() {
+            this.x = p.random(-p.width, p.width);
+            this.y = p.random(-p.height, p.height);
+            this.z = p.random(depth);
+
+            this.update = function() {
+
+              this.z = this.z - speed;
+
+              if (this.z < 1) {
+                this.z = depth;
+                this.x = p.random(-p.width, p.width);
+                this.y = p.random(-p.height, p.height);
+              }
+            };
+
+            this.show = function() {
+              p.circle(p.map(this.x / this.z, 0, 1, 0, p.width),
+                     p.map(this.y / this.z, 0, 1, 0, p.height),
+                     p.map(this.z, 1, depth, zoom, 1));
+            };
+          }
+
+          p.windowResized = function() {
+          }
+
+          p.onUpdate = function(props, oldProps) {
+            if (props.animate !== oldProps.animate) {
+              if (props.animate) {
+                //console.log('starting animation');
+                p.loop();
+              } else {
+                //console.log('pausing animation');
+                p.noLoop();
+              }
+            }
+            if (props.ppm !== oldProps.ppm) {
+              concentration = props.ppm;
+              init();
+            }
+          };
+
+        }
+
+        `
+        /]
+
+      [br/]
+      [div className:"buttonwrapper"]
+
+        [Button onClick:`viz2ppm = 280`]
+          280 ppm (Pre-Industrial Levels)
+        [/Button]
+
+        [Button onClick:`viz2ppm = getCO2Level(co2, birthYear)`]
+          [Display value:`getCO2Level(co2, birthYear)` format:"d" /] ppm ([Display value:`birthYear` format:"d" /] levels)
+        [/Button]
+
+        [Button onClick:`viz2ppm = 412`]
+          412 ppm (2019 Levels)
+        [/Button]
+
+      [/div]
+      [br/]
+
+
+
+
+
+
+
 # Testing Data Load
 [data name:"co2" source:"CO2.csv" /]
 
