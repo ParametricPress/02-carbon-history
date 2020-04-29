@@ -536,6 +536,13 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         `
         /]
+
+        [span className:"center"]
+          [caption]
+            🎂🎉 You were born at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] ppm.
+          [/caption]
+        [/span]
+
         [br/]
 
         How does this compare to the all the time before you were born?
