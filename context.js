@@ -1,22 +1,22 @@
 const getCO2Level = (data, year) => data.filter(e => e.year == year)[0].ppm;
 const getCO2Fraction = (data, year) => (getCO2Level(data, '2019') - getCO2Level(data, year)) / (getCO2Level(data, '2019') - 280);
 const map = (n, start1, stop1, start2, stop2) => Math.min(Math.max((n - start1) / (stop1 - start1) * (stop2 - start2) + start2, start2),stop2);
-const makeAnnotation = (data, graphYear, year, direction, annotationText, deltaX, deltaY, xanchor, yanchor) => (
+const makeAnnotation = (data, graphYear, year, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
                         {
                           x: year,
                           y: getCO2Level(data, year) + 0.2,
                           xref: 'x',
                           yref: 'y',
-                          xanchor: xanchor ? xanchor : 'center',
-                          yanchor: yanchor ? yanchor : 'bottom',
+                          xanchor: xAnchor ? xAnchor : 'center',
+                          yanchor: yAnchor ? yAnchor : (direction == 'up' ? 'bottom' : 'top'),
                           text: annotationText,
                           font: {
-                            size: 20 * Math.pow((2020 - year)/(2020 - graphYear), 0.5),
+                            size: isLabelStatic ? 20 : 20 * Math.pow((2020 - year)/(2020 - graphYear), 0.5),
                           },
                           showarrow: true,
                           arrowhead: 2,
-                          ax: (!isNaN(deltaX) ? deltaX : -25 ) * Math.pow((2020 - year)/(2020 - graphYear), 0.5) * (direction == 'up' ? 1 : -1),
-                          ay: (!isNaN(deltaY) ? -deltaY : -100) * Math.pow((2020 - year)/(2020 - graphYear), 0.5) * (direction == 'up' ? 1 : -1)
+                          ax: (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -1),
+                          ay: (!isNaN(deltaY) ? -deltaY : -75) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -1)
                         });
 
 module.exports = (ctx) => {

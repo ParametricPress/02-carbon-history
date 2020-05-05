@@ -29,7 +29,7 @@
 
 Debug mode: [Select value:debugMode options:`['enabled', 'disabled']`  /] (disable for reader view)
 
-# Prehistory
+# Part Zero: Prehistory
 
 All the carbon in a fossil fuel was once in something alive.
 
@@ -65,7 +65,7 @@ By returning all this carbon into the air, we’re transforming the composition 
 
 [hr/]
 
-# Part One: Your Birthday
+# Part One: Your Birthday 🎂
 
 So when you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a tiny blip in this story.
 
@@ -88,7 +88,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
   [TextContainer]
     What’s the right answer? To find out, select the year in which you were born, and we’ll pull up the numbers for your lifetime.
 
-    [var name:"birthYear" value:"1960" /]
+    [var name:"birthYear" value:"1985" /]
 
     I was born in [Select value:birthYear options:`Array(96).fill(0).map((e,i) => 1920 + i).map(e => e.toString())`  /]
 
@@ -173,7 +173,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
       But we first need to know how to measure carbon dioxide. The basic unit in which we measure CO2 concentration is *parts per million*, or *ppm* for short.
 
-      A one part per million (1 ppm) concentration of CO2 simply means that one out of every million parts of air is carbon dioxide. If we could magically see the world from the perspective of a molecule, here's what this concetration of carbon dioxide might look like.
+      A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide. If we could see the world from the perspective of a molecule, here's what this concetration of carbon dioxide might look like.
 
       [var name:"vizppm" value:1 /]
 
@@ -238,10 +238,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
           function init() {
             depth = 2 * p.width;
-            p.fill(40, 32, 68);
+            p.fill('255');
             p.textSize(12);
             p.textAlign(p.LEFT, p.CENTER);
             p.noStroke();
+
 
             volume = p.round((2*p.width) * (2*p.height) * depth / p.pow(zoom,3));
             let numStars = p.round(volume * concentration / 1000000);
@@ -255,11 +256,12 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           p.setup = function() {
             p.createCanvas(400, 400);
             p.noLoop();
+            p.textFont('Graphik Web');
             init();
           };
 
           p.draw = function() {
-            p.background(250);
+            p.background('#222222');
             p.text(concentration + ' ppm', 10, p.height - 10);
 
             p.translate(p.width / 2, p.height / 2);
@@ -376,13 +378,13 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   size: 18
                 },
                 xaxis: {
-                  range: [graphYear == 2019 ? 2018.5 : graphYear - 2, 2019.5],
+                  range: [graphYear == 2019 ? 2018.5 : graphYear - 5/2, 2019.5],
                   title: 'Year',
                   tickformat: 'd'
                 },
                 yaxis: {
                   range: [
-                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.05, // min of yvalues in xrange
+                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
                           co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a > b ? a : b) * 1.05 // max of yvalues in xrange
                           ],
                   title: 'CO2 Level (in parts per million)',
@@ -393,28 +395,24 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   easing: 'cubic-in-out'
                 },
                 annotations: [
-                    makeAnnotation(co2, graphYear, 2019, 'up', '2019', 0),
+                    makeAnnotation(co2, graphYear, 2019, 'down', '2019', 0, 75, 'center', 'top', true),
                     makeAnnotation(co2, graphYear, 2017, 'down', 'US Leaves<br>Paris Agreement'),
                     makeAnnotation(co2, graphYear, 2015, 'up', 'Paris Climate<br>Agreement Signed'),
                     makeAnnotation(co2, graphYear, 2012, 'down', 'Curiosity Rover<br>Lands on Mars'),
-                    makeAnnotation(co2, graphYear, 2007, 'up', 'iPhone<br>Launched'),
+                    makeAnnotation(co2, graphYear, 2007, 'up', 'iPhone<br>Launched 📱'),
                     makeAnnotation(co2, graphYear, 2005, 'down', 'YouTube<br>Created'),
                     makeAnnotation(co2, graphYear, 2001, 'up', 'First Harry Potter<br>Movie Released'),
-                    makeAnnotation(co2, graphYear, 1997, 'down', 'Titanic<br>Released'),
                     makeAnnotation(co2, graphYear, 1991, 'up', 'Soviet Union<br>Dissolved'),
                     makeAnnotation(co2, graphYear, 1989, 'down', 'Berlin Wall<br>Comes Down'),
-                    //makeAnnotation(co2, graphYear, 1984, 'Prince Releases<br>Purple Rain'),
-                    makeAnnotation(co2, graphYear, 1982, 'up', 'Michael Jackson<br>Releases Thriller'),
-                    //makeAnnotation(co2, graphYear, 1980, 'Pac-Man<br>Released'),
                     makeAnnotation(co2, graphYear, 1977, 'down', 'Star Wars<br>Released'),
-                    makeAnnotation(co2, graphYear, 1969, 'up', 'Humans Land<br>on Moon'),
-                    makeAnnotation(co2, graphYear, 1957, 'up', 'Sputnik Launched'),
-                    makeAnnotation(co2, graphYear, 1945, 'down', 'World War II<br>Ends'),
+                    makeAnnotation(co2, graphYear, 1969, 'up', 'Humans Land<br>on Moon 🚀'),
+                    makeAnnotation(co2, graphYear, 1957, 'down', 'Sputnik<br>Launched 🛰️'),
+                    makeAnnotation(co2, graphYear, 1945, 'up', 'World War II<br>Ends'),
                     makeAnnotation(co2, graphYear, 1939, 'down', 'World War II<br>Begins'),
                   ].filter(e => !(e.x == birthYear))
                    .filter(e => e.x >= graphYear)
                    .filter(e => e.font.size >= 7)
-                   .concat([makeAnnotation(co2, graphYear, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 100,)])
+                   .concat([makeAnnotation(co2, graphYear, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 75)])
               }`
       config: `{responsive: true}`
     /]
@@ -431,7 +429,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             if ((graphYear - 5) > birthYear - 1) {
               graphYear = graphYear - 5;
             } else {
-              graphYear = birthYear - 1;
+              graphYear = birthYear;
               partOneCompleted = true;
             }
 
@@ -453,12 +451,12 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [Conditional if:`partOneCompleted || debugMode == 'enabled'`]
       [br/]
       [TextContainer]
-        We’ve arrived at [Display value:birthYear format:"d" /], the year that you were born. Since CO2 levels have been reliably rising every year of your life, you can actually measure your age in terms of the carbon dioxide levels at your birth.
+        We’ve arrived at [Display value:birthYear format:"d" /], the year that you were born. Since CO2 levels have been steadily rising every year of your life, you can actually measure your age in terms of the carbon dioxide level at your birth.
 
         [Aside]
-          [span className:"pull-number"][Display value:`getCO2Level(co2, birthYear)` format:"d" /] ppm[/span]
+          [span className:"pull-number"]You were born at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] ppm[/span]
           [span className:"pull-number-text"]
-            In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] parts per million.
+            In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] parts per million. Since CO2 levels have been rising every year of your life, you can think of this like your age, as measured in carbon dioxide.
           [/span]
         [/Aside]
 
@@ -547,9 +545,128 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         How does this compare to the all the time before you were born?
 
-        # Part Two: The Birth of Industry
+        # Part Two: The Birth of Industry 🚂
 
-      [/TextContainer]
+        Let's keep traveling further back in time, along this carbon dioxide curve.
+
+        [/TextContainer]
+        
+        [var name:"graph2Year" value:`birthYear` /]
+        [PlotlyComponent
+          isVisible:partOneCompleted
+          updateVar: birthYear
+          data: `[{
+                    x: co2.map(e => e.year),
+                    y: co2.map(e => e.ppm),
+                    mode: 'lines+markers',
+                    type: 'scatter',
+                    hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
+                    line: {
+                      color:' #4a00fb',
+                    },
+                    marker: {
+                      size: 6
+                    }
+                  }]`
+          layout: `{
+                    title: 'Your Life in CO2',
+                    height: 700,
+                    showlegend: false,
+                    font: {
+                      family: 'Graphik Web',
+                      size: 18
+                    },
+                    xaxis: {
+                      range: [graph2Year == birthYear ? birthYear - 5/2 : graph2Year - 50/2, 2019.5],
+                      title: 'Year',
+                      tickformat: 'd'
+                    },
+                    yaxis: {
+                      range: [
+                              co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
+                              co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a > b ? a : b) * 1.05 // max of yvalues in xrange
+                              ],
+                      title: 'CO2 Level (in parts per million)',
+                      tickformat: 'd'
+                    },
+                    transition: {
+                      duration: 1000,
+                      easing: 'cubic-in-out'
+                    },
+                    annotations: [
+                        makeAnnotation(co2, graph2Year, 2019, 'up', '2019', -75, 0, 'right', 'center', true),
+                        makeAnnotation(co2, graph2Year, 2017, 'down', 'US Leaves<br>Paris Agreement'),
+                        makeAnnotation(co2, graph2Year, 2015, 'up', 'Paris Climate<br>Agreement Signed'),
+                        makeAnnotation(co2, graph2Year, 2012, 'down', 'Curiosity Rover<br>Lands on Mars'),
+                        makeAnnotation(co2, graph2Year, 2007, 'up', 'iPhone<br>Launched 📱'),
+                        makeAnnotation(co2, graph2Year, 2005, 'down', 'YouTube<br>Created'),
+                        makeAnnotation(co2, graph2Year, 2001, 'up', 'First Harry Potter<br>Movie Released'),
+                        makeAnnotation(co2, graph2Year, 1991, 'up', 'Soviet Union<br>Dissolved'),
+                        makeAnnotation(co2, graph2Year, 1989, 'down', 'Berlin Wall<br>Comes Down'),
+                        makeAnnotation(co2, graph2Year, 1977, 'down', 'Star Wars<br>Released'),
+                        makeAnnotation(co2, graph2Year, 1969, 'up', 'Humans Land<br>on Moon 🚀'),
+                        makeAnnotation(co2, graph2Year, 1957, 'down', 'Sputnik<br>Launched 🛰️'),
+                        makeAnnotation(co2, graph2Year, 1945, 'up', 'World War II<br>Ends'),
+                        makeAnnotation(co2, graph2Year, 1939, 'down', 'World War II<br>Begins'),
+                        makeAnnotation(co2, graph2Year, 1919, 'up', 'World War I<br>Ends'),
+                        makeAnnotation(co2, graph2Year, 1914, 'down', 'World War I<br>Begins'),
+                        makeAnnotation(co2, graph2Year, 1903, 'up', 'Wright Brothers<br>First Flight 🛩'),
+                        makeAnnotation(co2, graph2Year, 1886, 'down', 'Statue of Liberty<br>Inaugurated 🗽'),
+                        makeAnnotation(co2, graph2Year, 1851, 'up', 'Industrial Revolution<br> Ends'),
+                        makeAnnotation(co2, graph2Year, 1807, 'down', 'Steamboat<br>Invented 🚢'),
+                        makeAnnotation(co2, graph2Year, 1804, 'up', 'Jacquard Loom<br>Invented 🧶'),
+                        makeAnnotation(co2, graph2Year, 1765, 'down', 'Steam Engine<br>Invented 🚂'),
+                        makeAnnotation(co2, graph2Year, 1760, 'up', 'Industrial Revolution<br>Begins 🏭', 0, 75, 'center', 'bottom', true),
+                      ].filter(e => !(e.x == birthYear))
+                       .filter(e => e.x >= graph2Year)
+                       .filter(e => e.font.size >= 7)
+                       .concat([makeAnnotation(co2, graph2Year, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 75, 'center', 'bottom', true)])
+                  }`
+          config: `{responsive: true}`
+        /]
+
+      [var name:"partTwoCompleted" value:false/]
+      [div className:"buttonwrapper"]
+
+        [Button onClick:`
+          if (buttonEnabled) {
+
+            buttonEnabled = false;
+            if ((graph2Year - 50) > 1750) {
+              graph2Year = graph2Year - 50;
+            } else {
+              graph2Year = 1750;
+              partTwoCompleted = true;
+            }
+
+            setTimeout(() => {
+              buttonEnabled = true;
+            }, 1000)
+
+          }
+        `]
+          Travel Back in Time
+        [/Button]
+
+        [Button onClick:`graph2Year = birthYear`]
+          Restart
+        [/Button]
+
+      [/div]
+      [br/]
+
+      [Conditional if:`partOneCompleted || debugMode == 'enabled'`]
+        [TextContainer]
+          This graph shows us the entire history of industrialization as seen through the lens of CO2. The key thing to take away from this graph is that, with every decade, the curve of the graph has grown steeper.
+
+          During the Industrial Revolution, carbon dioxide levels were definitely increasing. But if you compare the slope, it was rising at a gentle slope, compared to the steep rise today. This is what we mean by the fact that we're living through an acceleration.
+
+          We can keep going further back in time. What do CO2 levels look like before the Industrial Revolution began?
+
+          # Part Three: The Rise of Agriculture 🌾
+
+        [/TextContainer]
+      [/Conditional]
     [/Conditional]
   [/Conditional]
 [/Conditional]
