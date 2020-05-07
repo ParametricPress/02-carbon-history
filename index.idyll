@@ -383,9 +383,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   tickformat: 'd'
                 },
                 yaxis: {
-                  range: [
+                  range: [graphYear == 2019 ? 399 :
                           co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
-                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a > b ? a : b) * 1.05 // max of yvalues in xrange
+                          425
                           ],
                   title: 'CO2 Level (in parts per million)',
                   tickformat: 'd'
@@ -545,7 +545,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         How does this compare to the all the time before you were born?
 
-        # Part Two: The Birth of Industry 🚂
+        # Part Two: The Birth of Industry 🏭
 
         Let's keep traveling further back in time, along this carbon dioxide curve.
 
@@ -583,8 +583,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     },
                     yaxis: {
                       range: [
-                              co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
-                              co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a > b ? a : b) * 1.05 // max of yvalues in xrange
+                              co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.15, // min of yvalues in xrange
+                              425
                               ],
                       title: 'CO2 Level (in parts per million)',
                       tickformat: 'd'
@@ -612,11 +612,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         makeAnnotation(co2, graph2Year, 1914, 'down', 'World War I<br>Begins'),
                         makeAnnotation(co2, graph2Year, 1903, 'up', 'Wright Brothers<br>First Flight 🛩'),
                         makeAnnotation(co2, graph2Year, 1886, 'down', 'Statue of Liberty<br>Inaugurated 🗽'),
-                        makeAnnotation(co2, graph2Year, 1851, 'up', 'Industrial Revolution<br> Ends'),
+                        makeAnnotation(co2, graph2Year, 1851, 'up', 'Industrial<br>Revolution<br>Ends'),
                         makeAnnotation(co2, graph2Year, 1807, 'down', 'Steamboat<br>Invented 🚢'),
                         makeAnnotation(co2, graph2Year, 1804, 'up', 'Jacquard Loom<br>Invented 🧶'),
                         makeAnnotation(co2, graph2Year, 1765, 'down', 'Steam Engine<br>Invented 🚂'),
-                        makeAnnotation(co2, graph2Year, 1760, 'up', 'Industrial Revolution<br>Begins 🏭', 0, 75, 'center', 'bottom', true),
+                        makeAnnotation(co2, graph2Year, 1760, 'up', 'Industrial<br>Revolution<br>Begins 🏭', 0, 75, 'center', 'bottom', true),
                       ].filter(e => !(e.x == birthYear))
                        .filter(e => e.x >= graph2Year)
                        .filter(e => e.font.size >= 7)
