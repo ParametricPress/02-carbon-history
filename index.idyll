@@ -8,8 +8,8 @@
 [Nav fullWidth:true /]
 
 [Header
-  title:`["Your life", "in CO2"]`
-  longTitle:`["Your life in", "Carbon Dioxide"]`
+  title:`["Your Life", "in CO2"]`
+  longTitle:`["Your Life in", "Carbon Dioxide"]`
   date:"May 15, 2020"
   dek:"TK TK A punchy description of why we should read your article."
   fullWidth:true
@@ -29,7 +29,7 @@
 
 Debug mode: [Select value:debugMode options:`['enabled', 'disabled']`  /] (disable for reader view)
 
-# Part Zero: Prehistory
+# Part One: Genesis 🦕
 
 All the carbon in a fossil fuel was once in something alive.
 
@@ -65,7 +65,7 @@ By returning all this carbon into the air, we’re transforming the composition 
 
 [hr/]
 
-# Part One: Your Birthday 🎂
+# Part Two: Your Birthday 🎂
 
 So when you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a tiny blip in this story.
 
@@ -545,7 +545,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         How does this compare to the all the time before you were born?
 
-        # Part Two: The Birth of Industry 🏭
+        # Part Three: The Birth of Industry 🏭
 
         Let's keep traveling further back in time, along this carbon dioxide curve.
 
@@ -655,7 +655,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [/div]
       [br/]
 
-      [Conditional if:`partOneCompleted || debugMode == 'enabled'`]
+      [Conditional if:`partTwoCompleted || debugMode == 'enabled'`]
         [TextContainer]
           This graph shows us the entire history of industrialization as seen through the lens of CO2. The key thing to take away from this graph is that, with every decade, the curve of the graph has grown steeper.
 
@@ -663,26 +663,23 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
           We can keep going further back in time. What do CO2 levels look like before the Industrial Revolution began?
 
-          # Part Three: The Rise of Agriculture 🌾
+          # Part Four: The Rise of Agriculture 🌾
         [/TextContainer]
 
-        [data name:"co2_past" source:"CO2_800kyrs.csv" /]
-
         [PlotlyComponent
-          isVisible:partOneCompleted
+          isVisible:partTwoCompleted
           updateVar: birthYear
           data: `[{
-                    x: [...co2.map(e => 2019 - e.year).reverse(),
-                        ...co2_past.filter(e => e.yearsBP > 2018 - (2019-1950) ).map(e => e.yearsBP + 2019 - 1950)
-                        ],
-                    y: [...co2.map(e => e.ppm).reverse(),
-                        ...co2_past.filter(e => e.yearsBP > 2018 - (2019-1950)).map(e => e.ppm),
-                        ],
+                    x: co2.map(e => e.yearsBefore2019),
+                    y: co2.map(e => e.ppm),
                     mode: 'lines+markers',
                     type: 'scatter',
                     hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
+                    line: {
+                      color:' #4a00fb',
+                    },
                     marker: {
-                      size: 3
+                      size: 2
                     }
                   }]`
           layout: `{
@@ -694,22 +691,22 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       size: 18
                     },
                     xaxis: {
-                      range: [10000, 0],
-                      title: 'Years Before 2019',
+                      range: [800000, -1000],
+                      title: 'Years before 2019',
                       tickformat: 'd'
                     },
                     yaxis: {
-                      //range: [250, 420],
                       title: 'CO2 Level (in parts per million)',
                       tickformat: 'd'
                     },
                     transition: {
                       duration: 1000,
                       easing: 'cubic-in-out'
-                    },
+                    }
                   }`
           config: `{responsive: true}`
         /]
+
 
       [/Conditional]
     [/Conditional]
