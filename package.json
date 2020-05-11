@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "idyll --template _local.html --no-ssr",
-    "build": "idyll build --output docs"
+    "build": "idyll build --output docs  --no-ssr"
   },
   "idyll": {
     "css": "styles.css",
