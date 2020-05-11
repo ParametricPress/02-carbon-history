@@ -1,0 +1,66 @@
+
+
+.ReactTable .-pagination button {
+  margin: 0;
+}
+
+.center > canvas {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonwrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttonwrapper > button {
+  margin: 5px;
+  /*margin-right: 10px;*/
+}
+
+.slider {
+  width: 100%;
+}
+
+.js-plotly-plot {
+  display: inline-block;
+}
+
+.pull-number {
+  font-size: 36px;
+  font-family: "Graphik Web";
+  font-weight: 800;
+  width: 100%;
+  display: block;
+  border-bottom: solid 2px #222;
+  line-height: 1.25;
+  margin-bottom: 5px;
+  color: #222222;
+}
+
+.aside-container {
+  display: block;
+}
+
+.aside {
+  margin-bottom: 20px;
+}
+
+@media all and (max-width: 1000px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
+
+}
+

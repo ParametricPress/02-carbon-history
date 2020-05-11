@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <title>Why we&#39;re living in an extraordinary time</title>
+    <meta property="og:title" content="Why we&#39;re living in an extraordinary time" />
+    <meta charset="utf-8" />
+    <meta property="og:image" content="https:&#x2F;&#x2F;parametric.press&#x2F;issue-02&#x2F;tk-article-slug&#x2F;static&#x2F;images&#x2F;share.png" />
+    <meta name="twitter:image:src" content="https:&#x2F;&#x2F;parametric.press&#x2F;issue-02&#x2F;tk-article-slug&#x2F;static&#x2F;images&#x2F;share.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image:width" content="880" />
+    <meta property="og:image:height" content="440" />
+    <meta property="og:type" content="article" />
+
+    <meta property="og:description" content="TK Article Description" />
+    <meta property="description" content="TK Article Description" />
+
+    <link rel="stylesheet" href="static/issue-02-layout.css" />
+    <link rel="stylesheet" href="static/issue-02-theme.css" />
+    <link rel="stylesheet" href="static/idyll_styles.css" />
+    <script>
+      if (!Object.assign) {
+        Object.defineProperty(Object, 'assign', {
+          enumerable: false,
+          configurable: true,
+          writable: true,
+          value: function(target) {
+            'use strict';
+            if (target === undefined || target === null) {
+              throw new TypeError('Cannot convert first argument to object');
+            }
+
+            var to = Object(target);
+            for (var i = 1; i < arguments.length; i++) {
+              var nextSource = arguments[i];
+              if (nextSource === undefined || nextSource === null) {
+                continue;
+              }
+              nextSource = Object(nextSource);
+
+              var keysArray = Object.keys(Object(nextSource));
+              for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
+                var nextKey = keysArray[nextIndex];
+                var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+                if (desc !== undefined && desc.enumerable) {
+                  to[nextKey] = nextSource[nextKey];
+                }
+              }
+            }
+            return to;
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="idyll-mount"></div>
+    <script src="static/idyll_index.js"></script>
+  </body>
+</html>
