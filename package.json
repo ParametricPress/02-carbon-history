@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "idyll --template _local.html --no-ssr"
+    "start": "idyll --template _local.html --no-ssr",
+    "build": "idyll build --output docs"
   },
   "idyll": {
     "css": "styles.css",
