@@ -4,12 +4,11 @@ TK short description of article.
 
 ## Next Steps
 
-- [X] Create plotly component with some dummy data
-- [X] Figure out how to pull in data
-- [X] Make text respond to data
-- [X] Hook up plotly graph to data
-- [X] Add p5 ppm animation
-- [ ] Complete mockup of Part 1
+- [ ] Improve Plotly responsive behavior
+	- currently text doesn't resize
+	- perhaps we can overwrite Plotly's default resize behavior with something like [this](https://community.plotly.com/t/responsive-plotly-js-was-working-now-it-is-not/451)
+	- or keep the auto resize if I can get it to change font size on resize
+- [ ] Complete Ice Ages Section
 
 ## Local Setup
 
