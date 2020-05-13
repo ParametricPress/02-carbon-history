@@ -4,7 +4,8 @@ const map = (n, start1, stop1, start2, stop2) => Math.min(Math.max((n - start1) 
 const makeAnnotation = (data, graphYear, year, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
                         {
                           x: year,
-                          y: getCO2Level(data, year) + 0.2,
+                          y: getCO2Level(data, year),
+                          direction: direction,
                           xref: 'x',
                           yref: 'y',
                           xanchor: xAnchor ? xAnchor : 'center',

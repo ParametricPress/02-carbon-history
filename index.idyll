@@ -25,11 +25,10 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"debugMode" value:"enabled" /]
+[var name:"readerMode" value:false /]
+[Boolean value:readerMode /] Reader mode
 
-Debug mode: [Select value:debugMode options:`['enabled', 'disabled']`  /] (disable for reader view)
-
-# Part One: Genesis 🦕
+# Formation 🦕
 
 All the carbon in a fossil fuel was once in something alive.
 
@@ -65,7 +64,7 @@ By returning all this carbon into the air, we’re transforming the composition 
 
 [hr/]
 
-# Part Two: Your Birthday 🎂
+# Your Birthday 🎂
 
 So when you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a tiny blip in this story.
 
@@ -83,7 +82,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 [/Button]
 
 [div fullWidth:true ]
-[Conditional if:`guessMade || debugMode == 'enabled'`]
+[Conditional if:`guessMade || !readerMode`]
 
   [TextContainer]
     What’s the right answer? To find out, select the year in which you were born, and we’ll pull up the numbers for your lifetime.
@@ -99,7 +98,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
   [/TextContainer]
 
-  [Conditional if:`birthYearSelected || debugMode == 'enabled'`]
+  [Conditional if:`birthYearSelected || !readerMode`]
 
     [TextContainer]
 
@@ -119,14 +118,14 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
       In reality, [Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions have occurred between 2019 and [Display value:birthYear format:"d" /], the year you were born.
 
-      And it’s not just you. Everyone alive today is in the same boat. Here, look up any age in this chart.
+      And it’s not just you. Here, look up any age in this chart.
 
 
       [var name:"ages" value:`Array(20).fill(0).map((e,i) => 5 * (i+1))` /]
       //[var name:"percentiles" value:`ages.map(e => 100 * getCO2Fraction(co2, 2020 - e))` /]
 
       [PlotlyComponent
-        isVisible: birthYearSelected
+        resize: birthYearSelected
         data: `[{
                   type: 'bar',
                   y: ages,
@@ -165,9 +164,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within this lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph originally created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
     [/caption]
 
-      We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed the bulk of CO2 emissions.
-
-      No humans before us have ever witnessed such a steep rise in carbon dioxide. Everyone alive today is living through a great acceleration.
+      We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed the bulk of CO2 emissions. No humans before us have ever witnessed such a steep rise in carbon dioxide.
 
       To better understand this, let’s take a personalized tour of the history of carbon dioxide — personalized around *you*. We’ll start in 2020, tracing our way backwards through the years of your life.
 
@@ -215,14 +212,15 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [/Aside]
 
       // p5 ppm visualization
-      [var name:"animate" value:false /]
+      [var name:"pauseAnimation" value:true /]
       [p5Component
         ppm: vizppm
-        animate: animate
-        onEnterView: `animate = true`
-        onExitViewFully: `animate = false`
+        pauseAnimation: pauseAnimation
+        onEnterView: `pauseAnimation = false`
+        onExitViewFully: `pauseAnimation = true`
         className: "center"
-        isVisible: birthYearSelected
+        resize: birthYearSelected
+        updateVar: birthYear
         sketch:`(p, parent) => {
 
           // visualizing ppm at different levels
@@ -300,13 +298,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           }
 
           p.onUpdate = function(props, oldProps) {
-            if (props.animate !== oldProps.animate) {
-              if (props.animate) {
-                //console.log('starting animation');
-                p.loop();
-              } else {
-                //console.log('pausing animation');
+            if (props.pauseAnimation !== oldProps.pauseAnimation) {
+              if (props.pauseAnimation) {
                 p.noLoop();
+              } else {
+                p.loop();
               }
             }
             if (props.ppm !== oldProps.ppm) {
@@ -346,16 +342,14 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [/div]
       [br/]
 
-      Now that we know how carbon dioxide is measured, let's travel backwards through the years of your life in our CO2 time machine.
-
-      We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million.
+      Let's now travel backwards through the years of your life in our CO2 time machine. We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million.
 
     [/TextContainer]
 
     [var name:"graphYear" value:2019 /]
 
     [PlotlyComponent
-      isVisible:birthYearSelected
+      resize:birthYearSelected
       data: `[{
                 x: co2.map(e => e.year),
                 y: co2.map(e => e.ppm),
@@ -409,7 +403,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     makeAnnotation(co2, graphYear, 1957, 'down', 'Sputnik<br>Launched 🛰️'),
                     makeAnnotation(co2, graphYear, 1945, 'up', 'World War II<br>Ends'),
                     makeAnnotation(co2, graphYear, 1939, 'down', 'World War II<br>Begins'),
-                  ].filter(e => !(e.x == birthYear))
+                  ].filter(e => e.x != birthYear)
+                   .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                    .filter(e => e.x >= graphYear)
                    .filter(e => e.font.size >= 7)
                    .concat([makeAnnotation(co2, graphYear, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 75)])
@@ -448,7 +443,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
       [/div]
 
-    [Conditional if:`partOneCompleted || debugMode == 'enabled'`]
+    [Conditional if:`partOneCompleted || !readerMode`]
       [br/]
       [TextContainer]
         We’ve arrived at [Display value:birthYear format:"d" /], the year that you were born. Since CO2 levels have been steadily rising every year of your life, you can actually measure your age in terms of the carbon dioxide level at your birth.
@@ -545,7 +540,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         How does this compare to the all the time before you were born?
 
-        # Part Three: The Birth of Industry 🏭
+        # The Birth of Industry 🏭
 
         Let's keep traveling further back in time, along this carbon dioxide curve.
 
@@ -553,8 +548,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         
         [var name:"graph2Year" value:`birthYear` /]
         [PlotlyComponent
-          isVisible:partOneCompleted
-          updateVar: birthYear
+          resize:partOneCompleted
           data: `[{
                     x: co2.map(e => e.year),
                     y: co2.map(e => e.ppm),
@@ -617,7 +611,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         makeAnnotation(co2, graph2Year, 1804, 'up', 'Jacquard Loom<br>Invented 🧶'),
                         makeAnnotation(co2, graph2Year, 1765, 'down', 'Steam Engine<br>Invented 🚂'),
                         makeAnnotation(co2, graph2Year, 1760, 'up', 'Industrial<br>Revolution<br>Begins 🏭', 0, 75, 'center', 'bottom', true),
-                      ].filter(e => !(e.x == birthYear))
+                      ].filter(e => e.x != birthYear)
+                       .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                        .filter(e => e.x >= graph2Year)
                        .filter(e => e.font.size >= 7)
                        .concat([makeAnnotation(co2, graph2Year, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 75, 'center', 'bottom', true)])
@@ -655,20 +650,20 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [/div]
       [br/]
 
-      [Conditional if:`partTwoCompleted || debugMode == 'enabled'`]
+      [Conditional if:`partTwoCompleted || !readerMode`]
         [TextContainer]
-          This graph shows us the entire history of industrialization as seen through the lens of CO2. The key thing to take away from this graph is that, with every decade, the curve of the graph has grown steeper.
+          This graph shows us the entire history of industrialization as seen through the lens of CO2. The key thing to take away from this graph is that it's grown steeper with every passing decade.
 
-          During the Industrial Revolution, carbon dioxide levels were definitely increasing. But if you compare the slope, it was rising at a gentle slope, compared to the steep rise today. This is what we mean by the fact that we're living through an acceleration.
+          During the Industrial Revolution, carbon dioxide levels were increasing. But it was rising at a gentle slope, in comparison to the steep rise today. Everyone alive today is living through a great acceleration, an unprecedented ramping up of carbon consumption and CO2 output.
 
-          We can keep going further back in time. What do CO2 levels look like before the Industrial Revolution began?
+          To see this even more clearly, let's go further back in time. What did CO2 levels look like before the Industrial Revolution began?
 
-          # Part Four: The Rise of Agriculture 🌾
+          # The Rise of Agriculture 🌾
         [/TextContainer]
 
+        [var name:"graph3Year" value:`1750` /]
         [PlotlyComponent
-          isVisible:partTwoCompleted
-          updateVar: birthYear
+          resize:partTwoCompleted
           data: `[{
                     x: co2.map(e => e.yearsBefore2019),
                     y: co2.map(e => e.ppm),
@@ -691,23 +686,92 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       size: 18
                     },
                     xaxis: {
-                      range: [800000, -1000],
+                      range: [2019 - graph3Year, -10],
                       title: 'Years before 2019',
                       tickformat: 'd'
                     },
                     yaxis: {
+                      range: [
+                              co2.filter(e => e.yearsBefore2019 <= 2019 - graph3Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.15, // min of yvalues in xrange
+                              425
+                              ],
                       title: 'CO2 Level (in parts per million)',
                       tickformat: 'd'
                     },
                     transition: {
                       duration: 1000,
                       easing: 'cubic-in-out'
-                    }
+                    },
+                    annotations: [
+                        makeAnnotation(co2, graph3Year, 2019, 'up', '2019', -75, 0, 'right', 'center', true),
+                        makeAnnotation(co2, graph3Year, 1760, 'up', 'Industrial<br>Revolution<br>Begins 🏭', 0, 75, 'right', 'bottom', true),
+                        makeAnnotation(co2, graph3Year, birthYear, 'up', 'You Were Born! 🎂🎉', -75, 0, 'right', 'center', true)
+                      ]
+                       .map(e => (
+                        {
+                          x: 2019 - e.x,
+                          y: e.y,
+                          direction: e.direction,
+                          xref: e.xref,
+                          yref: e.yref,
+                          xanchor: e.xanchor,
+                          yanchor: e.yanchor,
+                          text: e.text,
+                          font: e.font,
+                          showarrow: e.showarrow,
+                          arrowhead: e.arrowhead,
+                          ax: e.ax,
+                          ay: e.ay
+                        }))
+                       .filter(e => e.font.size >= 7)
                   }`
           config: `{responsive: true}`
         /]
 
+        [var name:"partThreeCompleted" value:false/]
+        [div className:"buttonwrapper"]
 
+          [Button onClick:`
+            if (buttonEnabled) {
+
+              buttonEnabled = false;
+              if (2019 - graph3Year < 10000) {
+                graph3Year = graph3Year - 1000;
+              } else {
+                graph3Year = 2019 - 10000;
+                partThreeCompleted = true;
+              }
+
+              setTimeout(() => {
+                buttonEnabled = true;
+              }, 1000)
+
+            }
+          `]
+            Travel Back in Time
+          [/Button]
+
+          [Button onClick:`graph3Year = 2019 - 1750`]
+            Restart
+          [/Button]
+
+        [/div]
+        [br/]
+
+        [Conditional if:`partThreeCompleted || !readerMode`]
+          [TextContainer]
+            We’ve arrived 10,000 years before the present, around the time that hunter-gatherers in the Stone Age were starting to put down their bows and arrows and turn to cultivating plants.
+
+            From this deep historical perspective, we can see that all human civilization from the year 1900 to the dawn of agriculture took place in a relatively flat, stable era of lower CO2 concentrations. From this point of view, it’s clear that we are the first (and likely will be the only) humans to ever live through such a dramatic spike in carbon dioxide.
+
+            That’s worrying, because as we’re about to see, the climate follows CO2. Historically, whenever carbon dioxide levels spiked or fell, global temperatures followed.
+
+            # The Ice Ages ❄️
+
+            Let’s travel further back in our CO2 time machine. But now, in addition to carbon dioxide levels, let’s also overlap the temperature record. This will help us see how carbon dioxide regulates the climate.
+
+          [/TextContainer]
+        [/Conditional]
       [/Conditional]
     [/Conditional]
   [/Conditional]

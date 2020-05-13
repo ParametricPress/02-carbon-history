@@ -22,7 +22,7 @@ class plotlyComponent extends D3Component {
     //console.log('plotly props changed');
 
      // this is a hack to resize the plotly graph once its containing conditional becomes visible
-    if (props.isVisible !== oldProps.isVisible) {
+    if (props.resize !== oldProps.resize) {
       // console.log('resizing Plotly graph');
       setTimeout(() => Plotly.Plots.resize(this.state.node), 50);
     }
