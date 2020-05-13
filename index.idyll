@@ -353,14 +353,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       data: `[{
                 x: co2.map(e => e.year),
                 y: co2.map(e => e.ppm),
-                mode: 'lines+markers',
+                mode: 'lines',
                 type: 'scatter',
                 hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
                 line: {
                   color:' #4a00fb',
-                },
-                marker: {
-                  size: 6
                 }
               }]`
       layout: `{
@@ -385,7 +382,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   tickformat: 'd'
                 },
                 transition: {
-                  duration: 1000,
+                  duration: 2000,
                   easing: 'cubic-in-out'
                 },
                 annotations: [
@@ -552,14 +549,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           data: `[{
                     x: co2.map(e => e.year),
                     y: co2.map(e => e.ppm),
-                    mode: 'lines+markers',
+                    mode: 'lines',
                     type: 'scatter',
                     hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
                     line: {
                       color:' #4a00fb',
-                    },
-                    marker: {
-                      size: 2
                     }
                   }]`
           layout: `{
@@ -584,7 +578,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       tickformat: 'd'
                     },
                     transition: {
-                      duration: 1000,
+                      duration: 2000,
                       easing: 'cubic-in-out'
                     },
                     annotations: [
@@ -667,14 +661,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           data: `[{
                     x: co2.map(e => e.yearsBefore2019),
                     y: co2.map(e => e.ppm),
-                    mode: 'lines+markers',
+                    mode: 'lines',
                     type: 'scatter',
                     hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
                     line: {
                       color:' #4a00fb',
-                    },
-                    marker: {
-                      size: 2
                     }
                   }]`
           layout: `{
@@ -699,7 +690,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       tickformat: 'd'
                     },
                     transition: {
-                      duration: 1000,
+                      duration: 2000,
                       easing: 'cubic-in-out'
                     },
                     annotations: [
