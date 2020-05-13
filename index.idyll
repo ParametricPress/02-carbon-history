@@ -427,7 +427,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
             setTimeout(() => {
               buttonEnabled = true;
-            }, 1000)
+            }, 2000)
 
           }
         `]
@@ -630,7 +630,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
             setTimeout(() => {
               buttonEnabled = true;
-            }, 1000)
+            }, 2000)
 
           }
         `]
@@ -655,7 +655,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           # The Rise of Agriculture 🌾
         [/TextContainer]
 
-        [var name:"graph3Year" value:`1750` /]
+        [var name:"graph3Year" value:`1760` /]
         [PlotlyComponent
           resize:partTwoCompleted
           data: `[{
@@ -677,7 +677,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       size: 18
                     },
                     xaxis: {
-                      range: [2019 - graph3Year, -10],
+                      range: [2019 - graph3Year + 50/2, -10],
                       title: 'Years before 2019',
                       tickformat: 'd'
                     },
@@ -726,16 +726,16 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             if (buttonEnabled) {
 
               buttonEnabled = false;
-              if (2019 - graph3Year < 10000) {
+              if (graph3Year > - 10000) {
                 graph3Year = graph3Year - 1000;
               } else {
-                graph3Year = 2019 - 10000;
+                graph3Year = - 10000;
                 partThreeCompleted = true;
               }
 
               setTimeout(() => {
                 buttonEnabled = true;
-              }, 1000)
+              }, 2000)
 
             }
           `]
