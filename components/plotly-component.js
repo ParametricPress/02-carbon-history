@@ -11,10 +11,16 @@ class plotlyComponent extends D3Component {
 
   initialize(node, props) {
 
-    Plotly.newPlot(node, props.data, props.layout, props.config);
-
+    let width = node.getBoundingClientRect().width;
+    Plotly.newPlot(node, props.data, props.layout(width));
+    
+    window.addEventListener('resize', () => {Plotly.react(this.state.node, props.data, props.layout(this.state.node.getBoundingClientRect().width));});
+    
     this.setState((state) => {
-      return {node: node}
+      return {
+        node: node,
+        width: width
+      }
     });
   }
 
@@ -26,10 +32,11 @@ class plotlyComponent extends D3Component {
       // console.log('resizing Plotly graph');
       setTimeout(() => Plotly.Plots.resize(this.state.node), 50);
     }
+
     else {
       // manually update graph on props change
       // console.log('updating Plotly graph');
-      Plotly.react(this.state.node, props.data, props.layout, props.config);
+      Plotly.react(this.state.node, props.data, props.layout(this.state.width));
     }
 
   }
