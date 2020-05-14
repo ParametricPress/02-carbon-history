@@ -140,7 +140,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         layout: `(width) => ({
                   title: 'What Fraction of Human CO2 Emissions Occurred in Your Life?',
                   width: width,
-                  height: 600,
+                  height: width,
                   yaxis: {
                     title: 'Your Age',
                     dtick: 5,
@@ -369,7 +369,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       layout: `(width) => ({
                 title: 'Your Life in CO2',
                 width: width,
-                height: 600,
+                height: width/1.618,
                 showlegend: false,
                 font: {
                   family: 'Graphik Web',
@@ -575,7 +575,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           layout: `(width) => ({
                     title: 'The History of CO2',
                     width: width,
-                    height: 600,
+                    height: width/1.618,
                     showlegend: false,
                     font: {
                       family: 'Graphik Web',
@@ -687,7 +687,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           layout: `(width) => ({
                     title: 'The History of CO2',
                     width: width,
-                    height: 600,
+                    height: width/1.618,
                     showlegend: false,
                     font: {
                       family: 'Graphik Web',
