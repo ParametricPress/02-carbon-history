@@ -25,8 +25,8 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"readerMode" value:false /]
-[Boolean value:readerMode /] Reader mode
+[var name:"readerMode" value:true /]
+Reader mode [Display value:`readerMode ? "is enabled" : "is disabled"  `/]
 
 # Formation 🦕
 
@@ -125,7 +125,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       //[var name:"percentiles" value:`ages.map(e => 100 * getCO2Fraction(co2, 2020 - e))` /]
 
       [PlotlyComponent
-        resize: birthYearSelected
+        isVisible: birthYearSelected
         data: `[{
                   type: 'bar',
                   y: ages,
@@ -355,7 +355,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [var name:"graphYear" value:2019 /]
 
     [PlotlyComponent
-      resize:birthYearSelected
+      isVisible:birthYearSelected
       data: `[{
                 x: co2.map(e => e.year),
                 y: co2.map(e => e.ppm),
@@ -461,6 +461,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [p5Component
         className: "center"
         birthYear: birthYear
+        resize: partOneCompleted
         sketch:`(p, parent) => {
 
           let img, canvas; 
@@ -527,7 +528,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           }
 
           p.onUpdate = function(props, oldProps) {
-            //console.log('p5 props changed', props);
             drawStuff(props.birthYear);
           };
 
@@ -561,7 +561,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         
         [var name:"graph2Year" value:`birthYear` /]
         [PlotlyComponent
-          resize:partOneCompleted
+          isVisible:partOneCompleted
           data: `[{
                     x: co2.map(e => e.year),
                     y: co2.map(e => e.ppm),
@@ -673,7 +673,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         [var name:"graph3Year" value:`1760` /]
         [PlotlyComponent
-          resize:partTwoCompleted
+          isVisible:partTwoCompleted
           data: `[{
                     x: co2.map(e => e.yearsBefore2019),
                     y: co2.map(e => e.ppm),
