@@ -229,6 +229,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           // http://patreon.com/codingtrain
           // Code for: https://youtu.be/17WoOqgXsRM
 
+          let canvas;
           let stars, volume, depth;
           let zoom = 6;
           let speed = 10;
@@ -252,8 +253,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           }
 
           p.setup = function() {
-            let mySize = Math.min(p.windowWidth, p.windowHeight, 720);
-            p.createCanvas(mySize, mySize);
+            canvas = p.createCanvas(400,400);
+            let myWidth = canvas.canvas.parentElement.clientWidth;
+            p.resizeCanvas(myWidth,myWidth);
             p.noLoop();
             p.textFont('Graphik Web');
             init();
@@ -296,8 +298,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           }
 
           p.windowResized = function() {
-            let mySize = Math.min(p.windowWidth, p.windowHeight, 720);
-            p.resizeCanvas(mySize, mySize);
+            let myWidth = canvas.canvas.parentElement.clientWidth;
+            p.resizeCanvas(myWidth,myWidth);
             init();
           }
 
@@ -461,7 +463,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         birthYear: birthYear
         sketch:`(p, parent) => {
 
-          let img; // Declare variable 'img'.
+          let img, canvas; 
           let candles = [];
           let myCandles = [];
           let scale = 0.438;
@@ -475,9 +477,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           };
 
           p.setup = function() {
-            let mySize = Math.min(p.windowWidth, p.windowHeight, 0.5*720)
-            p.createCanvas(mySize, mySize);
-            scale = 0.438 * mySize / 400;
+            canvas = p.createCanvas(400,400);
+            let myWidth = canvas.canvas.parentElement.clientWidth;
+            p.resizeCanvas(myWidth,myWidth);
+            scale = 0.438 * myWidth / 400;
             p.imageMode(p.CENTER);
             p.noLoop();
             drawStuff(birthYear);
@@ -529,9 +532,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           };
 
           p.windowResized = function() {
-            let mySize = Math.min(p.windowWidth, p.windowHeight, 0.5*720)
-            p.resizeCanvas(mySize, mySize);
-            scale = 0.438 * mySize / 400;
+            let myWidth = canvas.canvas.parentElement.clientWidth;
+            p.resizeCanvas(myWidth,myWidth);
+            scale = 0.438 * myWidth / 400;
             drawStuff(birthYear);
           }
 
