@@ -1,7 +1,7 @@
 const getCO2Level = (data, year) => data.filter(e => e.year == year)[0].ppm;
 const getCO2Fraction = (data, year) => (getCO2Level(data, '2019') - getCO2Level(data, year)) / (getCO2Level(data, '2019') - 280);
 const map = (n, start1, stop1, start2, stop2) => Math.min(Math.max((n - start1) / (stop1 - start1) * (stop2 - start2) + start2, start2),stop2);
-const makeAnnotation = (data, graphYear, year, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
+const makeAnnotation = (data, graphYear, year, scale, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
                         {
                           x: year,
                           y: getCO2Level(data, year),
@@ -12,12 +12,13 @@ const makeAnnotation = (data, graphYear, year, direction, annotationText, deltaX
                           yanchor: yAnchor ? yAnchor : (direction == 'up' ? 'bottom' : 'top'),
                           text: annotationText,
                           font: {
-                            size: isLabelStatic ? 20 : 20 * Math.pow((2020 - year)/(2020 - graphYear), 0.5),
+                            size: (isLabelStatic ? 12 : 12 * Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * scale,
                           },
                           showarrow: true,
-                          arrowhead: 2,
-                          ax: (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -1),
-                          ay: (!isNaN(deltaY) ? -deltaY : -75) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -0.75)
+                          arrowhead: 2 * scale,
+                          arrowwidth: 2 * scale,
+                          ax: (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -0.5) * scale,
+                          ay: (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -0.5) * scale
                         });
 
 module.exports = (ctx) => {

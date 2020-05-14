@@ -25,7 +25,7 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"readerMode" value:true /]
+[var name:"readerMode" value:false /]
 Reader mode [Display value:`readerMode ? "is enabled" : "is disabled"  `/]
 
 # Formation 🦕
@@ -140,24 +140,38 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         layout: `(width) => ({
                   title: 'What Fraction of Human CO2 Emissions Occurred in Your Life?',
                   width: width,
-                  height: width,
+                  height: 1.25 * width,
                   yaxis: {
                     title: 'Your Age',
                     dtick: 5,
                     autorange: 'reversed',
-                    color: '#7e7e7e'
+                    color: '#7e7e7e',
+                    font: {
+                      size: 12 * width / 720
+                    },
                   },
                   paper_bgcolor: '#222222',
                   plot_bgcolor: '#222222',
                   xaxis: {
                     title: 'Percent CO2 Emissions in Your Lifetime',
                     range: [0, 101],
-                    color: '#7e7e7e'
+                    color: '#7e7e7e',
+                    font: {
+                      size: 12 * width / 720
+                    },
                   },
                   font: {
                     family: 'Graphik Web',
-                    color: '#ffffff'
+                    color: '#ffffff',
+                    size: 16 * width / 720
                   },
+                  margin: {
+                      l: 100 * width / 720,
+                      r: 50 * width / 720,
+                      b: 100 * width / 720,
+                      t: 100 * width / 720,
+                      pad: 4 * width / 720
+                    },
                 });`
       /]
     [caption]
@@ -353,6 +367,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [/TextContainer]
 
     [var name:"graphYear" value:2019 /]
+    //[var name:"graphYear" value:`birthYear` /]
 
     [PlotlyComponent
       isVisible:birthYearSelected
@@ -373,45 +388,59 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 showlegend: false,
                 font: {
                   family: 'Graphik Web',
-                  size: 18
+                  size: 16 * width / 720
                 },
                 xaxis: {
-                  range: [graphYear == 2019 ? 2018.5 : graphYear - 5/2, 2019.5],
+                  range: [graphYear == 2019 ? 2018.5 : graphYear - 4, 2019.5],
                   title: 'Year',
-                  tickformat: 'd'
+                  tickformat: 'd',
+                  font: {
+                    size: 12 * width / 720
+                  },
                 },
                 yaxis: {
                   range: [graphYear == 2019 ? 399 :
-                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.05, // min of yvalues in xrange
+                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
                           425
                           ],
                   title: 'CO2 Level (in parts per million)',
-                  tickformat: 'd'
+                  tickformat: 'd',
+                  font: {
+                    size: 12 * width / 720
+                  },
                 },
+                margin: {
+                    l: 100 * width / 720,
+                    r: 50 * width / 720,
+                    b: 100 * width / 720,
+                    t: 100 * width / 720,
+                    pad: 4 * width / 720
+                  },
                 transition: {
                   duration: 2000,
                   easing: 'cubic-in-out'
                 },
                 annotations: [
-                    makeAnnotation(co2, graphYear, 2019, 'down', '2019', 0, 75, 'center', 'top', true),
-                    makeAnnotation(co2, graphYear, 2017, 'down', 'US Leaves<br>Paris Agreement'),
-                    makeAnnotation(co2, graphYear, 2015, 'up', 'Paris Climate<br>Agreement Signed'),
-                    makeAnnotation(co2, graphYear, 2012, 'down', 'Curiosity Rover<br>Lands on Mars'),
-                    makeAnnotation(co2, graphYear, 2007, 'up', 'iPhone<br>Launched 📱'),
-                    makeAnnotation(co2, graphYear, 2005, 'down', 'YouTube<br>Created'),
-                    makeAnnotation(co2, graphYear, 2001, 'up', 'First Harry Potter<br>Movie Released'),
-                    makeAnnotation(co2, graphYear, 1991, 'up', 'Soviet Union<br>Dissolved'),
-                    makeAnnotation(co2, graphYear, 1989, 'down', 'Berlin Wall<br>Comes Down'),
-                    makeAnnotation(co2, graphYear, 1977, 'down', 'Star Wars<br>Released'),
-                    makeAnnotation(co2, graphYear, 1969, 'up', 'Humans Land<br>on Moon 🚀'),
-                    makeAnnotation(co2, graphYear, 1957, 'down', 'Sputnik<br>Launched 🛰️'),
-                    makeAnnotation(co2, graphYear, 1945, 'up', 'World War II<br>Ends'),
-                    makeAnnotation(co2, graphYear, 1939, 'down', 'World War II<br>Begins'),
+                    makeAnnotation(co2, graphYear, 2019, width/720, 'down', '2019', 0, 40 * width/720, 'center', 'top', true),
+                    makeAnnotation(co2, graphYear, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
+                    makeAnnotation(co2, graphYear, 2015, width/720, 'down', 'Paris Climate<br>Agreement Signed'),
+                    makeAnnotation(co2, graphYear, 2012, width/720, 'up', 'Curiosity Rover<br>Lands on Mars'),
+                    makeAnnotation(co2, graphYear, 2007, width/720, 'down', 'iPhone<br>Launched 📱'),
+                    makeAnnotation(co2, graphYear, 2005, width/720, 'up', 'YouTube<br>Created'),
+                    makeAnnotation(co2, graphYear, 2001, width/720, 'down', 'First Harry Potter<br>Movie Released 🧙'),
+                    makeAnnotation(co2, graphYear, 1997, width/720, 'up', 'Titanic Movie<br>Released 🚢'),
+                    makeAnnotation(co2, graphYear, 1991, width/720, 'down', 'Soviet Union<br>Dissolved ☭'),
+                    makeAnnotation(co2, graphYear, 1989, width/720, 'up', 'Berlin Wall<br>Comes Down 🧱'),
+                    makeAnnotation(co2, graphYear, 1977, width/720, 'down', 'Star Wars<br>Released'),
+                    makeAnnotation(co2, graphYear, 1969, width/720, 'up', 'Humans Land<br>on Moon 🚀'),
+                    makeAnnotation(co2, graphYear, 1957, width/720, 'down', 'Sputnik<br>Launched 🛰️'),
+                    makeAnnotation(co2, graphYear, 1945, width/720, 'up', 'World War II<br>Ends'),
+                    makeAnnotation(co2, graphYear, 1939, width/720, 'down', 'World War II<br>Begins'),
                   ].filter(e => e.x != birthYear)
                    .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                    .filter(e => e.x >= graphYear)
-                   .filter(e => e.font.size >= 7)
-                   .concat([makeAnnotation(co2, graphYear, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 75)])
+                   .filter(e => e.font.size >= 8 * width/720)
+                   .concat([makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * width/720)])
               });`
     /]
 
@@ -560,6 +589,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         [/TextContainer]
         
         [var name:"graph2Year" value:`birthYear` /]
+        //[var name:"graph2Year" value:1750 /]
+
         [PlotlyComponent
           isVisible:partOneCompleted
           data: `[{
@@ -579,54 +610,68 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     showlegend: false,
                     font: {
                       family: 'Graphik Web',
-                      size: 18
+                      size: 16 * width/720, 
                     },
                     xaxis: {
-                      range: [graph2Year == birthYear ? birthYear - 5/2 : graph2Year - 50/2, 2019.5],
+                      range: [graph2Year == birthYear ? birthYear - 4 : graph2Year - 50/2, 2019.5],
                       title: 'Year',
-                      tickformat: 'd'
+                      tickformat: 'd',
+                      font: {
+                        size: 12 * width / 720
+                      },
                     },
                     yaxis: {
                       range: [
-                              co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.15, // min of yvalues in xrange
+                              co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.25, // min of yvalues in xrange
                               425
                               ],
                       title: 'CO2 Level (in parts per million)',
-                      tickformat: 'd'
+                      tickformat: 'd',
+                      font: {
+                        size: 12 * width / 720
+                      },
                     },
+                    margin: {
+                        l: 100 * width / 720,
+                        r: 50 * width / 720,
+                        b: 100 * width / 720,
+                        t: 100 * width / 720,
+                        pad: 4 * width / 720
+                      },
                     transition: {
                       duration: 2000,
                       easing: 'cubic-in-out'
                     },
                     annotations: [
-                        makeAnnotation(co2, graph2Year, 2019, 'up', '2019', -75, 0, 'right', 'center', true),
-                        makeAnnotation(co2, graph2Year, 2017, 'down', 'US Leaves<br>Paris Agreement'),
-                        makeAnnotation(co2, graph2Year, 2015, 'up', 'Paris Climate<br>Agreement Signed'),
-                        makeAnnotation(co2, graph2Year, 2012, 'down', 'Curiosity Rover<br>Lands on Mars'),
-                        makeAnnotation(co2, graph2Year, 2007, 'up', 'iPhone<br>Launched 📱'),
-                        makeAnnotation(co2, graph2Year, 2005, 'down', 'YouTube<br>Created'),
-                        makeAnnotation(co2, graph2Year, 2001, 'up', 'First Harry Potter<br>Movie Released'),
-                        makeAnnotation(co2, graph2Year, 1991, 'up', 'Soviet Union<br>Dissolved'),
-                        makeAnnotation(co2, graph2Year, 1989, 'down', 'Berlin Wall<br>Comes Down'),
-                        makeAnnotation(co2, graph2Year, 1977, 'down', 'Star Wars<br>Released'),
-                        makeAnnotation(co2, graph2Year, 1969, 'up', 'Humans Land<br>on Moon 🚀'),
-                        makeAnnotation(co2, graph2Year, 1957, 'down', 'Sputnik<br>Launched 🛰️'),
-                        makeAnnotation(co2, graph2Year, 1945, 'up', 'World War II<br>Ends'),
-                        makeAnnotation(co2, graph2Year, 1939, 'down', 'World War II<br>Begins'),
-                        makeAnnotation(co2, graph2Year, 1919, 'up', 'World War I<br>Ends'),
-                        makeAnnotation(co2, graph2Year, 1914, 'down', 'World War I<br>Begins'),
-                        makeAnnotation(co2, graph2Year, 1903, 'up', 'Wright Brothers<br>First Flight 🛩'),
-                        makeAnnotation(co2, graph2Year, 1886, 'down', 'Statue of Liberty<br>Inaugurated 🗽'),
-                        makeAnnotation(co2, graph2Year, 1851, 'up', 'Industrial<br>Revolution<br>Ends'),
-                        makeAnnotation(co2, graph2Year, 1807, 'down', 'Steamboat<br>Invented 🚢'),
-                        makeAnnotation(co2, graph2Year, 1804, 'up', 'Jacquard Loom<br>Invented 🧶'),
-                        makeAnnotation(co2, graph2Year, 1765, 'down', 'Steam Engine<br>Invented 🚂'),
-                        makeAnnotation(co2, graph2Year, 1760, 'up', 'Industrial<br>Revolution<br>Begins 🏭', 0, 75, 'center', 'bottom', true),
+                        makeAnnotation(co2, graph2Year, 2019, width/720, 'up', '2019', -25 * width/720, 0, 'right', 'center', true),
+                        makeAnnotation(co2, graph2Year, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
+                        makeAnnotation(co2, graph2Year, 2015, width/720, 'down', 'Paris Climate<br>Agreement Signed'),
+                        makeAnnotation(co2, graph2Year, 2012, width/720, 'up', 'Curiosity Rover<br>Lands on Mars'),
+                        makeAnnotation(co2, graph2Year, 2007, width/720, 'down', 'iPhone<br>Launched 📱'),
+                        makeAnnotation(co2, graph2Year, 2005, width/720, 'up', 'YouTube<br>Created'),
+                        makeAnnotation(co2, graph2Year, 2001, width/720, 'down', 'First Harry Potter<br>Movie Released 🧙'),
+                        makeAnnotation(co2, graph2Year, 1997, width/720, 'up', 'Titanic Movie<br>Released 🚢'),
+                        makeAnnotation(co2, graph2Year, 1991, width/720, 'down', 'Soviet Union<br>Dissolved ☭'),
+                        makeAnnotation(co2, graph2Year, 1989, width/720, 'up', 'Berlin Wall<br>Comes Down 🧱'),
+                        makeAnnotation(co2, graph2Year, 1977, width/720, 'down', 'Star Wars<br>Released'),
+                        makeAnnotation(co2, graph2Year, 1969, width/720, 'up', 'Humans Land<br>on Moon 🚀'),
+                        makeAnnotation(co2, graph2Year, 1957, width/720, 'down', 'Sputnik<br>Launched 🛰️'),
+                        makeAnnotation(co2, graph2Year, 1945, width/720, 'up', 'World War II<br>Ends'),
+                        makeAnnotation(co2, graph2Year, 1939, width/720, 'down', 'World War II<br>Begins'),
+                        makeAnnotation(co2, graph2Year, 1919, width/720, 'up', 'World War I<br>Ends'),
+                        makeAnnotation(co2, graph2Year, 1914, width/720, 'down', 'World War I<br>Begins'),
+                        makeAnnotation(co2, graph2Year, 1903, width/720, 'up', 'Wright<br>Brothers<br>Flight 🛩'),
+                        makeAnnotation(co2, graph2Year, 1886, width/720, 'down', 'Statue of Liberty<br>Inaugurated 🗽'),
+                        makeAnnotation(co2, graph2Year, 1851, width/720, 'up', 'Industrial<br>Revolution<br>Ends'),
+                        makeAnnotation(co2, graph2Year, 1807, width/720, 'down', 'Steamboat<br>Invented 🚢'),
+                        makeAnnotation(co2, graph2Year, 1804, width/720, 'up', 'Jacquard<br>Loom<br>Invented 🧶'),
+                        makeAnnotation(co2, graph2Year, 1765, width/720, 'down', 'Steam Engine<br>Invented 🚂'),
+                        makeAnnotation(co2, graph2Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25 * width/720, 40 * width/720, 'center', 'bottom', true),
                       ].filter(e => e.x != birthYear)
                        .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                        .filter(e => e.x >= graph2Year)
-                       .filter(e => e.font.size >= 7)
-                       .concat([makeAnnotation(co2, graph2Year, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 75, 'center', 'bottom', true)])
+                       .filter(e => e.font.size >= 8 * width/720, )
+                       .concat([makeAnnotation(co2, graph2Year, birthYear, width/720, 'up', 'You Were Born!<br>🎂🎉', -25 * width/720, 40 * width/720, 'center', 'bottom', true)])
                   });`
         /]
 
@@ -671,7 +716,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           # The Rise of Agriculture 🌾
         [/TextContainer]
 
-        [var name:"graph3Year" value:`1760` /]
+        [var name:"graph3Year" value:`1720` /]
         [PlotlyComponent
           isVisible:partTwoCompleted
           data: `[{
@@ -691,12 +736,15 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     showlegend: false,
                     font: {
                       family: 'Graphik Web',
-                      size: 18
+                      size: 16 * width / 720
                     },
                     xaxis: {
                       range: [2019 - graph3Year + 50/2, -10],
                       title: 'Years before 2019',
-                      tickformat: 'd'
+                      tickformat: 'd',
+                      font: {
+                        size: 12 * width / 720
+                      },
                     },
                     yaxis: {
                       range: [
@@ -704,16 +752,26 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               425
                               ],
                       title: 'CO2 Level (in parts per million)',
-                      tickformat: 'd'
+                      tickformat: 'd',
+                      font: {
+                        size: 12 * width / 720
+                      },
+                    },
+                    margin: {
+                      l: 100 * width / 720,
+                      r: 50 * width / 720,
+                      b: 100 * width / 720,
+                      t: 100 * width / 720,
+                      pad: 4 * width / 720
                     },
                     transition: {
                       duration: 2000,
                       easing: 'cubic-in-out'
                     },
                     annotations: [
-                        makeAnnotation(co2, graph3Year, 2019, 'up', '2019', -75, 0, 'right', 'center', true),
-                        makeAnnotation(co2, graph3Year, 1760, 'up', 'Industrial<br>Revolution<br>Begins 🏭', 0, 75, 'right', 'bottom', true),
-                        makeAnnotation(co2, graph3Year, birthYear, 'up', 'You Were Born! 🎂🎉', -75, 0, 'right', 'center', true)
+                        makeAnnotation(co2, graph3Year, 2019, width/720, 'up', '2019', -40*width/720, 0, 'right', 'center', true),
+                        makeAnnotation(co2, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40*width/720, 40*width/720, 'right', 'center', true),
+                        makeAnnotation(co2, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -40*width/720, 40*width/720, 'right', 'bottom', true)
                       ]
                        .map(e => (
                         {
@@ -731,7 +789,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           ax: e.ax,
                           ay: e.ay
                         }))
-                       .filter(e => e.font.size >= 7)
+                       .filter(e => e.font.size >= 8 * width/720)
                   });`
         /]
 
