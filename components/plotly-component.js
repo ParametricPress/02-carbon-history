@@ -6,30 +6,69 @@ class plotlyComponent extends D3Component {
 
   constructor(props) {
     super(props);
-    this.state = {node: NaN};
+    this.state = {
+      node: NaN,
+      graphCreated: false,
+      width: 0
+    };
   }
 
   initialize(node, props) {
 
-    Plotly.newPlot(node, props.data, props.layout, props.config);
+    this.createGraph = this.createGraph.bind(this);
+
+    this.resize = this.resize.bind(this);
+    window.addEventListener('resize', this.resize);
 
     this.setState((state) => {
-      return {node: node}
+      return {
+        node: node
+      }
     });
+
+    setTimeout(this.createGraph, 50);
+    
   }
 
-  update(props, oldProps) {
-    //console.log('plotly props changed');
+  createGraph() {
+    
+    let width = this.state.node.getBoundingClientRect().width;
 
-     // this is a hack to resize the plotly graph once its containing conditional becomes visible
-    if (props.resize !== oldProps.resize) {
-      // console.log('resizing Plotly graph');
-      setTimeout(() => Plotly.Plots.resize(this.state.node), 50);
+    if (width > 0) {
+      //console.log('Plotly Graph Created');
+      Plotly.newPlot(this.state.node, this.props.data, this.props.layout(width));
+
+      this.setState((state) => {
+        return {
+          graphCreated: true,
+          width: width
+        }
+      });
+
     }
-    else {
-      // manually update graph on props change
-      // console.log('updating Plotly graph');
-      Plotly.react(this.state.node, props.data, props.layout, props.config);
+  }
+
+  resize() {
+
+    if (this.state.graphCreated) {
+      //console.log('Plotly Graph Resized');
+      let width = this.state.node.getBoundingClientRect().width;
+      Plotly.react(this.state.node, this.props.data, this.props.layout(width));
+
+      this.setState((state) => {
+        return {
+          width: width
+        }
+      });
+    }
+  }
+
+  update(props, oldProps) { // runs on prop change
+
+    if (!this.state.graphCreated) {
+      setTimeout(this.createGraph, 50);
+    } else {
+      Plotly.react(this.state.node, props.data, props.layout(this.state.width));
     }
 
   }

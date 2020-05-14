@@ -25,8 +25,8 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"readerMode" value:false /]
-[Boolean value:readerMode /] Reader mode
+[var name:"readerMode" value:true /]
+Reader mode [Display value:`readerMode ? "is enabled" : "is disabled"  `/]
 
 # Formation 🦕
 
@@ -125,7 +125,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       //[var name:"percentiles" value:`ages.map(e => 100 * getCO2Fraction(co2, 2020 - e))` /]
 
       [PlotlyComponent
-        resize: birthYearSelected
+        isVisible: birthYearSelected
         data: `[{
                   type: 'bar',
                   y: ages,
@@ -137,9 +137,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     color: '#666666'
                   },
                 }]`
-        layout: `{
+        layout: `(width) => ({
                   title: 'What Fraction of Human CO2 Emissions Occurred in Your Life?',
-                  height: 800,
+                  width: width,
+                  height: width,
                   yaxis: {
                     title: 'Your Age',
                     dtick: 5,
@@ -157,8 +158,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     family: 'Graphik Web',
                     color: '#ffffff'
                   },
-                }`
-        config: `{responsive: true}`
+                });`
       /]
     [caption]
       Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within this lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph originally created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
@@ -229,6 +229,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           // http://patreon.com/codingtrain
           // Code for: https://youtu.be/17WoOqgXsRM
 
+          let canvas;
           let stars, volume, depth;
           let zoom = 6;
           let speed = 10;
@@ -252,7 +253,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           }
 
           p.setup = function() {
-            p.createCanvas(p.min(p.windowWidth, p.windowHeight, 720), p.min(p.windowWidth, p.windowHeight, 720));
+            canvas = p.createCanvas(400,400);
+            let myWidth = canvas.canvas.parentElement.clientWidth;
+            p.resizeCanvas(myWidth,myWidth);
             p.noLoop();
             p.textFont('Graphik Web');
             init();
@@ -295,7 +298,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           }
 
           p.windowResized = function() {
-            p.resizeCanvas(p.min(p.windowWidth, p.windowHeight, 720), p.min(p.windowWidth, p.windowHeight, 720));
+            let myWidth = canvas.canvas.parentElement.clientWidth;
+            p.resizeCanvas(myWidth,myWidth);
             init();
           }
 
@@ -351,7 +355,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [var name:"graphYear" value:2019 /]
 
     [PlotlyComponent
-      resize:birthYearSelected
+      isVisible:birthYearSelected
       data: `[{
                 x: co2.map(e => e.year),
                 y: co2.map(e => e.ppm),
@@ -362,9 +366,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   color:' #4a00fb',
                 }
               }]`
-      layout: `{
+      layout: `(width) => ({
                 title: 'Your Life in CO2',
-                height: 700,
+                width: width,
+                height: width/1.618,
                 showlegend: false,
                 font: {
                   family: 'Graphik Web',
@@ -377,7 +382,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 },
                 yaxis: {
                   range: [graphYear == 2019 ? 399 :
-                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
+                          co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.05, // min of yvalues in xrange
                           425
                           ],
                   title: 'CO2 Level (in parts per million)',
@@ -407,8 +412,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                    .filter(e => e.x >= graphYear)
                    .filter(e => e.font.size >= 7)
                    .concat([makeAnnotation(co2, graphYear, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 75)])
-              }`
-      config: `{responsive: true}`
+              });`
     /]
 
     [var name:"partOneCompleted" value:false/]
@@ -457,9 +461,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [p5Component
         className: "center"
         birthYear: birthYear
+        resize: partOneCompleted
         sketch:`(p, parent) => {
 
-          let img; // Declare variable 'img'.
+          let img, canvas; 
           let candles = [];
           let myCandles = [];
           let scale = 0.438;
@@ -473,9 +478,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           };
 
           p.setup = function() {
-            let mySize = p.min(p.windowWidth, p.windowHeight, 0.5*720)
-            p.createCanvas(mySize, mySize);
-            scale = 0.438 * mySize / 400;
+            canvas = p.createCanvas(400,400);
+            let myWidth = canvas.canvas.parentElement.clientWidth;
+            p.resizeCanvas(myWidth,myWidth);
+            scale = 0.438 * myWidth / 400;
             p.imageMode(p.CENTER);
             p.noLoop();
             drawStuff(birthYear);
@@ -522,14 +528,13 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           }
 
           p.onUpdate = function(props, oldProps) {
-            //console.log('p5 props changed', props);
             drawStuff(props.birthYear);
           };
 
           p.windowResized = function() {
-            let mySize = p.min(p.windowWidth, p.windowHeight, 0.5*720)
-            p.resizeCanvas(mySize, mySize);
-            scale = 0.438 * mySize / 400;
+            let myWidth = canvas.canvas.parentElement.clientWidth;
+            p.resizeCanvas(myWidth,myWidth);
+            scale = 0.438 * myWidth / 400;
             drawStuff(birthYear);
           }
 
@@ -556,7 +561,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         
         [var name:"graph2Year" value:`birthYear` /]
         [PlotlyComponent
-          resize:partOneCompleted
+          isVisible:partOneCompleted
           data: `[{
                     x: co2.map(e => e.year),
                     y: co2.map(e => e.ppm),
@@ -567,9 +572,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       color:' #4a00fb',
                     }
                   }]`
-          layout: `{
+          layout: `(width) => ({
                     title: 'The History of CO2',
-                    height: 700,
+                    width: width,
+                    height: width/1.618,
                     showlegend: false,
                     font: {
                       family: 'Graphik Web',
@@ -621,8 +627,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                        .filter(e => e.x >= graph2Year)
                        .filter(e => e.font.size >= 7)
                        .concat([makeAnnotation(co2, graph2Year, birthYear, 'up', 'You Were Born!<br>🎂🎉', 0, 75, 'center', 'bottom', true)])
-                  }`
-          config: `{responsive: true}`
+                  });`
         /]
 
       [var name:"partTwoCompleted" value:false/]
@@ -668,7 +673,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         [var name:"graph3Year" value:`1760` /]
         [PlotlyComponent
-          resize:partTwoCompleted
+          isVisible:partTwoCompleted
           data: `[{
                     x: co2.map(e => e.yearsBefore2019),
                     y: co2.map(e => e.ppm),
@@ -679,9 +684,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       color:' #4a00fb',
                     }
                   }]`
-          layout: `{
+          layout: `(width) => ({
                     title: 'The History of CO2',
-                    height: 700,
+                    width: width,
+                    height: width/1.618,
                     showlegend: false,
                     font: {
                       family: 'Graphik Web',
@@ -726,8 +732,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           ay: e.ay
                         }))
                        .filter(e => e.font.size >= 7)
-                  }`
-          config: `{responsive: true}`
+                  });`
         /]
 
         [var name:"partThreeCompleted" value:false/]
