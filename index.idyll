@@ -421,7 +421,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   easing: 'cubic-in-out'
                 },
                 annotations: [
-                    makeAnnotation(co2, graphYear, 2019, width/720, 'down', '2019', 0, 40 * width/720, 'center', 'top', true),
+                    makeAnnotation(co2, graphYear, 2019, width/720, 'down', '2019', 0, 25 * width/720, 'center', 'top', true),
                     makeAnnotation(co2, graphYear, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
                     makeAnnotation(co2, graphYear, 2015, width/720, 'down', 'Paris Climate<br>Agreement Signed'),
                     makeAnnotation(co2, graphYear, 2012, width/720, 'up', 'Curiosity Rover<br>Lands on Mars'),
@@ -440,7 +440,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                    .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                    .filter(e => e.x >= graphYear)
                    .filter(e => e.font.size >= 8 * width/720)
-                   .concat([makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * width/720)])
+                   .concat([makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 25 * width/720)])
               });`
     /]
 
@@ -666,12 +666,12 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         makeAnnotation(co2, graph2Year, 1807, width/720, 'down', 'Steamboat<br>Invented 🚢'),
                         makeAnnotation(co2, graph2Year, 1804, width/720, 'up', 'Jacquard<br>Loom<br>Invented 🧶'),
                         makeAnnotation(co2, graph2Year, 1765, width/720, 'down', 'Steam Engine<br>Invented 🚂'),
-                        makeAnnotation(co2, graph2Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25 * width/720, 40 * width/720, 'center', 'bottom', true),
+                        makeAnnotation(co2, graph2Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25 * width/720, 25 * width/720, 'center', 'bottom', true),
                       ].filter(e => e.x != birthYear)
                        .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                        .filter(e => e.x >= graph2Year)
                        .filter(e => e.font.size >= 8 * width/720, )
-                       .concat([makeAnnotation(co2, graph2Year, birthYear, width/720, 'up', 'You Were Born!<br>🎂🎉', -25 * width/720, 40 * width/720, 'center', 'bottom', true)])
+                       .concat([makeAnnotation(co2, graph2Year, birthYear, width/720, 'up', 'You Were Born!<br>🎂🎉', -25 * width/720, 25 * width/720, 'center', 'bottom', true)])
                   });`
         /]
 
@@ -716,7 +716,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           # The Rise of Agriculture 🌾
         [/TextContainer]
 
-        [var name:"graph3Year" value:`1720` /]
+        [var name:"graph3Year" value:1720 /]
+        //[var name:"graph3Year" value:2019-10000 /]
         [PlotlyComponent
           isVisible:partTwoCompleted
           data: `[{
@@ -769,9 +770,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       easing: 'cubic-in-out'
                     },
                     annotations: [
-                        makeAnnotation(co2, graph3Year, 2019, width/720, 'up', '2019', -40*width/720, 0, 'right', 'center', true),
-                        makeAnnotation(co2, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40*width/720, 40*width/720, 'right', 'center', true),
-                        makeAnnotation(co2, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -40*width/720, 40*width/720, 'right', 'bottom', true)
+                        makeAnnotation(co2, graph3Year, 2019, width/720, 'up', '2019', -25*width/720, 0, 'right', 'center', true),
+                        makeAnnotation(co2, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -25*width/720, 25*width/720, 'right', 'center', true),
+                        makeAnnotation(co2, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25*width/720, 25*width/720, 'right', 'bottom', true)
                       ]
                        .map(e => (
                         {
