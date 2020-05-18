@@ -146,6 +146,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     dtick: 5,
                     autorange: 'reversed',
                     color: '#7e7e7e',
+                    fixedrange: true,
                     font: {
                       size: 12 * width / 720
                     },
@@ -156,6 +157,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     title: 'Percent CO2 Emissions in Your Lifetime',
                     range: [0, 101],
                     color: '#7e7e7e',
+                    fixedrange: true,
                     font: {
                       size: 12 * width / 720
                     },
@@ -374,10 +376,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [/TextContainer]
 
     [var name:"graphYear" value:2019 /]
-
-    [PlotlyComponent
-      isVisible:birthYearSelected
-      data: `[{
+    [derived name:"graphData" value:`[{
                 x: co2.map(e => e.year),
                 y: co2.map(e => e.ppm),
                 mode: 'lines',
@@ -386,7 +385,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 line: {
                   color:' #4a00fb',
                 }
-              }]`
+              }]` /]
+
+    [PlotlyComponent
+      isVisible:birthYearSelected
+      data: graphData
       layout: `(width) => ({
                 title: 'Your Life in CO2',
                 width: width,
@@ -400,6 +403,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   range: [graphYear == 2019 ? 2018.5 : graphYear - 4, 2019.5],
                   title: 'Year',
                   tickformat: 'd',
+                  fixedrange: true,
                   font: {
                     size: 12 * width / 720
                   },
@@ -411,6 +415,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           ],
                   title: 'CO2 Level (parts per million)',
                   tickformat: 'd',
+                  fixedrange: true,
                   font: {
                     size: 12 * width / 720
                   },
@@ -424,7 +429,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   },
                 transition: {
                   duration: 2000,
-                  easing: 'cubic-in-out'
+                  easing: 'cubic-in-out',
+                  ordering: 'traces'
                 },
                 annotations: [
                     makeAnnotation(co2, graphYear, 2019, width/720, 'down', '2019', 0, 40 * 0.75 * width/720, 'center', 'top', true),
@@ -599,16 +605,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         
         [PlotlyComponent
           isVisible:partOneCompleted
-          data: `[{
-                    x: co2.map(e => e.year),
-                    y: co2.map(e => e.ppm),
-                    mode: 'lines',
-                    type: 'scatter',
-                    hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
-                    line: {
-                      color:' #4a00fb',
-                    }
-                  }]`
+          data: graphData
           layout: `(width) => ({
                     title: 'The History of CO2',
                     width: width,
@@ -622,6 +619,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       range: [graph2Year == birthYear ? graph2Year - 5 : graph2Year - 50/2, 2019.5],
                       title: 'Year',
                       tickformat: 'd',
+                      fixedrange: true,
                       font: {
                         size: 12 * width / 720
                       },
@@ -633,6 +631,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               ],
                       title: 'CO2 Level (in parts per million)',
                       tickformat: 'd',
+                      fixedrange: true,
                       font: {
                         size: 12 * width / 720
                       },
@@ -725,10 +724,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         [/TextContainer]
 
         [var name:"graph3Year" value:1720 /]
-        //[var name:"graph3Year" value:2019-10000 /]
-        [PlotlyComponent
-          isVisible:partTwoCompleted
-          data: `[{
+        [derived name:"graph3Data" value:`[{
                     x: co2.map(e => e.yearsBefore2019),
                     y: co2.map(e => e.ppm),
                     mode: 'lines',
@@ -737,7 +733,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     line: {
                       color:' #4a00fb',
                     }
-                  }]`
+                  }]` /]
+
+        [PlotlyComponent
+          isVisible:partTwoCompleted
+          data: graph3Data
           layout: `(width) => ({
                     title: 'The History of CO2',
                     width: width,
@@ -751,6 +751,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       range: [2019 - graph3Year + 50/2, -10],
                       title: 'Years before 2019',
                       tickformat: 'd',
+                      fixedrange: true,
                       font: {
                         size: 12 * width / 720
                       },
@@ -762,6 +763,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               ],
                       title: 'CO2 Level (in parts per million)',
                       tickformat: 'd',
+                      fixedrange: true,
                       font: {
                         size: 12 * width / 720
                       },

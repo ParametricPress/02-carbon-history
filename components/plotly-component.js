@@ -38,11 +38,11 @@ class plotlyComponent extends D3Component {
       //console.log('Plotly Graph Created', this.props);
       let height = width/1.618;
       let viewportHeight = window.innerHeight;
-      if (height > viewportHeight) {
-        // ensure that graph doesn't take up more than 85% of screen height
-        width = 0.85 * viewportHeight * 1.618;
+      if (height > 0.95 * viewportHeight) {
+        // ensure that graph doesn't take up more than 95% of screen height
+        width = 0.95 * viewportHeight * 1.618;
       }
-      Plotly.newPlot(this.state.node, this.props.data, this.props.layout(width));
+      Plotly.newPlot(this.state.node, this.props.data, this.props.layout(width), {displayModeBar: false});
 
       this.setState((state) => {
         return {
@@ -61,11 +61,11 @@ class plotlyComponent extends D3Component {
       let width = this.state.node.getBoundingClientRect().width;
       let height = width/1.618;
       let viewportHeight = window.innerHeight;
-      if (height > viewportHeight) {
-        // ensure that graph doesn't take up more than 85% of screen height
-        width = 0.85 * viewportHeight * 1.618;
+      if (height > 0.95 * viewportHeight) {
+        // ensure that graph doesn't take up more than 95% of screen height
+        width = 0.95 * viewportHeight * 1.618;
       }
-      Plotly.react(this.state.node, this.props.data, this.props.layout(width));
+      Plotly.react(this.state.node, this.props.data, this.props.layout(width), {displayModeBar: false});
 
       this.setState((state) => {
         return {
@@ -81,7 +81,7 @@ class plotlyComponent extends D3Component {
       setTimeout(this.createGraph, 50);
     } else {
       //console.log('Plotly Graph Updated', props);
-      Plotly.react(this.state.node, props.data, props.layout(this.state.width));
+      Plotly.react(this.state.node, props.data, props.layout(this.state.width), {displayModeBar: false});
     }
 
   }
