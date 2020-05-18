@@ -11,7 +11,7 @@
   title:`["Your Life", "in CO2"]`
   longTitle:`["Your Life in", "Carbon Dioxide"]`
   date:"May 15, 2020"
-  dek:"When it comes to carbon dioxide, we are living through an extraordinary time."
+  dek:"When it comes to carbon dioxide, we're all living through an extraordinary time."
   fullWidth:true
   authors:`[{
     name: "Aatish Bhatia",
@@ -25,8 +25,8 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"readerMode" value:true /]
-Reader mode [Display value:`readerMode ? "is enabled" : "is disabled"  `/]
+[var name:"readerMode" value:false /]
+[Boolean value:readerMode /] Reader mode [Display value:`readerMode ? "is enabled" : "is disabled"  `/]
 
 # Formation 🦕
 
@@ -366,7 +366,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [/TextContainer]
 
     [var name:"graphYear" value:2019 /]
-    //[var name:"graphYear" value:`birthYear` /]
 
     [PlotlyComponent
       isVisible:birthYearSelected
@@ -444,6 +443,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     /]
 
     [var name:"partOneCompleted" value:false/]
+    [var name:"graph2Year" value:`birthYear` /]
     [var name:"buttonEnabled" value:true /]
 
       [div className:"buttonwrapper"]
@@ -457,6 +457,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             } else {
               graphYear = birthYear;
               partOneCompleted = true;
+              graph2Year = birthYear;
             }
 
             setTimeout(() => {
@@ -588,9 +589,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         [/TextContainer]
         
-        [var name:"graph2Year" value:`birthYear` /]
-        //[var name:"graph2Year" value:1750 /]
-
         [PlotlyComponent
           isVisible:partOneCompleted
           data: `[{
