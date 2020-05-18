@@ -705,9 +705,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
       [Conditional if:`partTwoCompleted || !readerMode`]
         [TextContainer]
-          This graph shows us the entire history of industrialization as seen through the lens of CO2. The key thing to take away from this graph is that it's grown steeper with every passing decade.
+          This graph shows us the entire history of industrialization as seen through the lens of CO2. Notice how it's grown steeper with every passing decade.
 
-          During the Industrial Revolution, carbon dioxide levels were increasing. But it was rising at a gentle slope, in comparison to the steep rise today. Everyone alive today is living through a great acceleration, an unprecedented ramping up of carbon consumption and CO2 output.
+          During the Industrial Revolution, industrialized nations started to burn coal at a rate never seen before, and so carbon dioxide levels began to increase. But that was just a gentle slope, in comparison to the steep rise in CO2 that we're creating today. 
+
+          Everyone alive today is living through a great acceleration, an unprecedented ramping up of carbon consumption and CO2 output.
 
           To see this even more clearly, let's go further back in time. What did CO2 levels look like before the Industrial Revolution began?
 
@@ -770,7 +772,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     annotations: [
                         makeAnnotation(co2, graph3Year, 2019, width/720, 'up', '2019', -40*0.75*width/720, 0, 'right', 'center', true),
                         makeAnnotation(co2, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40*0.75*width/720, 0, 'right', 'center', true),
-                        makeAnnotation(co2, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -40*0.75*width/720, -25*0.75*width/720, 'right', 'bottom', true)
+                        makeAnnotation(co2, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -20*0.75*width/720, 40*0.75*width/720, 'center', 'bottom', true)
                       ]
                        .map(e => (
                         {
