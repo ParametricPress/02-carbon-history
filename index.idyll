@@ -384,7 +384,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 width: width,
                 height: width/1.618,
                 showlegend: false,
-                datarevision: graphYear,
                 font: {
                   family: 'Graphik Web',
                   size: 16 * width / 720
@@ -607,7 +606,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     width: width,
                     height: width/1.618,
                     showlegend: false,
-                    datarevision: graph2Year,
                     font: {
                       family: 'Graphik Web',
                       size: 16 * width/720, 
@@ -737,7 +735,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     width: width,
                     height: width/1.618,
                     showlegend: false,
-                    datarevision: graph3Year,
                     font: {
                       family: 'Graphik Web',
                       size: 16 * width / 720
@@ -790,8 +787,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           font: e.font,
                           showarrow: e.showarrow,
                           arrowhead: e.arrowhead,
+                          arrowwidth: e.arrowhead,
                           ax: e.ax,
-                          ay: e.ay
+                          ay: e.ay,
+                          visible: e.visible
                         }))
                        .filter(e => e.font.size >= 8 * width/720)
                   });`
@@ -804,8 +803,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             if (buttonEnabled) {
 
               buttonEnabled = false;
-              if (graph3Year - 2000 > 2019 - 11000) {
-                graph3Year = graph3Year - 1000;
+              if (graph3Year - 4000 > 2019 - 11000) {
+                graph3Year = graph3Year - 2000;
               } else {
                 graph3Year = 2019 - 11000;
                 partThreeCompleted = true;

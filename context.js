@@ -18,7 +18,8 @@ const makeAnnotation = (data, graphYear, year, scale, direction, annotationText,
                           arrowhead: 2,
                           arrowwidth: 2 * scale,
                           ax: (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -0.5) * scale,
-                          ay: (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -0.5) * scale
+                          ay: (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -0.5) * scale,
+                          visible: isLabelStatic || 12 * Math.pow((2020 - year)/(2020 - graphYear), 0.5) >= 8
                         });
 
 module.exports = (ctx) => {
