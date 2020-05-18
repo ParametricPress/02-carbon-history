@@ -18,11 +18,15 @@ class p5Component extends D3Component {
   }
 
   update(props, oldProps) {
-    //console.log('p5 props changed');
+    //console.log('p5 props changed', props);
 
-    /* this is a hack to resize the p5 sketch once its containing conditional becomes visible */
-    if (props.resize !== oldProps.resize) {setTimeout(this.state.sketch.windowResized, 50); }
-    else { this.state.sketch.onUpdate(props, oldProps); }
+    /* added so we can manually resize the p5 sketch once its containing conditional becomes visible */
+    if (props.resize !== oldProps.resize) {
+      setTimeout(this.state.sketch.windowResized, 50); 
+    }
+    else {
+      this.state.sketch.onUpdate(props, oldProps); 
+    }
 
   }
 

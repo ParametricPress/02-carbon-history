@@ -35,7 +35,7 @@ class plotlyComponent extends D3Component {
     let width = this.state.node.getBoundingClientRect().width;
 
     if (width > 0) {
-      //console.log('Plotly Graph Created');
+      //console.log('Plotly Graph Created', this.props);
       Plotly.newPlot(this.state.node, this.props.data, this.props.layout(width));
 
       this.setState((state) => {
@@ -68,6 +68,7 @@ class plotlyComponent extends D3Component {
     if (!this.state.graphCreated) {
       setTimeout(this.createGraph, 50);
     } else {
+      //console.log('Plotly Graph Updated', props);
       Plotly.react(this.state.node, props.data, props.layout(this.state.width));
     }
 

@@ -11,7 +11,7 @@
   title:`["Your Life", "in CO2"]`
   longTitle:`["Your Life in", "Carbon Dioxide"]`
   date:"May 15, 2020"
-  dek:"TK TK A punchy description of why we should read your article."
+  dek:"When it comes to carbon dioxide, we are living through an extraordinary time."
   fullWidth:true
   authors:`[{
     name: "Aatish Bhatia",
@@ -25,7 +25,7 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"readerMode" value:false /]
+[var name:"readerMode" value:true /]
 Reader mode [Display value:`readerMode ? "is enabled" : "is disabled"  `/]
 
 # Formation 🦕
@@ -234,7 +234,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         onExitViewFully: `pauseAnimation = true`
         className: "center"
         resize: birthYearSelected
-        updateVar: birthYear
         sketch:`(p, parent) => {
 
           // visualizing ppm at different levels
@@ -403,25 +402,25 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
                           425
                           ],
-                  title: 'CO2 Level (in parts per million)',
+                  title: 'CO2 Level (parts per million)',
                   tickformat: 'd',
                   font: {
                     size: 12 * width / 720
                   },
                 },
                 margin: {
-                    l: 100 * width / 720,
-                    r: 50 * width / 720,
-                    b: 100 * width / 720,
-                    t: 100 * width / 720,
-                    pad: 4 * width / 720
+                    l: 80 * width / 720,
+                    r: 25 * width / 720,
+                    b: 50 * width / 720,
+                    t: 50 * width / 720,
+                    pad: 2 * width / 720
                   },
                 transition: {
                   duration: 2000,
                   easing: 'cubic-in-out'
                 },
                 annotations: [
-                    makeAnnotation(co2, graphYear, 2019, width/720, 'down', '2019', 0, 25 * width/720, 'center', 'top', true),
+                    makeAnnotation(co2, graphYear, 2019, width/720, 'down', '2019', 0, 40 * 0.75 * width/720, 'center', 'top', true),
                     makeAnnotation(co2, graphYear, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
                     makeAnnotation(co2, graphYear, 2015, width/720, 'down', 'Paris Climate<br>Agreement Signed'),
                     makeAnnotation(co2, graphYear, 2012, width/720, 'up', 'Curiosity Rover<br>Lands on Mars'),
@@ -440,7 +439,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                    .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                    .filter(e => e.x >= graphYear)
                    .filter(e => e.font.size >= 8 * width/720)
-                   .concat([makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 25 * width/720)])
+                   .concat(graphYear == birthYear ? [makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * 0.75 * width/720)] : [])
               });`
     /]
 
@@ -453,7 +452,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           if (buttonEnabled) {
 
             buttonEnabled = false;
-            if ((graphYear - 5) > birthYear - 1) {
+            if ((graphYear - 5) > birthYear) {
               graphYear = graphYear - 5;
             } else {
               graphYear = birthYear;
@@ -497,7 +496,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           let candles = [];
           let myCandles = [];
           let scale = 0.438;
-          let ppm = 100;
+          let year = birthYear;
 
           p.preload = function() {
             img = p.loadImage('static/assets/cake.png'); // Load the image
@@ -513,7 +512,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             scale = 0.438 * myWidth / 400;
             p.imageMode(p.CENTER);
             p.noLoop();
-            drawStuff(birthYear);
+            drawStuff(year);
           };
 
           function drawStuff(year) {
@@ -557,14 +556,15 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           }
 
           p.onUpdate = function(props, oldProps) {
-            drawStuff(props.birthYear);
+            year = props.birthYear;
+            drawStuff(year);
           };
 
           p.windowResized = function() {
             let myWidth = canvas.canvas.parentElement.clientWidth;
             p.resizeCanvas(myWidth,myWidth);
             scale = 0.438 * myWidth / 400;
-            drawStuff(birthYear);
+            drawStuff(year);
           }
 
         }
@@ -613,7 +613,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       size: 16 * width/720, 
                     },
                     xaxis: {
-                      range: [graph2Year == birthYear ? birthYear - 4 : graph2Year - 50/2, 2019.5],
+                      range: [graph2Year == birthYear ? graph2Year - 5 : graph2Year - 50/2, 2019.5],
                       title: 'Year',
                       tickformat: 'd',
                       font: {
@@ -632,18 +632,18 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       },
                     },
                     margin: {
-                        l: 100 * width / 720,
-                        r: 50 * width / 720,
-                        b: 100 * width / 720,
-                        t: 100 * width / 720,
-                        pad: 4 * width / 720
+                        l: 80 * width / 720,
+                        r: 25 * width / 720,
+                        b: 50 * width / 720,
+                        t: 50 * width / 720,
+                        pad: 2 * width / 720
                       },
                     transition: {
                       duration: 2000,
                       easing: 'cubic-in-out'
                     },
                     annotations: [
-                        makeAnnotation(co2, graph2Year, 2019, width/720, 'up', '2019', -25 * width/720, 0, 'right', 'center', true),
+                        makeAnnotation(co2, graph2Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                         makeAnnotation(co2, graph2Year, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
                         makeAnnotation(co2, graph2Year, 2015, width/720, 'down', 'Paris Climate<br>Agreement Signed'),
                         makeAnnotation(co2, graph2Year, 2012, width/720, 'up', 'Curiosity Rover<br>Lands on Mars'),
@@ -666,12 +666,12 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         makeAnnotation(co2, graph2Year, 1807, width/720, 'down', 'Steamboat<br>Invented 🚢'),
                         makeAnnotation(co2, graph2Year, 1804, width/720, 'up', 'Jacquard<br>Loom<br>Invented 🧶'),
                         makeAnnotation(co2, graph2Year, 1765, width/720, 'down', 'Steam Engine<br>Invented 🚂'),
-                        makeAnnotation(co2, graph2Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25 * width/720, 25 * width/720, 'center', 'bottom', true),
+                        makeAnnotation(co2, graph2Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25 * 0.75 * width/720, 40 * 0.75 * width/720, 'center', 'bottom', true),
                       ].filter(e => e.x != birthYear)
-                       .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
+                       .filter(e => !(e.direction == 'up' && Math.abs(e.x - birthYear) < 5))
                        .filter(e => e.x >= graph2Year)
                        .filter(e => e.font.size >= 8 * width/720, )
-                       .concat([makeAnnotation(co2, graph2Year, birthYear, width/720, 'up', 'You Were Born!<br>🎂🎉', -25 * width/720, 25 * width/720, 'center', 'bottom', true)])
+                       .concat([makeAnnotation(co2, graph2Year, birthYear, width/720, 'up', 'You Were Born!<br>🎂🎉', -25 * 0.75 * width/720, 40 * 0.75 * width/720, 'center', 'bottom', true)])
                   });`
         /]
 
@@ -759,20 +759,20 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       },
                     },
                     margin: {
-                      l: 100 * width / 720,
-                      r: 50 * width / 720,
-                      b: 100 * width / 720,
-                      t: 100 * width / 720,
-                      pad: 4 * width / 720
-                    },
+                        l: 80 * width / 720,
+                        r: 25 * width / 720,
+                        b: 50 * width / 720,
+                        t: 50 * width / 720,
+                        pad: 2 * width / 720
+                      },
                     transition: {
                       duration: 2000,
                       easing: 'cubic-in-out'
                     },
                     annotations: [
-                        makeAnnotation(co2, graph3Year, 2019, width/720, 'up', '2019', -25*width/720, 0, 'right', 'center', true),
-                        makeAnnotation(co2, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -25*width/720, 25*width/720, 'right', 'center', true),
-                        makeAnnotation(co2, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25*width/720, 25*width/720, 'right', 'bottom', true)
+                        makeAnnotation(co2, graph3Year, 2019, width/720, 'up', '2019', -40*0.75*width/720, 0, 'right', 'center', true),
+                        makeAnnotation(co2, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40*0.75*width/720, 0, 'right', 'center', true),
+                        makeAnnotation(co2, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -40*0.75*width/720, -25*0.75*width/720, 'right', 'bottom', true)
                       ]
                        .map(e => (
                         {
@@ -801,10 +801,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             if (buttonEnabled) {
 
               buttonEnabled = false;
-              if (graph3Year > - 10000) {
+              if (graph3Year > 2019 - 11000) {
                 graph3Year = graph3Year - 1000;
               } else {
-                graph3Year = - 10000;
+                graph3Year = 2019 - 11000;
                 partThreeCompleted = true;
               }
 
@@ -817,7 +817,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             Travel Back in Time
           [/Button]
 
-          [Button onClick:`graph3Year = 2019 - 1750`]
+          [Button onClick:`graph3Year = 1720`]
             Restart
           [/Button]
 
