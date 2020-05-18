@@ -65,6 +65,7 @@ class plotlyComponent extends D3Component {
         // ensure that graph doesn't take up more than 95% of screen height
         width = 0.95 * viewportHeight * 1.618;
       }
+
       Plotly.react(this.state.node, this.props.data, this.props.layout(width), {displayModeBar: false});
 
       this.setState((state) => {
@@ -81,7 +82,14 @@ class plotlyComponent extends D3Component {
       setTimeout(this.createGraph, 50);
     } else {
       //console.log('Plotly Graph Updated', props);
-      Plotly.react(this.state.node, props.data, props.layout(this.state.width), {displayModeBar: false});
+
+      // this avoids a bug where layout hasn't finished updating?
+      setTimeout(() => {
+        let layout = this.props.layout(this.state.width);
+        //console.log(layout.annotations.map(e => e.text));
+        Plotly.react(this.state.node, props.data, layout, {displayModeBar: false});
+      }, 200);
+
     }
 
   }

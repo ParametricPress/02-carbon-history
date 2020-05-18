@@ -452,7 +452,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                    .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                    .filter(e => e.x >= graphYear)
                    .filter(e => e.font.size >= 8 * width/720)
-                   .concat([makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * 0.75 * width/720)])
+                   .concat(graphYear <= birthYear ? [makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * 0.75 * width/720)] : [])
               });`
     /]
 
