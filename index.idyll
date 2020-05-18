@@ -380,10 +380,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 }
               }]`
       layout: `(width) => ({
-                title: 'Your Life in CO2',
+                title: 'Your Life in CO2' + graphYear,
                 width: width,
                 height: width/1.618,
                 showlegend: false,
+                datarevision: graphYear,
                 font: {
                   family: 'Graphik Web',
                   size: 16 * width / 720
@@ -438,7 +439,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                    .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                    .filter(e => e.x >= graphYear)
                    .filter(e => e.font.size >= 8 * width/720)
-                   .concat(graphYear == birthYear ? [makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * 0.75 * width/720)] : [])
+                   .concat([makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * 0.75 * width/720)])
               });`
     /]
 
@@ -452,7 +453,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           if (buttonEnabled) {
 
             buttonEnabled = false;
-            if ((graphYear - 5) > birthYear) {
+            if ((graphYear - 10) > birthYear) {
               graphYear = graphYear - 5;
             } else {
               graphYear = birthYear;
@@ -606,6 +607,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     width: width,
                     height: width/1.618,
                     showlegend: false,
+                    datarevision: graph2Year,
                     font: {
                       family: 'Graphik Web',
                       size: 16 * width/720, 
@@ -680,7 +682,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           if (buttonEnabled) {
 
             buttonEnabled = false;
-            if ((graph2Year - 50) > 1750) {
+            if ((graph2Year - 100) > 1750) {
               graph2Year = graph2Year - 50;
             } else {
               graph2Year = 1750;
@@ -735,6 +737,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     width: width,
                     height: width/1.618,
                     showlegend: false,
+                    datarevision: graph3Year,
                     font: {
                       family: 'Graphik Web',
                       size: 16 * width / 720
@@ -801,7 +804,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             if (buttonEnabled) {
 
               buttonEnabled = false;
-              if (graph3Year > 2019 - 11000) {
+              if (graph3Year - 2000 > 2019 - 11000) {
                 graph3Year = graph3Year - 1000;
               } else {
                 graph3Year = 2019 - 11000;
