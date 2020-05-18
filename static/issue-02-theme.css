@@ -1339,7 +1339,7 @@ a {
   width: 100vw;
   left: 0;
   position: absolute;
-  min-height: 300px;
+  min-height: 400px;
 }
 
 .parametric-footer-link-container {
@@ -1398,6 +1398,64 @@ a {
 .parametric-author-bio a {
   color: #222;
   text-decoration: underline;
+}
+
+.parametric-graphic {
+  background: #222222;
+  padding: 25px;
+  font-family: 'Graphik Web';
+  color: #7e7e7e;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.parametric-graphic-hed {
+  font-family: 'Graphik Web';
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  padding-bottom: 10px;
+}
+
+.parametric-graphic-subhed {
+  font-family: 'Graphik Web';
+  color: #7e7e7e;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  max-width: 600px;
+  padding-bottom: 10px;
+}
+
+.parametric-graphic-source {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #2C2C2C;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  color: #7e7e7e;
+}
+
+.parametric-graphic-source-label-wrapper {
+  display: flex;
+}
+
+.parametric-graphic-source-label {
+  padding-right: 25px;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+.parametric-graphic-source-citation {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.parametric-graphic-source-watermark {
+  font-size: 14px;
+  font-weight: 600;
 }
 
 @media all and (max-width: 1200px) {

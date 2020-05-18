@@ -44,6 +44,8 @@ input {
 }
 .aside-container {
   position: relative;
+    display: block;
+
 }
 .aside {
   position: absolute;

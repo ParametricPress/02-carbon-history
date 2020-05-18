@@ -363,6 +363,14 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
       Let's now travel backwards through the years of your life in our CO2 time machine. We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million.
 
+      [Graphic
+        hed:"The headline of the graphic."
+        subhed:"This is a short sentence or two that summarizes what the graphic is about."
+        source:"FirstName LastName 2020"
+        ]
+      Your graphic or content here. The hed, subhed, and source properties are optional. Including a source renders a source footer.
+      [/Graphic]
+
     [/TextContainer]
 
     [var name:"graphYear" value:2019 /]
@@ -380,7 +388,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 }
               }]`
       layout: `(width) => ({
-                title: 'Your Life in CO2' + graphYear,
+                title: 'Your Life in CO2',
                 width: width,
                 height: width/1.618,
                 showlegend: false,

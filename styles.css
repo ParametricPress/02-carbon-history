@@ -24,7 +24,9 @@
 }
 
 .js-plotly-plot {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .pull-number {
