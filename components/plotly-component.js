@@ -42,7 +42,8 @@ class plotlyComponent extends D3Component {
         // ensure that graph doesn't take up more than 95% of screen height
         width = 0.95 * viewportHeight * 1.618;
       }
-      Plotly.newPlot(this.state.node, this.props.data, this.props.layout(width), {displayModeBar: false});
+
+      Plotly.react(this.state.node, this.props.data, this.props.layout(width), {displayModeBar: false});
 
       this.setState((state) => {
         return {
@@ -88,7 +89,7 @@ class plotlyComponent extends D3Component {
         let layout = this.props.layout(this.state.width);
         //console.log(layout.annotations.map(e => e.text));
         Plotly.react(this.state.node, props.data, layout, {displayModeBar: false});
-      }, 200);
+      }, 50);
 
     }
 
