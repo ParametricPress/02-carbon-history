@@ -10,8 +10,8 @@
     "css": "styles.css",
     "authorView": false,
     "template": "_index.html",
-    "layout": "none",
-    "theme": "none",
+    "layout": "./node_modules/parametric-styles/issue-02-theme.css",
+    "theme": "./node_modules/parametric-styles/issue-02-layout.css",
     "context": "./context.js",
     "components": [
       "./components",
@@ -23,7 +23,7 @@
     "idyll": "^4.10.3",
     "idyll-d3-component": "^2.0.0",
     "p5": "^1.0.0",
-    "parametric-components": "^2.0.5",
+    "parametric-components": "^2.1.1",
     "parametric-styles": "^2.1.0",
     "plotly.js-basic-dist-min": "^1.53.0"
   }
