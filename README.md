@@ -4,11 +4,9 @@ TK short description of article.
 
 ## Next Steps
 
-- [ ] Improve Plotly responsive behavior
-	- currently text doesn't resize
-	- perhaps we can overwrite Plotly's default resize behavior with something like [this](https://community.plotly.com/t/responsive-plotly-js-was-working-now-it-is-not/451)
-	- or keep the auto resize if I can get it to change font size on resize
-- [ ] Complete Ice Ages Section
+- [ ] Complete The Rise of Agriculture (annotate graph)
+- [ ] At the end, add summary graph with range selector and slider [Like this](https://plotly.com/javascript/range-slider/)
+- [ ] Look into Plotly transition bugs
 
 ## Local Setup
 

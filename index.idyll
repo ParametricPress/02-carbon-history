@@ -122,8 +122,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
 
       [var name:"ages" value:`Array(20).fill(0).map((e,i) => 5 * (i+1))` /]
-      //[var name:"percentiles" value:`ages.map(e => 100 * getCO2Fraction(co2, 2020 - e))` /]
-
       [PlotlyComponent
         isVisible: birthYearSelected
         data: `[{
@@ -373,7 +371,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [Conditional if:`ppmVizCompleted || !readerMode`]
 
       [TextContainer]
-        Great! Now that you know what parts per million look like, let's travel backwards through the years of your life in our CO2 time machine.
+        Great! Now that you know what a *part per million* looks like, let's travel backwards through the years of your life in our CO2 time machine.
 
         We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million.
       [/TextContainer]
@@ -816,10 +814,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
               if (buttonEnabled) {
 
                 buttonEnabled = false;
-                if (graph3Year - 4000 > 2019 - 11000) {
+                if (graph3Year - 4000 > 2019 - 11300) {
                   graph3Year = graph3Year - 2000;
                 } else {
-                  graph3Year = 2019 - 11000;
+                  graph3Year = 2019 - 11300;
                   partThreeCompleted = true;
                 }
 
