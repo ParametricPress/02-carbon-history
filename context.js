@@ -1,10 +1,22 @@
 const getCO2Level = (data, year) => data.filter(e => e.year == year)[0].ppm;
+const interpolateCO2Level = (data, yearList, year) => {
+  if (yearList.includes(year)) {
+    return getCO2Level(data, year);
+  } else {
+    let prevYear = yearList.filter(y => y < year)[0]; // first element of years before
+    let nextYear = yearList.filter(y => y > year).slice(-1)[0]; // last element of years after
+    let prevPPM = getCO2Level(data, prevYear);
+    let nextPPM = getCO2Level(data, nextYear);
+    let interpolatedPPM = map(year, prevYear, nextYear, prevPPM, nextPPM);
+    return interpolatedPPM;
+  }
+};
 const getCO2Fraction = (data, year) => (getCO2Level(data, '2019') - getCO2Level(data, year)) / (getCO2Level(data, '2019') - 280);
 const map = (n, start1, stop1, start2, stop2) => Math.min(Math.max((n - start1) / (stop1 - start1) * (stop2 - start2) + start2, start2),stop2);
 const makeAnnotation = (data, graphYear, year, scale, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
                         {
                           x: year,
-                          y: getCO2Level(data, year),
+                          y: getCO2Level(data, year), // this is super inefficient!
                           direction: direction,
                           xref: 'x',
                           yref: 'y',
@@ -38,7 +50,9 @@ module.exports = (ctx) => {
     ctx.update({
        getCO2Level: getCO2Level,
        getCO2Fraction: getCO2Fraction,
-       makeAnnotation: makeAnnotation
+       makeAnnotation: makeAnnotation,
+       map: map,
+       interpolateCO2Level: interpolateCO2Level
     });
 
   })
