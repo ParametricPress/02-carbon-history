@@ -730,7 +730,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       y: co2.map(e => e.ppm),
                       mode: 'lines',
                       type: 'scatter',
-                      hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
+                      hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} parts per million of CO2<extra></extra>',
                       line: {
                         color:' #4a00fb',
                       }
@@ -749,7 +749,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         size: 16 * width / 720
                       },
                       xaxis: {
-                        range: [2019 - graph3Year + 50/2, -10],
+                        range: [graph3Year == 1720 ? 2019 - graph3Year + 50/2 : 2019 - graph3Year + 1000/2, -10],
                         title: 'Years before 2019',
                         tickformat: 'd',
                         fixedrange: true,
@@ -783,8 +783,25 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       annotations: [
                           makeAnnotation(0.5, graph3Year, 2019, width/720, 'up', '2019', -40*0.75*width/720, 0, 'right', 'center', true),
                           makeAnnotation(0.5, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40*0.75*width/720, 0, 'right', 'center', true),
-                          makeAnnotation(0.5, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -20*0.75*width/720, 40*0.75*width/720, 'center', 'bottom', true)
+                          makeAnnotation(0.5, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -20*0.75*width/720, 40*0.75*width/720, 'center', 'bottom', true),
+                          makeAnnotation(0.5, graph3Year, 476, width/720, 'up', 'Fall of<br>Roman Empire'),
+                          makeAnnotation(0.5, graph3Year, -508, width/720, 'down', 'Birth of<br>Democracy<br>in Athens'),
+                          makeAnnotation(0.5, graph3Year, -653, width/720, 'up', 'Rise of<br>Persian<br>Empire'),
+                          makeAnnotation(0.9, graph3Year, -1100, width/720, 'down', 'Use of<br>Iron<br>Spreads'),
+                          makeAnnotation(0.9, graph3Year, -2200, width/720, 'up', 'Stonehenge<br>Completed'),
+                          makeAnnotation(0.9, graph3Year, -2500, width/720, 'down', 'Mammoth<br>Extinct'),
+                          makeAnnotation(0.9, graph3Year, -3200, width/720, 'down', 'Invention of<br>Writing in<br>Egypt & Sumeria'),
+                          makeAnnotation(0.9, graph3Year, -3300, width/720, 'up', 'Beer brewed<br>from Barley<br>in Iran'),
+                          makeAnnotation(0.9, graph3Year, -4000, width/720, 'up', 'Chilli<br>Peppers<br>Cultivated<br>in Mexico'),
+                          makeAnnotation(0.9, graph3Year, -6000, width/720, 'up', 'Squash<br>Cultivated<br>in Mexico'),
+                          makeAnnotation(0.9, graph3Year, -6000, width/720, 'down', 'Rice<br>Cultivated<br>in China'),
+                          makeAnnotation(0.9, graph3Year, -7000, width/720, 'up', 'Corn<br>Cultivated<br>in Mexico'),
+                          makeAnnotation(0.9, graph3Year, -9600, width/720, 'up', 'Wheat<br>Cultivated<br>in Middle East'),
+                          makeAnnotation(0.9, graph3Year, -8000, width/720, 'down', 'Mammoth Extinct<br>in Eurasia<br>and Americas'),
+                          makeAnnotation(0.9, graph3Year, -8500, width/720, 'up', 'Cattle<br>Domesticated')
                         ]
+                         .filter(e => e.x >= graph3Year)
+                         .filter(e => e.font.size >= 6 * width/720)
                          .map(e => (
                           {
                             x: 2019 - e.x,
@@ -801,9 +818,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                             arrowwidth: e.arrowhead,
                             ax: e.ax,
                             ay: e.ay,
-                            visible: e.visible
                           }))
-                         .filter(e => e.font.size >= 8 * width/720)
                     });`
           /]
 
