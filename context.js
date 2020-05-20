@@ -22,7 +22,7 @@ const interpolateCO2Level = (year) => {
 };
 const interpolateCO2LevelCached = memoize(interpolateCO2Level);
 
-const makeAnnotation = (data, graphYear, year, scale, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
+const makeAnnotation = (power, graphYear, year, scale, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
                         {
                           x: year,
                           y: interpolateCO2LevelCached(year), // cached to improve efficiency on repeat lookups
@@ -33,14 +33,14 @@ const makeAnnotation = (data, graphYear, year, scale, direction, annotationText,
                           yanchor: yAnchor ? yAnchor : (direction == 'up' ? 'bottom' : 'top'),
                           text: annotationText,
                           font: {
-                            size: (isLabelStatic ? 12 : 12 * Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * scale,
+                            size: (isLabelStatic ? 12 : 12 * Math.pow((2020 - year)/(2020 - graphYear), power)) * scale,
                           },
                           showarrow: true,
                           arrowhead: 2,
                           arrowwidth: 2 * scale,
-                          ax: (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -0.5) * scale,
-                          ay: (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), 0.5)) * (direction == 'up' ? 1 : -0.5) * scale,
-                          visible: isLabelStatic || 12 * Math.pow((2020 - year)/(2020 - graphYear), 0.5) >= 8
+                          ax: (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), power)) * (direction == 'up' ? 1 : -0.5) * scale,
+                          ay: (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), power)) * (direction == 'up' ? 1 : -0.5) * scale,
+                          visible: isLabelStatic || 12 * Math.pow((2020 - year)/(2020 - graphYear), power) >= 8
                         });
 
 module.exports = (ctx) => {

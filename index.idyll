@@ -434,26 +434,26 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     ordering: 'traces'
                   },
                   annotations: [
-                      makeAnnotation(co2, graphYear, 2019, width/720, 'down', '2019', 0, 40 * 0.75 * width/720, 'center', 'top', true),
-                      makeAnnotation(co2, graphYear, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
-                      makeAnnotation(co2, graphYear, 2015, width/720, 'down', 'Paris Climate<br>Agreement Signed'),
-                      makeAnnotation(co2, graphYear, 2012, width/720, 'up', 'Curiosity Rover<br>Lands on Mars'),
-                      makeAnnotation(co2, graphYear, 2007, width/720, 'down', 'iPhone<br>Launched 📱'),
-                      makeAnnotation(co2, graphYear, 2005, width/720, 'up', 'YouTube<br>Created'),
-                      makeAnnotation(co2, graphYear, 2001, width/720, 'down', 'First Harry Potter<br>Movie Released 🧙'),
-                      makeAnnotation(co2, graphYear, 1997, width/720, 'up', 'Titanic Movie<br>Released 🚢'),
-                      makeAnnotation(co2, graphYear, 1991, width/720, 'down', 'Soviet Union<br>Dissolved ☭'),
-                      makeAnnotation(co2, graphYear, 1989, width/720, 'up', 'Berlin Wall<br>Comes Down 🧱'),
-                      makeAnnotation(co2, graphYear, 1977, width/720, 'down', 'Star Wars<br>Released'),
-                      makeAnnotation(co2, graphYear, 1969, width/720, 'up', 'Humans Land<br>on Moon 🚀'),
-                      makeAnnotation(co2, graphYear, 1957, width/720, 'down', 'Sputnik<br>Launched 🛰️'),
-                      makeAnnotation(co2, graphYear, 1945, width/720, 'up', 'World War II<br>Ends'),
-                      makeAnnotation(co2, graphYear, 1939, width/720, 'down', 'World War II<br>Begins'),
+                      makeAnnotation(0.5, graphYear, 2019, width/720, 'down', '2019', 0, 40 * 0.75 * width/720, 'center', 'top', true),
+                      makeAnnotation(0.5, graphYear, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
+                      makeAnnotation(0.5, graphYear, 2015, width/720, 'down', 'Paris Climate<br>Agreement Signed'),
+                      makeAnnotation(0.5, graphYear, 2012, width/720, 'up', 'Curiosity Rover<br>Lands on Mars'),
+                      makeAnnotation(0.5, graphYear, 2007, width/720, 'down', 'iPhone<br>Launched 📱'),
+                      makeAnnotation(0.5, graphYear, 2005, width/720, 'up', 'YouTube<br>Created'),
+                      makeAnnotation(0.5, graphYear, 2001, width/720, 'down', 'First Harry Potter<br>Movie Released 🧙'),
+                      makeAnnotation(0.5, graphYear, 1997, width/720, 'up', 'Titanic Movie<br>Released 🚢'),
+                      makeAnnotation(0.5, graphYear, 1991, width/720, 'down', 'Soviet Union<br>Dissolved ☭'),
+                      makeAnnotation(0.5, graphYear, 1989, width/720, 'up', 'Berlin Wall<br>Comes Down 🧱'),
+                      makeAnnotation(0.5, graphYear, 1977, width/720, 'down', 'Star Wars<br>Released'),
+                      makeAnnotation(0.5, graphYear, 1969, width/720, 'up', 'Humans Land<br>on Moon 🚀'),
+                      makeAnnotation(0.5, graphYear, 1957, width/720, 'down', 'Sputnik<br>Launched 🛰️'),
+                      makeAnnotation(0.5, graphYear, 1945, width/720, 'up', 'World War II<br>Ends'),
+                      makeAnnotation(0.5, graphYear, 1939, width/720, 'down', 'World War II<br>Begins'),
                     ].filter(e => e.x != birthYear)
                      .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                      .filter(e => e.x >= graphYear)
                      .filter(e => e.font.size >= 8 * width/720)
-                     .concat(graphYear <= birthYear ? [makeAnnotation(co2, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * 0.75 * width/720)] : [])
+                     .concat(graphYear <= birthYear ? [makeAnnotation(0.5, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * 0.75 * width/720)] : [])
                 });`
       /]
 
@@ -649,35 +649,35 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         easing: 'cubic-in-out'
                       },
                       annotations: [
-                          makeAnnotation(co2, graph2Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
-                          makeAnnotation(co2, graph2Year, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
-                          makeAnnotation(co2, graph2Year, 2015, width/720, 'down', 'Paris Climate<br>Agreement Signed'),
-                          makeAnnotation(co2, graph2Year, 2012, width/720, 'up', 'Curiosity Rover<br>Lands on Mars'),
-                          makeAnnotation(co2, graph2Year, 2007, width/720, 'down', 'iPhone<br>Launched 📱'),
-                          makeAnnotation(co2, graph2Year, 2005, width/720, 'up', 'YouTube<br>Created'),
-                          makeAnnotation(co2, graph2Year, 2001, width/720, 'down', 'First Harry Potter<br>Movie Released 🧙'),
-                          makeAnnotation(co2, graph2Year, 1997, width/720, 'up', 'Titanic Movie<br>Released 🚢'),
-                          makeAnnotation(co2, graph2Year, 1991, width/720, 'down', 'Soviet Union<br>Dissolved ☭'),
-                          makeAnnotation(co2, graph2Year, 1989, width/720, 'up', 'Berlin Wall<br>Comes Down 🧱'),
-                          makeAnnotation(co2, graph2Year, 1977, width/720, 'down', 'Star Wars<br>Released'),
-                          makeAnnotation(co2, graph2Year, 1969, width/720, 'up', 'Humans Land<br>on Moon 🚀'),
-                          makeAnnotation(co2, graph2Year, 1957, width/720, 'down', 'Sputnik<br>Launched 🛰️'),
-                          makeAnnotation(co2, graph2Year, 1945, width/720, 'up', 'World War II<br>Ends'),
-                          makeAnnotation(co2, graph2Year, 1939, width/720, 'down', 'World War II<br>Begins'),
-                          makeAnnotation(co2, graph2Year, 1919, width/720, 'up', 'World War I<br>Ends'),
-                          makeAnnotation(co2, graph2Year, 1914, width/720, 'down', 'World War I<br>Begins'),
-                          makeAnnotation(co2, graph2Year, 1903, width/720, 'up', 'Wright<br>Brothers<br>Flight 🛩'),
-                          makeAnnotation(co2, graph2Year, 1886, width/720, 'down', 'Statue of Liberty<br>Inaugurated 🗽'),
-                          makeAnnotation(co2, graph2Year, 1851, width/720, 'up', 'Industrial<br>Revolution<br>Ends'),
-                          makeAnnotation(co2, graph2Year, 1807, width/720, 'down', 'Steamboat<br>Invented 🚢'),
-                          makeAnnotation(co2, graph2Year, 1804, width/720, 'up', 'Jacquard<br>Loom<br>Invented 🧶'),
-                          makeAnnotation(co2, graph2Year, 1765, width/720, 'down', 'Steam Engine<br>Invented 🚂'),
-                          makeAnnotation(co2, graph2Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25 * 0.75 * width/720, 40 * 0.75 * width/720, 'center', 'bottom', true),
+                          makeAnnotation(0.5, graph2Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
+                          makeAnnotation(0.5, graph2Year, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
+                          makeAnnotation(0.5, graph2Year, 2015, width/720, 'down', 'Paris Climate<br>Agreement Signed'),
+                          makeAnnotation(0.5, graph2Year, 2012, width/720, 'up', 'Curiosity Rover<br>Lands on Mars'),
+                          makeAnnotation(0.5, graph2Year, 2007, width/720, 'down', 'iPhone<br>Launched 📱'),
+                          makeAnnotation(0.5, graph2Year, 2005, width/720, 'up', 'YouTube<br>Created'),
+                          makeAnnotation(0.5, graph2Year, 2001, width/720, 'down', 'First Harry Potter<br>Movie Released 🧙'),
+                          makeAnnotation(0.5, graph2Year, 1997, width/720, 'up', 'Titanic Movie<br>Released 🚢'),
+                          makeAnnotation(0.5, graph2Year, 1991, width/720, 'down', 'Soviet Union<br>Dissolved ☭'),
+                          makeAnnotation(0.5, graph2Year, 1989, width/720, 'up', 'Berlin Wall<br>Comes Down 🧱'),
+                          makeAnnotation(0.5, graph2Year, 1977, width/720, 'down', 'Star Wars<br>Released'),
+                          makeAnnotation(0.5, graph2Year, 1969, width/720, 'up', 'Humans Land<br>on Moon 🚀'),
+                          makeAnnotation(0.5, graph2Year, 1957, width/720, 'down', 'Sputnik<br>Launched 🛰️'),
+                          makeAnnotation(0.5, graph2Year, 1945, width/720, 'up', 'World War II<br>Ends'),
+                          makeAnnotation(0.5, graph2Year, 1939, width/720, 'down', 'World War II<br>Begins'),
+                          makeAnnotation(0.5, graph2Year, 1919, width/720, 'up', 'World War I<br>Ends'),
+                          makeAnnotation(0.5, graph2Year, 1914, width/720, 'down', 'World War I<br>Begins'),
+                          makeAnnotation(0.5, graph2Year, 1903, width/720, 'up', 'Wright<br>Brothers<br>Flight 🛩'),
+                          makeAnnotation(0.5, graph2Year, 1886, width/720, 'down', 'Statue of Liberty<br>Inaugurated 🗽'),
+                          makeAnnotation(0.5, graph2Year, 1851, width/720, 'up', 'Industrial<br>Revolution<br>Ends'),
+                          makeAnnotation(0.5, graph2Year, 1807, width/720, 'down', 'Steamboat<br>Invented 🚢'),
+                          makeAnnotation(0.5, graph2Year, 1804, width/720, 'up', 'Jacquard<br>Loom<br>Invented 🧶'),
+                          makeAnnotation(0.5, graph2Year, 1765, width/720, 'down', 'Steam Engine<br>Invented 🚂'),
+                          makeAnnotation(0.5, graph2Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25 * 0.75 * width/720, 40 * 0.75 * width/720, 'center', 'bottom', true),
                         ].filter(e => e.x != birthYear)
                          .filter(e => !(e.direction == 'up' && Math.abs(e.x - birthYear) < 5))
                          .filter(e => e.x >= graph2Year)
                          .filter(e => e.font.size >= 8 * width/720, )
-                         .concat([makeAnnotation(co2, graph2Year, birthYear, width/720, 'up', 'You Were Born!<br>🎂🎉', -25 * 0.75 * width/720, 40 * 0.75 * width/720, 'center', 'bottom', true)])
+                         .concat([makeAnnotation(0.5, graph2Year, birthYear, width/720, 'up', 'You Were Born!<br>🎂🎉', -25 * 0.75 * width/720, 40 * 0.75 * width/720, 'center', 'bottom', true)])
                     });`
           /]
 
@@ -781,9 +781,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         easing: 'cubic-in-out'
                       },
                       annotations: [
-                          makeAnnotation(co2, graph3Year, 2019, width/720, 'up', '2019', -40*0.75*width/720, 0, 'right', 'center', true),
-                          makeAnnotation(co2, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40*0.75*width/720, 0, 'right', 'center', true),
-                          makeAnnotation(co2, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -20*0.75*width/720, 40*0.75*width/720, 'center', 'bottom', true)
+                          makeAnnotation(0.5, graph3Year, 2019, width/720, 'up', '2019', -40*0.75*width/720, 0, 'right', 'center', true),
+                          makeAnnotation(0.5, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40*0.75*width/720, 0, 'right', 'center', true),
+                          makeAnnotation(0.5, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -20*0.75*width/720, 40*0.75*width/720, 'center', 'bottom', true)
                         ]
                          .map(e => (
                           {
