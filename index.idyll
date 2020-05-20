@@ -108,7 +108,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           Your guess for the fraction of all human-caused carbon dioxide emissions that occurred in your lifetime.
         [/span]
         [br/][br/]
-        [span className:"pull-number"][Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/]%[/span]
+        [span className:"pull-number"][Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]%[/span]
         [span className:"pull-number-text"]
           The actual fraction of all human-caused carbon dioxide emissions that occurred in your lifetime.
         [/span]
@@ -116,7 +116,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
       You guessed that [Display value:guessPercent format:"d" /]% of all human carbon dioxide emissions occurred in your lifetime.
 
-      In reality, [Display value:`100 * getCO2Fraction(co2, birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions have occurred between 2019 and [Display value:birthYear format:"d" /], the year you were born.
+      In reality, [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions have occurred between 2019 and [Display value:birthYear format:"d" /], the year you were born.
 
       And it’s not just you. Here, look up any age in this chart.
 
@@ -127,8 +127,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         data: `[{
                   type: 'bar',
                   y: ages,
-                  x: ages.map(e => 100 * getCO2Fraction(co2, 2020 - e)),
-                  text: ages.map(e => 100 * getCO2Fraction(co2, 2020 - e)).map(e => Math.round(e)+'%'),
+                  x: ages.map(e => 100 * getCO2Fraction(2020 - e)),
+                  text: ages.map(e => 100 * getCO2Fraction(2020 - e)).map(e => Math.round(e)+'%'),
                   hoverinfo: 'text',
                   orientation: 'h',
                   marker: {
@@ -496,9 +496,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           We’ve arrived at [Display value:birthYear format:"d" /], the year that you were born. Since CO2 levels have been steadily rising every year of your life, you can actually measure your age in terms of the carbon dioxide level at your birth.
 
           [Aside]
-            [span className:"pull-number"]You were born at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] ppm[/span]
+            [span className:"pull-number"]You were born at [Display value:`getCO2Level(birthYear)` format:"d" /] ppm[/span]
             [span className:"pull-number-text"]
-              In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] parts per million. Since CO2 levels have been rising every year of your life, you can think of this like your age, as measured in carbon dioxide.
+              In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(birthYear)` format:"d" /] parts per million. Since CO2 levels have been rising every year of your life, you can think of this like your age, as measured in carbon dioxide.
             [/span]
           [/Aside]
 
@@ -533,7 +533,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
             function drawStuff(year) {
               p.background('aliceblue');
-              myCandles = p.round(getCO2Level(co2, year)).toString().split('').map(Number).map(n => candles[n]);
+              myCandles = p.round(getCO2Level(year)).toString().split('').map(Number).map(n => candles[n]);
 
               p.tint(0, 0, 0, 0.66 * 255); // Tint black with 66% opacity
               drawCake(2);
@@ -590,7 +590,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
           [span className:"center"]
             [caption]
-              🎂🎉 You were born at [Display value:`getCO2Level(co2, birthYear)` format:"d" /] ppm.
+              🎂🎉 You were born at [Display value:`getCO2Level(birthYear)` format:"d" /] ppm.
             [/caption]
           [/span]
 

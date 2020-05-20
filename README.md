@@ -5,8 +5,9 @@ TK short description of article.
 ## Next Steps
 
 - [ ] Complete The Rise of Agriculture (annotate graph)
-- [ ] At the end, add summary graph with range selector and slider [Like this](https://plotly.com/javascript/range-slider/)
+- [ ] Add summary graph with range selector and slider [Like this](https://plotly.com/javascript/range-slider/)
 - [ ] Look into Plotly transition bugs
+- [ ] Cache data lookups
 
 ## Local Setup
 

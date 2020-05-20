@@ -22,6 +22,7 @@
     "d3": "^5.15.0",
     "idyll": "^4.10.3",
     "idyll-d3-component": "^2.0.0",
+    "memoizee": "^0.4.14",
     "p5": "^1.0.0",
     "parametric-components": "^2.1.1",
     "parametric-styles": "^2.1.0",
