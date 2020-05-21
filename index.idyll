@@ -780,11 +780,45 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         duration: 2000,
                         easing: 'cubic-in-out'
                       },
+
+                      shapes: [
+                          // 1st highlight during Feb 4 - Feb 6
+                          {
+                              type: 'rect',
+                              // x-reference is assigned to the x-values
+                              xref: 'x',
+                              // y-reference is assigned to the plot paper [0,1]
+                              yref: 'paper',
+                              x0: 10000 + 2019,
+                              y0: 0,
+                              x1: 8000 + 2019,
+                              y1: 1,
+                              fillcolor: '#d3d3d3',
+                              opacity: 0.2,
+                              line: {
+                                  width: 0
+                              }
+                          }
+                      ],
+
                       annotations: [
+                          { // annotation to label agricultural transition
+                            x: -9000,
+                            y: 375,
+                            xref: 'x',
+                            yref: 'y',
+                            xanchor: 'center',
+                            yanchor: 'center',
+                            text: 'Transition to<br>Agriculture',
+                            font: {
+                              size: 12 * width/720,
+                            },
+                            showarrow: false,
+                          },
                           makeAnnotation(0.5, graph3Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                           makeAnnotation(0.5, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                           //makeAnnotation(0.5, graph3Year, 1830, width/720, 'up', 'Industrial<br>Revolution<br>Ends 🏭', -40 * 0.75 * width/720, 25 * 0.75 * width/720, 'right', 'center', true),
-                          makeAnnotation(0.5, graph3Year, 1760, width/720, 'down', 'Industrial<br>Revolution<br>Begins 🏭', 40 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true),
+                          makeAnnotation(0.5, graph3Year, 1760, width/720, 'down', 'Industrial<br>Revolution<br>Begins 🏭', 40 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true),
                           makeAnnotation(0.5, graph3Year, 476, width/720, 'up', 'Fall of<br>Roman Empire'),
                           makeAnnotation(0.5, graph3Year, -508, width/720, 'down', 'Birth of<br>Democracy<br>in Athens'),
                           makeAnnotation(0.5, graph3Year, -653, width/720, 'up', 'Rise of<br>Persian<br>Empire'),
@@ -855,15 +889,22 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
           [Conditional if:`partThreeCompleted || !readerMode`]
             [TextContainer]
-              We’ve arrived 10,000 years before the present, around the time that hunter-gatherers in the Stone Age were starting to put down their bows and arrows and turn to cultivating plants.
 
-              From this deep historical perspective, we can see that all human civilization from the year 1900 to the dawn of agriculture took place in a relatively flat, stable era of lower CO2 concentrations. From this point of view, it’s clear that we are the first (and likely will be the only) humans to ever live through such a dramatic spike in carbon dioxide.
+              We’ve arrived 11 thousand years before the present, in an era known as the [Neolithic Revolution](https://en.wikipedia.org/wiki/Neolithic_Revolution), where some human societies were beginning to cultivate crops, domesticate animals, and settle intro [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). This is the dawn of agriculture.
 
-              That’s worrying, because as we’re about to see, the climate follows CO2. Historically, whenever carbon dioxide levels spiked or fell, global temperatures followed.
+              The graph above us shows us the past 11 thousands years of carbon dioxide on Earth. For most of this time, carbon dioxide levels were remarkably stable –– that's the relatively flat portion of this graph. Agriculture, cities, civilizations all got their start somewhere along these gently rolling plains. 
+
+              Today, we find ourselves perched at the peak of a historically unprecedented spike in carbon dioxide. Looking backwards in time from this vantage point, it’s clear that we're the first humans to ever live through such a dramatic spike in carbon dioxide. You, me, and everyone we know –– we are all living through an extraordinary time.
+
+              Millennia from now, when future generations look back at the history of carbon dioxide like we're doing right now, this spike will jump out to them as the moment that ended the Holocene –– the era of the stable, moderate climate following the last ice age –– and triggered the Anthropocene –– the unstable, extreme climate that we're barreling towards.
+
+              Because as we’re about to see, climate follows CO2. 
 
               # The Ice Ages ❄️
 
-              Let’s travel further back in our CO2 time machine. But now, in addition to carbon dioxide levels, let’s also overlap the temperature record. This will help us see how carbon dioxide regulates the climate.
+              Historically, whenever carbon dioxide levels fluctuated, global temperatures followed in sync. To understand how this works, let's travel further back in time, leaving the Holocene behind, and entering the era of the Ice Ages.
+
+              In addition to historical carbon dioxide levels, we'll also overlap the historical temperature record. This will help us see how CO2 and temperature vary together.
 
             [/TextContainer]
           [/Conditional]
