@@ -781,9 +781,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         easing: 'cubic-in-out'
                       },
                       annotations: [
-                          makeAnnotation(0.5, graph3Year, 2019, width/720, 'up', '2019', -40*0.75*width/720, 0, 'right', 'center', true),
-                          makeAnnotation(0.5, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40*0.75*width/720, 0, 'right', 'center', true),
-                          makeAnnotation(0.5, graph3Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -20*0.75*width/720, 40*0.75*width/720, 'center', 'bottom', true),
+                          makeAnnotation(0.5, graph3Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
+                          makeAnnotation(0.5, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true),
+                          //makeAnnotation(0.5, graph3Year, 1830, width/720, 'up', 'Industrial<br>Revolution<br>Ends 🏭', -40 * 0.75 * width/720, 25 * 0.75 * width/720, 'right', 'center', true),
+                          makeAnnotation(0.5, graph3Year, 1760, width/720, 'down', 'Industrial<br>Revolution<br>Begins 🏭', 40 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true),
                           makeAnnotation(0.5, graph3Year, 476, width/720, 'up', 'Fall of<br>Roman Empire'),
                           makeAnnotation(0.5, graph3Year, -508, width/720, 'down', 'Birth of<br>Democracy<br>in Athens'),
                           makeAnnotation(0.5, graph3Year, -653, width/720, 'up', 'Rise of<br>Persian<br>Empire'),
@@ -815,7 +816,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                             font: e.font,
                             showarrow: e.showarrow,
                             arrowhead: e.arrowhead,
-                            arrowwidth: e.arrowhead,
+                            arrowwidth: e.arrowwidth,
                             ax: e.ax,
                             ay: e.ay,
                           }))

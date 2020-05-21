@@ -5,10 +5,9 @@ let years = [];
 
 const getCO2Level = (year) => myCO2LookupObj[year];
 const getCO2Fraction = (year) => (getCO2Level(2019) - getCO2Level(year)) / (getCO2Level(2019) - 280);
-// map function from p5.js
-const map = (n, start1, stop1, start2, stop2) => Math.min(Math.max((n - start1) / (stop1 - start1) * (stop2 - start2) + start2, start2),stop2);
+
 const interpolateCO2Level = (year) => {
-  if (years.includes(year)) {
+  if (years.includes(Number(year))) {
     return myCO2LookupObj[year];
   }
   else {
@@ -42,6 +41,25 @@ const makeAnnotation = (power, graphYear, year, scale, direction, annotationText
                           ay: (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), power)) * (direction == 'up' ? 1 : -0.5) * scale,
                         });
 
+// map & constrain function from p5.js library 
+// https://github.com/processing/p5.js/blob/master/src/math/calculation.js
+
+const map = function(n, start1, stop1, start2, stop2, withinBounds) {
+  const newval = (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+  if (!withinBounds) {
+    return newval;
+  }
+  if (start2 < stop2) {
+    return constrain(newval, start2, stop2);
+  } else {
+    return constrain(newval, stop2, start2);
+  }
+};
+
+const constrain = function(n, low, high) {
+  return Math.max(Math.min(n, high), low);
+};
+
 module.exports = (ctx) => {
 
   // The context has loaded,
@@ -67,6 +85,7 @@ module.exports = (ctx) => {
        getCO2Fraction: getCO2Fraction,
        makeAnnotation: makeAnnotation,
        map: map,
+       constrain: constrain,
        interpolateCO2Level: interpolateCO2Level,
        interpolateCO2LevelCached: interpolateCO2LevelCached
     });
