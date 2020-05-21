@@ -961,7 +961,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   titlefont: {
                     size: 12 * width / 720
                   },
-                  nticks: 5
+                  nticks: 5,
+                  zeroline: false
                 },
 
                 yaxis: {
