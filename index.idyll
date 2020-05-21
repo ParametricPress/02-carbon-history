@@ -145,8 +145,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     autorange: 'reversed',
                     color: '#7e7e7e',
                     fixedrange: true,
-                    font: {
-                      size: 12 * width / 720
+                    titlefont: {
+                      size: 16 * width / 720
                     },
                   },
                   paper_bgcolor: '#222222',
@@ -156,8 +156,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     range: [0, 101],
                     color: '#7e7e7e',
                     fixedrange: true,
-                    font: {
-                      size: 12 * width / 720
+                    titlefont: {
+                      size: 16 * width / 720
                     },
                   },
                   font: {
@@ -405,7 +405,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     title: 'Year',
                     tickformat: 'd',
                     fixedrange: true,
-                    font: {
+                    titlefont: {
                       size: 12 * width / 720
                     },
                   },
@@ -417,7 +417,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     title: 'CO2 Level (parts per million)',
                     tickformat: 'd',
                     fixedrange: true,
-                    font: {
+                    titlefont: {
                       size: 12 * width / 720
                     },
                   },
@@ -621,7 +621,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         title: 'Year',
                         tickformat: 'd',
                         fixedrange: true,
-                        font: {
+                        titlefont: {
                           size: 12 * width / 720
                         },
                       },
@@ -633,7 +633,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         title: 'CO2 Level (in parts per million)',
                         tickformat: 'd',
                         fixedrange: true,
-                        font: {
+                        titlefont: {
                           size: 12 * width / 720
                         },
                       },
@@ -753,7 +753,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         title: 'Years before 2019',
                         tickformat: 'd',
                         fixedrange: true,
-                        font: {
+                        titlefont: {
                           size: 12 * width / 720
                         },
                       },
@@ -765,7 +765,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         title: 'CO2 Level (in parts per million)',
                         tickformat: 'd',
                         fixedrange: true,
-                        font: {
+                        titlefont: {
                           size: 12 * width / 720
                         },
                       },
@@ -907,6 +907,105 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
               In addition to historical carbon dioxide levels, we'll also overlap the historical temperature record. This will help us see how CO2 and temperature vary together.
 
             [/TextContainer]
+
+            [data name:"temp" source:"temp.csv" /]
+
+            [derived name:"graph4Data" value:`[
+                      {
+                        x: temp.map(e => e.yearsBefore2019),
+                        y: temp.map(e => e.temp),
+                        mode: 'lines',
+                        type: 'scatter',
+                        hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} °C deviation from ...<extra></extra>',
+                        line: {
+                          color:'red',
+                        },
+                        opacity: 0.5,
+                      },
+
+                      {
+                        x: co2.map(e => e.yearsBefore2019),
+                        y: co2.map(e => e.ppm),
+                        mode: 'lines',
+                        type: 'scatter',
+                        hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} parts per million of CO2<extra></extra>',
+                        line: {
+                          color:'blue',
+                        },
+                        opacity: 1,
+                        yaxis: 'y2',
+                      }
+
+                    ]` 
+            /]
+
+            [PlotlyComponent
+              isVisible:partThreeCompleted
+              data: graph4Data
+              layout: `(width) => (
+              {
+                width: width,
+                height: width/1.618,
+                showlegend: false,
+
+                font: {
+                  family: 'Graphik Web',
+                  size: 16 * width / 720
+                },
+
+                xaxis: {
+                  range: [800000, 0],
+                  title: 'Years before 2019',
+                  tickformat: 'd',
+                  fixedrange: true,
+                  titlefont: {
+                    size: 12 * width / 720
+                  },
+                  nticks: 5
+                },
+
+                yaxis: {
+                  title: 'Temperature Change from 21st Century (°C)',
+                  range: [-12, 17.25],
+                  tickformat: 'd',
+                  fixedrange: true,
+                  titlefont: {
+                    size: 12 * width / 720
+                  },
+                  showgrid: false,
+                  zeroline: false
+                },
+
+                yaxis2: {
+                  overlaying: 'y',
+                  side: 'right',
+                  title: 'Carbon Dioxide Level (in parts per million)',
+                  range: [160, 420],
+                  tickformat: 'd',
+                  fixedrange: true,
+                  titlefont: {
+                    size: 12 * width / 720
+                  },
+                  showgrid: false,
+                  zeroline: false
+                },
+
+                margin: {
+                    l: 80 * width / 720,
+                    r: 80 * width / 720,
+                    b: 50 * width / 720,
+                    t: 50 * width / 720,
+                    pad: 2 * width / 720
+                },
+
+                transition: {
+                  duration: 2000,
+                  easing: 'cubic-in-out'
+                },
+
+              })`
+            /]            
+
           [/Conditional]
         [/Conditional]
       [/Conditional]
