@@ -21,6 +21,9 @@ const interpolateCO2Level = (year) => {
 };
 const interpolateCO2LevelCached = memoize(interpolateCO2Level);
 
+const relativeScale = (year, graphYear, power) => Math.pow((2020 - year)/(2020 - graphYear), power);
+const relativeScaleCached = memoize(relativeScale);
+
 const makeAnnotation = (power, graphYear, year, scale, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
                         {
                           x: year,
@@ -32,13 +35,13 @@ const makeAnnotation = (power, graphYear, year, scale, direction, annotationText
                           yanchor: yAnchor ? yAnchor : (direction == 'up' ? 'bottom' : 'top'),
                           text: annotationText,
                           font: {
-                            size: (isLabelStatic ? 12 : 12 * Math.pow((2020 - year)/(2020 - graphYear), power)) * scale,
+                            size: (isLabelStatic ? 12 : 12 * relativeScale(year, graphYear, power)) * scale,
                           },
                           showarrow: true,
                           arrowhead: 2,
-                          arrowwidth: 2 * scale,
-                          ax: (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), power)) * (direction == 'up' ? 1 : -0.5) * scale,
-                          ay: (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : Math.pow((2020 - year)/(2020 - graphYear), power)) * (direction == 'up' ? 1 : -0.5) * scale,
+                          arrowwidth: isLabelStatic ? 2 * scale : 2 * scale * relativeScale(year, graphYear, power),
+                          ax: (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : relativeScale(year, graphYear, power)) * (direction == 'up' ? 1 : -0.5) * scale,
+                          ay: (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : relativeScale(year, graphYear, power)) * (direction == 'up' ? 1 : -0.5) * scale,
                         });
 
 // map & constrain function from p5.js library 
@@ -87,7 +90,9 @@ module.exports = (ctx) => {
        map: map,
        constrain: constrain,
        interpolateCO2Level: interpolateCO2Level,
-       interpolateCO2LevelCached: interpolateCO2LevelCached
+       interpolateCO2LevelCached: interpolateCO2LevelCached,
+       relativeScale: relativeScale,
+       relativeScaleCached: relativeScaleCached
     });
 
   })

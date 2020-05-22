@@ -66,9 +66,9 @@ By returning all this carbon into the air, we’re transforming the composition 
 
 # Your Birthday 🎂
 
-So when you think of the 300-year-long history of human carbon emissions, you might guess that your lifetime is just a tiny blip in this story.
+So when you think of the 300-year-long history of human carbon emissions, you might guess that your life is just a tiny blip in this story.
 
-In fact, just for fun, go ahead an actually make a guess by dragging the slider below.
+In fact, just for fun, go ahead and make a guess by dragging the slider below.
 
 [var name:"guessPercent" value:0 /]
 
@@ -139,6 +139,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   title: 'What Fraction of Human CO2 Emissions Occurred in Your Life?',
                   width: width,
                   height: 1.25 * width,
+                  paper_bgcolor: '#222222',
+                  plot_bgcolor: '#222222',
+
                   yaxis: {
                     title: 'Your Age',
                     dtick: 5,
@@ -149,8 +152,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       size: 16 * width / 720
                     },
                   },
-                  paper_bgcolor: '#222222',
-                  plot_bgcolor: '#222222',
+
                   xaxis: {
                     title: 'Percent CO2 Emissions in Your Lifetime',
                     range: [0, 101],
@@ -160,11 +162,13 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       size: 16 * width / 720
                     },
                   },
+
                   font: {
                     family: 'Graphik Web',
                     color: '#ffffff',
                     size: 16 * width / 720
                   },
+
                   margin: {
                       l: 100 * width / 720,
                       r: 50 * width / 720,
@@ -175,16 +179,16 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 });`
       /]
     [caption]
-      Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within this lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph originally created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
+      Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within this lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
     [/caption]
 
-      We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed the bulk of CO2 emissions. No humans before us have ever witnessed such a steep rise in carbon dioxide.
+      We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed to the bulk of CO2 emissions. No humans before us have ever witnessed such a steep rise in carbon dioxide.
 
-      To better understand this, let’s take a personalized tour of the history of carbon dioxide — personalized around *you*. We’ll start in 2020, tracing our way backwards through the years of your life.
+      To better understand this, let’s take a personalized tour of the history of carbon dioxide — personalized around *you*. We’ll start in 2020, tracing our way backward through the years of your life.
 
       But we first need to know how to measure carbon dioxide. The basic unit in which we measure CO2 concentration is *parts per million*, or *ppm* for short.
 
-      A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide. If we could see the world from the perspective of a molecule, here's what this concetration of carbon dioxide might look like.
+      A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide. If we could see the world from the perspective of a molecule, here's what this concentration of carbon dioxide might look like.
 
       [var name:"vizppm" value:1 /]
 
@@ -302,7 +306,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         [Conditional if:`vizppm == 1`]
             [span className:"pull-number"]1 ppm[/span]
             [span className:"pull-number-text"]
-              1 part per million is a miniscule concentration, which is why you barely see any CO2 molecules in the visualization. In this microscopic perspective, a lone CO2 molecule occasionally drifts past you.
+              1 part per million is a minuscule concentration, which is why you barely see any CO2 molecules in the visualization. In this microscopic perspective, a few lone CO2 molecules occasionally drift past you.
             [/span]
         [/Conditional]
 
@@ -371,7 +375,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [Conditional if:`ppmVizCompleted || !readerMode`]
 
       [TextContainer]
-        Great! Now that you know what a *part per million* looks like, let's travel backwards through the years of your life in our CO2 time machine.
+        Great! Now that you know what a *part per million* looks like, let's travel backward through the years of your life in our CO2 time machine.
 
         We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million.
       [/TextContainer]
@@ -400,6 +404,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                     family: 'Graphik Web',
                     size: 16 * width / 720
                   },
+
                   xaxis: {
                     range: [graphYear == 2019 ? 2018.5 : graphYear - 4, 2019.5],
                     title: 'Year',
@@ -409,6 +414,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       size: 12 * width / 720
                     },
                   },
+
                   yaxis: {
                     range: [graphYear == 2019 ? 399 :
                             co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
@@ -421,18 +427,21 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       size: 12 * width / 720
                     },
                   },
+
                   margin: {
                       l: 80 * width / 720,
                       r: 25 * width / 720,
                       b: 50 * width / 720,
                       t: 50 * width / 720,
                       pad: 2 * width / 720
-                    },
+                  },
+
                   transition: {
                     duration: 2000,
                     easing: 'cubic-in-out',
                     ordering: 'traces'
                   },
+
                   annotations: [
                       makeAnnotation(0.5, graphYear, 2019, width/720, 'down', '2019', 0, 40 * 0.75 * width/720, 'center', 'top', true),
                       makeAnnotation(0.5, graphYear, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
@@ -498,7 +507,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           [Aside]
             [span className:"pull-number"]You were born at [Display value:`getCO2Level(birthYear)` format:"d" /] ppm[/span]
             [span className:"pull-number-text"]
-              In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(birthYear)` format:"d" /] parts per million. Since CO2 levels have been rising every year of your life, you can think of this like your age, as measured in carbon dioxide.
+              In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(birthYear)` format:"d" /] parts per million. Since CO2 levels have been rising every year of your life, you can think of this number as your age, measured in carbon dioxide.
             [/span]
           [/Aside]
 
@@ -616,6 +625,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         family: 'Graphik Web',
                         size: 16 * width/720, 
                       },
+
                       xaxis: {
                         range: [graph2Year == birthYear ? graph2Year - 5 : graph2Year - 50/2, 2019.5],
                         title: 'Year',
@@ -625,6 +635,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           size: 12 * width / 720
                         },
                       },
+
                       yaxis: {
                         range: [
                                 co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.25, // min of yvalues in xrange
@@ -637,17 +648,20 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           size: 12 * width / 720
                         },
                       },
+
                       margin: {
                           l: 80 * width / 720,
                           r: 25 * width / 720,
                           b: 50 * width / 720,
                           t: 50 * width / 720,
                           pad: 2 * width / 720
-                        },
+                      },
+
                       transition: {
                         duration: 2000,
                         easing: 'cubic-in-out'
                       },
+
                       annotations: [
                           makeAnnotation(0.5, graph2Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                           makeAnnotation(0.5, graph2Year, 2017, width/720, 'up', 'US Leaves<br>Paris Agreement'),
@@ -748,18 +762,20 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         family: 'Graphik Web',
                         size: 16 * width / 720
                       },
+
                       xaxis: {
                         range: [graph3Year == 1720 ? 2019 - graph3Year + 50/2 : 2019 - graph3Year + 1000/2, -10],
                         title: 'Years before 2019',
-                        tickformat: 'd',
+                        tickformat: ',',
                         fixedrange: true,
                         titlefont: {
                           size: 12 * width / 720
                         },
                       },
+
                       yaxis: {
                         range: [
-                                co2.filter(e => e.yearsBefore2019 <= 2019 - graph3Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.15, // min of yvalues in xrange
+                                co2.filter(e => e.year >=  graph3Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.15, // min of yvalues in xrange
                                 425
                                 ],
                         title: 'CO2 Level (in parts per million)',
@@ -769,13 +785,15 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           size: 12 * width / 720
                         },
                       },
+
                       margin: {
                           l: 80 * width / 720,
                           r: 25 * width / 720,
                           b: 50 * width / 720,
                           t: 50 * width / 720,
                           pad: 2 * width / 720
-                        },
+                      },
+
                       transition: {
                         duration: 2000,
                         easing: 'cubic-in-out'
@@ -818,10 +836,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           makeAnnotation(0.5, graph3Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                           makeAnnotation(0.5, graph3Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                           //makeAnnotation(0.5, graph3Year, 1830, width/720, 'up', 'Industrial<br>Revolution<br>Ends 🏭', -40 * 0.75 * width/720, 25 * 0.75 * width/720, 'right', 'center', true),
-                          makeAnnotation(0.5, graph3Year, 1760, width/720, 'down', 'Industrial<br>Revolution<br>Begins 🏭', 40 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true),
-                          makeAnnotation(0.5, graph3Year, 476, width/720, 'up', 'Fall of<br>Roman Empire'),
-                          makeAnnotation(0.5, graph3Year, -508, width/720, 'down', 'Birth of<br>Democracy<br>in Athens'),
-                          makeAnnotation(0.5, graph3Year, -653, width/720, 'up', 'Rise of<br>Persian<br>Empire'),
+                          makeAnnotation(0.5, graph3Year, 1760, width/720, 'down', 'Industrial<br>Revolution<br>Begins 🏭', 40 * 0.66 * width/720, 50 * 0.66 * width/720, 'center', 'top', true),
+                          makeAnnotation(0.9, graph3Year, 476, width/720, 'up', 'Fall of<br>Roman Empire'),
+                          makeAnnotation(0.9, graph3Year, -508, width/720, 'down', 'Birth of<br>Democracy<br>in Athens'),
+                          makeAnnotation(0.9, graph3Year, -653, width/720, 'up', 'Rise of<br>Persian<br>Empire'),
                           makeAnnotation(0.9, graph3Year, -1100, width/720, 'down', 'Use of<br>Iron<br>Spreads'),
                           makeAnnotation(0.9, graph3Year, -2200, width/720, 'up', 'Stonehenge<br>Completed'),
                           makeAnnotation(0.9, graph3Year, -2500, width/720, 'down', 'Mammoth<br>Extinct'),
@@ -864,10 +882,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
               if (buttonEnabled) {
 
                 buttonEnabled = false;
-                if (graph3Year - 4000 > 2019 - 11300) {
+                if (graph3Year - 4000 > -10000) {
                   graph3Year = graph3Year - 2000;
                 } else {
-                  graph3Year = 2019 - 11300;
+                  graph3Year = -10000;
                   partThreeCompleted = true;
                 }
 
@@ -890,25 +908,23 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           [Conditional if:`partThreeCompleted || !readerMode`]
             [TextContainer]
 
-              We’ve arrived 11 thousand years before the present, in an era known as the [Neolithic Revolution](https://en.wikipedia.org/wiki/Neolithic_Revolution), where some human societies were beginning to cultivate crops, domesticate animals, and settle intro [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). This is the dawn of agriculture.
+              We’ve arrived 12,000 years ago, at [a time during the Stone Age](https://en.wikipedia.org/wiki/Neolithic_Revolution) when some humans were beginning to cultivate crops, domesticate animals, and settle intro [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). You're looking at the dawn of human civilization.
 
-              The graph above us shows us the past 11 thousands years of carbon dioxide on Earth. For most of this time, carbon dioxide levels were remarkably stable –– that's the relatively flat portion of this graph. Agriculture, cities, civilizations all got their start somewhere along these gently rolling plains. 
+              For most of these 12 thousand years, carbon dioxide levels were remarkably stable. Since carbon dioxide and climate are closely linked, this was also a period of climate stability. The world had thawed since [the last ice age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15 thousand years ago, and this gave rise to the era known as the [Holocene](https://en.wikipedia.org/wiki/Holocene), marked by a stable and relatively warm climate. 
 
-              Today, we find ourselves perched at the peak of a historically unprecedented spike in carbon dioxide. Looking backwards in time from this vantage point, it’s clear that we're the first humans to ever live through such a dramatic spike in carbon dioxide. You, me, and everyone we know –– we are all living through an extraordinary time.
+              Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene. Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide. Looking back from this vantage point, it’s clear that we're the first humans to ever live through such a dramatic change in carbon dioxide levels. You, me, and everyone we know — *we're all living through an extraordinary time*.
 
-              Millennia from now, when future generations look back at the history of carbon dioxide like we're doing right now, this spike will jump out to them as the moment that ended the Holocene –– the era of the stable, moderate climate following the last ice age –– and triggered the Anthropocene –– the unstable, extreme climate that we're barreling towards.
+              When future generations look back at their geological history, they'll see this spike as the moment that triggered the end of the stable, mostly moderate climate following the last ice age, giving rise to the unstable, extreme climate we're barreling towards today.
 
-              Because as we’re about to see, climate follows CO2. 
+              To see where we're headed, it's helpful to understand where we came from. What does the past climate teach us about the future?
 
               # The Ice Ages ❄️
 
-              Historically, whenever carbon dioxide levels fluctuated, global temperatures followed in sync. To understand how this works, let's travel further back in time, leaving the Holocene behind, and entering the era of the Ice Ages.
-
-              In addition to historical carbon dioxide levels, we'll also overlap the historical temperature record. This will help us see how CO2 and temperature vary together.
-
             [/TextContainer]
 
-            [data name:"temp" source:"temp.csv" /]
+            [var name:"graph4Year" value:`-10000` /]
+            [var name:"isTempVisible" value:false /]
+            [data name:"temp" source:"Temp.csv" /]
 
             [derived name:"graph4Data" value:`[
                       {
@@ -921,6 +937,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           color:'red',
                         },
                         opacity: 0.5,
+                        yaxis: 'y2',
+                        visible: isTempVisible
                       },
 
                       {
@@ -933,7 +951,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           color:'blue',
                         },
                         opacity: 1,
-                        yaxis: 'y2',
                       }
 
                     ]` 
@@ -942,70 +959,179 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             [PlotlyComponent
               isVisible:partThreeCompleted
               data: graph4Data
-              layout: `(width) => (
-              {
-                width: width,
-                height: width/1.618,
-                showlegend: false,
+              layout: `(width) => ({
+                        title: 'The History of CO2',
+                        width: width,
+                        height: width/1.618,
+                        showlegend: false,
+                        font: {
+                          family: 'Graphik Web',
+                          size: 16 * width / 720
+                        },
 
-                font: {
-                  family: 'Graphik Web',
-                  size: 16 * width / 720
-                },
+                        xaxis: {
+                          range: [2019 - graph4Year, -10],
+                          title: 'Years before 2019',
+                          tickformat: ',',
+                          fixedrange: true,
+                          titlefont: {
+                            size: 12 * width / 720
+                          },
+                          zeroline: false
+                        },
 
-                xaxis: {
-                  range: [800000, 0],
-                  title: 'Years before 2019',
-                  tickformat: 'd',
-                  fixedrange: true,
-                  titlefont: {
-                    size: 12 * width / 720
-                  },
-                  nticks: 5,
-                  zeroline: false
-                },
+                        yaxis: {
+                          title: 'Carbon Dioxide Level (in parts per million)',
+                          side: 'right',
+                          range: [160, 420],
+                          tickformat: 'd',
+                          fixedrange: true,
+                          titlefont: {
+                            size: 12 * width / 720
+                          },
+                          showgrid: false,
+                          zeroline: false
+                        },
 
-                yaxis: {
-                  title: 'Temperature Change from 21st Century (°C)',
-                  range: [-12, 17.25],
-                  tickformat: 'd',
-                  fixedrange: true,
-                  titlefont: {
-                    size: 12 * width / 720
-                  },
-                  showgrid: false,
-                  zeroline: false
-                },
+                        yaxis2: {
+                          title: 'Temperature Change from 21st Century (°C)',
+                          overlaying: 'y',
+                          side: 'left',
+                          range: [-12, 17.25],
+                          tickformat: 'd',
+                          fixedrange: true,
+                          titlefont: {
+                            size: 12 * width / 720
+                          },
+                          showgrid: false,
+                          zeroline: false,
+                          visible: isTempVisible
+                        },
 
-                yaxis2: {
-                  overlaying: 'y',
-                  side: 'right',
-                  title: 'Carbon Dioxide Level (in parts per million)',
-                  range: [160, 420],
-                  tickformat: 'd',
-                  fixedrange: true,
-                  titlefont: {
-                    size: 12 * width / 720
-                  },
-                  showgrid: false,
-                  zeroline: false
-                },
+                        margin: {
+                            l: 80 * width / 720,
+                            r: 80 * width / 720,
+                            b: 80 * width / 720,
+                            t: 50 * width / 720,
+                            pad: 2 * width / 720
+                        },
 
-                margin: {
-                    l: 80 * width / 720,
-                    r: 80 * width / 720,
-                    b: 50 * width / 720,
-                    t: 50 * width / 720,
-                    pad: 2 * width / 720
-                },
+                        transition: {
+                          duration: 2000,
+                          easing: 'cubic-in-out'
+                        },
 
-                transition: {
-                  duration: 2000,
-                  easing: 'cubic-in-out'
-                },
+                        shapes: [
+                            // 1st highlight during Feb 4 - Feb 6
+                            {
+                                type: 'rect',
+                                // x-reference is assigned to the x-values
+                                yref: 'y1',
+                                // y-reference is assigned to the plot paper [0,1]
+                                xref: 'paper',
+                                x0: 0,
+                                y0: 280,
+                                x1: 1,
+                                y1: 412,
+                                fillcolor: '#d3d3d3',
+                                opacity: 0.2,
+                                line: {
+                                    width: 0
+                                }
+                            }
+                        ],
 
-              })`
-            /]            
+                        annotations: [
+                            { // annotation to label agricultural transition
+                              x: (2019 + graph4Year) / 2,
+                              y: 350,
+                              xref: 'x',
+                              yref: 'y1',
+                              xanchor: 'center',
+                              yanchor: 'center',
+                              text: 'Human Caused<br>Rise in CO2',
+                              font: {
+                                size: 12 * width/720,
+                              },
+                              showarrow: false,
+                            },
+                            makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
+                            makeAnnotation(0.5, graph4Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true)
+                          ].concat(graph4Year == -10000 ? [makeAnnotation(0.5, graph4Year, 1760, width/720, 'down', 'Industrial<br>Revolution<br>Begins 🏭', 40 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true)] : [])
+                           .filter(e => e.x >= graph4Year)
+                           .map(e => (
+                            {
+                              x: 2019 - e.x,
+                              y: e.y,
+                              direction: e.direction,
+                              xref: e.xref,
+                              yref: 'y1',
+                              xanchor: e.xanchor,
+                              yanchor: e.yanchor,
+                              text: e.text,
+                              font: e.font,
+                              showarrow: e.showarrow,
+                              arrowhead: e.arrowhead,
+                              arrowwidth: e.arrowwidth,
+                              ax: e.ax,
+                              ay: e.ay,
+                            }))
+                      });`
+            /]
+
+            [var name:"partFourCompleted" value:false/]
+            [div className:"buttonwrapper"]
+
+              [Button onClick:`
+                if (buttonEnabled) {
+
+                  buttonEnabled = false;
+                  graph4Year = -800000;
+                  partFourCompleted = true;
+
+                  setTimeout(() => {
+                    buttonEnabled = true;
+                  }, 2000)
+
+                }
+              `]
+                Travel Back in Time
+              [/Button]
+
+              [Button onClick:`graph4Year = -10000`]
+                Restart
+              [/Button]
+
+              [Button onClick:`
+                if (buttonEnabled) {
+
+                  buttonEnabled = false;
+                  isTempVisible = !isTempVisible;
+
+                  setTimeout(() => {
+                    buttonEnabled = true;
+                  }, 1000)
+
+                }
+                `]
+                [Conditional if:`!isTempVisible`]
+                  Reveal Temperature
+                [/Conditional]
+                [Conditional if:isTempVisible]
+                  Hide Temperature
+                [/Conditional]
+              [/Button]
+
+            [/div]
+            [br/]
+
+            [TextContainer]
+              Carbon dioxide is Earth's thermostat. Historically, whenever carbon dioxide levels fluctuated, global temperatures followed.
+            [/TextContainer]
+
+            // Historically, whenever carbon dioxide levels fluctuated, global temperatures followed in sync. To understand how this works, let's travel further back in time, leaving the Holocene behind, and entering the era of the Ice Ages.
+
+            // In addition to historical carbon dioxide levels, we'll also overlap the historical temperature record. This will help us see how CO2 and temperature vary together.
 
           [/Conditional]
         [/Conditional]
