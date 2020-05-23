@@ -810,12 +810,13 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               xref: 'x',
                               // y-reference is assigned to the plot paper [0,1]
                               yref: 'paper',
-                              x0: 10000 + 2019,
+                              x0: 12000,
                               y0: 0,
-                              x1: 8000 + 2019,
+                              x1: 10000,
                               y1: 1,
                               fillcolor: '#d3d3d3',
                               opacity: 0.2,
+                              layer: 'below',
                               line: {
                                   width: 0
                               }
@@ -824,7 +825,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                       annotations: [
                           { // annotation to label agricultural transition
-                            x: -9000,
+                            x: 2019 - 11000,
                             y: 375,
                             xref: 'x',
                             yref: 'y',
@@ -913,15 +914,15 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               We’ve arrived 12,000 years ago, at [a time when](https://en.wikipedia.org/wiki/Neolithic_Revolution) some humans were beginning to cultivate crops, domesticate animals, and settle into [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). You're looking at the dawn of human civilization.
 
-              For most of these 12 thousand years, carbon dioxide levels were remarkably stable. Since carbon dioxide and climate are closely linked, this was also a period of climate stability. The world had thawed since [the last ice age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15 thousand years ago, and this gave rise to the era known as the [Holocene](https://en.wikipedia.org/wiki/Holocene), marked by a stable and relatively warm climate. 
+              For most of these 12 thousand years, carbon dioxide levels were remarkably stable. Since carbon dioxide and climate are closely linked, this was also a period of climate stability. The world had thawed since [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15 thousand years ago, and this gave rise to the era known as the [Holocene](https://en.wikipedia.org/wiki/Holocene), marked by a stable and relatively warm climate. 
 
               Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene. Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide. Looking back from this vantage point, it’s clear that we're the first humans to ever live through such a dramatic change in carbon dioxide levels. You, me, and everyone we know — *we're all living through an extraordinary time*.
 
-              When future generations look back at their geological history, they'll very likely see this spike as the moment that triggered the end of the stable, mostly moderate climate following the last ice age, giving rise to the unstable, extreme climate we're barreling towards today.
+              When future generations look back at their geological history, they'll very likely see this spike as the moment that triggered the end of the stable, mostly moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
 
               # The Ice Ages ❄️
 
-              To understand where we're headed, it's helpful to know where we came from. The graph below lets you jump back in time some 800 thousand years. This deep geological perspective can shed light on our current trajectory.
+              To understand where we're headed, it's helpful to know where we came from. So let's take a journey through the Ice Ages, traveling back in time some 800 thousand years.
 
             [/TextContainer]
 
@@ -973,7 +974,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         },
 
                         xaxis: {
-                          range: [2019 - graph4Year, 0],
+                          range: [2019 - graph4Year, graph4Year/100],
                           title: 'Years before 2019',
                           tickformat: ',',
                           titlefont: {
@@ -1038,7 +1039,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                                 x1: 1,
                                 y1: 412,
                                 fillcolor: '#d3d3d3',
-                                opacity: 0.2,
+                                opacity: 0.5,
+                                layer: 'below',
                                 line: {
                                     width: 0
                                 }
@@ -1061,8 +1063,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                             },
                             makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                             makeAnnotation(0.5, graph4Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true)
-                          ].concat(graph4Year == -10000 ? [makeAnnotation(0.5, graph4Year, 1760, width/720, 'down', 'Industrial<br>Revolution<br>Begins 🏭', 40 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true)] : [])
-                            .concat(graph4Year == -200000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -40 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
+                          ].concat(graph4Year >= -400000 ? [makeAnnotation(0.5, graph4Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -60 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true)] : [])
+                            .concat(graph4Year == -200000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -20 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
                             .concat(graph4Year == -400000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -20 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
                            .filter(e => e.x >= graph4Year)
                            .map(e => (
@@ -1160,11 +1162,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                   Second, when carbon dioxide levels fluctuated in the past, they usually did so over tens of thousands of years. In comparison, our current spike in carbon dioxide was created in just a few generations ([Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
 
-                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global ice age. You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall together.
+                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global Ice Age. You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall together.
 
-                  **So carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This historical record of the paleolithic era, reconstructed by analyzing the chemistry of ancient air trapped in tiny bubbles beneath miles of ice, is the most direct evidence we have on how carbon dioxide governs Earth's climate.
+                  **So carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This deep historical record of the paleolithic era, reconstructed by analyzing the chemistry of ancient air trapped in tiny bubbles beneath miles of ice, is the most direct evidence we have on how carbon dioxide governs Earth's climate.
 
-                  By analyzing the past, we gain a clearer understanding of where we're headed in the future. Which raises the question, have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was that past climate like?
+                  By analyzing the past, we gain a clearer understanding of our current trajectory. Which raises the question, have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was that past climate like?
                 [/TextContainer]
               [/Conditional]
           [/Conditional]
