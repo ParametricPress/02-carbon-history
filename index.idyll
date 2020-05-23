@@ -756,7 +756,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             layout: `(width) => ({
                       title: 'The History of CO2',
                       width: width,
-                      height: width/1.618,
+                      height: width / 1.618,
                       showlegend: false,
                       font: {
                         family: 'Graphik Web',
@@ -770,7 +770,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         fixedrange: true,
                         titlefont: {
                           size: 12 * width / 720
-                        },
+                        }
                       },
 
                       yaxis: {
@@ -908,17 +908,17 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           [Conditional if:`partThreeCompleted || !readerMode`]
             [TextContainer]
 
-              We’ve arrived 12,000 years ago, at [a time during the Stone Age](https://en.wikipedia.org/wiki/Neolithic_Revolution) when some humans were beginning to cultivate crops, domesticate animals, and settle intro [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). You're looking at the dawn of human civilization.
+              We’ve arrived 12,000 years ago, at [a time when](https://en.wikipedia.org/wiki/Neolithic_Revolution) some humans were beginning to cultivate crops, domesticate animals, and settle into [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). You're looking at the dawn of human civilization.
 
               For most of these 12 thousand years, carbon dioxide levels were remarkably stable. Since carbon dioxide and climate are closely linked, this was also a period of climate stability. The world had thawed since [the last ice age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15 thousand years ago, and this gave rise to the era known as the [Holocene](https://en.wikipedia.org/wiki/Holocene), marked by a stable and relatively warm climate. 
 
               Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene. Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide. Looking back from this vantage point, it’s clear that we're the first humans to ever live through such a dramatic change in carbon dioxide levels. You, me, and everyone we know — *we're all living through an extraordinary time*.
 
-              When future generations look back at their geological history, they'll see this spike as the moment that triggered the end of the stable, mostly moderate climate following the last ice age, giving rise to the unstable, extreme climate we're barreling towards today.
-
-              To see where we're headed, it's helpful to understand where we came from. What does the past climate teach us about the future?
+              When future generations look back at their geological history, they'll very likely see this spike as the moment that triggered the end of the stable, mostly moderate climate following the last ice age, giving rise to the unstable, extreme climate we're barreling towards today.
 
               # The Ice Ages ❄️
+
+              To understand where we're headed, it's helpful to know where we came from. The graph below lets you jump back in time some 800 thousand years. This deep geological perspective can shed light on our current trajectory.
 
             [/TextContainer]
 
@@ -962,7 +962,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
               layout: `(width) => ({
                         title: 'The History of CO2',
                         width: width,
-                        height: width/1.618,
+                        height: 50 + width/1.618,
                         showlegend: false,
                         font: {
                           family: 'Graphik Web',
@@ -970,14 +970,18 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         },
 
                         xaxis: {
-                          range: [2019 - graph4Year, -10],
+                          range: [2019 - graph4Year, 0],
                           title: 'Years before 2019',
                           tickformat: ',',
-                          fixedrange: true,
                           titlefont: {
                             size: 12 * width / 720
                           },
-                          zeroline: false
+                          zeroline: false,
+                          fixedrange: true,
+                          rangeslider: {
+                            range: [2019 - graph4Year, 0]
+                          }
+
                         },
 
                         yaxis: {
@@ -994,7 +998,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         },
 
                         yaxis2: {
-                          title: 'Temperature Change from 21st Century (°C)',
+                          title: 'Temperature Change (°C)',
                           overlaying: 'y',
                           side: 'left',
                           range: [-12, 17.25],
@@ -1014,11 +1018,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                             b: 80 * width / 720,
                             t: 50 * width / 720,
                             pad: 2 * width / 720
-                        },
-
-                        transition: {
-                          duration: 2000,
-                          easing: 'cubic-in-out'
                         },
 
                         shapes: [
@@ -1098,10 +1097,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 Travel Back in Time
               [/Button]
 
-              [Button onClick:`graph4Year = -10000`]
-                Restart
-              [/Button]
-
               [Button onClick:`
                 if (buttonEnabled) {
 
@@ -1122,17 +1117,39 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 [/Conditional]
               [/Button]
 
+              [Button onClick:`
+                graph4Year = -10000;
+                isTempVisible = false;
+              `]
+                Restart
+              [/Button]
+
             [/div]
             [br/]
 
-            [TextContainer]
-              Carbon dioxide is Earth's thermostat. Historically, whenever carbon dioxide levels fluctuated, global temperatures followed.
-            [/TextContainer]
+              [Conditional if:`!(isTempVisible && graph4Year == -800000) && readerMode`]
+                [TextContainer]
+                  To see how carbon dioxide lines up with climate, reveal the temperature data, and go back in time.
+                [/TextContainer]
+              [/Conditional]
 
-            // Historically, whenever carbon dioxide levels fluctuated, global temperatures followed in sync. To understand how this works, let's travel further back in time, leaving the Holocene behind, and entering the era of the Ice Ages.
+              [Conditional if:`(isTempVisible && graph4Year == -800000) || !readerMode`]
+                [TextContainer]
+                  There's a lot going on in this graph, so let's break it down. The blue curve shows us carbon dioxide levels, while the red curve shows us how different the temperature was, as compared to the average temperature of the past thousand years.
 
-            // In addition to historical carbon dioxide levels, we'll also overlap the historical temperature record. This will help us see how CO2 and temperature vary together.
+                  There are three things to take away from this graph.
 
+                  First, at no time in the past 800 thousand years have carbon dioxide levels been as high as they are today.
+
+                  Second, when carbon dioxide levels varied in the past, they usually did so over tens of thousands of years. You can see this for yourself using the range slider beneath the graph to zoom in to any of the past rises and falls. In comparison, our current spike in carbon dioxide was created over just a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike occured in your life).
+
+                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global ice age. You can see this by comparing the blue CO2 curve with the red temperature curve –– notice how they rise and fall together.
+
+                  Carbon dioxide is Earth's thermostat. Whenever CO2 levels rose in the past, so did the global temperature.
+
+                  So have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was the climate like back then?
+                [/TextContainer]
+              [/Conditional]
           [/Conditional]
         [/Conditional]
       [/Conditional]
