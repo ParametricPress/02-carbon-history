@@ -769,6 +769,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         title: 'Years before 2019',
                         tickformat: ',',
                         fixedrange: true,
+                        zeroline: false,
                         titlefont: {
                           size: 12 * width / 720
                         }
@@ -782,6 +783,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         title: 'CO2 Level (in parts per million)',
                         tickformat: 'd',
                         fixedrange: true,
+                        zeroline: false,
                         titlefont: {
                           size: 12 * width / 720
                         },
@@ -932,7 +934,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         x: temp.map(e => e.yearsBefore2019),
                         y: temp.map(e => e.temp),
                         mode: 'lines',
-                        type: 'scatter',
+                        type: 'scattergl',
                         hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} °C deviation from ...<extra></extra>',
                         line: {
                           color:'red',
@@ -946,7 +948,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         x: co2.map(e => e.yearsBefore2019),
                         y: co2.map(e => e.ppm),
                         mode: 'lines',
-                        type: 'scatter',
+                        type: 'scattergl',
                         hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} parts per million of CO2<extra></extra>',
                         line: {
                           color:'blue',
@@ -963,7 +965,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
               layout: `(width) => ({
                         title: 'The History of CO2',
                         width: width,
-                        height: 150 + width/1.618,
+                        height: width / 1.618,
                         showlegend: false,
                         font: {
                           family: 'Graphik Web',
@@ -979,10 +981,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           },
                           zeroline: false,
                           fixedrange: true,
-                          rangeslider: {
-                            range: [2019 - graph4Year, 0]
-                          }
-
+                          nticks: 5
                         },
 
                         yaxis: {
@@ -1019,6 +1018,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                             b: 80 * width / 720,
                             t: 50 * width / 720,
                             pad: 2 * width / 720
+                        },
+
+                        transition: {
+                          duration: 1000,
+                          easing: 'cubic-in-out'
                         },
 
                         shapes: [
@@ -1058,6 +1062,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                             makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                             makeAnnotation(0.5, graph4Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true)
                           ].concat(graph4Year == -10000 ? [makeAnnotation(0.5, graph4Year, 1760, width/720, 'down', 'Industrial<br>Revolution<br>Begins 🏭', 40 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true)] : [])
+                            .concat(graph4Year == -200000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -40 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
+                            .concat(graph4Year == -400000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -20 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
                            .filter(e => e.x >= graph4Year)
                            .map(e => (
                             {
@@ -1079,30 +1085,15 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       });`
             /]
 
-            [var name:"partFourCompleted" value:false/]
+            [var name:"showNavigation" value:false /]
             [div className:"buttonwrapper"]
 
               [Button onClick:`
                 if (buttonEnabled) {
 
                   buttonEnabled = false;
-                  graph4Year = -800000;
-                  partFourCompleted = true;
-
-                  setTimeout(() => {
-                    buttonEnabled = true;
-                  }, 1000)
-
-                }
-              `]
-                Travel Back in Time
-              [/Button]
-
-              [Button onClick:`
-                if (buttonEnabled) {
-
-                  buttonEnabled = false;
                   isTempVisible = !isTempVisible;
+                  showNavigation = true;
 
                   setTimeout(() => {
                     buttonEnabled = true;
@@ -1118,37 +1109,60 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 [/Conditional]
               [/Button]
 
-              [Button onClick:`
-                graph4Year = -10000;
-                isTempVisible = false;
-              `]
-                Restart
-              [/Button]
+              [Conditional if:`showNavigation`]
+                [div className:"buttonwrapper"]
+
+                  [Button onClick:`
+                    if (buttonEnabled) {
+
+                      buttonEnabled = false;
+                      graph4Year = Math.max(-200000 * (1 + Math.floor(graph4Year/-200000)), -800000);
+
+                      setTimeout(() => {
+                        buttonEnabled = true;
+                      }, 1000)
+
+                    }
+                  `]
+                    Go Back in Time
+                  [/Button]
+
+                  [Button onClick:`
+                    graph4Year = -10000;
+                    isTempVisible = false;
+                  `]
+                    Restart
+                  [/Button]
+
+                [/div]
+              [/Conditional]
 
             [/div]
             [br/]
 
-              [Conditional if:`!(isTempVisible && graph4Year == -800000) && readerMode`]
+              [derived name:"partFourCompleted" value:`graph4Year == -800000 && isTempVisible`/]
+
+              [Conditional if:`!(partFourCompleted || !readerMode)`]
                 [TextContainer]
-                  To see how carbon dioxide lines up with climate, reveal the temperature data, and go back in time.
+                  To see how carbon dioxide lines up with climate, reveal the temperature curve, and then go back in time.
                 [/TextContainer]
               [/Conditional]
 
-              [Conditional if:`(isTempVisible && graph4Year == -800000) || !readerMode`]
+              [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
-                  There's a lot going on in this graph, so let's break it down. The blue curve shows us carbon dioxide levels, while the red curve shows us how different the temperature was, as compared to the average temperature of the past thousand years.
+                  There's a lot going on in this graph, so let's break it down. The blue curve shows us carbon dioxide levels, while the red curve shows us the shift in global temperature, as compared to the average temperature of the past millenium.
 
-                  There are three things to take away from this graph.
+                  There are 3 things to take away from this graph.
 
                   First, at no time in the past 800 thousand years have carbon dioxide levels been as high as they are today.
 
-                  Second, when carbon dioxide levels varied in the past, they usually did so over tens of thousands of years. You can see this for yourself using the range slider beneath the graph to zoom in to any of the past rises and falls. In comparison, our current spike in carbon dioxide was created over just a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike occured in your life).
+                  Second, when carbon dioxide levels fluctuated in the past, they usually did so over tens of thousands of years. In comparison, our current spike in carbon dioxide was created in just a few generations ([Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
 
-                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global ice age. You can see this by comparing the blue CO2 curve with the red temperature curve — notice how they rise and fall together.
+                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global ice age. You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall together.
 
-                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature.
+                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This CO2 and temperature record of the paleolithic era, reconstructed by analyzing the chemistry of ancient air trapped in tiny bubbles beneath miles of ice, is the most direct evidence we have on how carbon dioxide governs Earth's climate.  
 
-                  Which raises the question, were carbon dioxide levels on Earth ever as high as they are today? And if so, what was the climate like?
+                  By analyzing the past, we gain a clearer understanding of where we're headed in the future. Which raises the question, were carbon dioxide levels on Earth ever as high as they are today? And if so, what was the climate like?
                 [/TextContainer]
               [/Conditional]
           [/Conditional]

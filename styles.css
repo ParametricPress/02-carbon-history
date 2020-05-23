@@ -50,6 +50,14 @@
   margin-bottom: 20px;
 }
 
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
 @media all and (max-width: 1000px) {
   .idyll-root {
     max-width: none;
