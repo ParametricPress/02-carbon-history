@@ -381,6 +381,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [/TextContainer]
 
       [var name:"graphYear" value:2019 /]
+      [derived name:"stepSize" value:`(2020 - birthYear) / 7` /]
       [derived name:"graphData" value:`[{
                   x: co2.map(e => e.year),
                   y: co2.map(e => e.ppm),
@@ -406,7 +407,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   },
 
                   xaxis: {
-                    range: [graphYear == 2019 ? 2018.5 : graphYear - 4, 2019.5],
+                    range: [graphYear == 2019 ? 2018.5 : graphYear - stepSize + 1, 2019.5],
                     title: 'Year',
                     tickformat: 'd',
                     fixedrange: true,
@@ -437,7 +438,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   },
 
                   transition: {
-                    duration: 2000,
+                    duration: 1000,
                     easing: 'cubic-in-out',
                     ordering: 'traces'
                   },
@@ -476,8 +477,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
             if (buttonEnabled) {
 
               buttonEnabled = false;
-              if ((graphYear - 10) > birthYear) {
-                graphYear = graphYear - 5;
+              if ((graphYear - 2 * stepSize) > birthYear) {
+                graphYear = graphYear - stepSize;
               } else {
                 graphYear = birthYear;
                 partOneCompleted = true;
@@ -486,7 +487,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               setTimeout(() => {
                 buttonEnabled = true;
-              }, 2000)
+              }, 1000)
 
             }
           `]
@@ -627,7 +628,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       },
 
                       xaxis: {
-                        range: [graph2Year == birthYear ? graph2Year - 5 : graph2Year - 50/2, 2019.5],
+                        range: [graph2Year == birthYear ? graph2Year - stepSize : graph2Year - 50/2, 2019.5],
                         title: 'Year',
                         tickformat: 'd',
                         fixedrange: true,
@@ -658,7 +659,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       },
 
                       transition: {
-                        duration: 2000,
+                        duration: 1000,
                         easing: 'cubic-in-out'
                       },
 
@@ -711,7 +712,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               setTimeout(() => {
                 buttonEnabled = true;
-              }, 2000)
+              }, 1000)
 
             }
           `]
@@ -795,7 +796,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       },
 
                       transition: {
-                        duration: 2000,
+                        duration: 1000,
                         easing: 'cubic-in-out'
                       },
 
@@ -891,7 +892,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                 setTimeout(() => {
                   buttonEnabled = true;
-                }, 2000)
+                }, 1000)
 
               }
             `]
@@ -962,7 +963,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
               layout: `(width) => ({
                         title: 'The History of CO2',
                         width: width,
-                        height: 50 + width/1.618,
+                        height: 150 + width/1.618,
                         showlegend: false,
                         font: {
                           family: 'Graphik Web',
@@ -1090,7 +1091,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                   setTimeout(() => {
                     buttonEnabled = true;
-                  }, 2000)
+                  }, 1000)
 
                 }
               `]
@@ -1143,11 +1144,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                   Second, when carbon dioxide levels varied in the past, they usually did so over tens of thousands of years. You can see this for yourself using the range slider beneath the graph to zoom in to any of the past rises and falls. In comparison, our current spike in carbon dioxide was created over just a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike occured in your life).
 
-                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global ice age. You can see this by comparing the blue CO2 curve with the red temperature curve –– notice how they rise and fall together.
+                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global ice age. You can see this by comparing the blue CO2 curve with the red temperature curve — notice how they rise and fall together.
 
-                  Carbon dioxide is Earth's thermostat. Whenever CO2 levels rose in the past, so did the global temperature.
+                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature.
 
-                  So have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was the climate like back then?
+                  Which raises the question, were carbon dioxide levels on Earth ever as high as they are today? And if so, what was the climate like?
                 [/TextContainer]
               [/Conditional]
           [/Conditional]
