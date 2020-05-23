@@ -1150,19 +1150,21 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
-                  There's a lot going on in this graph, so let's break it down. The blue curve shows us carbon dioxide levels, while the red curve shows us the shift in global temperature, as compared to the average temperature of the past millenium.
+                  There's a lot going on in this graph, so let's break it down. 
 
-                  There are 3 things to take away from this graph.
+                  The blue curve shows us [span className:"blue"]carbon dioxide levels[/span], while the red curve shows us the shift in [span className:"red"]global temperature[/span], as compared to the average temperature of the past millenium.
 
-                  First, at no time in the past 800 thousand years have carbon dioxide levels been as high as they are today.
+                  There are 3 things to take away from this.
+
+                  First, at no time in the past 800 thousand years have carbon dioxide levels been anywhere near as high as they are today.
 
                   Second, when carbon dioxide levels fluctuated in the past, they usually did so over tens of thousands of years. In comparison, our current spike in carbon dioxide was created in just a few generations ([Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
 
                   Third, whenever carbon dioxide levels plummeted in the past, the result was a global ice age. You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall together.
 
-                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This CO2 and temperature record of the paleolithic era, reconstructed by analyzing the chemistry of ancient air trapped in tiny bubbles beneath miles of ice, is the most direct evidence we have on how carbon dioxide governs Earth's climate.  
+                  **So carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This historical record of the paleolithic era, reconstructed by analyzing the chemistry of ancient air trapped in tiny bubbles beneath miles of ice, is the most direct evidence we have on how carbon dioxide governs Earth's climate.
 
-                  By analyzing the past, we gain a clearer understanding of where we're headed in the future. Which raises the question, were carbon dioxide levels on Earth ever as high as they are today? And if so, what was the climate like?
+                  By analyzing the past, we gain a clearer understanding of where we're headed in the future. Which raises the question, have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was that past climate like?
                 [/TextContainer]
               [/Conditional]
           [/Conditional]
