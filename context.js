@@ -69,16 +69,18 @@ module.exports = (ctx) => {
   // initial data is available
   ctx.onInitialize(() => {
     const initialState = ctx.data();
+
+    // Once the context has been initialized,
+    // you can use the ctx.update() method
+    // to modify data.
+    //
     
     initialState.co2.forEach(e => {
       myCO2LookupObj[e.year] = e.ppm
     });
 
     years = initialState.co2.map(e => Number(e.year)).sort((a,b) => b - a);
-    // Once the context has been initialized,
-    // you can use the ctx.update() method
-    // to modify data.
-    //
+
     // Here I'm going to inject some function that we can use in the
     // browser
     ctx.update({

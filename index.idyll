@@ -481,8 +481,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 graphYear = graphYear - stepSize;
               } else {
                 graphYear = birthYear;
-                partOneCompleted = true;
                 graph2Year = birthYear;
+                partOneCompleted = true;
               }
 
               setTimeout(() => {
@@ -728,13 +728,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         [Conditional if:`partTwoCompleted || !readerMode`]
           [TextContainer]
-            This graph shows us the entire history of industrialization as seen through the lens of CO2. Notice how it's grown steeper with every passing decade.
+            This graph shows us the entire history of industrialization as seen through the lens of CO2. Notice how the graph grows steeper and steeper with every passing decade – our carbon dioxide output is *accelerating*.
 
-            During the Industrial Revolution, industrialized nations started to burn coal at a rate never seen before, and so carbon dioxide levels began to increase. But that was just a gentle slope, in comparison to the steep rise in CO2 that we're creating today. 
+            During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before. But the steep rise in CO2 that we're creating today makes the Industrial Revolution looks like a gentle slope.
 
-            Everyone alive today is living through a great acceleration, an unprecedented ramping up of carbon consumption and CO2 output.
-
-            To see this even more clearly, let's go further back in time. What did CO2 levels look like before the Industrial Revolution began?
+            Everyone alive today is living through a great acceleration, an unprecedented ramping up of carbon consumption and CO2 output. To see this more clearly, let's go further back in time, and see what things looked like before the Industrial Revolution got rolling.
 
             # The Rise of Agriculture 🌾
           [/TextContainer]
@@ -914,11 +912,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               We’ve arrived 12,000 years ago, at [a time when](https://en.wikipedia.org/wiki/Neolithic_Revolution) some humans were beginning to cultivate crops, domesticate animals, and settle into [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). You're looking at the dawn of human civilization.
 
-              For most of these 12 thousand years, carbon dioxide levels were remarkably stable. Since carbon dioxide and climate are closely linked, this was also a period of climate stability. The world had thawed since [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15 thousand years ago, and this gave rise to the era known as the [Holocene](https://en.wikipedia.org/wiki/Holocene), marked by a stable and relatively warm climate. 
+              For most of these 12 thousand years, carbon dioxide levels were remarkably stable. Since carbon dioxide and climate are closely linked, this was also a period of climate stability. The world had thawed since [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15 thousand years ago. This gave rise to the era of stable and relatively warm climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene). 
 
-              Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene. Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide. Looking back from this vantage point, it’s clear that we're the first humans to ever live through such a dramatic change in carbon dioxide levels. You, me, and everyone we know — *we're all living through an extraordinary time*.
+              Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene. Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide. Looking back from this vantage point, it’s clear that we're the first humans to ever live through such a dramatic change in carbon dioxide levels. You, me, and everyone we know, *we're all living through an extraordinary time*.
 
-              When future generations look back at their geological history, they'll very likely see this spike as the moment that triggered the end of the stable, mostly moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
+              When future generations look back at their geological history, they'll likely see this spike as the moment that triggered the end of the stable, moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
 
               # The Ice Ages ❄️
 
@@ -936,7 +934,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         y: temp.map(e => e.temp),
                         mode: 'lines',
                         type: 'scattergl',
-                        hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} °C deviation from ...<extra></extra>',
+                        hovertemplate: '%{y:.d} °C deviation<extra></extra>',
                         line: {
                           color:'red',
                         },
@@ -950,7 +948,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         y: co2.map(e => e.ppm),
                         mode: 'lines',
                         type: 'scattergl',
-                        hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} parts per million of CO2<extra></extra>',
+                        hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
                         line: {
                           color:'blue',
                         },
@@ -972,6 +970,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           family: 'Graphik Web',
                           size: 16 * width / 720
                         },
+                        hovermode: 'x',
 
                         xaxis: {
                           range: [2019 - graph4Year, graph4Year/100],
@@ -1016,7 +1015,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         margin: {
                             l: 80 * width / 720,
                             r: 80 * width / 720,
-                            b: 80 * width / 720,
+                            b: 50 * width / 720,
                             t: 50 * width / 720,
                             pad: 2 * width / 720
                         },
@@ -1154,20 +1153,197 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 [TextContainer]
                   There's a lot going on in this graph, so let's break it down. 
 
-                  The blue curve shows us [span className:"blue"]carbon dioxide levels[/span], while the red curve shows us the shift in [span className:"red"]global temperature[/span], as compared to the average temperature of the past millenium.
+                  The blue curve shows us [span className:"blue"]carbon dioxide levels[/span], while the red curve shows us the shift in [span className:"red"]global temperature[/span], as compared to the average temperature of the past thousand years.
 
                   There are 3 things to take away from this.
 
-                  First, at no time in the past 800 thousand years have carbon dioxide levels been anywhere near as high as they are today.
+                  First, at no point in the past 800 thousand years were carbon dioxide levels as high as they are in your life.
 
-                  Second, when carbon dioxide levels fluctuated in the past, they usually did so over tens of thousands of years. In comparison, our current spike in carbon dioxide was created in just a few generations ([Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
+                  Second, when carbon dioxide levels fluctuated in the past, they usually did so over tens of thousands of years. In comparison, our current spike in carbon dioxide was created in just a few generations (And [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
 
                   Third, whenever carbon dioxide levels plummeted in the past, the result was a global Ice Age. You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall together.
 
-                  **So carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This deep historical record of the paleolithic era, reconstructed by analyzing the chemistry of ancient air trapped in tiny bubbles beneath miles of ice, is the most direct evidence we have on how carbon dioxide governs Earth's climate.
+                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This deep historical record of the paleolithic era, reconstructed by analyzing the chemistry of ancient air trapped in tiny bubbles beneath miles of ice, is the most direct evidence we have on how carbon dioxide governs Earth's climate.
 
                   By analyzing the past, we gain a clearer understanding of our current trajectory. Which raises the question, have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was that past climate like?
+
+                  # Before the Ice Ages 🌴
+
+                  The graph below shows the last 3 million years of carbon dioxide history. The blue curve is the history of carbon dioxide in the past million years, reconstructed from ancient air trapped in ice. Meanwhile, the purple curve is reconstructed by chemically analyzing the fossilized shells of ancient creatures that have since been buried on the sea floor. This technique lets researchers gauge the history of carbon dioxide millions of years into the past.
+
+                  The different colors CO2 levels today are higher than they have been in the past **2.5 million years**.
+
+                  [Data source](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years)
+
+                  [data name:"dyez" source:"Dyez.csv" /]
+                  [data name:"ho" source:"Ho09.csv" /]
+                  [data name:"MPTchalk" source:"MPT_chalk.csv" /]
+                  [data name:"MB15" source:"MB15.csv" /]
+                  [data name:"LPchalk" source:"LP_chalk.csv" /]
+
+                  [derived name:"graph5Data" value:`[
+                            {
+                              x: dyez.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: dyez.map(e => e.CO2),
+                              mode: 'markers',
+                              type: 'scattergl',
+                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              marker: {
+                                color: 'purple',
+                                size: 5,
+                              },
+                              opacity: 0.5
+                            },
+
+                            {
+                              x: ho.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: ho.map(e => e.CO2),
+                              mode: 'markers',
+                              type: 'scattergl',
+                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              marker: {
+                                color: 'purple',
+                                size: 5,
+                              },
+                              opacity: 0.5
+                            },
+
+                            {
+                              x: MPTchalk.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: MPTchalk.map(e => e.CO2),
+                              mode: 'markers',
+                              type: 'scattergl',
+                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              marker: {
+                                color: 'purple',
+                                size: 5,
+                              },
+                              opacity: 0.5
+                            },
+
+                            {
+                              x: LPchalk.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: LPchalk.map(e => e.CO2),
+                              mode: 'markers',
+                              type: 'scattergl',
+                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              marker: {
+                                color: 'purple',
+                                size: 5,
+                              },
+                              opacity: 0.5
+                            },
+
+                            {
+                              x: MB15.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: MB15.map(e => e.CO2),
+                              mode: 'markers+lines',
+                              type: 'scattergl',
+                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              marker: {
+                                color: 'purple',
+                                size: 5,
+                              },
+                              opacity: 0.5
+                            },
+
+                             {
+                              x: co2.map(e => e.yearsBefore2019),
+                              y: co2.map(e => e.ppm),
+                              mode: 'lines',
+                              type: 'scattergl',
+                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              marker: {
+                                color: 'blue',
+                                size: 5,
+                              },
+                            },
+                                                                                   
+                          ]` 
+                  /]
+
                 [/TextContainer]
+
+                [PlotlyComponent
+                  isVisible:partFourCompleted
+                  data: graph5Data
+                  layout: `(width) => ({
+                            title: 'The History of CO2',
+                            width: width,
+                            height: width / 1.618,
+                            showlegend: false,
+                            font: {
+                              family: 'Graphik Web',
+                              size: 16 * width / 720
+                            },
+
+                            xaxis: {
+                              title: 'Years before 2019',
+                              tickformat: ',',
+                              titlefont: {
+                                size: 12 * width / 720
+                              },
+                              zeroline: false,
+                              fixedrange: true,
+                              range: [3300000, -10000],
+                              //autorange: 'reversed',
+                              nticks: 5
+                            },
+
+                            yaxis: {
+                              title: 'Carbon Dioxide Level (in parts per million)',
+                              tickformat: 'd',
+                              fixedrange: true,
+                              titlefont: {
+                                size: 12 * width / 720
+                              },
+                              showgrid: false,
+                              zeroline: false
+                            },
+
+                            margin: {
+                                l: 80 * width / 720,
+                                r: 25 * width / 720,
+                                b: 50 * width / 720,
+                                t: 50 * width / 720,
+                                pad: 2 * width / 720
+                            },
+
+                            annotations: [
+                              makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 25 * 0.75 * width/720, 'right', 'center', true),
+                              { // annotation to label agricultural transition
+                                x: 2600000,
+                                y: 440,
+                                xref: 'x',
+                                yref: 'y',
+                                xanchor: 'center',
+                                yanchor: 'center',
+                                text: '2½ Million<br>Years Ago',
+                                font: {
+                                  size: 12 * width/720,
+                                },
+                                showarrow: false,
+                              },
+                            ],
+
+                            shapes: [
+                                // 1st highlight during Feb 4 - Feb 6
+                                {
+                                    type: 'lines',
+                                    // x-reference is assigned to the x-values
+                                    yref: 'y',
+                                    // y-reference is assigned to the plot paper [0,1]
+                                    xref: 'paper',
+                                    x0: 0,
+                                    y0: 412,
+                                    x1: 1,
+                                    y1: 412,
+                                }
+                            ],
+
+                          });`
+                /]
+
               [/Conditional]
           [/Conditional]
         [/Conditional]
