@@ -6,7 +6,9 @@ TK short description of article.
 
 - [ ] Complete Ice Ages
 - [ ] Look into Plotly transition bugs
-- [ ] Look into plot annotation collisions (e.g. birth year 1939 for first graph)
+- [ ] Look into plot annotation collisions 
+	- (e.g. birth year 1939 for first graph)
+	- Ice Ages graph for birth year 1930
 
 ## Local Setup
 

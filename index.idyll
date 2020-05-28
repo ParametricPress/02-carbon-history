@@ -487,7 +487,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               setTimeout(() => {
                 buttonEnabled = true;
-              }, 1000)
+              }, 1000);
 
             }
           `]
@@ -712,7 +712,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               setTimeout(() => {
                 buttonEnabled = true;
-              }, 1000)
+              }, 1000);
 
             }
           `]
@@ -728,7 +728,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         [Conditional if:`partTwoCompleted || !readerMode`]
           [TextContainer]
-            This graph shows us the entire history of industrialization as seen through the lens of CO2. Notice how the graph grows steeper and steeper with every passing decade – our carbon dioxide output is *accelerating*.
+            This graph shows us the entire history of industrialization as seen through the lens of CO2. Notice how the graph grows steeper and steeper with every passing decade — our carbon dioxide output is *accelerating*.
 
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before. But the steep rise in CO2 that we're creating today makes the Industrial Revolution looks like a gentle slope.
 
@@ -801,12 +801,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       },
 
                       shapes: [
-                          // 1st highlight during Feb 4 - Feb 6
                           {
                               type: 'rect',
-                              // x-reference is assigned to the x-values
                               xref: 'x',
-                              // y-reference is assigned to the plot paper [0,1]
                               yref: 'paper',
                               x0: 12000,
                               y0: 0,
@@ -822,7 +819,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                       ],
 
                       annotations: [
-                          { // annotation to label agricultural transition
+                          {
                             x: 2019 - 11000,
                             y: 375,
                             xref: 'x',
@@ -893,7 +890,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                 setTimeout(() => {
                   buttonEnabled = true;
-                }, 1000)
+                }, 1000);
 
               }
             `]
@@ -920,7 +917,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               # The Ice Ages ❄️
 
-              To understand where we're headed, it's helpful to know where we came from. So let's take a journey through the Ice Ages, traveling back in time some 800 thousand years.
+              To understand where we're headed, it's helpful to know where we came from. So let's take a journey through the Ice Ages.
 
             [/TextContainer]
 
@@ -1007,6 +1004,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           titlefont: {
                             size: 12 * width / 720
                           },
+                          tickmode: "array",
+                          tickvals: [0, -5, -10],
                           showgrid: false,
                           zeroline: false,
                           visible: isTempVisible
@@ -1026,12 +1025,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         },
 
                         shapes: [
-                            // 1st highlight during Feb 4 - Feb 6
                             {
                                 type: 'rect',
-                                // x-reference is assigned to the x-values
                                 yref: 'y1',
-                                // y-reference is assigned to the plot paper [0,1]
                                 xref: 'paper',
                                 x0: 0,
                                 y0: 280,
@@ -1047,19 +1043,49 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                         ],
 
                         annotations: [
-                            { // annotation to label agricultural transition
+                            { 
                               x: (2019 + graph4Year) / 2,
                               y: 350,
                               xref: 'x',
                               yref: 'y1',
                               xanchor: 'center',
                               yanchor: 'center',
-                              text: 'Human Caused<br>Rise in CO2',
+                              text: 'Human-Caused<br>Rise in CO2',
                               font: {
                                 size: 12 * width/720,
                               },
                               showarrow: false,
                             },
+
+                            {
+                              x: 2019 - 11000,
+                              y: 240,
+                              xref: 'x',
+                              yref: 'y',
+                              xanchor: 'center',
+                              yanchor: 'center',
+                              text: 'Transition to<br>Agriculture',
+                              font: {
+                                size: 12 * width/720,
+                              },
+                              showarrow: false,
+                              visible: graph4Year == -10000 ? true : false
+                            },
+
+                            { 
+                              x: -300000,
+                              y: 170,
+                              xref: 'x',
+                              yref: 'y1',
+                              xanchor: 'center',
+                              yanchor: 'center',
+                              text: '<i>Homo Sapiens</i> Lineage Appears',
+                              font: {
+                                size: 12 * width/720,
+                              },
+                              showarrow: false,
+                            },
+
                             makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                             makeAnnotation(0.5, graph4Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true)
                           ].concat(graph4Year >= -400000 ? [makeAnnotation(0.5, graph4Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -60 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true)] : [])
@@ -1082,6 +1108,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               arrowwidth: e.arrowwidth,
                               ax: e.ax,
                               ay: e.ay,
+                              visible: e.visible
                             }))
                       });`
             /]
@@ -1098,7 +1125,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                   setTimeout(() => {
                     buttonEnabled = true;
-                  }, 1000)
+                  }, 1000);
 
                 }
                 `]
@@ -1121,7 +1148,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                       setTimeout(() => {
                         buttonEnabled = true;
-                      }, 1000)
+                      }, 1000);
 
                     }
                   `]
@@ -1151,29 +1178,31 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
-                  There's a lot going on in this graph, so let's break it down. 
+                  We've arrived 800 thousand years before the present, [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution) Homo Sapiens arrived on the scene. There's a lot going on in this graph, so let's break it down. 
 
                   The blue curve shows us [span className:"blue"]carbon dioxide levels[/span], while the red curve shows us the shift in [span className:"red"]global temperature[/span], as compared to the average temperature of the past thousand years.
 
                   There are 3 things to take away from this.
 
-                  First, at no point in the past 800 thousand years were carbon dioxide levels as high as they are in your life.
+                  First, at no point in the past 800 thousand years were carbon dioxide levels anywhere near as high as they are today.
 
                   Second, when carbon dioxide levels fluctuated in the past, they usually did so over tens of thousands of years. In comparison, our current spike in carbon dioxide was created in just a few generations (And [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
 
                   Third, whenever carbon dioxide levels plummeted in the past, the result was a global Ice Age. You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall together.
 
-                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This deep historical record of the paleolithic era, reconstructed by analyzing the chemistry of ancient air trapped in tiny bubbles beneath miles of ice, is the most direct evidence we have on how carbon dioxide governs Earth's climate.
+                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This paleoclimate record, reconstructed by analyzing ancient air trapped in tiny frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
 
                   By analyzing the past, we gain a clearer understanding of our current trajectory. Which raises the question, have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was that past climate like?
 
                   # Before the Ice Ages 🌴
 
-                  The graph below shows the last 3 million years of carbon dioxide history. The blue curve is the history of carbon dioxide in the past million years, reconstructed from ancient air trapped in ice. Meanwhile, the purple curve is reconstructed by chemically analyzing the fossilized shells of ancient creatures that have since been buried on the sea floor. This technique lets researchers gauge the history of carbon dioxide millions of years into the past.
+                  At nearly a million years before the present, we're at the end of the CO2 record obtained from direct measurements of ancient air. But we can go further still, by using clever indirect measurements.
 
-                  The different colors CO2 levels today are higher than they have been in the past **2.5 million years**.
+                  When carbon dioxide levels change, so does the chemistry of the ocean — higher CO2 levels make seawater more acidic. And the acidity of seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms. So by chemically analyzing the fossilized shells of ancient creatures buried on the sea floor, scientists can obtain an indirect record of the history of carbon dioxide, that extends back over 3 million years.
 
-                  [Data source](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years)
+                  And here it is.
+
+                [/TextContainer]
 
                   [data name:"dyez" source:"Dyez.csv" /]
                   [data name:"ho" source:"Ho09.csv" /]
@@ -1262,8 +1291,6 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                           ]` 
                   /]
 
-                [/TextContainer]
-
                 [PlotlyComponent
                   isVisible:partFourCompleted
                   data: graph5Data
@@ -1310,8 +1337,24 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                             },
 
                             annotations: [
-                              makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 25 * 0.75 * width/720, 'right', 'center', true),
-                              { // annotation to label agricultural transition
+                              {
+                                x: 0.5,
+                                y: 350,
+                                xref: 'paper',
+                                yref: 'y',
+                                xanchor: 'center',
+                                yanchor: 'center',
+                                text: 'Human-Caused<br>Rise in CO2',
+                                font: {
+                                  size: 12 * width/720,
+                                },
+                                showarrow: false,
+                              },
+
+                              makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
+                              makeAnnotation(0.5, graph4Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true),
+
+                              {
                                 x: 2600000,
                                 y: 440,
                                 xref: 'x',
@@ -1327,22 +1370,37 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                             ],
 
                             shapes: [
-                                // 1st highlight during Feb 4 - Feb 6
                                 {
-                                    type: 'lines',
-                                    // x-reference is assigned to the x-values
+                                    type: 'rect',
                                     yref: 'y',
-                                    // y-reference is assigned to the plot paper [0,1]
                                     xref: 'paper',
                                     x0: 0,
-                                    y0: 412,
+                                    y0: 280,
                                     x1: 1,
                                     y1: 412,
+                                    fillcolor: '#d3d3d3',
+                                    opacity: 0.5,
+                                    layer: 'below',
+                                    line: {
+                                        width: 0
+                                    }
                                 }
                             ],
 
                           });`
                 /]
+
+                [br/]
+                [TextContainer]
+                  [Data source](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years)
+
+                  You're looking at over 3 million years of history, or all of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age). The [span className:"blue"]blue curve[/span] shows direct measurements from ancient air trapped in frozen bubbles, while the [span className:"purple"]purple curves[/span] show indirect measurements from analyzing ancient shells.
+
+                  This graph teaches us that **carbon dioxide levels are higher today than they have been in the past 2.5 million years**.
+
+                  The last historical analogue to the present day was in the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), an era known as [the Pliocene](https://en.wikipedia.org/wiki/Pliocene). At the time, our human ancestors looked [something like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg). This was [a time when](https://en.wikipedia.org/wiki/Pliocene#Climate) global temperatures were 2-3°C (4-5°F) warmer than today, and sea levels were 25 meters (82 feet) higher.
+
+                [/TextContainer]
 
               [/Conditional]
           [/Conditional]
