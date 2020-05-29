@@ -1,3 +1,6 @@
+/* [Boolean value:readerMode /] Reader mode [Display value:`readerMode ? "is enabled" : "is disabled"  `/] */
+
+
       [Graphic
         hed:"How Much of Human CO2 Emissions Occurred in Your Life?"
         subhed:"Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within that lifetime."

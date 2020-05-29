@@ -59,7 +59,7 @@
 }
 
 .purple {
-  color: purple;
+  color: rgba(72, 1, 255, 0.5);
 }
 
 @media all and (max-width: 1000px) {

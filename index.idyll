@@ -1,4 +1,4 @@
-[meta title:"Why we're living in an extraordinary time" description:"TK Article Description"
+[meta title:"Your Life in CO2" description:"TK Article Description"
   shareImageUrl:"https://parametric.press/issue-02/tk-article-slug/static/images/share.png"
   shareImageWidth:"880"
   shareImageHeight:"440" /]
@@ -11,7 +11,7 @@
   title:`["Your Life", "in CO2"]`
   longTitle:`["Your Life in", "Carbon Dioxide"]`
   date:"May 15, 2020"
-  dek:"When it comes to carbon dioxide, we're all living through an extraordinary time."
+  dek:"Why we're living through an extraordinary time."
   fullWidth:true
   authors:`[{
     name: "Aatish Bhatia",
@@ -25,8 +25,7 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"readerMode" value:false /]
-[Boolean value:readerMode /] Reader mode [Display value:`readerMode ? "is enabled" : "is disabled"  `/]
+[var name:"readerMode" value:true /]
 
 # Formation 🦕
 
@@ -66,7 +65,7 @@ By returning all this carbon into the air, we’re transforming the composition 
 
 # Your Birthday 🎂
 
-So when you think of the 300-year-long history of human carbon emissions, you might guess that your life is just a tiny blip in this story.
+So when you think of the 300-year-long history of human carbon emissions, you might guess that your life is just a blip in this story.
 
 In fact, just for fun, go ahead and make a guess by dragging the slider below.
 
@@ -85,7 +84,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 [Conditional if:`guessMade || !readerMode`]
 
   [TextContainer]
-    What’s the right answer? To find out, select the year in which you were born, and we’ll pull up the numbers for your lifetime.
+    What’s the right answer? To find out, select the year you were born, and we’ll pull up the numbers for your lifetime.
 
     [var name:"birthYear" value:"1985" /]
 
@@ -182,11 +181,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within this lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
     [/caption]
 
-      We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed to the bulk of CO2 emissions. No humans before us have ever witnessed such a steep rise in carbon dioxide.
+      We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed to the bulk of carbon emissions. No humans before us have ever witnessed such a steep rise in carbon dioxide.
 
       To better understand this, let’s take a personalized tour of the history of carbon dioxide — personalized around *you*. We’ll start in 2020, tracing our way backward through the years of your life.
 
-      But we first need to know how to measure carbon dioxide. The basic unit in which we measure CO2 concentration is *parts per million*, or *ppm* for short.
+      But we first need to know how to measure carbon dioxide. The unit used to measure CO2 concentration is *parts per million*, or *ppm* for short.
 
       A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide. If we could see the world from the perspective of a molecule, here's what this concentration of carbon dioxide might look like.
 
@@ -377,7 +376,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [TextContainer]
         Great! Now that you know what a *part per million* looks like, let's travel backward through the years of your life in our CO2 time machine.
 
-        We'll start in 2019, when the carbon dioxide concentration in the air was 412 parts per million.
+        We'll start in 2019.
       [/TextContainer]
 
       [var name:"graphYear" value:2019 /]
@@ -508,7 +507,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           [Aside]
             [span className:"pull-number"]You were born at [Display value:`getCO2Level(birthYear)` format:"d" /] ppm[/span]
             [span className:"pull-number-text"]
-              In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(birthYear)` format:"d" /] parts per million. Since CO2 levels have been rising every year of your life, you can think of this number as your age, measured in carbon dioxide.
+              In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(birthYear)` format:"d" /] parts per million. Since CO2 levels have been rising every year of your life, you can think of this number as your age, as measured in carbon dioxide.
             [/span]
           [/Aside]
 
@@ -732,7 +731,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before. But the steep rise in CO2 that we're creating today makes the Industrial Revolution looks like a gentle slope.
 
-            Everyone alive today is living through a great acceleration, an unprecedented ramping up of carbon consumption and CO2 output. To see this more clearly, let's go further back in time, and see what things looked like before the Industrial Revolution got rolling.
+            Everyone alive today is living through a great acceleration, an unprecedented ramping up of carbon consumption and, consequently, of CO2 output.
+
+            To see this more clearly, let's go further back in time, to before the Industrial Revolution got rolling.
 
             # The Rise of Agriculture 🌾
           [/TextContainer]
@@ -907,17 +908,17 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           [Conditional if:`partThreeCompleted || !readerMode`]
             [TextContainer]
 
-              We’ve arrived 12,000 years ago, at [a time when](https://en.wikipedia.org/wiki/Neolithic_Revolution) some humans were beginning to cultivate crops, domesticate animals, and settle into [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). You're looking at the dawn of human civilization.
+              We’ve arrived 12,000 years ago, at [a time when](https://en.wikipedia.org/wiki/Neolithic_Revolution) some humans were beginning to cultivate crops, domesticate animals, and settle into [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). You're looking at the birth of agriculture, and the dawn of civilization.
 
-              For most of these 12 thousand years, carbon dioxide levels were remarkably stable. Since carbon dioxide and climate are closely linked, this was also a period of climate stability. The world had thawed since [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15 thousand years ago. This gave rise to the era of stable and relatively warm climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene). 
+              For most of these 12 thousand years, carbon dioxide levels were remarkably stable. Since carbon dioxide and climate are closely linked, this was also a period of climate stability.
 
-              Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene. Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide. Looking back from this vantage point, it’s clear that we're the first humans to ever live through such a dramatic change in carbon dioxide levels. You, me, and everyone we know, *we're all living through an extraordinary time*.
+              The world had thawed since [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15 thousand years ago, giving rise to an era of relatively moderate climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene). Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene. 
 
-              When future generations look back at their geological history, they'll likely see this spike as the moment that triggered the end of the stable, moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
+              Today, we're perched  precariously at the peak of a historically unprecedented spike in carbon dioxide. When future generations look back at their geological history, they'll likely see this spike as the moment that triggered the end of the stable, moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
 
               # The Ice Ages ❄️
 
-              To understand where we're headed, it's helpful to know where we came from. So let's take a journey through the Ice Ages.
+              To understand where we're headed, it helps to know where we came from. So let's take a journey through the Ice Ages.
 
             [/TextContainer]
 
@@ -1190,15 +1191,15 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                   Third, whenever carbon dioxide levels plummeted in the past, the result was a global Ice Age. You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall together.
 
-                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This paleoclimate record, reconstructed by analyzing ancient air trapped in tiny frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
+                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This paleoclimate record, reconstructed by analyzing ancient air trapped in frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
 
-                  By analyzing the past, we gain a clearer understanding of our current trajectory. Which raises the question, have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was that past climate like?
+                  So have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was that past climate like?
 
                   # Before the Ice Ages 🌴
 
                   At nearly a million years before the present, we're at the end of the CO2 record obtained from direct measurements of ancient air. But we can go further still, by using clever indirect measurements.
 
-                  When carbon dioxide levels change, so does the chemistry of the ocean — higher CO2 levels make seawater more acidic. And the acidity of seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms. By chemically analyzing the fossilized shells of ancient marine life, scientists can obtain an indirect record of the history of carbon dioxide, that extends back over 3 million years.
+                  When carbon dioxide levels change, so does the chemistry of the ocean — higher CO2 levels make seawater more acidic. And acidic seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms. By chemically analyzing the fossilized shells of ancient marine life, scientists can obtain an indirect record of the history of carbon dioxide, that extends back over 3 million years.
 
                   And here it is.
 
@@ -1228,7 +1229,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',                              
-                              fillcolor: 'rgba(68, 68, 68, 0.3)',
+                              fillcolor: 'rgba(72, 1, 255, 0.1)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1239,10 +1240,10 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               type: 'scattergl',
                               hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
                               marker: {
-                                color: 'grey',
+                                color: '#4801FF',
                                 size: 5,
                               },
-                              opacity: 0.5,
+                              opacity: 0.2,
                               error_y: {
                                 type: 'constant',
                                 symmetric: true,
@@ -1265,8 +1266,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              fill: 'tonexty',                              
-                              fillcolor: 'rgba(68, 68, 68, 0.3)',
+                              fill: 'tonexty',
+                              fillcolor: 'rgba(72, 1, 255, 0.1)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1286,7 +1287,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',                              
-                              fillcolor: 'rgba(68, 68, 68, 0.3)',
+                              fillcolor: 'rgba(72, 1, 255, 0.1)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1306,7 +1307,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',                              
-                              fillcolor: 'rgba(68, 68, 68, 0.3)',
+                              fillcolor: 'rgba(72, 1, 255, 0.1)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1373,22 +1374,25 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                             annotations: [
                               {
-                                x: 1500000,
-                                y: 395,
+                                x: 0.9,
+                                y: 420,
                                 xref: 'x',
                                 yref: 'y',
-                                xanchor: 'center',
+                                xanchor: 'right',
                                 yanchor: 'bottom',
                                 text: 'Human-Caused Rise in CO2',
                                 font: {
                                   size: 12 * width/720,
+                                  color: '#d3d3d3'
                                 },
+                                opacity: 1,
                                 showarrow: false,
                               },
 
                               makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                               makeAnnotation(0.5, graph4Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true),
 
+                              /*
                               {
                                 x: 2600000,
                                 y: 435,
@@ -1402,6 +1406,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                                 },
                                 showarrow: false,
                               },
+                              */
                             ],
 
                             shapes: [
@@ -1427,13 +1432,20 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                 [br/]
                 [TextContainer]
-                  [Data source](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years)
 
-                  You're looking at over 3 million years of history — the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age). The [span className:"blue"]blue curve[/span] shows direct measurements from air trapped in frozen bubbles, while the [span className:"purple"]purple curves[/span] show indirect measurements from analyzing ancient shells.
+                  Caption: This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
 
-                  Carbon dioxide levels are higher today than they have been in the past 2.5 million years.
+                  You're looking at over 3 million years of history — the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age). The graph shows [span className:"blue"]direct measurements[/span] of CO2 overlaid with [span className:"purple"]indirect measurements[/span].
 
-                  The last historical analogue to the present day was in the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), an era known as [the Pliocene](https://en.wikipedia.org/wiki/Pliocene). At the time, our human ancestors looked [something like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg). This was [a time when](https://en.wikipedia.org/wiki/Pliocene#Climate) global temperatures were 2-3°C (4-5°F) warmer than today, and sea levels were 25 meters (82 feet) higher.
+                  The takeaway is that carbon dioxide levels are higher today than they have been in the past 2.5 million years.
+
+                  The last historical analogue to the present was the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), an era known as [the Pliocene](https://en.wikipedia.org/wiki/Pliocene). At the time, our human ancestors looked [like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg), global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [25 meters](https://en.wikipedia.org/wiki/Pliocene#Climate) (82 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
+
+                  People sometimes say that the climate has always changed. But what this fails to capture is the stunning rate of our current change. In your life, carbon dioxide levels have climbed at a speed that's without precedent, and reached levels unseen in over 2 million years. In the span of a few human lives, we've transformed the atmosphere to levels that predate the existence of our species. 
+
+                  Looking back through time from our current vantage point, it’s clear that we're the first humans to live through such a dramatic change in carbon dioxide levels. You, me, and everyone we know, *we're all living through an extraordinary time*.
+
+                  What comes next is entirely up to us.
 
                 [/TextContainer]
 
