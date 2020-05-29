@@ -1211,17 +1211,25 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                   [data name:"LPchalk" source:"LP_chalk.csv" /]
 
                   [derived name:"graph5Data" value:`[
-                            {
+
+                            { // upper bound
                               x: dyez.map(e => e.Age * 1000 + 2019 - 1950),
-                              y: dyez.map(e => e.CO2),
-                              mode: 'markers',
+                              y: dyez.map(e => e.CO2up),
+                              mode: 'lines',
                               type: 'scattergl',
-                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
-                              marker: {
-                                color: 'purple',
-                                size: 5,
-                              },
-                              opacity: 0.5
+                              line: {color: 'transparent'},
+                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                            },
+
+                            { // lower bound
+                              x: dyez.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: dyez.map(e => e.CO2down),
+                              mode: 'lines',
+                              type: 'scattergl',
+                              line: {color: 'transparent'},
+                              fill: 'tonexty',                              
+                              fillcolor: 'rgba(68, 68, 68, 0.3)',
+                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             {
@@ -1231,52 +1239,78 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                               type: 'scattergl',
                               hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
                               marker: {
-                                color: 'purple',
+                                color: 'grey',
                                 size: 5,
                               },
-                              opacity: 0.5
+                              opacity: 0.5,
+                              error_y: {
+                                type: 'constant',
+                                symmetric: true,
+                                value: 30,
+                              },
                             },
 
-                            {
+                            { // upper bound
                               x: MPTchalk.map(e => e.Age * 1000 + 2019 - 1950),
-                              y: MPTchalk.map(e => e.CO2),
-                              mode: 'markers',
+                              y: MPTchalk.map(e => e.CO2up),
+                              mode: 'lines',
                               type: 'scattergl',
-                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
-                              marker: {
-                                color: 'purple',
-                                size: 5,
-                              },
-                              opacity: 0.5
+                              line: {color: 'transparent'},
+                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
                             },
 
-                            {
+                            { // lower bound
+                              x: MPTchalk.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: MPTchalk.map(e => e.CO2down),
+                              mode: 'lines',
+                              type: 'scattergl',
+                              line: {color: 'transparent'},
+                              fill: 'tonexty',                              
+                              fillcolor: 'rgba(68, 68, 68, 0.3)',
+                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                            },
+
+                            { // upper bound
                               x: LPchalk.map(e => e.Age * 1000 + 2019 - 1950),
-                              y: LPchalk.map(e => e.CO2),
-                              mode: 'markers',
+                              y: LPchalk.map(e => e.CO2up),
+                              mode: 'lines',
                               type: 'scattergl',
-                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
-                              marker: {
-                                color: 'purple',
-                                size: 5,
-                              },
-                              opacity: 0.5
+                              line: {color: 'transparent'},
+                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                            },
+
+                            { // lower bound
+                              x: LPchalk.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: LPchalk.map(e => e.CO2down),
+                              mode: 'lines',
+                              type: 'scattergl',
+                              line: {color: 'transparent'},
+                              fill: 'tonexty',                              
+                              fillcolor: 'rgba(68, 68, 68, 0.3)',
+                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                            },
+
+                            { // upper bound
+                              x: MB15.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: MB15.map(e => e.CO2up),
+                              mode: 'lines',
+                              type: 'scattergl',
+                              line: {color: 'transparent'},
+                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                            },
+
+                            { // lower bound
+                              x: MB15.map(e => e.Age * 1000 + 2019 - 1950),
+                              y: MB15.map(e => e.CO2down),
+                              mode: 'lines',
+                              type: 'scattergl',
+                              line: {color: 'transparent'},
+                              fill: 'tonexty',                              
+                              fillcolor: 'rgba(68, 68, 68, 0.3)',
+                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             {
-                              x: MB15.map(e => e.Age * 1000 + 2019 - 1950),
-                              y: MB15.map(e => e.CO2),
-                              mode: 'markers+lines',
-                              type: 'scattergl',
-                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
-                              marker: {
-                                color: 'purple',
-                                size: 5,
-                              },
-                              opacity: 0.5
-                            },
-
-                             {
                               x: co2.map(e => e.yearsBefore2019),
                               y: co2.map(e => e.ppm),
                               mode: 'lines',
@@ -1320,6 +1354,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                             yaxis: {
                               title: 'Carbon Dioxide Level (in parts per million)',
                               tickformat: 'd',
+                              range: [150, 450],
                               fixedrange: true,
                               titlefont: {
                                 size: 12 * width / 720
@@ -1338,13 +1373,13 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                             annotations: [
                               {
-                                x: 0.5,
-                                y: 350,
-                                xref: 'paper',
+                                x: 1500000,
+                                y: 395,
+                                xref: 'x',
                                 yref: 'y',
                                 xanchor: 'center',
-                                yanchor: 'center',
-                                text: 'Human-Caused<br>Rise in CO2',
+                                yanchor: 'bottom',
+                                text: 'Human-Caused Rise in CO2',
                                 font: {
                                   size: 12 * width/720,
                                 },
@@ -1356,7 +1391,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                               {
                                 x: 2600000,
-                                y: 440,
+                                y: 435,
                                 xref: 'x',
                                 yref: 'y',
                                 xanchor: 'center',
