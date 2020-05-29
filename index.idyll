@@ -1198,7 +1198,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                   At nearly a million years before the present, we're at the end of the CO2 record obtained from direct measurements of ancient air. But we can go further still, by using clever indirect measurements.
 
-                  When carbon dioxide levels change, so does the chemistry of the ocean — higher CO2 levels make seawater more acidic. And the acidity of seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms. So by chemically analyzing the fossilized shells of ancient creatures buried on the sea floor, scientists can obtain an indirect record of the history of carbon dioxide, that extends back over 3 million years.
+                  When carbon dioxide levels change, so does the chemistry of the ocean — higher CO2 levels make seawater more acidic. And the acidity of seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms. By chemically analyzing the fossilized shells of ancient marine life, scientists can obtain an indirect record of the history of carbon dioxide, that extends back over 3 million years.
 
                   And here it is.
 
@@ -1394,9 +1394,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 [TextContainer]
                   [Data source](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years)
 
-                  You're looking at over 3 million years of history, or all of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age). The [span className:"blue"]blue curve[/span] shows direct measurements from ancient air trapped in frozen bubbles, while the [span className:"purple"]purple curves[/span] show indirect measurements from analyzing ancient shells.
+                  You're looking at over 3 million years of history — the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age). The [span className:"blue"]blue curve[/span] shows direct measurements from air trapped in frozen bubbles, while the [span className:"purple"]purple curves[/span] show indirect measurements from analyzing ancient shells.
 
-                  This graph teaches us that **carbon dioxide levels are higher today than they have been in the past 2.5 million years**.
+                  Carbon dioxide levels are higher today than they have been in the past 2.5 million years.
 
                   The last historical analogue to the present day was in the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), an era known as [the Pliocene](https://en.wikipedia.org/wiki/Pliocene). At the time, our human ancestors looked [something like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg). This was [a time when](https://en.wikipedia.org/wiki/Pliocene#Climate) global temperatures were 2-3°C (4-5°F) warmer than today, and sea levels were 25 meters (82 feet) higher.
 
