@@ -727,7 +727,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         [Conditional if:`partTwoCompleted || !readerMode`]
           [TextContainer]
-            This graph shows us the entire history of industrialization as seen through the lens of CO2. Notice how the graph grows steeper and steeper with every passing decade — our carbon dioxide output is *accelerating*.
+            This graph shows us the entire history of industrialization as seen through the lens of CO2. Notice how the graph grows steeper with every passing decade. Our carbon dioxide output is *accelerating*.
 
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before. But the steep rise in CO2 that we're creating today makes the Industrial Revolution looks like a gentle slope.
 
@@ -1089,9 +1089,9 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                             makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                             makeAnnotation(0.5, graph4Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true)
-                          ].concat(graph4Year >= -400000 ? [makeAnnotation(0.5, graph4Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -60 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true)] : [])
-                            .concat(graph4Year == -200000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -20 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
-                            .concat(graph4Year == -400000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -20 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
+                          ].concat(graph4Year == -200000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -20 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
+                           .concat(graph4Year == -400000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -20 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
+                           //.concat(graph4Year >= -400000 ? [makeAnnotation(0.5, graph4Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -60 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true)] : [])
                            .filter(e => e.x >= graph4Year)
                            .map(e => (
                             {
@@ -1435,11 +1435,11 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
                   Caption: This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
 
-                  You're looking at over 3 million years of history — the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age). The graph shows [span className:"blue"]direct measurements[/span] of CO2 overlaid with [span className:"purple"]indirect measurements[/span].
+                  You're looking at over 3 million years of history — the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age). The graph shows [span className:"blue"]direct measurements[/span] of CO2 overlaid with [span className:"purple"]indirect measurements[/span]. 
 
-                  The takeaway is that carbon dioxide levels are higher today than they have been in the past 2.5 million years.
+                  And here's the takeaway: carbon dioxide levels are higher today than they have been in the past 2.5 million years.
 
-                  The last historical analogue to the present was the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), an era known as [the Pliocene](https://en.wikipedia.org/wiki/Pliocene). At the time, our human ancestors looked [like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg), global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [25 meters](https://en.wikipedia.org/wiki/Pliocene#Climate) (82 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
+                  The [last historical analogue](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) to the present was the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), an era known as [the Pliocene](https://en.wikipedia.org/wiki/Pliocene). At the time, our human ancestors looked [like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg), global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
 
                   People sometimes say that the climate has always changed. But what this fails to capture is the stunning rate of our current change. In your life, carbon dioxide levels have climbed at a speed that's without precedent, and reached levels unseen in over 2 million years. In the span of a few human lives, we've transformed the atmosphere to levels that predate the existence of our species. 
 
