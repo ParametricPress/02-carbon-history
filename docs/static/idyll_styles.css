@@ -148,6 +148,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
+  background-color: #ADADAD;
 }
 
 .pl-c {
@@ -1060,9 +1061,8 @@ h2.dek {
 }
 
 .article-header a {
-
   text-decoration: underline;
-
+  color: #000;
 }
 .idyll-dynamic {
   cursor: ew-resize;
@@ -1140,7 +1140,7 @@ h1.hed {
   font-family: "Graphik Web";
   font-weight: 800;
   font-size: 240px;
-  color: #4801FF;
+  color: #D8FFA2;
   line-height: 200px;
   position: absolute;
   width: 1400px;
@@ -1157,7 +1157,7 @@ h1.hed-rotate {
   font-weight: 800;
   font-size: 240px;
   margin-top: 0;
-  color: #222222;
+  color: #D8FFA2;
 /* Safari */
   line-height: 200px;
   pointer-events: none;
@@ -1175,7 +1175,7 @@ transform: rotate(90deg);
 transform-origin: left top;
 
 position: absolute;
-top: -75px;
+top: 250px;
 left: calc(100% - 40px);
 white-space: nowrap;
 }
@@ -1192,7 +1192,7 @@ body {
 }
 
 a {
-  color: #4801FF;
+  color: #D8FFA2;
 }
 
 .parametric-inset {
@@ -1236,9 +1236,10 @@ a {
   width: 100%;
   line-height: 1.1;
   font-weight: bold;
-  margin-bottom: 1em;
-  margin-left: 50px;
-  max-width: 1340px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 .parametric-recirc-next-article a {
   font-family: 'Graphik Web';
@@ -1324,6 +1325,22 @@ a {
   background: none;
 }
 
+.parametric-header-image img,
+.parametric-header-image video {
+  width: 400px;
+  z-index: 3;
+  position: relative;
+  top: -70px;
+  left: -120px;
+  background: none;
+}
+.parametric-header-image img,
+.parametric-header-image video {
+  left: 0;
+  width: 520px;
+}
+
+
 .hed-rotate {
   z-index: 10;
   pointer-events: none;
@@ -1333,7 +1350,6 @@ a {
   background: #222222;
   color: white;
   padding: 2em 50px 3em 50px;
-  margin-top: 2em;
   font-family: 'Graphik Web';
   font-size: 16px;
   width: 100vw;
@@ -1457,6 +1473,36 @@ a {
   font-size: 14px;
   font-weight: 600;
 }
+
+
+.parametric-recirc-article {
+  background: #D8FFA2;
+  box-shadow: 8px 8px 0 black;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+}
+
+.parametric-article-nav {
+  font-size: 24px;
+  line-height: 24px;
+
+}
+
+.parametric-header-text {
+  border-top: solid 1px #222;
+  margin: 0 50px;
+  width: calc(100vw - 100px);
+}
+
+.parametric-header-image img {
+  left: 0;
+  width: 520px
+}
+
+h1.hed-rotate {
+  top: 500px;
+}
+
 
 @media all and (max-width: 1200px) {
   .parametric-metadata-container {
@@ -1840,6 +1886,11 @@ input {
 .tooltip-subtitle {
   font-style: italic;
 }
+
+.article-header .idyll-text-container {
+  margin-left: 50px;
+}
+
 
 @media all and (max-width: 1600px) {
   .fixed {
