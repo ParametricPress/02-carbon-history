@@ -29,24 +29,26 @@
 
 # Formation 🦕
 
-All the carbon in a fossil fuel was once in something alive.
-
-Hundreds of millions of years ago, the dead remains of plants and microscopic plankton happened to get buried in places where oxygen couldn't easily get to them. Places like the bottoms of swamps in ancient forests, or beneath sediments under the sea.
+Coal, oil, and natural gas—energy sources that power our modern society—have been in the making for hundreds of millions of years.
+Where do these resources come from?
+All carbon in fossil fuels were once a part of something alive: the dead remains of plants and microscopic plankton that were buried in places where oxygen couldn't easily reach, like the bottoms of ancient swamps or beneath sediments under the sea.
 
 [Aside]
   [span className:"pull-number"]99%[/span]
   [span className:"pull-number-text"]
-    Roughly 99 percent of the carbon in organic matter will decay into carbon dioxide. The remaining 1% is the reservoir from which fossil fuels are formed.
+    Roughly 99% of the carbon in organic matter will decay into carbon dioxide. The remaining 1% is the reservoir from which fossil fuels are formed.
   [/span]
   [br/][br/]
   **Source**: [link text:"Chemistry of Fossil Fuels and Biofuels, Harold Schobert" url:"https://www.cambridge.org/core/books/chemistry-of-fossil-fuels-and-biofuels/55F8E62F729DF25CE4D40109440860DA" /]
 [/Aside]
 
-Normally when creatures die, they decompose, and the carbon within them quickly returns to the air. But decomposition requires oxygen. In the absence of oxygen, much of that energy-rich carbon remained trapped in these geological burial grounds, lying dormant for hundreds of millions of years.
+Normally when creatures die and decompose the carbon within them quickly returns to the air.
+But decomposition requires oxygen.
+In the absence of oxygen, much of that energy-rich carbon remains trapped in these geological burial grounds, lying dormant for hundreds of millions of years.
 
-Over the eras, continents shifted and collided, dinosaurs came and went, plants invented flowers, birds took flight, and tiny mouse-like mammals hesitantly ventured out from the safety of their burrows, eventually growing into the family of animals that includes us.
+Over the eras, continents shifted and collided, dinosaurs came and went, plants bloomed flowers, birds took flight, and tiny mouse-like mammals hesitantly ventured out from the safety of their burrows, eventually growing into the family of animals that includes us.
 
-Meanwhile, beneath the Earth’s surface, all that dormant carbon was being heated and compressed, transforming into some of the most energy rich substances we humans have ever known — coal, oil, and natural gas.
+Meanwhile, beneath the Earth's surface, all that dormant carbon was being heated and compressed, transforming into energy rich resources we've used to power modern life.
 
 [Aside]
   [span className:"pull-number"]10 Billion Tons[/span]
@@ -57,23 +59,25 @@ Meanwhile, beneath the Earth’s surface, all that dormant carbon was being heat
   **Source**: [link text:"Global Carbon Budget 2019" url:"https://www.earth-syst-sci-data.net/11/1783/2019/" /]
 [/Aside]
 
-Today we’re unearthing tons of this ancient carbon — about 10 billion tons of it in 2019 alone. In effect, we're burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years.
+Today we're unearthing tons of ancient carbon—about 10 billion tons of it last year alone.
+We're burning through a carbon bank account that's been quietly compounding interest for hundreds of millions of years.
 
-By returning all this carbon into the air, we’re transforming the composition of our oceans and atmosphere and, as a consequence, altering the climate of our planet.
+By returning all this carbon into the air, we're transforming the composition of our oceans and atmosphere, and as a consequence, altering the climate of our planet.
 
 [hr/]
 
 # Your Birthday 🎂
 
-So when you think of the 300-year-long history of human carbon emissions, you might guess that your life is just a blip in this story.
+When you think of the 300-year-long history of human carbon emissions, you might guess that your life is just a blip in the story.
 
-In fact, just for fun, go ahead and make a guess by dragging the slider below.
+Let's examine this closer.
+Make a guess by dragging the slider below.
 
 [var name:"guessPercent" value:0 /]
 
 [Range value:guessPercent min:0 max:100 /]
 
-I’d guess that [Display value:guessPercent format:"d" /] percent of all human CO2 emissions occurred during my life.
+I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 emissions occurred during my life.
 
 [var name:"guessMade" value:false /]
 [Button onClick:`guessMade = true`]
@@ -84,7 +88,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 [Conditional if:`guessMade || !readerMode`]
 
   [TextContainer]
-    What’s the right answer? To find out, select the year you were born, and we’ll pull up the numbers for your lifetime.
+    What's the right answer? To find out, select the year you were born, and we'll show the numbers for your lifetime.
 
     [var name:"birthYear" value:"1985" /]
 
@@ -117,7 +121,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
       In reality, [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions have occurred between 2019 and [Display value:birthYear format:"d" /], the year you were born.
 
-      And it’s not just you. Here, look up any age in this chart.
+      But it's not just you. Look at any age in this chart.
 
 
       [var name:"ages" value:`Array(20).fill(0).map((e,i) => 5 * (i+1))` /]
@@ -178,16 +182,24 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 });`
       /]
     [caption]
-      Look up any age above, and you'll find the percentage of all human industrial CO2 emissions that occurred within this lifetime. *Human CO2 emissions* are defined here as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value. This is a variant of a graph created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
+      Every age above shows the percentage of all human industrial CO2 emissions that occurred within this lifetime.
+      *Human CO2 emissions* are defined as the rise in CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value.
+      This is a variant of a graph created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
     [/caption]
 
-      We tend to think of the climate crisis as a historical problem. But these numbers tell a different story. Just 35 years —  a single generation — contributed to the bulk of carbon emissions. No humans before us have ever witnessed such a steep rise in carbon dioxide.
+      We tend to think of the climate crisis as a historical problem.
+      But these numbers tell a different story.
+      Just 35 years—a single generation—contributed to the bulk of carbon emissions.
+      No humans before us have ever witnessed such a steep rise in carbon dioxide.
 
-      To better understand this, let’s take a personalized tour of the history of carbon dioxide — personalized around *you*. We’ll start in 2020, tracing our way backward through the years of your life.
+      To better understand this, we will take a personalized tour of the history of carbon dioxide—personalized for *you*.
+      We'll start in 2020, tracing our way backward through the years of your life.
 
-      But we first need to know how to measure carbon dioxide. The unit used to measure CO2 concentration is *parts per million*, or *ppm* for short.
+      We first need to know how to measure carbon dioxide.
+      The unit used to measure CO2 concentration is *parts per million*, or *ppm* for short.
 
-      A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide. If we could see the world from the perspective of a molecule, here's what this concentration of carbon dioxide might look like.
+      A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide.
+      If we could see the world from the perspective of a molecule, here's what this concentration of carbon dioxide might look like.
 
       [var name:"vizppm" value:1 /]
 
@@ -305,35 +317,41 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
         [Conditional if:`vizppm == 1`]
             [span className:"pull-number"]1 ppm[/span]
             [span className:"pull-number-text"]
-              1 part per million is a minuscule concentration, which is why you barely see any CO2 molecules in the visualization. In this microscopic perspective, a few lone CO2 molecules occasionally drift past you.
+              1 part per million is a minuscule concentration, which is why you barely see any CO2 molecules in the visualization.
+              In this microscopic perspective, a few lone CO2 molecules occasionally drift by.
             [/span]
         [/Conditional]
 
         [Conditional if:`vizppm == 10`]
           [span className:"pull-number"]10 ppm[/span]
           [span className:"pull-number-text"]
-            At 10 parts per million, you can start to see a handful of CO2 molecules whizzing past. At CO2 levels this low, the Earth would be a frozen, lifeless rock.
+            At 10 parts per million, you can start to see a handful of CO2 molecules whizzing by.
+            At CO2 levels this low, the Earth would be a frozen, lifeless rock.
           [/span]
         [/Conditional]
 
         [Conditional if:`vizppm == 100`]
           [span className:"pull-number"]100 ppm[/span]
           [span className:"pull-number-text"]
-            At 100 parts per million, we start to see more and more CO2 molecules. Carbon dioxide is Earth's thermostat. As we increase the concentration of CO2 in the air, we're dialing up the greenhouse effect, and warming up the Earth.
+            At 100 parts per million, we start to see more and more CO2 molecules.
+            Carbon dioxide is Earth's thermostat.
+            As we increase the concentration of CO2 in the air, we're dialing up the greenhouse effect, and warming up the Earth.
           [/span]
         [/Conditional]
 
         [Conditional if:`vizppm == 280`]
           [span className:"pull-number"]280 ppm[/span]
           [span className:"pull-number-text"]
-            280 parts per million was the CO2 level before the Industrial Revolution. Global average temperatures were about 1°C cooler than they are today.
+            280 parts per million was the CO2 level before the Industrial Revolution.
+            Global average temperatures were about 1°C cooler than they are today.
           [/span]
         [/Conditional]
 
         [Conditional if:`vizppm == 412`]
           [span className:"pull-number"]412 ppm[/span]
           [span className:"pull-number-text"]
-            412 parts per million was the CO2 level in 2019. We're currently at about 1°C of global warming, compared to the pre-industrial era.
+            412 parts per million was the CO2 level in 2019.
+            We're currently around 1°C warmer compared to the pre-industrial era.
           [/span]
         [/Conditional]
       [/Aside]
@@ -374,7 +392,8 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
     [Conditional if:`ppmVizCompleted || !readerMode`]
 
       [TextContainer]
-        Great! Now that you know what a *part per million* looks like, let's travel backward through the years of your life in our CO2 time machine.
+        Great!
+        Now that you know what values of *part per million* looks like, let's travel backward through the years of your life in our CO2 time machine.
 
         We'll start in 2019.
       [/TextContainer]
@@ -502,12 +521,14 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
       [Conditional if:`partOneCompleted || !readerMode`]
         [br/]
         [TextContainer]
-          We’ve arrived at [Display value:birthYear format:"d" /], the year that you were born. Since CO2 levels have been steadily rising every year of your life, you can actually measure your age in terms of the carbon dioxide level at your birth.
+          We've arrived at [Display value:birthYear format:"d" /], the year that you were born.
+          Since CO2 levels have been steadily rising every year of your life, you can actually measure your age in terms of the carbon dioxide level at your birth.
 
           [Aside]
             [span className:"pull-number"]You were born at [Display value:`getCO2Level(birthYear)` format:"d" /] ppm[/span]
             [span className:"pull-number-text"]
-              In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(birthYear)` format:"d" /] parts per million. Since CO2 levels have been rising every year of your life, you can think of this number as your age, as measured in carbon dioxide.
+              In [Display value:birthYear format:"d" /], carbon dioxide levels were at [Display value:`getCO2Level(birthYear)` format:"d" /] parts per million.
+              Since CO2 levels have been rising every year of your life, you can think of this number as your age, as measured in carbon dioxide.
             [/span]
           [/Aside]
 
@@ -605,7 +626,7 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
           [br/]
 
-          How does this compare to the all the time before you were born?
+          How does this compare to the time before you were born?
 
           # The Birth of Industry 🏭
 
@@ -727,13 +748,16 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
         [Conditional if:`partTwoCompleted || !readerMode`]
           [TextContainer]
-            This graph shows us the entire history of industrialization as seen through the lens of CO2. Notice how the graph grows steeper with every passing decade. Our carbon dioxide output is *accelerating*.
+            This graph shows us the entire history of industrialization as seen through the lens of CO2.
+            Notice how the graph grows steeper with every passing decade.
+            Our carbon dioxide output is *accelerating*.
 
-            During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before. But the steep rise in CO2 that we're creating today makes the Industrial Revolution looks like a gentle slope.
+            During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before.
+            But the steep rise in CO2 that we're creating today makes the Industrial Revolution look like a gentle slope.
 
-            Everyone alive today is living through a great acceleration, an unprecedented ramping up of carbon consumption and, consequently, of CO2 output.
+            Everyone alive today is living through a great acceleration, an unprecedented ramping up of carbon consumption, and consequently, CO2 output.
 
-            To see this more clearly, let's go further back in time, to before the Industrial Revolution got rolling.
+            To see this more clearly, let's go further back in time, to before the Industrial Revolution.
 
             # The Rise of Agriculture 🌾
           [/TextContainer]
@@ -908,17 +932,22 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
           [Conditional if:`partThreeCompleted || !readerMode`]
             [TextContainer]
 
-              We’ve arrived 12,000 years ago, at [a time when](https://en.wikipedia.org/wiki/Neolithic_Revolution) some humans were beginning to cultivate crops, domesticate animals, and settle into [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society). You're looking at the birth of agriculture, and the dawn of civilization.
+              We've arrived 12,000 years ago, at [a time when](https://en.wikipedia.org/wiki/Neolithic_Revolution) where some humans were beginning to cultivate crops, domesticate animals, and settle into [agrarian societies](https://en.wikipedia.org/wiki/Agrarian_society).
+              You're looking at the birth of agriculture, and the dawn of civilization.
 
-              For most of these 12 thousand years, carbon dioxide levels were remarkably stable. Since carbon dioxide and climate are closely linked, this was also a period of climate stability.
+              For most of these 12,000 years, carbon dioxide levels were remarkably stable.
+              Since carbon dioxide and climate are closely linked, this was also a period of climate stability.
 
-              The world had thawed since [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15 thousand years ago, giving rise to an era of relatively moderate climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene). Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene. 
+              Since [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum) that ended around 15,000 years ago, the world has thawed, giving rise to an era of relatively moderate climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene). 
+              Agriculture, cities, and civilization all started along the gently rolling slopes of the Holocene.
 
-              Today, we're perched  precariously at the peak of a historically unprecedented spike in carbon dioxide. When future generations look back at their geological history, they'll likely see this spike as the moment that triggered the end of the stable, moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
+              Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide.
+              When future generations look back at their geological history, they'll likely see this spike as the moment that triggered the end of the stable, moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
 
               # The Ice Ages ❄️
 
-              To understand where we're headed, it helps to know where we came from. So let's take a journey through the Ice Ages.
+              To understand where we're headed, it helps to know where we came from.
+              So let's take a journey through the Ice Ages.
 
             [/TextContainer]
 
@@ -1179,30 +1208,36 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
 
               [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
-                  We've arrived 800 thousand years before the present, [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution) Homo Sapiens arrived on the scene. There's a lot going on in this graph, so let's break it down. 
+                  We've arrived 800,000 years before the present, [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution) Homo Sapiens arrived on the scene.
+                  Let's break down the graph. 
 
                   The blue curve shows us [span className:"blue"]carbon dioxide levels[/span], while the red curve shows us the shift in [span className:"red"]global temperature[/span], as compared to the average temperature of the past thousand years.
 
                   There are 3 things to take away from this.
 
-                  First, at no point in the past 800 thousand years were carbon dioxide levels anywhere near as high as they are today.
+                  First, at no point in the past 800,000 years were carbon dioxide levels anywhere near as high as they are today.
 
-                  Second, when carbon dioxide levels fluctuated in the past, they usually did so over tens of thousands of years. In comparison, our current spike in carbon dioxide was created in just a few generations (And [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
+                  Second, when carbon dioxide levels fluctuated in the past, this usually happened over tens of thousands of years.
+                  In comparison, our current spike in carbon dioxide was created in only a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
 
-                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global Ice Age. You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall together.
+                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global Ice Age.
+                  You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall together.
 
-                  **Carbon dioxide is Earth's thermostat.** Whenever CO2 levels rose in the past, so did the global temperature. This paleoclimate record, reconstructed by analyzing ancient air trapped in frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
+                  **Carbon dioxide is Earth's thermostat.**
+                  Whenever CO2 levels rose in the past, so did the global temperature.
+                  This paleoclimate record, reconstructed by analyzing ancient air trapped in frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
 
-                  So have carbon dioxide levels on Earth ever been as high as they are today? And if so, what was that past climate like?
+                  So have carbon dioxide levels on Earth ever been as high as they are today?
+                  And if so, what was that past climate like?
 
                   # Before the Ice Ages 🌴
 
-                  At nearly a million years before the present, we're at the end of the CO2 record obtained from direct measurements of ancient air. But we can go further still, by using clever indirect measurements.
+                  At nearly a million years before the present, we're at the end of the CO2 record obtained from direct measurements of ancient air.
+                  But we use clever indirect measurements to get apprixmations of time before the Ice Ages.
 
-                  When carbon dioxide levels change, so does the chemistry of the ocean — higher CO2 levels make seawater more acidic. And acidic seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms. By chemically analyzing the fossilized shells of ancient marine life, scientists can obtain an indirect record of the history of carbon dioxide, that extends back over 3 million years.
-
-                  And here it is.
-
+                  When carbon dioxide levels change, so does the chemistry of the ocean—higher CO2 levels make seawater more acidic.
+                  Scidic seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms.
+                  By chemically analyzing the fossilized shells of ancient marine life, scientists can obtain an indirect record of the history of carbon dioxide, that extends back over 3 million years.
                 [/TextContainer]
 
                   [data name:"dyez" source:"Dyez.csv" /]
@@ -1433,17 +1468,25 @@ I’d guess that [Display value:guessPercent format:"d" /] percent of all human 
                 [br/]
                 [TextContainer]
 
-                  Caption: This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
+                  [caption]
+                    This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
+                  [/caption]
 
-                  You're looking at over 3 million years of history — the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age). The graph shows [span className:"blue"]direct measurements[/span] of CO2 overlaid with [span className:"purple"]indirect measurements[/span]. 
+                  You're looking at over 3 million years of history—the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
+                  The graph shows [span className:"blue"]direct measurements[/span] of CO2 overlaid with [span className:"purple"]indirect measurements[/span]. 
 
-                  And here's the takeaway: carbon dioxide levels are higher today than they have been in the past 2.5 million years.
+                  **Takeaway:** carbon dioxide levels are higher today than they have been in the past 2.5 million years.
 
-                  The [last historical analogue](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) to the present was the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), an era known as [the Pliocene](https://en.wikipedia.org/wiki/Pliocene). At the time, our human ancestors looked [like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg), global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
+                  The [last historical analogue](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) to the present was the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), an era known as [the Pliocene](https://en.wikipedia.org/wiki/Pliocene).
+                  At the time, our human ancestors looked [like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg), global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
 
-                  People sometimes say that the climate has always changed. But what this fails to capture is the stunning rate of our current change. In your life, carbon dioxide levels have climbed at a speed that's without precedent, and reached levels unseen in over 2 million years. In the span of a few human lives, we've transformed the atmosphere to levels that predate the existence of our species. 
+                  People sometimes say that the climate has always changed.
+                  But what this fails to capture is the stunning rate of our current change.
+                  In your lifetime, carbon dioxide levels have climbed at a speed that's without precedent, and reached levels unseen in over 2 million years.
+                  In the span of a few generations, we've transformed the atmosphere to levels that predate the existence of our species. 
 
-                  Looking back through time from our current vantage point, it’s clear that we're the first humans to live through such a dramatic change in carbon dioxide levels. You, me, and everyone we know, *we're all living through an extraordinary time*.
+                  Looking back through time from our current vantage point, it's clear that we're the first humans to live through such a dramatic change in carbon dioxide levels.
+                  You, me, and everyone we know, *we're all living through an extraordinary time*.
 
                   What comes next is entirely up to us.
 
