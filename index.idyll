@@ -25,7 +25,7 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"readerMode" value:true /]
+[var name:"readerMode" value:false /]
 
 ## Formation 🦕
 
@@ -64,7 +64,6 @@ We're burning through a carbon bank account that's been quietly compounding inte
 
 By returning all this carbon into the air, we're transforming the composition of our oceans and atmosphere, and as a consequence, altering the climate of our planet.
 
-[hr/]
 
 ## Your Birthday 🎂
 
@@ -191,6 +190,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
       But these numbers tell a different story.
       Just 35 years—a single generation—contributed to the bulk of carbon emissions.
       No humans before us have ever witnessed such a steep rise in carbon dioxide.
+
+      [hr/]
 
       To better understand this, we will take a personalized tour of the history of carbon dioxide—personalized for *you*.
       We'll start in 2020, tracing our way backward through the years of your life.
@@ -386,7 +387,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
       [/div]
       [br/]
 
-      Click the buttons above to ramp up the CO2 concentration to its 2019 value.
+      [instructions]Click the buttons above to ramp up the CO2 concentration to its 2019 value.[/instructions]
     [/TextContainer]
 
     [Conditional if:`ppmVizCompleted || !readerMode`]
