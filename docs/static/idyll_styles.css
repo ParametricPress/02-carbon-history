@@ -2109,6 +2109,17 @@ p {
   font-family: 'Editorial New';
 }
 
+.instructions {
+  font-family: 'Graphik Web';
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin: 1em 0 2em 0;
+
+}
+
+
 /** INPUT WIDGETS */
 
 button {
@@ -2116,6 +2127,7 @@ button {
   font-family: 'Graphik Web';
   text-transform: uppercase;
   font-size: 12px;
+  font-weight: 500;
 }
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
@@ -2268,6 +2280,7 @@ input[type=range]:focus::-ms-fill-upper {
   font-size: 56px;
   color: #D8FFA2;
   width: 100%;
+  font-weight: 500;
 }
 
 .parametric-article-dek {
@@ -2312,6 +2325,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 
+/** BODY COPY ^/
 
 
 
@@ -2321,7 +2335,7 @@ input[type=range]:focus::-ms-fill-upper {
 /** Comment out the code below this to go back to black on #ADADAD background. */
 
 
-.parametric-article-nav {
+/* .parametric-article-nav {
   color: #D8FFA2;
   border-bottom-color: #D8FFA2;
   background-color: #222222;
@@ -2338,15 +2352,26 @@ input[type=range]:focus::-ms-fill-upper {
   color: #ADADAD;
 }
 
-h2, .pull-number {
+h2 {
   color: #D8FFA2;
 }
+
+.pull-number {
+  color: #ADADAD;
+}
+
+
 body {
   color: #ADADAD;
   background-color: #222222;
 }
 .idyll-text-container p {
   color: #ADADAD;
+}
+.idyll-text-container p a,
+aside a, a {
+  color: #ADADAD;
+  text-decoration: underline;
 }
 
 
@@ -2359,3 +2384,18 @@ button {
 .parametric-author-bio a {
   color: #ADADAD;
 }
+
+.separator {
+  width: 100%;
+  margin-top: 3em;
+}
+.separator-item {
+  width: 100%;
+  border-bottom: dotted 3px #D8FFA2;
+  margin-bottom: 2px;
+}
+
+.idyll-display {
+  color: #ffffff;
+  border-bottom: dotted 2px #D8FFA2;
+} */
