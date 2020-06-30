@@ -27,7 +27,7 @@
 
 [var name:"readerMode" value:true /]
 
-# Formation 🦕
+## Formation 🦕
 
 Coal, oil, and natural gas—energy sources that power our modern society—have been in the making for hundreds of millions of years.
 Where do these resources come from?
@@ -39,7 +39,7 @@ All carbon in fossil fuels were once a part of something alive: the dead remains
     Roughly 99% of the carbon in organic matter will decay into carbon dioxide. The remaining 1% is the reservoir from which fossil fuels are formed.
   [/span]
   [br/][br/]
-  **Source**: [link text:"Chemistry of Fossil Fuels and Biofuels, Harold Schobert" url:"https://www.cambridge.org/core/books/chemistry-of-fossil-fuels-and-biofuels/55F8E62F729DF25CE4D40109440860DA" /]
+  Source: [link text:"Chemistry of Fossil Fuels and Biofuels, Harold Schobert" url:"https://www.cambridge.org/core/books/chemistry-of-fossil-fuels-and-biofuels/55F8E62F729DF25CE4D40109440860DA" /]
 [/Aside]
 
 Normally when creatures die and decompose the carbon within them quickly returns to the air.
@@ -66,7 +66,7 @@ By returning all this carbon into the air, we're transforming the composition of
 
 [hr/]
 
-# Your Birthday 🎂
+## Your Birthday 🎂
 
 When you think of the 300-year-long history of human carbon emissions, you might guess that your life is just a blip in the story.
 
@@ -538,7 +538,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
           resize: partOneCompleted
           sketch:`(p, parent) => {
 
-            let img, canvas; 
+            let img, canvas;
             let candles = [];
             let myCandles = [];
             let scale = 0.438;
@@ -628,12 +628,12 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
 
           How does this compare to the time before you were born?
 
-          # The Birth of Industry 🏭
+          ## The Birth of Industry 🏭
 
           Let's keep traveling further back in time, along this carbon dioxide curve.
 
           [/TextContainer]
-          
+
           [PlotlyComponent
             isVisible:partOneCompleted
             data: graphData
@@ -644,7 +644,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                       showlegend: false,
                       font: {
                         family: 'Graphik Web',
-                        size: 16 * width/720, 
+                        size: 16 * width/720,
                       },
 
                       xaxis: {
@@ -759,7 +759,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
 
             To see this more clearly, let's go further back in time, to before the Industrial Revolution.
 
-            # The Rise of Agriculture 🌾
+            ## The Rise of Agriculture 🌾
           [/TextContainer]
 
           [var name:"graph3Year" value:1720 /]
@@ -938,13 +938,13 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
               For most of these 12,000 years, carbon dioxide levels were remarkably stable.
               Since carbon dioxide and climate are closely linked, this was also a period of climate stability.
 
-              Since [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum) that ended around 15,000 years ago, the world has thawed, giving rise to an era of relatively moderate climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene). 
+              Since [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum) that ended around 15,000 years ago, the world has thawed, giving rise to an era of relatively moderate climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene).
               Agriculture, cities, and civilization all started along the gently rolling slopes of the Holocene.
 
               Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide.
               When future generations look back at their geological history, they'll likely see this spike as the moment that triggered the end of the stable, moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
 
-              # The Ice Ages ❄️
+              ## The Ice Ages ❄️
 
               To understand where we're headed, it helps to know where we came from.
               So let's take a journey through the Ice Ages.
@@ -982,7 +982,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                         opacity: 1,
                       }
 
-                    ]` 
+                    ]`
             /]
 
             [PlotlyComponent
@@ -1073,7 +1073,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                         ],
 
                         annotations: [
-                            { 
+                            {
                               x: (2019 + graph4Year) / 2,
                               y: 350,
                               xref: 'x',
@@ -1102,7 +1102,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                               visible: graph4Year == -10000 ? true : false
                             },
 
-                            { 
+                            {
                               x: -300000,
                               y: 170,
                               xref: 'x',
@@ -1209,7 +1209,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
               [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
                   We've arrived 800,000 years before the present, [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution) Homo Sapiens arrived on the scene.
-                  Let's break down the graph. 
+                  Let's break down the graph.
 
                   The blue curve shows us [span className:"blue"]carbon dioxide levels[/span], while the red curve shows us the shift in [span className:"red"]global temperature[/span], as compared to the average temperature of the past thousand years.
 
@@ -1230,7 +1230,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                   So have carbon dioxide levels on Earth ever been as high as they are today?
                   And if so, what was that past climate like?
 
-                  # Before the Ice Ages 🌴
+                  ## Before the Ice Ages 🌴
 
                   At nearly a million years before the present, we're at the end of the CO2 record obtained from direct measurements of ancient air.
                   But we use clever indirect measurements to get apprixmations of time before the Ice Ages.
@@ -1263,7 +1263,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              fill: 'tonexty',                              
+                              fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.1)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
@@ -1321,7 +1321,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              fill: 'tonexty',                              
+                              fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.1)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
@@ -1341,7 +1341,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              fill: 'tonexty',                              
+                              fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.1)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
@@ -1357,8 +1357,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                                 size: 5,
                               },
                             },
-                                                                                   
-                          ]` 
+
+                          ]`
                   /]
 
                 [PlotlyComponent
@@ -1473,7 +1473,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                   [/caption]
 
                   You're looking at over 3 million years of history—the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
-                  The graph shows [span className:"blue"]direct measurements[/span] of CO2 overlaid with [span className:"purple"]indirect measurements[/span]. 
+                  The graph shows [span className:"blue"]direct measurements[/span] of CO2 overlaid with [span className:"purple"]indirect measurements[/span].
 
                   **Takeaway:** carbon dioxide levels are higher today than they have been in the past 2.5 million years.
 
@@ -1483,7 +1483,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                   People sometimes say that the climate has always changed.
                   But what this fails to capture is the stunning rate of our current change.
                   In your lifetime, carbon dioxide levels have climbed at a speed that's without precedent, and reached levels unseen in over 2 million years.
-                  In the span of a few generations, we've transformed the atmosphere to levels that predate the existence of our species. 
+                  In the span of a few generations, we've transformed the atmosphere to levels that predate the existence of our species.
 
                   Looking back through time from our current vantage point, it's clear that we're the first humans to live through such a dramatic change in carbon dioxide levels.
                   You, me, and everyone we know, *we're all living through an extraordinary time*.
@@ -1502,6 +1502,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
 [/div]
 
 
+[EndMatter hasFinished:false /]
+
 
 [AuthorBio]
 
@@ -1516,3 +1518,5 @@ Edited by TK editor list.
 
 // Uncomment before pub
 // [Analytics google:"UA-139053456-1" tag:parametricSlug /]
+
+
