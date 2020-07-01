@@ -62,7 +62,5 @@ build
 
 .vscode
 
-static/fonts
-
 _warc_cache/
 *.warc.gz
