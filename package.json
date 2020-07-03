@@ -20,12 +20,12 @@
   },
   "dependencies": {
     "d3": "^5.16.0",
-    "idyll": "^4.12.0",
+    "idyll": "^4.12.1",
     "idyll-d3-component": "^2.0.0",
     "memoizee": "^0.4.14",
     "p5": "^1.0.0",
-    "parametric-components": "^2.1.9",
-    "parametric-styles": "^2.1.5",
-    "plotly.js-basic-dist-min": "^1.54.1"
+    "parametric-components": "^2.1.10",
+    "parametric-styles": "^2.1.6",
+    "plotly.js-basic-dist-min": "^1.54.5"
   }
 }
