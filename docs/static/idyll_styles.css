@@ -1477,10 +1477,11 @@ a {
 
 .parametric-article-nav {
   margin-top: 25px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 0;
+  margin-right: 0;
   z-index: 1000;
   font-size: 32px;
+  padding: 0.5em 50px;
 }
 
 .parametric-header-text {
@@ -1627,6 +1628,8 @@ a {
 .parametric-footer-link-container > div {
   margin-right: 1em;
 }
+
+
 
 .parametric-footer form {
   text-align: right;
@@ -1784,7 +1787,9 @@ h2 {
 }
 
 
-
+.past-issue-container {
+  position: absolute;
+}
 /* LEDES */
 
 
@@ -1975,10 +1980,12 @@ h2 {
     font-size: 24px;
   }
   .parametric-article-nav {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0;
+    margin-right: 0;
     font-size: 24px;
     line-height: 32px;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 
   .parametric-nav-links {
@@ -1997,6 +2004,11 @@ h2 {
 
   .parametric-header-hed-text {
     top: 60px;
+  }
+
+  .past-issue-container {
+    position: static !important;
+    margin-bottom: 1em;
   }
 
 }
@@ -2026,6 +2038,14 @@ p {
 
 .ReactTable .-pagination button {
   margin: 0;
+}
+
+.center {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .center > canvas {
