@@ -25,8 +25,8 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-[var name:"readerMode" value:true /]
-[var name:"finished" value:false /]
+// Set readerMode true before publishing
+[var name:"readerMode" value:false /]
 
 
 Humans have been burning fossil fuels on an industrial scale for hundreds of years.
@@ -71,7 +71,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
       [br/]
       You guessed that [Display value:guessPercent format:"d" /]% of all human carbon dioxide emissions occurred in your lifetime.
 
-      In reality, [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions have occurred between [Display value:'2019' /] and [Display value:birthYear format:"d" /], the year you were born.
+      In reality, [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions occurred between [Display value:'2019' /] and [Display value:birthYear format:"d" /], the year you were born.
 
       And it's not just you. Look at any age in this chart.
 
@@ -272,15 +272,15 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
         [Conditional if:`vizppm == 1`]
             [span className:"pull-number"]1 ppm[/span]
             [span className:"pull-number-text"]
-              1 part per million is a minuscule concentration, which is why you barely see any CO2 molecules in the visualization.
-              In this microscopic perspective, a few lone CO2 molecules occasionally drift by.
+              1 part per million is a minuscule concentration.
+              A few lone CO2 molecules occasionally drift by.
             [/span]
         [/Conditional]
 
         [Conditional if:`vizppm == 10`]
           [span className:"pull-number"]10 ppm[/span]
           [span className:"pull-number-text"]
-            At 10 parts per million, you can start to see a handful of CO2 molecules whizzing by.
+            At 10 parts per million, a handful of CO2 molecules pass by.
             At CO2 levels this low, the Earth would be a frozen, lifeless rock.
           [/span]
         [/Conditional]
@@ -288,9 +288,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
         [Conditional if:`vizppm == 100`]
           [span className:"pull-number"]100 ppm[/span]
           [span className:"pull-number-text"]
-            At 100 parts per million, we start to see more and more CO2 molecules.
-            Carbon dioxide is Earth's thermostat.
-            As we increase the concentration of CO2 in the air, we're dialing up the greenhouse effect, and warming up the Earth.
+            At 100 parts per million, more and more CO2 molecules pass by.
+            We're dialing up the greenhouse effect, and warming up the Earth.
           [/span]
         [/Conditional]
 
@@ -298,7 +297,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
           [span className:"pull-number"]280 ppm[/span]
           [span className:"pull-number-text"]
             280 parts per million was the CO2 level before the Industrial Revolution.
-            Global average temperatures were about 1°C cooler than they are today.
+            Global average temperatures were ~1°C cooler than they are today.
           [/span]
         [/Conditional]
 
@@ -306,7 +305,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
           [span className:"pull-number"]412 ppm[/span]
           [span className:"pull-number-text"]
             412 parts per million was the CO2 level in 2019.
-            We're currently around 1°C warmer compared to the pre-industrial era.
+            This raised Earth's temperature by ~1°C compared to pre-industrial times.
           [/span]
         [/Conditional]
       [/Aside]
@@ -727,14 +726,13 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
             This graph shows us the history of industrialization as seen through the lens of CO2.
             With every passing decade, the graph grows steeper.
 
-            **Our carbon dioxide output is *accelerating*.**
-
+            **Our carbon dioxide output is accelerating.**
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before.
             But the steep rise in CO2 that we're creating today makes the rise during the Industrial Revolution look like a gentle slope.
 
             Everyone alive today is living through a great acceleration—an unprecedented ramping up of carbon consumption, and consequently, of carbon emissions.
 
-            And this acceleration appears especially stark when viewed from a deeper historical perspective.
+            This acceleration is especially stark when viewed from a deeper historical perspective.
 
             ## The Rise of Agriculture 🌾
           [/TextContainer]
@@ -1483,14 +1481,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                   You're looking at over 3 million years of history—the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
                   The graph shows [span className:"blue"]direct measurements[/span] of CO2 overlaid with [span className:"purple"]indirect measurements[/span].
 
-                  **Carbon dioxide levels are higher today than they have been in the past 2.5 million years.** The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) Earth had CO2 levels as high as the present was in [the Pliocene](https://en.wikipedia.org/wiki/Pliocene), the geological era preceding [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene).
+                  Carbon dioxide levels are higher today than they have been in 2.5 million years. The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) Earth had CO2 levels as high as the present was during [the Pliocene](https://en.wikipedia.org/wiki/Pliocene), the geological era preceding [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene).
 
-                  At the time, our human ancestors looked [like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg), global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
+                  Back then, our human ancestors looked [like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg), global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
 
                   People sometimes say that the climate has always changed.
                   But what this fails to capture is the stunning rate of our current change.
                   In your lifetime, carbon dioxide levels have climbed at a speed that's without precedent, reaching levels unseen in over 2 million years.
-                  In the span of a few generations, we've transformed the atmosphere to levels that *predate the existence of our species*.
+                  **In the span of a few generations, we've transformed the atmosphere to levels that predate the existence of our species.**
 
                   Looking back through time from our current vantage point, it's clear that we're the first humans to live through such a dramatic change in carbon dioxide levels.
                   You, me, and everyone we know, we're all living through an extraordinary time.
@@ -1509,9 +1507,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
 [/div]
 
 
-[Conditional if:`!finished`]
-  [EndMatter hasFinished:false /]
-[/Conditional]
+[derived name:"finished" value:`partFourCompleted == true` /]
+
+[EndMatter hasFinished:finished /]
 
 [AuthorBio]
 
