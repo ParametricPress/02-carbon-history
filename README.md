@@ -6,6 +6,10 @@ TK short description of article.
 
 - [ ] Look into Plotly transition bugs
 - [ ] Open links in new tab?
+- [ ] Change birthday cake
+- [ ] Graph captions
+- [ ] Add a References Section?
+- [ ] Copy over data notebooks
 
 ## Local Setup
 
