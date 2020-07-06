@@ -26,11 +26,10 @@
 [data name:"co2" source:"CO2.csv" /]
 
 // Set readerMode true before publishing
-[var name:"readerMode" value:false /]
-
+[var name:"readerMode" value:true /]
 
 Humans have been burning fossil fuels on an industrial scale for hundreds of years.
-So it's reasonable to assume that your lifetime is just a blip in the 250-year-long story of human carbon emissions.
+So you might guess that your lifetime is just a blip in the centuries-long-story of human carbon emissions.
 
 Let's take a closer look at this assumption.
 To get started, make a guess by dragging the slider below.
@@ -39,7 +38,7 @@ To get started, make a guess by dragging the slider below.
 
 [Range value:guessPercent min:0 max:100 /]
 
-I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 emissions occurred during my life.
+I guess that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred during my life.
 
 [var name:"guessMade" value:false /]
 [Button onClick:`guessMade = true`]
@@ -69,11 +68,11 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
     [TextContainer]
 
       [br/]
-      You guessed that [Display value:guessPercent format:"d" /]% of all human carbon dioxide emissions occurred in your lifetime.
+      You guessed that [Display value:guessPercent format:"d" /]% of human carbon dioxide emissions occurred in your lifetime.
 
       In reality, [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of all human-caused carbon dioxide emissions occurred between [Display value:'2019' /] and [Display value:birthYear format:"d" /], the year you were born.
 
-      And it's not just you. Look at any age in this chart.
+      And it isn't just you. Look at any age in this chart.
 
       [var name:"ages" value:`Array(20).fill(0).map((e,i) => 5 * (i+1))` /]
       [PlotlyComponent
@@ -146,7 +145,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
 
       [hr/]
 
-      To better understand this, let's take a personalized tour of the history of carbon dioxide—personalized for *you*—and trace our way backward through the years of your life.
+      To better understand this, let's take a personalized tour of the history of carbon dioxide—personalized around *you*—and trace our way backward through the years of your life.
 
       ## Your Life in CO2 🎂
 
@@ -726,13 +725,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
             This graph shows us the history of industrialization as seen through the lens of CO2.
             With every passing decade, the graph grows steeper.
 
-            **Our carbon dioxide output is accelerating.**
+            Our carbon dioxide output is *accelerating.*
+
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before.
-            But the steep rise in CO2 that we're creating today makes the rise during the Industrial Revolution look like a gentle slope.
+            But the steep rise in CO2 levels in your lifetime makes the rise during the Industrial Revolution look like a gentle slope.
 
-            Everyone alive today is living through a great acceleration—an unprecedented ramping up of carbon consumption, and consequently, of carbon emissions.
+            Everyone alive today is living through a great acceleration—an exponential growth of carbon consumption, and consequently, of carbon emissions.
 
-            This acceleration is especially stark when viewed from a deeper historical perspective.
+            And this acceleration is especially stark when viewed from a deeper historical perspective.
 
             ## The Rise of Agriculture 🌾
           [/TextContainer]
@@ -848,9 +848,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                           makeAnnotation(0.9, graph3Year, -6000, width/720, 'up', 'Squash<br>Cultivated<br>in Mexico'),
                           makeAnnotation(0.9, graph3Year, -6000, width/720, 'down', 'Rice<br>Cultivated<br>in China'),
                           makeAnnotation(0.9, graph3Year, -7000, width/720, 'up', 'Corn<br>Cultivated<br>in Mexico'),
-                          makeAnnotation(0.9, graph3Year, -9600, width/720, 'up', 'Wheat<br>Cultivated<br>in Middle East'),
                           makeAnnotation(0.9, graph3Year, -8000, width/720, 'down', 'Mammoth Extinct<br>in Eurasia<br>and Americas'),
-                          makeAnnotation(0.9, graph3Year, -8500, width/720, 'up', 'Cattle<br>Domesticated')
+                          makeAnnotation(0.9, graph3Year, -8500, width/720, 'up', 'Cattle<br>Domesticated'),
+                          makeAnnotation(0.9, graph3Year, -9600, width/720, 'up', '🌾 Wheat<br>Cultivated', -25 * 0.35 * width/720, 40 * 0.35 * width/720, 'center', 'bottom', true)
                         ]
                          .filter(e => e.x >= graph3Year)
                          .filter(e => e.font.size >= 6 * width/720)
@@ -911,7 +911,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
             [/Conditional]
             [Conditional if:`graph3Year < 1720`]
               [div className:"center"]
-                [instructions]Almost there! Click the button above to travel back through prehistory.[/instructions]
+                [instructions]Keep Going! Click the button above to travel back through prehistory.[/instructions]
               [/div]
             [/Conditional]
           [/Conditional]
@@ -925,7 +925,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
               For most of these 12,000 years, carbon dioxide levels were remarkably stable.
               And since carbon dioxide and climate are closely linked, this was also a period of climate stability.
 
-              The world had thawed following [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15,000 years ago. This gave rise to an era of relatively moderate climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene). Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene.
+              The world had thawed following [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15,000 years ago, giving rise to an era of relatively moderate climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene).
+              Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene.
 
               Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide.
               When future generations look back at their geological history, they'll likely see this spike as the moment that triggered the end of the stable, moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
@@ -1200,7 +1201,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
 
                 [Conditional if:`isTempVisible && graph4Year !== -10000 && graph4Year > -800000`]
                   [div className:"center"]
-                    [instructions]Almost there! Click the button to travel further back in time.[/instructions]
+                    [instructions]Keep Going! Click the button to travel further back in time.[/instructions]
                   [/div]
                 [/Conditional]
 
@@ -1212,30 +1213,30 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                   At 800,000 years before the present, we've reached a time [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution) Homo Sapiens arrived on the scene.
 
                   The blue curve displays [span className:"blue"]carbon dioxide levels[/span], while the red curve displays the shift in [span className:"red"]global temperature[/span] (as compared to the average temperature of the past thousand years).
+                  This paleoclimate record, reconstructed by analyzing ancient air trapped in frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
 
-                  There are 3 things to take away from this.
+                  There are 3 things to take away from this graph.
 
                   First, at no point in the past 800,000 years were carbon dioxide levels anywhere near as high as they are today.
 
                   Second, when carbon dioxide levels fluctuated in the past, this usually happened over tens of thousands of years.
                   In comparison, our current spike in carbon dioxide was created in just a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
-                  On a geological timescale, this is essentially instantaneous.
+                  On a geological timescale, this is more or less instantaneous.
 
                   Third, whenever carbon dioxide levels plummeted in the past, the result was a global Ice Age.
-                  You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span], and notice how they rise and fall in sync.
+                  When CO2 levels rose in the past, so did the global temperature.
+                  You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span].
+                  Notice how they rise and fall in sync?
+                  That's because **carbon dioxide is Earth's thermostat.** 
 
-                  **Carbon dioxide is Earth's thermostat.**
-                  Whenever CO2 levels rose in the past, so did the global temperature.
-                  This paleoclimate record, reconstructed by analyzing ancient air trapped in frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
-
-                  Which raises the question: have carbon dioxide levels ever been as high as they are today?
+                  Which raises the question, have carbon dioxide levels ever been as high as they are today?
                   And if so, what was that past climate like?
 
                   ## Before the Ice Ages 🌴
 
-                  At nearly a million years in the past, we're at the end of the CO2 record obtained from direct measurements of air bubbles trapped in ice.
+                  At nearly a million years in the past, we're at the end of the CO2 record obtained from direct measurements of air bubbles in ice.
                   But the record doesn't stop there.
-                  By using clever *indirect* measurements, climate scientists can approximately reconstruct the CO2 record before the ice ages.
+                  By using clever *indirect* measurements, climate scientists can approximately reconstruct the climate record well before the Ice Ages.
 
                   When carbon dioxide levels change, so does the chemistry of the ocean—higher CO2 levels make seawater more acidic.
                   And acidic seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms.
@@ -1481,16 +1482,17 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human CO2 
                   You're looking at over 3 million years of history—the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
                   The graph shows [span className:"blue"]direct measurements[/span] of CO2 overlaid with [span className:"purple"]indirect measurements[/span].
 
-                  Carbon dioxide levels are higher today than they have been in 2.5 million years. The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) Earth had CO2 levels as high as the present was during [the Pliocene](https://en.wikipedia.org/wiki/Pliocene), the geological era preceding [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene).
-
-                  Back then, our human ancestors looked [like this](https://en.wikipedia.org/wiki/Homo_habilis#/media/File:MEH_Homo_habilis_Daynes.jpg), global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
+                  **The takeaway:** carbon dioxide levels are higher today than they have been in 2.5 million years.
+                  The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) that Earth had carbon dioxide levels in the range they are today, global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
+                  This was the climate of [the Pliocene](https://en.wikipedia.org/wiki/Pliocene), the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), and it serves as an indicator of where we may be headed.
 
                   People sometimes say that the climate has always changed.
                   But what this fails to capture is the stunning rate of our current change.
-                  In your lifetime, carbon dioxide levels have climbed at a speed that's without precedent, reaching levels unseen in over 2 million years.
-                  **In the span of a few generations, we've transformed the atmosphere to levels that predate the existence of our species.**
 
-                  Looking back through time from our current vantage point, it's clear that we're the first humans to live through such a dramatic change in carbon dioxide levels.
+                  In your lifetime, carbon dioxide levels have climbed at a speed that's without precedent, reaching levels unseen in over 2 million years.
+                  In the span of a few generations, we've transformed the atmosphere to levels that predate the existence of our species.
+
+                  Looking back, it's clear that we're the first humans to live through such a dramatic change.
                   You, me, and everyone we know, we're all living through an extraordinary time.
 
                   What comes next is up to us.
