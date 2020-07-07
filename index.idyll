@@ -147,7 +147,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
       To better understand this, let's take a personalized tour of the history of carbon dioxide—personalized around *you*—and trace our way backward through the years of your life.
 
-      ## Your Life in CO2 🎂
+      ## Part 1: Your Life
 
       But we first need to know how to measure carbon dioxide.
       The unit used to measure CO2 concentration is *parts per million*, or *ppm* for short.
@@ -338,7 +338,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
       [Conditional if:`!ppmVizCompleted`]
         [div className:"center"]
-          [instructions]Click the buttons above to ramp up the CO2 concentration to its 2019 value.[/instructions]
+          [instructions]Click the buttons above to increase CO2 levels to their 2019 value.[/instructions]
         [/div]
       [/Conditional]
 
@@ -588,10 +588,15 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
           [br/]
 
-          So carbon dioxide levels have risen significantly during your life.
-          How does this rise compare to the time before you were born?
+          Throughout your life, carbon dioxide levels have been consistently rising.
+          But you've only been around for [Display value:`2020-birthYear-1` format:"d" /] or [Display value:`2020-birthYear` format:"d" /] years.
+          In comparison, humans have been guzzling fossil fuels for hundreds of years.
 
-          ## The Birth of Industry 🏭
+          So how does the rise in CO2 *during your life* compare to the rise in CO2 *before you were born*?
+
+          To find out, we need to go back to the moment that human societies began consuming fossil fuels on an industrial scale.
+
+          ## Part 2: Industry
 
           [/TextContainer]
 
@@ -732,9 +737,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
             Everyone alive today is living through a great acceleration—an exponential growth of carbon consumption, and consequently, of carbon emissions.
 
-            And this acceleration is especially stark when viewed from a deeper historical perspective.
+            To really understand the scale of this acceleration, we need to zoom out even further.
+            Here's what our current trajectory looks like, when seen from the perspective of *all of human civilization*.
 
-            ## The Rise of Agriculture 🌾
+            ## Part 3: Civilization
           [/TextContainer]
 
           [var name:"graph3Year" value:1720 /]
@@ -923,18 +929,19 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
               You're looking at the birth of agriculture, and the dawn of civilization.
 
               For most of these 12,000 years, carbon dioxide levels were remarkably stable.
-              And since carbon dioxide and climate are closely linked, this was also a period of climate stability.
+              And since carbon dioxide and climate are closely linked, this was also an era of climate stability.
 
               The world had thawed following [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15,000 years ago, giving rise to an era of relatively moderate climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene).
               Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene.
 
               Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide.
-              When future generations look back at their geological history, they'll likely see this spike as the moment that triggered the end of the stable, moderate climate following the last Ice Age, giving rise to the unstable, extreme climate we're barreling towards today.
+              When future generations look back at their geological history, they'll likely see this spike as the moment that triggered the end of the stable, moderate climate in which human civilization arose, giving rise to the unstable, extreme climate we're barreling towards today.
 
-              ## The Ice Ages ❄️
+              ## Part 4: The Ice Ages
 
               To understand where we're headed, it helps to know where we came from.
-              So let's take a journey through the Ice Ages.
+              Our geological past contains important clues that can help us anticipate our future.
+              So let's take a journey through the Ice Ages, and see what the past can teach us about our changing climate.
 
             [/TextContainer]
 
@@ -1210,7 +1217,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
               [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
                   [br/]
-                  At 800,000 years before the present, we've reached a time [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution) Homo Sapiens arrived on the scene.
+                  At 800,000 years before the present, we're at a time [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution) Homo Sapiens evolved.
 
                   The blue curve displays [span className:"blue"]carbon dioxide levels[/span], while the red curve displays the shift in [span className:"red"]global temperature[/span] (as compared to the average temperature of the past thousand years).
                   This paleoclimate record, reconstructed by analyzing ancient air trapped in frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
@@ -1218,30 +1225,30 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   There are 3 things to take away from this graph.
 
                   First, at no point in the past 800,000 years were carbon dioxide levels anywhere near as high as they are today.
+                  As a species, we're in uncharted waters.
 
                   Second, when carbon dioxide levels fluctuated in the past, this usually happened over tens of thousands of years.
                   In comparison, our current spike in carbon dioxide was created in just a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
-                  On a geological timescale, this is more or less instantaneous.
+                  On a geological timescale, that's more or less instantaneous.
 
-                  Third, whenever carbon dioxide levels plummeted in the past, the result was a global Ice Age.
-                  When CO2 levels rose in the past, so did the global temperature.
+                  Third, whenever carbon dioxide levels fell in the past, the result was a global Ice Age.
                   You can see this by comparing the [span className:"blue"]CO2 curve[/span] with the [span className:"red"]temperature curve[/span].
                   Notice how they rise and fall in sync?
-                  That's because **carbon dioxide is Earth's thermostat.** 
+
+                  That's because **carbon dioxide is Earth's thermostat.** When CO2 levels rise, so does the Earth's temperature.
 
                   Which raises the question, have carbon dioxide levels ever been as high as they are today?
                   And if so, what was that past climate like?
 
-                  ## Before the Ice Ages 🌴
+                  ## Part 5: Before the Ice Ages 🌴
 
-                  At nearly a million years in the past, we're at the end of the CO2 record obtained from direct measurements of air bubbles in ice.
-                  But the record doesn't stop there.
-                  By using clever *indirect* measurements, climate scientists can approximately reconstruct the climate record well before the Ice Ages.
+                  At nearly a million years in the past, we're at the end of the direct CO2 record obtained from air bubbles trapped in ice.
+                  To look further back in climate history, we need clever indirect methods of measuring CO2.
 
                   When carbon dioxide levels change, so does the chemistry of the ocean—higher CO2 levels make seawater more acidic.
                   And acidic seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms.
 
-                  By chemically analyzing the fossilized shells of ancient marine life, scientists can obtain an indirect record of the history of carbon dioxide, that extends back over 3 million years.
+                  By chemically analyzing the fossilized shells of ancient marine life, climate scientists can create an indirect record of the history of carbon dioxide, extending over 3 million years.
 
                   And here it is.
 
@@ -1484,13 +1491,13 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   **The takeaway:** carbon dioxide levels are higher today than they have been in 2.5 million years.
                   The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) that Earth had carbon dioxide levels in the range they are today, global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
-                  This was the climate of [the Pliocene](https://en.wikipedia.org/wiki/Pliocene), the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), and it serves as an indicator of where we may be headed.
+                  This was the climate of [the Pliocene](https://en.wikipedia.org/wiki/Pliocene), the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), and it serves as an important indicator of where we may be headed.
 
                   People sometimes say that the climate has always changed.
                   But what this fails to capture is the stunning rate of our current change.
 
                   In your lifetime, carbon dioxide levels have climbed at a speed that's without precedent, reaching levels unseen in over 2 million years.
-                  In the span of a few generations, we've transformed the atmosphere to levels that predate the existence of our species.
+                  In the span of a few generations, we've transformed the atmosphere to levels that predate the existence of our species, triggering an end to the 10 thousand year long stable era in which human civilization arose.
 
                   Looking back, it's clear that we're the first humans to live through such a dramatic change.
                   You, me, and everyone we know, we're all living through an extraordinary time.
