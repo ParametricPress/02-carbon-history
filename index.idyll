@@ -821,14 +821,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           makeAnnotation(0.9, graph3Year, -1100, width/720, 'down', 'Use of<br>Iron<br>Spreads'),
                           makeAnnotation(0.9, graph3Year, -2200, width/720, 'up', 'Stonehenge<br>Completed'),
                           makeAnnotation(0.9, graph3Year, -2500, width/720, 'down', 'Mammoth<br>Extinct'),
-                          makeAnnotation(0.9, graph3Year, -3200, width/720, 'down', 'Invention of<br>Writing in<br>Egypt & Sumeria'),
-                          makeAnnotation(0.9, graph3Year, -3300, width/720, 'up', 'Beer brewed<br>from Barley<br>in Iran'),
-                          makeAnnotation(0.9, graph3Year, -4000, width/720, 'up', 'Chilli<br>Peppers<br>Cultivated<br>in Mexico'),
+                          makeAnnotation(0.9, graph3Year, -3200, width/720, 'down', '✍️ Invention of<br>Writing in<br>Egypt & Sumeria'),
+                          makeAnnotation(0.9, graph3Year, -3300, width/720, 'up', '🍺 Beer brewed<br>from Barley<br>in Iran'),
+                          makeAnnotation(0.9, graph3Year, -4000, width/720, 'up', '🌶️ Chilli<br>Peppers<br>Cultivated<br>in Mexico'),
                           makeAnnotation(0.9, graph3Year, -6000, width/720, 'up', 'Squash<br>Cultivated<br>in Mexico'),
-                          makeAnnotation(0.9, graph3Year, -6000, width/720, 'down', 'Rice<br>Cultivated<br>in China'),
-                          makeAnnotation(0.9, graph3Year, -7000, width/720, 'up', 'Corn<br>Cultivated<br>in Mexico'),
+                          makeAnnotation(0.9, graph3Year, -6000, width/720, 'down', '🍚 Rice<br>Cultivated<br>in China'),
+                          makeAnnotation(0.9, graph3Year, -7000, width/720, 'up', '🌽 Corn<br>Cultivated<br>in Mexico'),
                           makeAnnotation(0.9, graph3Year, -8000, width/720, 'down', 'Mammoth Extinct<br>in Eurasia<br>and Americas'),
-                          makeAnnotation(0.9, graph3Year, -8500, width/720, 'up', 'Cattle<br>Domesticated'),
+                          makeAnnotation(0.9, graph3Year, -8500, width/720, 'up', '🐮 Cattle<br>Domesticated'),
                           makeAnnotation(0.9, graph3Year, -9600, width/720, 'up', '🌾 Wheat<br>Cultivated', -25 * 0.35 * width/720, 40 * 0.35 * width/720, 'center', 'bottom', true)
                         ]
                          .filter(e => e.x >= graph3Year)

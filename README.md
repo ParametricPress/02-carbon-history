@@ -8,7 +8,7 @@ TK short description of article.
 - [ ] Open links in new tab?
 - [X] Change birthday cake
 - [X] Add Human Civilization label to ice ages graph
-- [ ] Add emoji to agriculture graph?
+- [X] Add emoji to agriculture graph?
 - [ ] Graph captions
 - [ ] Add a References Section?
 - [ ] Copy over data notebooks
