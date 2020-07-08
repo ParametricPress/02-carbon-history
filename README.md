@@ -7,7 +7,7 @@ TK short description of article.
 - [ ] Look into Plotly transition bugs
 - [ ] Open links in new tab?
 - [X] Change birthday cake
-- [ ] Add Human Civilization label to ice ages graph
+- [X] Add Human Civilization label to ice ages graph
 - [ ] Add emoji to agriculture graph?
 - [ ] Graph captions
 - [ ] Add a References Section?

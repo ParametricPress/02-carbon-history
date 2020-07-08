@@ -26,7 +26,7 @@
 [data name:"co2" source:"CO2.csv" /]
 
 // Set readerMode true before publishing
-[var name:"readerMode" value:true /]
+[var name:"readerMode" value:false /]
 
 Humans have been burning fossil fuels on an industrial scale for hundreds of years.
 So you might guess that your life is just a blip in the centuries-long-story of human carbon emissions.
@@ -1026,10 +1026,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             {
                                 type: 'rect',
                                 yref: 'y1',
-                                xref: 'paper',
-                                x0: 0,
+                                xref: 'x',
+                                x0: 800000,
                                 y0: 280,
-                                x1: 1,
+                                x1: 0,
                                 y1: 412,
                                 fillcolor: '#d3d3d3',
                                 opacity: 0.5,
@@ -1042,16 +1042,18 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                         annotations: [
                             {
-                              x: (2019 + graph4Year) / 2,
-                              y: 350,
+                              x: 2019,
+                              y: 415,
                               xref: 'x',
                               yref: 'y1',
-                              xanchor: 'center',
-                              yanchor: 'center',
-                              text: 'Human-Caused<br>Rise in CO2',
+                              xanchor: 'right',
+                              yanchor: 'bottom',
+                              text: 'Human-Caused Rise in CO2',
                               font: {
                                 size: 12 * width/720,
+                                color: '#d3d3d3'
                               },
+                              opacity: 1,
                               showarrow: false,
                             },
 
@@ -1059,10 +1061,25 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               x: 2019 - 11000,
                               y: 240,
                               xref: 'x',
-                              yref: 'y',
+                              yref: 'y1',
                               xanchor: 'center',
                               yanchor: 'center',
                               text: 'Transition to<br>Agriculture',
+                              font: {
+                                size: 12 * width/720,
+                              },
+                              showarrow: false,
+                              visible: graph4Year == -10000 ? true : false
+                            },
+
+                            {
+                              x: 2019 - 5000,
+                              y: 245,
+                              xref: 'x',
+                              yref: 'y1',
+                              xanchor: 'center',
+                              yanchor: 'center',
+                              text: 'Human Civilizations Develop',
                               font: {
                                 size: 12 * width/720,
                               },
@@ -1402,9 +1419,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                             annotations: [
                               {
-                                x: 0.9,
-                                y: 420,
-                                xref: 'x',
+                                x: 1,
+                                y: 415,
+                                xref: 'paper',
                                 yref: 'y',
                                 xanchor: 'right',
                                 yanchor: 'bottom',
