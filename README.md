@@ -10,8 +10,8 @@ TK short description of article.
 - [X] Add Human Civilization label to ice ages graph
 - [X] Add emoji to agriculture graph?
 - [X] Graph captions
-- [ ] Add a References Section?
-- [ ] Copy over data notebooks
+- [X] Add a References Section?
+- [ ] Copy over data notebooks?
 
 ## Local Setup
 

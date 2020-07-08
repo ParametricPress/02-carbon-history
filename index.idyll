@@ -26,7 +26,7 @@
 [data name:"co2" source:"CO2.csv" /]
 
 // Set readerMode true before publishing
-[var name:"readerMode" value:false /]
+[var name:"readerMode" value:true /]
 
 Humans have been burning fossil fuels on an industrial scale for hundreds of years.
 So you might guess that your life is just a blip in the centuries-long-story of human carbon emissions.
@@ -161,12 +161,12 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
       [var name:"vizppm" value:1 /]
 
       // p5 ppm visualization
-      [var name:"pauseAnimation" value:true /]
+      [var name:"pauseAnimation1" value:true /]
       [p5Component
         ppm: vizppm
-        pauseAnimation: pauseAnimation
-        onEnterView: `pauseAnimation = false`
-        onExitViewFully: `pauseAnimation = true`
+        pauseAnimation: pauseAnimation1
+        onEnterView: `pauseAnimation1 = false`
+        onExitViewFully: `pauseAnimation1 = true`
         className: "center"
         resize: birthYearSelected
         sketch:`(p, parent) => {
@@ -507,10 +507,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             [/span]
           [/Aside]
 
+        [var name:"pauseAnimation2" value:true /]
         [p5Component
           className: "center"
           birthYear: birthYear
           resize: partOneCompleted
+          pauseAnimation: pauseAnimation2
+          onEnterView: `pauseAnimation2 = false`
+          onExitViewFully: `pauseAnimation2 = true`
           sketch:`(p, parent) => {
 
             let cake;
@@ -535,6 +539,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
               p.createCanvas(400, 400);
               p.imageMode(p.CENTER);
               p.frameRate(10);
+              p.noLoop();
               candles = p.round(getCO2Level(year)).toString().split('').map(Number).map(n => numerals[n]);
             };
 
@@ -552,6 +557,15 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             p.onUpdate = function(props, oldProps) {
               year = props.birthYear;
               candles = p.round(getCO2Level(year)).toString().split('').map(Number).map(n => numerals[n]);
+
+              if (props.pauseAnimation !== oldProps.pauseAnimation) {
+                if (props.pauseAnimation) {
+                  p.noLoop();
+                } else {
+                  p.loop();
+                }
+              }
+
             };
 
             p.windowResized = function() {
@@ -1219,7 +1233,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             [/Conditional]
 
               [caption]
-                **Data Source:** CO2 data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091).
+                **Data Source:** CO2 data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091).
               [/caption]
 
               [Conditional if:`partFourCompleted || !readerMode`]
@@ -1495,7 +1509,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                 [caption]
                   This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
                   **Data Source:** Data for light blue curves accessed from [Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years) and compiled from [Dyez et al](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018PA003349), [Martínez-Botí et al](https://www.nature.com/articles/nature14145), [Chalk et al](https://doi.pangaea.de/10.1594/PANGAEA.882545), and [Bärbel Hönisch, et al](https://science.sciencemag.org/content/324/5934/1551.full).
-                  Data for dark blue curves compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
+                  Data for dark blue curves compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE).
                 [/caption]
 
                 [TextContainer]
@@ -1520,6 +1534,110 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   What comes next is up to us.
 
+                  [br/][br/]
+                  [var name:"pauseAnimation3" value:true /]
+                  [p5Component
+                    pauseAnimation: pauseAnimation3
+                    onEnterView: `pauseAnimation3 = false`
+                    onExitViewFully: `pauseAnimation3 = true`
+                    className: "center"
+                    resize: partFourCompleted
+                    sketch:`(p, parent) => {
+
+                      // visualizing ppm at different levels
+                      // modifying code by Daniel Shiffman
+                      // http://codingtra.in
+                      // http://patreon.com/codingtrain
+                      // Code for: https://youtu.be/17WoOqgXsRM
+
+                      let canvas;
+                      let stars, volume, depth;
+                      let zoom = 6;
+                      let speed = 10;
+                      let concentration = 412;
+
+                      function init() {
+                        depth = 2 * p.width;
+                        p.fill('255');
+                        p.textSize(12);
+                        p.textAlign(p.LEFT, p.CENTER);
+                        p.noStroke();
+
+                        volume = p.round((2*p.width) * (2*p.height) * depth / p.pow(zoom,3));
+                        let numStars = p.round(volume * concentration / 1000000);
+
+                        stars = [];
+                        for (let i = 0; i < numStars; i++) {
+                          stars.push(new Star());
+                        }
+                      }
+
+                      p.setup = function() {
+                        canvas = p.createCanvas(400,400);
+                        let myWidth = canvas.canvas.parentElement.clientWidth;
+                        p.resizeCanvas(myWidth,myWidth);
+                        p.noLoop();
+                        p.textFont('Graphik Web');
+                        init();
+                      };
+
+                      p.draw = function() {
+                        p.background('#222222');
+                        //p.text(concentration + ' ppm', 10, p.height - 10);
+
+                        p.translate(p.width / 2, p.height / 2);
+
+                        for (let star of stars) {
+                          star.update();
+                          star.show();
+                        }
+
+                      };
+
+                      function Star() {
+                        this.x = p.random(-p.width, p.width);
+                        this.y = p.random(-p.height, p.height);
+                        this.z = p.random(depth);
+
+                        this.update = function() {
+
+                          this.z = this.z - speed;
+
+                          if (this.z < 1) {
+                            this.z = depth;
+                            this.x = p.random(-p.width, p.width);
+                            this.y = p.random(-p.height, p.height);
+                          }
+                        };
+
+                        this.show = function() {
+                          p.circle(p.map(this.x / this.z, 0, 1, 0, p.width),
+                                 p.map(this.y / this.z, 0, 1, 0, p.height),
+                                 p.map(this.z, 1, depth, zoom, 1));
+                        };
+                      }
+
+                      p.windowResized = function() {
+                        let myWidth = canvas.canvas.parentElement.clientWidth;
+                        p.resizeCanvas(myWidth,myWidth);
+                        init();
+                      }
+
+                      p.onUpdate = function(props, oldProps) {
+                        if (props.pauseAnimation !== oldProps.pauseAnimation) {
+                          if (props.pauseAnimation) {
+                            p.noLoop();
+                          } else {
+                            p.loop();
+                          }
+                        }
+                      };
+
+                    }
+
+                    `
+                    /]
+                   [br/][br/]
                 [/TextContainer]
 
               [/Conditional]
@@ -1538,12 +1656,23 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
 [Conditional if:`finished || !readerMode`]
   ## References
+
+  All the data presented in this essay is accessible [here](https://github.com/ParametricPress/02-carbon-history/tree/master/data).
+
+  Here are the [code notebooks](https://github.com/aatishb/climatedata/) used to compile data from the [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r), [Law Dome Ice Core Data](https://www.ncdc.noaa.gov/paleo-search/study/9959), and [EPICA Dome C Ice Core Data](https://www.ncdc.noaa.gov/paleo-search/study/6091).
+
+  The paleoclimate data in the 'Before the Ice Ages' graph was accessed from [Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
+
+  The CO2 'starfield' visualization builds on code provided by [Dan Shiffman](https://thecodingtrain.com/CodingChallenges/001-starfield.html) and [Bryn Mawr College](https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/).
+
+  The idea for this interactive originated from [an essay](https://rateofchange.substack.com/p/the-rate-of-change-july-15-2019) on Aatish's climate newsletter [The Rate of Change](https://rateofchange.substack.com/).
+
 [/Conditional]
 
 
 [AuthorBio]
 
-[b][a href:"https://aatishb.com/"]Aatish Bhatia[/a][/b] is _TK insert bio here_.
+[b][a href:"https://aatishb.com/"]Aatish Bhatia[/a][/b] is a freelance science writer with a Ph.D. in physics and expertise in science education. You can follow him on [Twitter](https://twitter.com/aatishb) and sign up for his climate newsletter [The Rate of Change](https://rateofchange.substack.com/).
 
 Edited by TK editor list.
 [/AuthorBio]
