@@ -137,6 +137,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
       Every age above shows the percentage of human industrial CO2 emissions that occurred within that lifetime.
       *Human CO2 emissions* are defined here as the rise in atmospheric CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value.
       This is a variant of a graph created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
+      [br/][br/]**Data Source:** Compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
     [/caption]
 
       We tend to think of the climate crisis as a historical problem.
@@ -489,6 +490,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
           [/Conditional]
         [/Conditional]
 
+        [caption]
+          **Data Source:** Compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+        [/caption]
+
       [Conditional if:`partOneCompleted || !readerMode`]
         [TextContainer]
           [br/]
@@ -695,6 +700,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
           [/Conditional]
         [/Conditional]
 
+        [caption]
+          **Data Source:** Compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+        [/caption]
+
         [Conditional if:`partTwoCompleted || !readerMode`]
           [TextContainer]
             [br/]
@@ -894,6 +903,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
               [/div]
             [/Conditional]
           [/Conditional]
+
+        [caption]
+          **Data Source:** Compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
+        [/caption]
 
           [Conditional if:`partThreeCompleted || !readerMode`]
             [TextContainer]
@@ -1205,6 +1218,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
             [/Conditional]
 
+              [caption]
+                **Data Source:** CO2 data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091).
+              [/caption]
+
               [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
                   [br/]
@@ -1475,11 +1492,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           });`
                 /]
 
+                [caption]
+                  This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
+                  **Data Source:** Data for light blue curves accessed from [Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years) and compiled from [Dyez et al](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018PA003349), [Martínez-Botí et al](https://www.nature.com/articles/nature14145), [Chalk et al](https://doi.pangaea.de/10.1594/PANGAEA.882545), and [Bärbel Hönisch, et al](https://science.sciencemag.org/content/324/5934/1551.full).
+                  Data for dark blue curves compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
+                [/caption]
+
                 [TextContainer]
                   [br/]
-                  [caption]
-                    This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
-                  [/caption]
 
                   You're looking at over 3 million years of history—the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
                   The graph shows [span className:"blue"]direct measurements[/span] of CO2 (from sampling the air and analyzing ancient ice) overlaid with [span className:"purple"]indirect measurements[/span] (from analyzing fossils of ancient marine life).
@@ -1515,6 +1535,11 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 [derived name:"finished" value:`partFourCompleted == true` /]
 
 [EndMatter hasFinished:finished /]
+
+[Conditional if:`finished || !readerMode`]
+  ## References
+[/Conditional]
+
 
 [AuthorBio]
 

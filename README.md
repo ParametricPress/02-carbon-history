@@ -9,7 +9,7 @@ TK short description of article.
 - [X] Change birthday cake
 - [X] Add Human Civilization label to ice ages graph
 - [X] Add emoji to agriculture graph?
-- [ ] Graph captions
+- [X] Graph captions
 - [ ] Add a References Section?
 - [ ] Copy over data notebooks
 
