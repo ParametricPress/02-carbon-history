@@ -29,7 +29,7 @@
 [var name:"readerMode" value:false /]
 
 Humans have been burning fossil fuels on an industrial scale for hundreds of years.
-So you might guess that your life is just a blip in the centuries-long-story of human carbon emissions.
+So you might guess that your life is just a blip in the centuries-long story of human carbon emissions.
 
 Let's take a closer look at this assumption.
 To get started, make a guess by dragging the slider below.
@@ -38,11 +38,11 @@ To get started, make a guess by dragging the slider below.
 
 [Range value:guessPercent min:0 max:100 /]
 
-I guess that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred during my life.
+I guess that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred during my lifetime.
 
 [var name:"guessMade" value:false /]
 [Button onClick:`guessMade = true`]
-  Submit Guess
+  Submit
 [/Button]
 
 [div fullWidth:true ]
@@ -58,7 +58,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
     [var name:"birthYearSelected" value:false /]
     [Button onClick:`birthYearSelected = true`]
-      Submit Birth Year
+      Submit
     [/Button]
 
   [/TextContainer]
@@ -68,39 +68,44 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
     [TextContainer]
 
       [br/]
-      You guessed that [Display value:guessPercent format:"d" /]% of human carbon dioxide emissions occurred in your lifetime.
+      You guessed that [Display value:guessPercent format:"d" /]% of human carbon dioxide emissions occurred during your lifetime.
 
-      In reality, [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of human-caused carbon dioxide emissions occurred during your life.
+      In reality, [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of human-caused carbon dioxide emissions occurred since you were born.
 
-      And that's just through 2019. As we emit more carbon dioxide, the fraction emitted in your life will continue to grow.
+      **If you're in high school**, roughly a quarter of all human carbon emissions occurred during your lifetime.
 
-      This isn't just you. Look at any age in this chart.
+      **If you're old enough to vote**, more than a third of all human carbon emissions occurred in your life.
+
+      **If you're old enough to run for president**, more than half of all human carbon emissions occurred in your life.
+
+      **If you're old enough to retire**, more than three quarters of all human carbon emissions occurred in your life.
+
+      And that's just through 2019.
+      As we emit more carbon dioxide, the fraction emitted in your life will continue to grow.
 
       [var name:"ages" value:`Array(20).fill(0).map((e,i) => 5 * (i+1))` /]
       [PlotlyComponent
         isVisible: birthYearSelected
         data: `[{
                   type: 'bar',
-                  y: ages,
-                  x: ages.map(e => 100 * getCO2Fraction(2020 - e)),
+                  x: ages,
+                  y: ages.map(e => 100 * getCO2Fraction(2020 - e)),
                   text: ages.map(e => 100 * getCO2Fraction(2020 - e)).map(e => Math.round(e)+'%'),
                   hoverinfo: 'text',
-                  orientation: 'h',
                   marker: {
                     color: '#666666'
                   },
                 }]`
         layout: `(width) => ({
-                  title: 'What Fraction of Human CO2 Emissions Occurred in Your Life?',
+                  title: 'What Fraction of CO2 Emissions Happened in a Lifetime?',
                   width: width,
-                  height: 1.25 * width,
+                  height: width / 1.61803,
                   paper_bgcolor: '#222222',
                   plot_bgcolor: '#222222',
 
-                  yaxis: {
-                    title: 'Your Age',
+                  xaxis: {
+                    title: 'Age',
                     dtick: 5,
-                    autorange: 'reversed',
                     color: '#7e7e7e',
                     fixedrange: true,
                     titlefont: {
@@ -108,8 +113,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                     },
                   },
 
-                  xaxis: {
-                    title: 'Percent CO2 Emissions in Your Lifetime',
+                  yaxis: {
+                    title: '% CO2 Emissions Within This Lifetime',
                     range: [0, 101],
                     color: '#7e7e7e',
                     fixedrange: true,
@@ -136,23 +141,26 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
     [caption]
       Every age above shows the percentage of human industrial CO2 emissions that occurred within that lifetime.
       *Human CO2 emissions* are defined here as the rise in atmospheric CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value.
-      This is a variant of a graph created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
-      [br/][br/]**Data Source:** Compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+      This graph is inspired by one created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
+      [br/][br/]**Data Source:** CO2 values compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
     [/caption]
 
       We tend to think of the climate crisis as a historical problem.
       But these numbers tell a different story.
 
-      Just 35 years—a single generation—contributed to the bulk of carbon emissions.
+      The bulk of carbon emissions were emitted in just 35 years — a single generation.
       No humans before us have ever witnessed such a steep rise in carbon dioxide.
 
       [hr/]
 
-      To better understand this, let's take a personalized tour of the history of carbon dioxide—personalized around *you*—and trace our way backward through the years of your life.
+      To better understand this recent surge in carbon dioxide levels, let's take a personalized tour of the history of carbon dioxide—personalized around *you*.
+      We'll trace our way backward through the years of your life, measuring carbon dioxide levels along the way.
+      And we won't stop there.
+      After reaching your birthday, we'll keep traveling further back in time, putting your life in the perspective of the millions of years that preceded it.
 
       ## Part 1: Your Life
 
-      First, let's review how to measure carbon dioxide.
+      To chart the history of carbon emissions, we first need to know how carbon dioxide is measured.
       The unit used to measure CO2 concentration is *parts per million*, or *ppm* for short.
 
       A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide.
@@ -341,7 +349,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
       [Conditional if:`!ppmVizCompleted`]
         [div className:"center"]
-          [instructions]Click the buttons above to increase CO2 levels to their 2019 value.[/instructions]
+          [instructions]Click the buttons above to increase CO2 levels.[/instructions]
         [/div]
       [/Conditional]
 
@@ -351,8 +359,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
       [TextContainer]
         [br/]
-        Great!
-        Now that you have a sense for what a *part per million* looks like, we can see how carbon dioxide levels changed during your lifetime.
+        Now that we have a sense for what a *part per million* looks like, we can see how carbon dioxide levels changed during your lifetime.
 
         We'll start in 2019.
       [/TextContainer]
@@ -491,7 +498,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [/Conditional]
 
         [caption]
-          **Data Source:** Compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+          **Data Source:** CO2 leves compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
         [/caption]
 
       [Conditional if:`partOneCompleted || !readerMode`]
@@ -715,7 +722,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [/Conditional]
 
         [caption]
-          **Data Source:** Compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+          **Data Source:** CO2 levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
         [/caption]
 
         [Conditional if:`partTwoCompleted || !readerMode`]
@@ -919,7 +926,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
           [/Conditional]
 
         [caption]
-          **Data Source:** Compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
+          **Data Source:** CO2 levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
         [/caption]
 
           [Conditional if:`partThreeCompleted || !readerMode`]
@@ -1248,7 +1255,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   The blue curve displays [span className:"blue"]carbon dioxide levels[/span], while the red curve displays the shift in [span className:"red"]global temperature[/span] (as compared to the average temperature of the past thousand years).
 
-                  There are 3 things to take away from this graph.
+                  There are 3 things to take away from this graph:
 
                   First, at no point in the past 800,000 years were carbon dioxide levels anywhere near as high as they are today.
                   We're the first members of our species to experience global carbon dioxide levels as high as they are today. 
@@ -1272,7 +1279,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   But the record doesn't end when the ice runs out.
                   Climate scientists can look further back into the past by using clever indirect methods of measuring carbon dioxide.
 
-                  When carbon dioxide levels change, so does the chemistry of the ocean—higher CO2 levels make seawater more acidic.
+                  When carbon dioxide levels change, so does the chemistry of the ocean — higher CO2 levels make seawater more acidic.
                   And acidic seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms.
 
                   By chemically analyzing the fossilized shells of ancient marine life, climate scientists can create an indirect record of the history of carbon dioxide, extending over *3 million years*.
@@ -1514,10 +1521,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                 [TextContainer]
                   [br/]
 
-                  You're looking at over 3 million years of history—the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
+                  You're looking at over 3 million years of history: the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
                   The graph shows [span className:"blue"]direct measurements[/span] of CO2 (from sampling the air and analyzing ancient ice) overlaid with [span className:"purple"]indirect measurements[/span] (from analyzing fossils of ancient marine life).
 
-                  **The takeaway:** carbon dioxide levels are higher today than they have been in 2.5 million years.
+                  **The takeaway: **Carbon dioxide levels are higher today than they have been in 2.5 million years.
                   The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) that Earth had carbon dioxide levels in the range they are today, global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
                   This was the climate of [the Pliocene](https://en.wikipedia.org/wiki/Pliocene), the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), and it serves as an important indicator of where we may be headed.
 
@@ -1533,15 +1540,19 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   ## What Comes Next?
 
-                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C, and we're [on track](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) to surpass 1.5°C of warming by mid-century.
+                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C, and we're [on track](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) to surpass 1.5°C of warming by mid-century (potentially locking in even greater warming).
+
                   According to a [recent study](https://www.theguardian.com/environment/2020/jul/09/co2-in-earths-atmosphere-nearing-levels-of-15m-years-ago), if we continue at our current (pre COVID-19) rate unabated, in just 5 years we will hit CO2 levels that haven't been seen on Earth in *15 million years*.
+                  
+                  And since Earth's carbon dioxide levels determine the eventual temperature of the planet, we are headed towards one of the most consequential turning points in the history of our species.
 
-                  The astronaut Chris Hadfield [speaks of a saying](https://www.ted.com/talks/chris_hadfield_what_i_learned_from_going_blind_in_space) in the space industry: "*There's no problem so bad you can't make it worse*."
+                  The astronaut Chris Hadfield [describes a saying](https://www.ted.com/talks/chris_hadfield_what_i_learned_from_going_blind_in_space) in the space industry: "*There's no problem so bad you can't make it worse*."
 
-                  It's true that in a single generation, we've greatly increased the scale of the climate crisis, heading into territory unseen in millions of years.
-                  It's simultaneously true that if we fail to act now, CO2 levels will continue to accelerate and this problem will become significantly worse.
+                  If our current trajectory continues unabated, [in just 30 years](http://folk.uio.no/roberan/img/GCB2019/PNG/s00_2019_Mitigation_Curves_2.0C.png), we'll have locked in 2°C of warming, a scenario with [devastating consequences](https://www.ipcc.ch/report/ar5/wg2/) for every ecosystem.
 
-                  Because Earth's carbon dioxide levels determine the eventual temperature of the planet, we are headed towards one of the most important turning points in history.
+                  It's true that in a single generation, we've greatly amplified the climate crisis, heading into territory unseen in millions of years.
+                  It's simultaneously true that if we fail to hit the brakes on our carbon emissions, then this problem will become significantly worse.
+                  One generation was how long it took to send us hurtling down our current path, and one generation is also [how long](http://folk.uio.no/roberan/img/GCB2019/PNG/s00_2019_Mitigation_Curves_2.0C.png) we have to mitigate the worst possible future scenarios.
 
                   What happens next is up to us.
 

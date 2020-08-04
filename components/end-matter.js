@@ -13,7 +13,7 @@ class EndMatter extends React.Component {
         {
           props.hasFinished ?
             '' :
-            'You haven\'t finished yet.'
+            'Click the button above to continue exploring the article.'
         }
       </div>
     );
