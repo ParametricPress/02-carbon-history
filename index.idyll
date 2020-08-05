@@ -1682,9 +1682,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
   All the data presented in this essay is accessible [here](https://github.com/ParametricPress/02-carbon-history/tree/master/data).
 
-  Here are the [code notebooks](https://github.com/aatishb/climatedata/) used to compile data from the [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r), [Law Dome Ice Core Data](https://www.ncdc.noaa.gov/paleo-search/study/9959), and [EPICA Dome C Ice Core Data](https://www.ncdc.noaa.gov/paleo-search/study/6091).
+  Here are the [code notebooks](https://github.com/aatishb/climatedata/) used to compile data from the [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091).
 
-  The paleoclimate data in the 'Before the Ice Ages' graph was accessed from [Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
+  The paleoclimate data in the 'Before the Ice Ages' graph was accessed from [The Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
 
   The CO2 'starfield' visualization builds on code provided by [Dan Shiffman](https://thecodingtrain.com/CodingChallenges/001-starfield.html) and [Bryn Mawr College](https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/).
 
