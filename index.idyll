@@ -78,7 +78,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
       **If you're old enough to run for president**, more than half of all human carbon emissions occurred in your life.
 
-      **If you're old enough to retire**, more than three quarters of all human carbon emissions occurred in your life.
+      **If you're old enough to retire**, more than three-quarters of all human carbon emissions occurred in your life.
 
       And that's just through 2019.
       As we emit more carbon dioxide, the fraction emitted in your life will continue to grow.
@@ -139,7 +139,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                 });`
       /]
     [caption]
-      Every age above shows the percentage of human industrial CO2 emissions that occurred within that lifetime.
+      Every age above shows the percentage of human CO2 emissions that occurred within that lifetime.
       *Human CO2 emissions* are defined here as the rise in atmospheric CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value.
       This graph is inspired by one created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
       [br/][br/]**Data Source:** CO2 values compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
@@ -151,12 +151,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
       The bulk of carbon emissions were emitted in just 35 years — a single generation.
       No humans before us have ever witnessed such a steep rise in carbon dioxide.
 
-      [hr/]
+      To better understand this recent surge in carbon dioxide levels, let's take a personalized tour of the history of CO2—personalized around *you*.
 
-      To better understand this recent surge in carbon dioxide levels, let's take a personalized tour of the history of carbon dioxide—personalized around *you*.
       We'll trace our way backward through the years of your life, measuring carbon dioxide levels along the way.
-      And we won't stop there.
-      After reaching your birthday, we'll keep traveling further back in time, putting your life in the perspective of the millions of years that preceded it.
+      And after reaching your birthday, we'll keep going, putting your life in the perspective of the millions of years that preceded it.
 
       ## Part 1: Your Life
 
@@ -282,8 +280,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [Conditional if:`vizppm == 1`]
             [span className:"pull-number"]1 ppm[/span]
             [span className:"pull-number-text"]
-              1 part per million is a minuscule concentration.
-              A few lone CO2 molecules occasionally drift by.
+              At 1 part per million, a few lone CO2 molecules drift by.
+              Carbon dioxide is the main contributor to Earth's greenhouse effect, and without the greenhouse effect, we'd have a very, very cold planet — an average global temperature of about 0F (-18°C).
             [/span]
         [/Conditional]
 
@@ -291,7 +289,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
           [span className:"pull-number"]10 ppm[/span]
           [span className:"pull-number-text"]
             At 10 parts per million, a handful of CO2 molecules pass by.
-            At CO2 levels this low, the Earth would be a frozen, lifeless rock.
+            At CO2 levels this low, Earth would still be a frozen, lifeless rock.
           [/span]
         [/Conditional]
 
@@ -299,7 +297,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
           [span className:"pull-number"]100 ppm[/span]
           [span className:"pull-number-text"]
             At 100 parts per million, more and more CO2 molecules pass by.
-            We're dialing up the greenhouse effect, and warming up the Earth.
+            We're dialing up the greenhouse effect and warming up the Earth.
           [/span]
         [/Conditional]
 
@@ -405,7 +403,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
                             425
                             ],
-                    title: 'CO2 Level (parts per million)',
+                    title: 'CO2 Level (ppm)',
                     tickformat: 'd',
                     fixedrange: true,
                     titlefont: {
@@ -498,7 +496,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [/Conditional]
 
         [caption]
-          **Data Source:** CO2 leves compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+          **Data Source:** Annualy averaged CO2 levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
         [/caption]
 
       [Conditional if:`partOneCompleted || !readerMode`]
@@ -625,7 +623,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.25, // min of yvalues in xrange
                                 425
                                 ],
-                        title: 'CO2 Level (in parts per million)',
+                        title: 'CO2 Level (ppm)',
                         tickformat: 'd',
                         fixedrange: true,
                         titlefont: {
@@ -722,7 +720,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [/Conditional]
 
         [caption]
-          **Data Source:** CO2 levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+          **Data Source:** Annualy averaged CO2 levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
         [/caption]
 
         [Conditional if:`partTwoCompleted || !readerMode`]
@@ -787,7 +785,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 co2.filter(e => e.year >=  graph3Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.15, // min of yvalues in xrange
                                 425
                                 ],
-                        title: 'CO2 Level (in parts per million)',
+                        title: 'CO2 Level (ppm)',
                         tickformat: 'd',
                         fixedrange: true,
                         zeroline: false,
@@ -1014,7 +1012,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         },
 
                         yaxis: {
-                          title: 'Carbon Dioxide Level (in parts per million)',
+                          title: 'CO2 Level (ppm)',
                           side: 'right',
                           range: [160, 420],
                           tickformat: 'd',
@@ -1434,7 +1432,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             },
 
                             yaxis: {
-                              title: 'Carbon Dioxide Level (in parts per million)',
+                              title: 'CO2 Level (ppm)',
                               tickformat: 'd',
                               range: [150, 450],
                               fixedrange: true,
@@ -1537,7 +1535,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   ## What Comes Next?
 
-                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. We're [on track](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) to surpass 1.5°C of warming by mid-century, potentially locking in even greater warming.
+                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. And we're [on track](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) to surpass 1.5°C of warming by mid-century, potentially locking in even greater warming.
 
                   According to a [recent study](https://www.theguardian.com/environment/2020/jul/09/co2-in-earths-atmosphere-nearing-levels-of-15m-years-ago), if we continue at our current (pre COVID-19) rate unabated, in just 5 years we will hit CO2 levels that haven't been seen on Earth in *15 million years*.
 
@@ -1547,11 +1545,11 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   It's simultaneously true that if we fail to hit the brakes on our emissions, this problem will become significantly worse.
 
-                  If our current trajectory continues unabated, [in just 30 years](http://folk.uio.no/roberan/img/GCB2019/PNG/s00_2019_Mitigation_Curves_2.0C.png), we'll have locked in 2°C of warming, a scenario with [devastating consequences](https://www.ipcc.ch/report/ar5/wg2/) for every ecosystem.
+                  If our current trajectory continues unabated, [in just 30 years](http://folk.uio.no/roberan/img/GCB2019/PNG/s00_2019_Mitigation_Curves_2.0C.png)—a [single generation](https://en.wikipedia.org/wiki/Generation)—we'll have locked in 2°C of warming, a scenario with [devastating consequences](https://www.ipcc.ch/report/ar5/wg2/) for every ecosystem.
 
                   It took one generation to send us hurtling along our current path, and one generation is also how long we have to mitigate the worst possible future scenarios.
 
-                  We’re currently at a precipice in our species’ history, a branching point between very different possible futures.
+                  We’re currently at a precipice in our species’ history, a [branching point](https://rateofchange.substack.com/p/the-rate-of-change) between very different possible futures.
                   Because CO2 levels are Earth's thermostat, the carbon that we emit in the coming decades will determine Earth’s eventual temperature.
                   So it's safe to say that we're approaching one of the most consequential turning points in history.
 
