@@ -25,7 +25,7 @@
 
 [data name:"co2" source:"CO2.csv" /]
 
-// Set readerMode true before publishing
+// NOTE: Set readerMode to true before publishing
 [var name:"readerMode" value:false /]
 
 Humans have been burning fossil fuels on an industrial scale for hundreds of years.
@@ -82,6 +82,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
       And that's just through 2019.
       As we emit more carbon dioxide, the fraction emitted in your life will continue to grow.
+
+      [/TextContainer]
 
       [var name:"ages" value:`Array(20).fill(0).map((e,i) => 5 * (i+1))` /]
       [PlotlyComponent
@@ -145,6 +147,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
       [br/][br/]**Data Source:** CO2 values compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
     [/caption]
 
+    [TextContainer]
+
       We tend to think of the climate crisis as a historical problem.
       But these numbers tell a different story.
 
@@ -163,6 +167,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
       A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide.
       If we could see the world from the perspective of a molecule, here's what this might look like.
+
+    // for full screen viz, uncomment the following line and comment out the [/TextContainer] after the viz (around line 361)
+    // [/TextContainer]
 
       [var name:"vizppm" value:1 /]
 
@@ -281,7 +288,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             [span className:"pull-number"]1 ppm[/span]
             [span className:"pull-number-text"]
               At 1 part per million, a few lone CO2 molecules drift by.
-              Carbon dioxide is the main contributor to Earth's greenhouse effect, and without the greenhouse effect, we'd have a very, very cold planet — an average global temperature of about 0F (-18°C).
+              Carbon dioxide is the main contributor to Earth's greenhouse effect, and without the greenhouse effect, we'd have a very, very cold planet — an average global temperature of about 0°F (-18°C).
             [/span]
         [/Conditional]
 
@@ -351,6 +358,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [/div]
       [/Conditional]
 
+    // comment the following line and uncomment the above [/TextContainer] (around line 172) for full screen viz
     [/TextContainer]
 
     [Conditional if:`ppmVizCompleted || !readerMode`]

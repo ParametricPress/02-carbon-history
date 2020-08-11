@@ -331,7 +331,7 @@ input[type=range]:focus::-ms-fill-upper {
 /** Comment out the code below this to go back to black on #ADADAD background. */
 
 
-/* .parametric-article-nav {
+.parametric-article-nav {
   color: #D8FFA2;
   border-bottom-color: #D8FFA2;
   background-color: #222222;
@@ -394,4 +394,4 @@ button {
 .idyll-display {
   color: #ffffff;
   border-bottom: dotted 2px #D8FFA2;
-} */
+}
