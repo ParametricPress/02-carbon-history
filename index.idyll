@@ -379,7 +379,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   type: 'scatter',
                   hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
                   line: {
-                    color:' #4a00fb',
+                    color:'#D8FFA2',
+                    width: 4
                   }
                 }]` /]
 
@@ -391,9 +392,13 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   width: width,
                   height: width/1.618,
                   showlegend: false,
+                  paper_bgcolor: '#222222',
+                  plot_bgcolor: '#222222',
+
                   font: {
                     family: 'Graphik Web',
-                    size: 16 * width / 720
+                    size: 16 * width / 720,
+                    color: '#ffffff',
                   },
 
                   xaxis: {
@@ -401,6 +406,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                     title: 'Year',
                     tickformat: 'd',
                     fixedrange: true,
+                    color: '#7e7e7e',
                     titlefont: {
                       size: 12 * width / 720
                     },
@@ -414,6 +420,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                     title: 'CO2 Level (ppm)',
                     tickformat: 'd',
                     fixedrange: true,
+                    color: '#7e7e7e',
                     titlefont: {
                       size: 12 * width / 720
                     },
@@ -611,9 +618,13 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                       width: width,
                       height: width/1.618,
                       showlegend: false,
+                      paper_bgcolor: '#222222',
+                      plot_bgcolor: '#222222',
+
                       font: {
                         family: 'Graphik Web',
                         size: 16 * width/720,
+                        color: '#ffffff',
                       },
 
                       xaxis: {
@@ -621,6 +632,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         title: 'Year',
                         tickformat: 'd',
                         fixedrange: true,
+                        color: '#7e7e7e',
                         titlefont: {
                           size: 12 * width / 720
                         },
@@ -634,6 +646,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         title: 'CO2 Level (ppm)',
                         tickformat: 'd',
                         fixedrange: true,
+                        color: '#7e7e7e',
                         titlefont: {
                           size: 12 * width / 720
                         },
@@ -760,7 +773,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                       type: 'scatter',
                       hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} parts per million of CO2<extra></extra>',
                       line: {
-                        color:' #4a00fb',
+                        color:'#D8FFA2',
+                        width: 4
                       }
                     }]` /]
 
@@ -772,9 +786,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                       width: width,
                       height: width / 1.618,
                       showlegend: false,
+                      paper_bgcolor: '#222222',
+                      plot_bgcolor: '#222222',
+
+
                       font: {
                         family: 'Graphik Web',
-                        size: 16 * width / 720
+                        size: 16 * width / 720,
+                        color: '#ffffff',
                       },
 
                       xaxis: {
@@ -783,6 +802,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         tickformat: ',',
                         fixedrange: true,
                         zeroline: false,
+                        color: '#7e7e7e',
                         titlefont: {
                           size: 12 * width / 720
                         }
@@ -797,6 +817,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         tickformat: 'd',
                         fixedrange: true,
                         zeroline: false,
+                        color: '#7e7e7e',
                         titlefont: {
                           size: 12 * width / 720
                         },
@@ -824,8 +845,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               y0: 0,
                               x1: 10000,
                               y1: 1,
-                              fillcolor: '#d3d3d3',
-                              opacity: 0.2,
+                              fillcolor: '#7e7e7e',
+                              opacity: 0.5,
                               layer: 'below',
                               line: {
                                   width: 0
@@ -879,6 +900,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             xanchor: e.xanchor,
                             yanchor: e.yanchor,
                             text: e.text,
+                            arrowcolor: e.arrowcolor,
                             font: e.font,
                             showarrow: e.showarrow,
                             arrowhead: e.arrowhead,
@@ -985,7 +1007,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         type: 'scattergl',
                         hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
                         line: {
-                          color:'blue',
+                          color:'#D8FFA2',
+                          width: 4
                         },
                         opacity: 1,
                       }
@@ -1001,9 +1024,13 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         width: width,
                         height: width / 1.618,
                         showlegend: false,
+                        paper_bgcolor: '#222222',
+                        plot_bgcolor: '#222222',
+
                         font: {
                           family: 'Graphik Web',
-                          size: 16 * width / 720
+                          size: 16 * width / 720,
+                          color: '#ffffff',
                         },
                         hovermode: 'x',
 
@@ -1011,6 +1038,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           range: [2019 - graph4Year, graph4Year/100],
                           title: 'Years before 2019',
                           tickformat: ',',
+                          color: '#7e7e7e',
                           titlefont: {
                             size: 12 * width / 720
                           },
@@ -1025,6 +1053,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           range: [160, 420],
                           tickformat: 'd',
                           fixedrange: true,
+                          color: '#7e7e7e',
                           titlefont: {
                             size: 12 * width / 720
                           },
@@ -1039,6 +1068,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           range: [-12, 17.25],
                           tickformat: 'd',
                           fixedrange: true,
+                          color: '#7e7e7e',
                           titlefont: {
                             size: 12 * width / 720
                           },
@@ -1071,7 +1101,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 y0: 280,
                                 x1: 0,
                                 y1: 412,
-                                fillcolor: '#d3d3d3',
+                                fillcolor: '#7e7e7e',
                                 opacity: 0.5,
                                 layer: 'below',
                                 line: {
@@ -1091,9 +1121,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               text: 'Human-Caused Rise in CO2',
                               font: {
                                 size: 12 * width/720,
-                                color: '#d3d3d3'
+                                color: '#7e7e7e'
                               },
-                              opacity: 1,
                               showarrow: false,
                             },
 
@@ -1157,6 +1186,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               xanchor: e.xanchor,
                               yanchor: e.yanchor,
                               text: e.text,
+                              arrowcolor: e.arrowcolor,
                               font: e.font,
                               showarrow: e.showarrow,
                               arrowhead: e.arrowhead,
@@ -1259,7 +1289,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   This paleoclimate record, reconstructed by analyzing ancient air trapped in frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
 
-                  The blue curve displays [span className:"blue"]carbon dioxide levels[/span], while the red curve displays the shift in [span className:"red"]global temperature[/span] (as compared to the average temperature of the past thousand years).
+                  The green curve displays [span className:"green"]carbon dioxide levels[/span], while the red curve displays the shift in [span className:"red"]global temperature[/span] (as compared to the average temperature of the past thousand years).
 
                   There are 3 things to take away from this graph:
 
@@ -1270,7 +1300,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   In comparison, our current spike in carbon dioxide was created in just a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
                   On a geological timescale, that's more or less instantaneous.
 
-                  Third, the [span className:"blue"]CO2 curve[/span] and the [span className:"red"]temperature curve[/span] rise and fall in sync.
+                  Third, the [span className:"green"]CO2 curve[/span] and the [span className:"red"]temperature curve[/span] rise and fall in sync.
                   Whenever carbon dioxide levels fell in the past, Earth's global temperatures followed.
                   And whenever carbon dioxide levels climbed, so did the Earth's temperature.
 
@@ -1316,7 +1346,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.1)',
+                              fillcolor: 'rgba(72, 1, 255, 0.5)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1326,11 +1356,11 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'markers',
                               type: 'scattergl',
                               hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
-                              marker: {
+                              line: {
                                 color: '#4801FF',
                                 size: 5,
                               },
-                              opacity: 0.2,
+                              opacity: 0.7,
                               error_y: {
                                 type: 'constant',
                                 symmetric: true,
@@ -1354,7 +1384,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.1)',
+                              fillcolor: 'rgba(72, 1, 255, 0.5)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1374,7 +1404,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.1)',
+                              fillcolor: 'rgba(72, 1, 255, 0.5)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1394,7 +1424,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.1)',
+                              fillcolor: 'rgba(72, 1, 255, 0.5)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1404,8 +1434,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
-                              marker: {
-                                color: 'blue',
+                              line: {
+                                color: '#D8FFA2',
                                 size: 5,
                               },
                             },
@@ -1421,14 +1451,19 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             width: width,
                             height: width / 1.618,
                             showlegend: false,
+                            paper_bgcolor: '#222222',
+                            plot_bgcolor: '#222222',
+
                             font: {
                               family: 'Graphik Web',
-                              size: 16 * width / 720
+                              size: 16 * width / 720,
+                              color: '#ffffff',
                             },
 
                             xaxis: {
                               title: 'Years before 2019',
                               tickformat: ',',
+                              color: '#7e7e7e',
                               titlefont: {
                                 size: 12 * width / 720
                               },
@@ -1442,6 +1477,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             yaxis: {
                               title: 'CO2 Level (ppm)',
                               tickformat: 'd',
+                              color: '#7e7e7e',
                               range: [150, 450],
                               fixedrange: true,
                               titlefont: {
@@ -1470,9 +1506,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 text: 'Human-Caused Rise in CO2',
                                 font: {
                                   size: 12 * width/720,
-                                  color: '#d3d3d3'
+                                  color: '#7e7e7e'
                                 },
-                                opacity: 1,
                                 showarrow: false,
                               },
 
@@ -1505,7 +1540,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                     y0: 280,
                                     x1: 1,
                                     y1: 412,
-                                    fillcolor: '#d3d3d3',
+                                    fillcolor: '#7e7e7e',
                                     opacity: 0.5,
                                     layer: 'below',
                                     line: {
@@ -1527,7 +1562,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   [br/]
 
                   You're looking at over 3 million years of history: the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
-                  The graph shows [span className:"blue"]direct measurements[/span] of CO2 (from sampling the air and analyzing ancient ice) overlaid with [span className:"purple"]indirect measurements[/span] (from analyzing fossils of ancient marine life).
+                  The graph shows [span className:"green"]direct measurements[/span] of CO2 (from sampling the air and analyzing ancient ice) overlaid with [span className:"blue"]indirect measurements[/span] (from analyzing fossils of ancient marine life).
 
                   **The takeaway:** Carbon dioxide levels are higher today than they have been in 2.5 million years.
                   The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) that Earth had carbon dioxide levels in the range they are today, global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
