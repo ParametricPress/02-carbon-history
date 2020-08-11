@@ -2103,8 +2103,8 @@ p {
   color: blue;
 }
 
-.purple {
-  color: rgba(72, 1, 255, 0.5);
+.green {
+  color: #D8FFA2;
 }
 
 @media all and (max-width: 1000px) {
@@ -2149,6 +2149,7 @@ button {
   font-size: 12px;
   font-weight: 500;
 }
+
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   width: 100%; /* Specific width is required for Firefox. */
