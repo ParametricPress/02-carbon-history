@@ -42,6 +42,10 @@ p {
   /*margin-right: 10px;*/
 }
 
+.gray {
+  background-color: #ADADAD;
+}
+
 .slider {
   width: 100%;
 }

@@ -328,25 +328,27 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
       [br/]
       [var name:"ppmVizCompleted" value:false /]
       [div className:"buttonwrapper"]
-        [Button onClick:`vizppm = 1`]
+        [Button onClick:`vizppm = 1` className:`vizppm == 1 ? 'gray' : ''` ]
           1 ppm
         [/Button]
 
-        [Button onClick:`vizppm = 10`]
+        [Button onClick:`vizppm = 10` className:`vizppm == 10 ? 'gray' : ''` ]
           10 ppm
         [/Button]
 
-        [Button onClick:`vizppm = 100`]
+        [Button onClick:`vizppm = 100` className:`vizppm == 100 ? 'gray' : ''` ]
           100 ppm
         [/Button]
 
-        [Button onClick:`vizppm = 280`]
+        [Button onClick:`vizppm = 280` className:`vizppm == 280 ? 'gray' : ''` ]
           280 ppm
         [/Button]
 
-        [Button onClick:`
-          vizppm = 412;
-          ppmVizCompleted = true;
+        [Button 
+          className:`vizppm == 412 ? 'gray' : ''` 
+          onClick:`
+            vizppm = 412;
+            ppmVizCompleted = true;
         `]
           412 ppm
         [/Button]
@@ -470,7 +472,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
         [div className:"buttonwrapper"]
 
-          [Button onClick:`
+          [Button if:`isTempVisible` onClick:`
             if (buttonEnabled) {
 
               buttonEnabled = false;
@@ -487,7 +489,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
               }, 1000);
 
             }
-          `]
+          `
+          className:`graphYear == birthYear ? 'gray' : ''`
+          ]
             Travel Back in Time
           [/Button]
 
@@ -717,7 +721,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
               }, 1000);
 
             }
-          `]
+          `
+          className:`graph2Year == 1750 ? 'gray' : ''`
+          ]
             Travel Back in Time
           [/Button]
 
@@ -930,7 +936,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                 }, 1000);
 
               }
-            `]
+            `
+            className:`graph3Year == -10000 ? 'gray' : ''`
+            ]
               Travel Back in Time
             [/Button]
 
@@ -994,9 +1002,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         hovertemplate: '%{y:.d} °C deviation<extra></extra>',
                         line: {
                           color:'red',
+                          width: 4
                         },
-                        opacity: 0.5,
-                        yaxis: 'y2',
+                        opacity: 1,
                         visible: isTempVisible
                       },
 
@@ -1011,6 +1019,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           width: 4
                         },
                         opacity: 1,
+                        yaxis: 'y2',
                       }
 
                     ]`
@@ -1047,13 +1056,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           nticks: 5
                         },
 
-                        yaxis: {
+                        yaxis2: {
                           title: 'CO2 Level (ppm)',
+                          overlaying: 'y',
                           side: 'right',
                           range: [160, 420],
                           tickformat: 'd',
                           fixedrange: true,
-                          color: '#7e7e7e',
+                          color: '#D8FFA2',
                           titlefont: {
                             size: 12 * width / 720
                           },
@@ -1061,14 +1071,13 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           zeroline: false
                         },
 
-                        yaxis2: {
+                        yaxis: {
                           title: 'Temperature Change (°C)',
-                          overlaying: 'y',
                           side: 'left',
                           range: [-12, 17.25],
                           tickformat: 'd',
                           fixedrange: true,
-                          color: '#7e7e7e',
+                          color: 'red',
                           titlefont: {
                             size: 12 * width / 720
                           },
@@ -1198,29 +1207,28 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                       });`
             /]
 
-            [derived name:"partFourCompleted" value:`graph4Year == -800000 && isTempVisible`/]
+            [derived name:"partFourCompleted" value:`graph4Year == -800000`/]
             [var name:"showNavigation" value:false /]
             [div className:"buttonwrapper"]
 
-              [Button onClick:`
-                if (buttonEnabled) {
+              [Button
+                if:`isTempVisible`
+                onClick:`
+                  if (buttonEnabled) {
 
-                  buttonEnabled = false;
-                  isTempVisible = !isTempVisible;
-                  showNavigation = true;
+                    buttonEnabled = false;
+                    isTempVisible = true;
+                    showNavigation = true;
 
-                  setTimeout(() => {
-                    buttonEnabled = true;
-                  }, 1000);
+                    setTimeout(() => {
+                      buttonEnabled = true;
+                    }, 1000);
 
-                }
-                `]
-                [Conditional if:`!isTempVisible`]
+                  }
+                `
+                 className:`isTempVisible ? 'gray' : ''`
+                ]
                   Reveal Temperature
-                [/Conditional]
-                [Conditional if:isTempVisible]
-                  Hide Temperature
-                [/Conditional]
               [/Button]
 
               [Conditional if:`showNavigation`]
@@ -1237,13 +1245,16 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                       }, 1000);
 
                     }
-                  `]
-                    Go Back in Time
+                  `
+                   className:`graph4Year ==  -800000 ? 'gray' : ''`
+                  ]
+                    Travel Back in Time
                   [/Button]
 
                   [Button onClick:`
                     graph4Year = -10000;
                     isTempVisible = false;
+                    showNavigation = false;
                   `]
                     Restart
                   [/Button]
