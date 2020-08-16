@@ -1721,6 +1721,13 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
 [EndMatter hasFinished:finished /]
 
+[AuthorBio]
+
+[b][a href:"https://aatishb.com/"]Aatish Bhatia[/a][/b] is a freelance science writer with a Ph.D. in physics and expertise in science education. You can follow him on [Twitter](https://twitter.com/aatishb) and sign up for his climate newsletter [The Rate of Change](https://rateofchange.substack.com/).
+
+Edited by TK editor list.
+[/AuthorBio]
+
 [Conditional if:`finished || !readerMode`]
   ## References
 
@@ -1736,13 +1743,6 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
 [/Conditional]
 
-
-[AuthorBio]
-
-[b][a href:"https://aatishb.com/"]Aatish Bhatia[/a][/b] is a freelance science writer with a Ph.D. in physics and expertise in science education. You can follow him on [Twitter](https://twitter.com/aatishb) and sign up for his climate newsletter [The Rate of Change](https://rateofchange.substack.com/).
-
-Edited by TK editor list.
-[/AuthorBio]
 
 [NextArticle slug:parametricSlug fullWidth:true /]
 
