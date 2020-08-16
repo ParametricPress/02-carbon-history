@@ -1347,7 +1347,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.5)',
+                              fillcolor: 'rgba(216,255,162,0.3)',
                               hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1358,7 +1358,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               hovertemplate: 'CO₂: %{y:.d} ppm<extra></extra>',
                               line: {
-                                color: '#4801FF',
+                                color: 'white',
                                 size: 5,
                               },
                               opacity: 0.7,
@@ -1385,7 +1385,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.5)',
+                              fillcolor: 'rgba(216,255,162,0.3)',
                               hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1405,7 +1405,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.5)',
+                              fillcolor: 'rgba(216,255,162,0.3)',
                               hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
@@ -1425,7 +1425,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.5)',
+                              fillcolor: 'rgba(216,255,162,0.3)',
                               hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
