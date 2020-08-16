@@ -993,9 +993,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         type: 'scattergl',
                         hovertemplate: '%{y:.d} °C deviation<extra></extra>',
                         line: {
-                          color:'red',
+                          color:'rgb(229,157,141)',
+                          width: 1
                         },
-                        opacity: 0.5,
+                        // opacity: 0.5,
                         yaxis: 'y2',
                         visible: isTempVisible
                       },
