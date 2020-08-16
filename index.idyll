@@ -1,4 +1,4 @@
-[meta title:"Your Life in CO2" description:"TK Article Description"
+[meta title:"Your Life in CO₂" description:"TK Article Description"
   shareImageUrl:"https://parametric.press/issue-02/tk-article-slug/static/images/share.png"
   shareImageWidth:"880"
   shareImageHeight:"440" /]
@@ -8,7 +8,7 @@
 [Nav fullWidth:true /]
 
 [Header
-  title:`["Your Life", "in CO2"]`
+  title:`["Your Life", "in CO₂"]`
   longTitle:`["Your Life in", "Carbon Dioxide"]`
   date:"May 15, 2020"
   dek:"Why we're living through an extraordinary time."
@@ -99,7 +99,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   },
                 }]`
         layout: `(width) => ({
-                  title: 'What Fraction of CO2 Emissions Happened in a Lifetime?',
+                  title: 'What Fraction of CO₂ Emissions Happened in a Lifetime?',
                   width: width,
                   height: width / 1.61803,
                   paper_bgcolor: '#222222',
@@ -116,7 +116,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   },
 
                   yaxis: {
-                    title: '% CO2 Emissions Within This Lifetime',
+                    title: '% CO₂ Emissions Within This Lifetime',
                     range: [0, 101],
                     color: '#7e7e7e',
                     fixedrange: true,
@@ -141,10 +141,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                 });`
       /]
     [caption]
-      Every age above shows the percentage of human CO2 emissions that occurred within that lifetime.
-      *Human CO2 emissions* are defined here as the rise in atmospheric CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value.
+      Every age above shows the percentage of human CO₂ emissions that occurred within that lifetime.
+      *Human CO₂ emissions* are defined here as the rise in atmospheric CO₂ levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value.
       This graph is inspired by one created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
-      [br/][br/]**Data Source:** CO2 values compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+      [br/][br/]**Data Source:** CO₂ values compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
     [/caption]
 
     [TextContainer]
@@ -155,7 +155,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
       The bulk of carbon emissions were emitted in just 35 years — a single generation.
       No humans before us have ever witnessed such a steep rise in carbon dioxide.
 
-      To better understand this recent surge in carbon dioxide levels, let's take a personalized tour of the history of CO2—personalized around *you*.
+      To better understand this recent surge in carbon dioxide levels, let's take a personalized tour of the history of CO₂—personalized around *you*.
 
       We'll trace our way backward through the years of your life, measuring carbon dioxide levels along the way.
       And after reaching your birthday, we'll keep going, putting your life in the perspective of the millions of years that preceded it.
@@ -163,9 +163,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
       ## Part 1: Your Life
 
       To chart the history of carbon emissions, we first need to know how carbon dioxide is measured.
-      The unit used to measure CO2 concentration is *parts per million*, or *ppm* for short.
+      The unit used to measure CO₂ concentration is *parts per million*, or *ppm* for short.
 
-      A 1 ppm concentration of CO2 means that one out of every million parts of air is carbon dioxide.
+      A 1 ppm concentration of CO₂ means that one out of every million parts of air is carbon dioxide.
       If we could see the world from the perspective of a molecule, here's what this might look like.
 
     // for full screen viz, uncomment the following line and comment out the [/TextContainer] after the viz (around line 361)
@@ -287,7 +287,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [Conditional if:`vizppm == 1`]
             [span className:"pull-number"]1 ppm[/span]
             [span className:"pull-number-text"]
-              At 1 part per million, a few lone CO2 molecules drift by.
+              At 1 part per million, a few lone CO₂ molecules drift by.
               Carbon dioxide is the main contributor to Earth's greenhouse effect, and without the greenhouse effect, we'd have a very, very cold planet — an average global temperature of about 0°F (-18°C).
             [/span]
         [/Conditional]
@@ -295,15 +295,15 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [Conditional if:`vizppm == 10`]
           [span className:"pull-number"]10 ppm[/span]
           [span className:"pull-number-text"]
-            At 10 parts per million, a handful of CO2 molecules pass by.
-            At CO2 levels this low, Earth would still be a frozen, lifeless rock.
+            At 10 parts per million, a handful of CO₂ molecules pass by.
+            At CO₂ levels this low, Earth would still be a frozen, lifeless rock.
           [/span]
         [/Conditional]
 
         [Conditional if:`vizppm == 100`]
           [span className:"pull-number"]100 ppm[/span]
           [span className:"pull-number-text"]
-            At 100 parts per million, more and more CO2 molecules pass by.
+            At 100 parts per million, more and more CO₂ molecules pass by.
             We're dialing up the greenhouse effect and warming up the Earth.
           [/span]
         [/Conditional]
@@ -311,7 +311,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [Conditional if:`vizppm == 280`]
           [span className:"pull-number"]280 ppm[/span]
           [span className:"pull-number-text"]
-            280 parts per million was the CO2 level before the Industrial Revolution.
+            280 parts per million was the CO₂ level before the Industrial Revolution.
             Global average temperatures were roughly 1°C cooler than they are today.
           [/span]
         [/Conditional]
@@ -319,7 +319,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [Conditional if:`vizppm == 412`]
           [span className:"pull-number"]412 ppm[/span]
           [span className:"pull-number-text"]
-            412 parts per million was the CO2 level in 2019.
+            412 parts per million was the CO₂ level in 2019.
             This raised Earth's temperature by about 1°C compared to pre-industrial times.
           [/span]
         [/Conditional]
@@ -354,7 +354,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
       [Conditional if:`!ppmVizCompleted`]
         [div className:"center"]
-          [instructions]Click the buttons above to increase CO2 levels.[/instructions]
+          [instructions]Click the buttons above to increase CO₂ levels.[/instructions]
         [/div]
       [/Conditional]
 
@@ -377,7 +377,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   y: co2.map(e => e.ppm),
                   mode: 'lines',
                   type: 'scatter',
-                  hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
+                  hovertemplate: '%{x}: %{y:.4r} parts per million of CO₂<extra></extra>',
                   line: {
                     color:'#D8FFA2',
                     width: 4
@@ -388,7 +388,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         isVisible:ppmVizCompleted
         data: graphData
         layout: `(width) => ({
-                  title: 'Your Life in CO2',
+                  title: 'Your Life in CO₂',
                   width: width,
                   height: width/1.618,
                   showlegend: false,
@@ -417,7 +417,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
                             425
                             ],
-                    title: 'CO2 Level (ppm)',
+                    title: 'CO₂ Level (ppm)',
                     tickformat: 'd',
                     fixedrange: true,
                     color: '#7e7e7e',
@@ -511,14 +511,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [/Conditional]
 
         [caption]
-          **Data Source:** Annualy averaged CO2 levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+          **Data Source:** Annualy averaged CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
         [/caption]
 
       [Conditional if:`partOneCompleted || !readerMode`]
         [TextContainer]
           [br/]
           We've arrived at [Display value:birthYear format:"d" /], the year that you were born.
-          Since CO2 levels have been steadily rising every year of your life, you can actually measure your age in terms of the carbon dioxide level at your birth.
+          Since CO₂ levels have been steadily rising every year of your life, you can actually measure your age in terms of the carbon dioxide level at your birth.
 
           [Aside]
             [span className:"pull-number"]You were born at [Display value:`getCO2Level(birthYear)` format:"d" /] ppm[/span]
@@ -602,7 +602,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
           But you've only been around for [Display value:`2020-birthYear-1` format:"d" /] or [Display value:`2020-birthYear` format:"d" /] years.
           In comparison, humans have been burning fossil fuels for hundreds of years.
 
-          So how does the rise in CO2 *during your life* compare to the rise in CO2 *before you were born*?
+          So how does the rise in CO₂ *during your life* compare to the rise in CO₂ *before you were born*?
 
           To find out, we need to go back to the moment that human societies began consuming fossil fuels on an industrial scale.
 
@@ -614,7 +614,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             isVisible:partOneCompleted
             data: graphData
             layout: `(width) => ({
-                      title: 'The History of CO2',
+                      title: 'The History of CO₂',
                       width: width,
                       height: width/1.618,
                       showlegend: false,
@@ -643,7 +643,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.25, // min of yvalues in xrange
                                 425
                                 ],
-                        title: 'CO2 Level (ppm)',
+                        title: 'CO₂ Level (ppm)',
                         tickformat: 'd',
                         fixedrange: true,
                         color: '#7e7e7e',
@@ -741,19 +741,19 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
         [/Conditional]
 
         [caption]
-          **Data Source:** Annualy averaged CO2 levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+          **Data Source:** Annualy averaged CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
         [/caption]
 
         [Conditional if:`partTwoCompleted || !readerMode`]
           [TextContainer]
             [br/]
-            This graph shows us the history of industrialization as seen through the lens of CO2.
+            This graph shows us the history of industrialization as seen through the lens of CO₂.
             With every passing decade, the graph grows steeper.
 
             Our carbon dioxide output is *accelerating.*
 
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before.
-            But the steep rise in CO2 levels in your life makes the rise during the Industrial Revolution look like a gentle slope.
+            But the steep rise in CO₂ levels in your life makes the rise during the Industrial Revolution look like a gentle slope.
 
             Everyone alive today is living through a great acceleration—an exponential growth of carbon consumption, and consequently, of carbon emissions.
 
@@ -771,7 +771,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                       y: co2.map(e => e.ppm),
                       mode: 'lines',
                       type: 'scatter',
-                      hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} parts per million of CO2<extra></extra>',
+                      hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} parts per million of CO₂<extra></extra>',
                       line: {
                         color:'#D8FFA2',
                         width: 4
@@ -782,7 +782,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             isVisible:partTwoCompleted
             data: graph3Data
             layout: `(width) => ({
-                      title: 'The History of CO2',
+                      title: 'The History of CO₂',
                       width: width,
                       height: width / 1.618,
                       showlegend: false,
@@ -813,7 +813,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 co2.filter(e => e.year >=  graph3Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.15, // min of yvalues in xrange
                                 425
                                 ],
-                        title: 'CO2 Level (ppm)',
+                        title: 'CO₂ Level (ppm)',
                         tickformat: 'd',
                         fixedrange: true,
                         zeroline: false,
@@ -954,7 +954,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
           [/Conditional]
 
         [caption]
-          **Data Source:** CO2 levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
+          **Data Source:** CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
         [/caption]
 
           [Conditional if:`partThreeCompleted || !readerMode`]
@@ -1005,7 +1005,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         y: co2.map(e => e.ppm),
                         mode: 'lines',
                         type: 'scattergl',
-                        hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                        hovertemplate: 'CO₂: %{y:.d} ppm<extra></extra>',
                         line: {
                           color:'#D8FFA2',
                           width: 4
@@ -1020,7 +1020,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
               isVisible:partThreeCompleted
               data: graph4Data
               layout: `(width) => ({
-                        title: 'The History of CO2',
+                        title: 'The History of CO₂',
                         width: width,
                         height: width / 1.618,
                         showlegend: false,
@@ -1048,7 +1048,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         },
 
                         yaxis: {
-                          title: 'CO2 Level (ppm)',
+                          title: 'CO₂ Level (ppm)',
                           side: 'right',
                           range: [160, 420],
                           tickformat: 'd',
@@ -1118,7 +1118,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               yref: 'y1',
                               xanchor: 'right',
                               yanchor: 'bottom',
-                              text: 'Human-Caused Rise in CO2',
+                              text: 'Human-Caused Rise in CO₂',
                               font: {
                                 size: 12 * width/720,
                                 color: '#7e7e7e'
@@ -1257,7 +1257,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             [Conditional if:`!partFourCompleted`]
                 [Conditional if:`!isTempVisible`]
                   [div className:"center"]
-                    [instructions]To see how CO2 & climate line up, first click the button to reveal the temperature curve.[/instructions]
+                    [instructions]To see how CO₂ & climate line up, first click the button to reveal the temperature curve.[/instructions]
                   [/div]
                 [/Conditional]
 
@@ -1276,7 +1276,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             [/Conditional]
 
               [caption]
-                **Data Source:** CO2 data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091).
+                **Data Source:** CO₂ data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091).
               [/caption]
 
               [Conditional if:`partFourCompleted || !readerMode`]
@@ -1300,7 +1300,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   In comparison, our current spike in carbon dioxide was created in just a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
                   On a geological timescale, that's more or less instantaneous.
 
-                  Third, the [span className:"green"]CO2 curve[/span] and the [span className:"red"]temperature curve[/span] rise and fall in sync.
+                  Third, the [span className:"green"]CO₂ curve[/span] and the [span className:"red"]temperature curve[/span] rise and fall in sync.
                   Whenever carbon dioxide levels fell in the past, Earth's global temperatures followed.
                   And whenever carbon dioxide levels climbed, so did the Earth's temperature.
 
@@ -1314,7 +1314,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   But the record doesn't end when the ice runs out.
                   Climate scientists can look further back into the past by using clever indirect methods of measuring carbon dioxide.
 
-                  When carbon dioxide levels change, so does the chemistry of the ocean — higher CO2 levels make seawater more acidic.
+                  When carbon dioxide levels change, so does the chemistry of the ocean — higher CO₂ levels make seawater more acidic.
                   And acidic seawater leaves behind a [chemical signature](https://www.p-co2.org/boron) in the shells of marine life forms.
 
                   By chemically analyzing the fossilized shells of ancient marine life, climate scientists can create an indirect record of the history of carbon dioxide, extending over *3 million years*.
@@ -1336,7 +1336,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂ Upper Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             { // lower bound
@@ -1347,7 +1347,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               line: {color: 'transparent'},
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
-                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             {
@@ -1355,7 +1355,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               y: ho.map(e => e.CO2),
                               mode: 'markers',
                               type: 'scattergl',
-                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂: %{y:.d} ppm<extra></extra>',
                               line: {
                                 color: '#4801FF',
                                 size: 5,
@@ -1374,7 +1374,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂ Upper Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             { // lower bound
@@ -1385,7 +1385,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               line: {color: 'transparent'},
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
-                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             { // upper bound
@@ -1394,7 +1394,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂ Upper Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             { // lower bound
@@ -1405,7 +1405,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               line: {color: 'transparent'},
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
-                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             { // upper bound
@@ -1414,7 +1414,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂ Upper Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             { // lower bound
@@ -1425,7 +1425,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               line: {color: 'transparent'},
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
-                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                             },
 
                             {
@@ -1433,7 +1433,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               y: co2.map(e => e.ppm),
                               mode: 'lines',
                               type: 'scattergl',
-                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              hovertemplate: 'CO₂: %{y:.d} ppm<extra></extra>',
                               line: {
                                 color: '#D8FFA2',
                                 size: 5,
@@ -1447,7 +1447,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   isVisible:partFourCompleted
                   data: graph5Data
                   layout: `(width) => ({
-                            title: 'The History of CO2',
+                            title: 'The History of CO₂',
                             width: width,
                             height: width / 1.618,
                             showlegend: false,
@@ -1475,7 +1475,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             },
 
                             yaxis: {
-                              title: 'CO2 Level (ppm)',
+                              title: 'CO₂ Level (ppm)',
                               tickformat: 'd',
                               color: '#7e7e7e',
                               range: [150, 450],
@@ -1503,7 +1503,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 yref: 'y',
                                 xanchor: 'right',
                                 yanchor: 'bottom',
-                                text: 'Human-Caused Rise in CO2',
+                                text: 'Human-Caused Rise in CO₂',
                                 font: {
                                   size: 12 * width/720,
                                   color: '#7e7e7e'
@@ -1562,7 +1562,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   [br/]
 
                   You're looking at over 3 million years of history: the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
-                  The graph shows [span className:"green"]direct measurements[/span] of CO2 (from sampling the air and analyzing ancient ice) overlaid with [span className:"blue"]indirect measurements[/span] (from analyzing fossils of ancient marine life).
+                  The graph shows [span className:"green"]direct measurements[/span] of CO₂ (from sampling the air and analyzing ancient ice) overlaid with [span className:"blue"]indirect measurements[/span] (from analyzing fossils of ancient marine life).
 
                   **The takeaway:** Carbon dioxide levels are higher today than they have been in 2.5 million years.
                   The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) that Earth had carbon dioxide levels in the range they are today, global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
@@ -1580,7 +1580,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. And we're [on track](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) to surpass 1.5°C of warming by mid-century, potentially locking in even greater warming.
 
-                  According to a [recent study](https://www.theguardian.com/environment/2020/jul/09/co2-in-earths-atmosphere-nearing-levels-of-15m-years-ago), if we continue at our current (pre COVID-19) rate unabated, in just 5 years we will hit CO2 levels that haven't been seen on Earth in *15 million years*.
+                  According to a [recent study](https://www.theguardian.com/environment/2020/jul/09/co2-in-earths-atmosphere-nearing-levels-of-15m-years-ago), if we continue at our current (pre COVID-19) rate unabated, in just 5 years we will hit CO₂ levels that haven't been seen on Earth in *15 million years*.
 
                   The astronaut Chris Hadfield [describes a saying](https://www.ted.com/talks/chris_hadfield_what_i_learned_from_going_blind_in_space) in the space industry: "*There's no problem so bad you can't make it worse*."
 
@@ -1593,7 +1593,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   It took one generation to send us hurtling along our current path, and one generation is also how long we have to mitigate the worst possible future scenarios.
 
                   We’re currently at a precipice in our species’ history, a [branching point](https://rateofchange.substack.com/p/the-rate-of-change) between very different possible futures.
-                  Because CO2 levels are Earth's thermostat, the carbon that we emit in the coming decades will determine Earth’s eventual temperature.
+                  Because CO₂ levels are Earth's thermostat, the carbon that we emit in the coming decades will determine Earth’s eventual temperature.
                   So it's safe to say that we're approaching one of the most consequential turning points in history.
 
                   Everyone alive today is living through an extraordinary time.
@@ -1729,7 +1729,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
   The paleoclimate data in the 'Before the Ice Ages' graph was accessed from [The Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
 
-  The CO2 'starfield' visualization builds on code provided by [Dan Shiffman](https://thecodingtrain.com/CodingChallenges/001-starfield.html) and [Bryn Mawr College](https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/).
+  The CO₂ 'starfield' visualization builds on code provided by [Dan Shiffman](https://thecodingtrain.com/CodingChallenges/001-starfield.html) and [Bryn Mawr College](https://cs.brynmawr.edu/gxk2013/examples/transformations/starfield/).
 
   The idea for this interactive originated from [an essay](https://rateofchange.substack.com/p/the-rate-of-change-july-15-2019) on Aatish's climate newsletter [The Rate of Change](https://rateofchange.substack.com/).
 
