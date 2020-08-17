@@ -34,9 +34,9 @@ const makeAnnotation = (power, graphYear, year, scale, direction, annotationText
                           xanchor: xAnchor ? xAnchor : 'center',
                           yanchor: yAnchor ? yAnchor : (direction == 'up' ? 'bottom' : 'top'),
                           text: annotationText,
-                          arrowcolor: '#D8FFA2',
+                          arrowcolor: '#ADADAD',
                           font: {
-                            size: (isLabelStatic ? 12 : 12 * relativeScale(year, graphYear, power)) * scale,
+                            size: (isLabelStatic ? 10 : 10 * relativeScale(year, graphYear, power)) * scale,
                           },
                           showarrow: true,
                           arrowhead: 2,

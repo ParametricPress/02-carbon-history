@@ -94,6 +94,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   y: ages.map(e => 100 * getCO2Fraction(2020 - e)),
                   text: ages.map(e => 100 * getCO2Fraction(2020 - e)).map(e => Math.round(e)+'%'),
                   hoverinfo: 'text',
+                  hoverlabel: { bgcolor: "#FFF"},
                   marker: {
                     color: '#666666'
                   },
@@ -111,17 +112,23 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                     color: '#7e7e7e',
                     fixedrange: true,
                     titlefont: {
-                      size: 16 * width / 720
+                      size: 10 * width / 720
+                    },
+                    tickfont: {
+                      size: 10 * width / 720
                     },
                   },
 
                   yaxis: {
-                    title: '% CO2 Emissions Within This Lifetime',
+                    title: '% Human CO2 Emissions Emitted Within This Lifetime',
                     range: [0, 101],
                     color: '#7e7e7e',
                     fixedrange: true,
                     titlefont: {
-                      size: 16 * width / 720
+                      size: 10 * width / 720
+                    },
+                    tickfont: {
+                      size: 10 * width / 720
                     },
                   },
 
@@ -380,6 +387,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   mode: 'lines',
                   type: 'scatter',
                   hovertemplate: '%{x}: %{y:.4r} parts per million of CO2<extra></extra>',
+                  hoverlabel: { bgcolor: "#FFF"},
                   line: {
                     color:'#D8FFA2',
                     width: 4
@@ -396,6 +404,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   showlegend: false,
                   paper_bgcolor: '#222222',
                   plot_bgcolor: '#222222',
+                  hovermode: 'closest',
 
                   font: {
                     family: 'Graphik Web',
@@ -405,12 +414,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   xaxis: {
                     range: [graphYear == 2019 ? 2018.5 : graphYear - stepSize + 1, 2019.5],
-                    title: 'Year',
                     tickformat: 'd',
                     fixedrange: true,
                     color: '#7e7e7e',
                     titlefont: {
-                      size: 12 * width / 720
+                      size: 10 * width / 720
+                    },
+                    tickfont: {
+                      size: 10 * width / 720
                     },
                   },
 
@@ -424,14 +435,17 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                     fixedrange: true,
                     color: '#7e7e7e',
                     titlefont: {
-                      size: 12 * width / 720
+                      size: 10 * width / 720
+                    },
+                    tickfont: {
+                      size: 10 * width / 720
                     },
                   },
 
                   margin: {
                       l: 80 * width / 720,
                       r: 25 * width / 720,
-                      b: 50 * width / 720,
+                      b: 25 * width / 720,
                       t: 50 * width / 720,
                       pad: 2 * width / 720
                   },
@@ -461,7 +475,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                     ].filter(e => e.x != birthYear)
                      .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                      .filter(e => e.x >= graphYear)
-                     .filter(e => e.font.size >= 8 * width/720)
+                     .filter(e => e.font.size >= (10/12) * 8 * width/720)
                      .concat(graphYear <= birthYear ? [makeAnnotation(0.5, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * 0.75 * width/720)] : [])
                 });`
       /]
@@ -633,12 +647,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                       xaxis: {
                         range: [graph2Year == birthYear ? graph2Year - stepSize : graph2Year - 50/2, 2019.5],
-                        title: 'Year',
                         tickformat: 'd',
                         fixedrange: true,
                         color: '#7e7e7e',
                         titlefont: {
-                          size: 12 * width / 720
+                          size: 10 * width / 720
+                        },
+                        tickfont: {
+                          size: 10 * width / 720
                         },
                       },
 
@@ -652,14 +668,17 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         fixedrange: true,
                         color: '#7e7e7e',
                         titlefont: {
-                          size: 12 * width / 720
+                          size: 10 * width / 720
+                        },
+                        tickfont: {
+                          size: 10 * width / 720
                         },
                       },
 
                       margin: {
                           l: 80 * width / 720,
                           r: 25 * width / 720,
-                          b: 50 * width / 720,
+                          b: 25 * width / 720,
                           t: 50 * width / 720,
                           pad: 2 * width / 720
                       },
@@ -697,7 +716,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         ].filter(e => e.x != birthYear)
                          .filter(e => !(e.direction == 'up' && Math.abs(e.x - birthYear) < 5))
                          .filter(e => e.x >= graph2Year)
-                         .filter(e => e.font.size >= 8 * width/720, )
+                         .filter(e => e.font.size >= (10/12) * 8 * width/720, )
                          .concat([makeAnnotation(0.5, graph2Year, birthYear, width/720, 'up', 'You Were Born!<br>🎂🎉', -25 * 0.75 * width/720, 40 * 0.75 * width/720, 'center', 'bottom', true)])
                     });`
           /]
@@ -778,6 +797,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                       mode: 'lines',
                       type: 'scatter',
                       hovertemplate: '%{x} Years Before 2019<br>%{y:.4r} parts per million of CO2<extra></extra>',
+                      hoverlabel: { bgcolor: "#FFF"},
                       line: {
                         color:'#D8FFA2',
                         width: 4
@@ -794,7 +814,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                       showlegend: false,
                       paper_bgcolor: '#222222',
                       plot_bgcolor: '#222222',
-
+                      hovermode: 'closest',
 
                       font: {
                         family: 'Graphik Web',
@@ -810,8 +830,11 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         zeroline: false,
                         color: '#7e7e7e',
                         titlefont: {
-                          size: 12 * width / 720
-                        }
+                          size: 10 * width / 720
+                        },
+                        tickfont: {
+                          size: 10 * width / 720
+                        },
                       },
 
                       yaxis: {
@@ -825,7 +848,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         zeroline: false,
                         color: '#7e7e7e',
                         titlefont: {
-                          size: 12 * width / 720
+                          size: 10 * width / 720
+                        },
+                        tickfont: {
+                          size: 10 * width / 720
                         },
                       },
 
@@ -870,7 +896,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             yanchor: 'center',
                             text: 'Transition to<br>Agriculture',
                             font: {
-                              size: 12 * width/720,
+                              size: 10 * width/720,
                             },
                             showarrow: false,
                           },
@@ -895,7 +921,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           makeAnnotation(0.9, graph3Year, -9600, width/720, 'up', '🌾 Wheat<br>Cultivated', -25 * 0.35 * width/720, 40 * 0.35 * width/720, 'center', 'bottom', true)
                         ]
                          .filter(e => e.x >= graph3Year)
-                         .filter(e => e.font.size >= 6 * width/720)
+                         .filter(e => e.font.size >= (10/12) * 6 * width/720)
                          .map(e => (
                           {
                             x: 2019 - e.x,
@@ -1000,6 +1026,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         mode: 'lines',
                         type: 'scattergl',
                         hovertemplate: '%{y:.d} °C deviation<extra></extra>',
+                        hoverlabel: { bgcolor: "#FFF"},
                         line: {
                           color:'red',
                           width: 4
@@ -1014,6 +1041,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         mode: 'lines',
                         type: 'scattergl',
                         hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                        hoverlabel: { bgcolor: "#FFF"},
                         line: {
                           color:'#D8FFA2',
                           width: 4
@@ -1035,6 +1063,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         showlegend: false,
                         paper_bgcolor: '#222222',
                         plot_bgcolor: '#222222',
+                        hovermode: 'closest',
 
                         font: {
                           family: 'Graphik Web',
@@ -1049,7 +1078,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           tickformat: ',',
                           color: '#7e7e7e',
                           titlefont: {
-                            size: 12 * width / 720
+                            size: 10 * width / 720
+                          },
+                          tickfont: {
+                            size: 10 * width / 720
                           },
                           zeroline: false,
                           fixedrange: true,
@@ -1065,7 +1097,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           fixedrange: true,
                           color: '#D8FFA2',
                           titlefont: {
-                            size: 12 * width / 720
+                            size: 10 * width / 720
+                          },
+                          tickfont: {
+                            size: 10 * width / 720
                           },
                           showgrid: false,
                           zeroline: false
@@ -1079,7 +1114,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           fixedrange: true,
                           color: 'red',
                           titlefont: {
-                            size: 12 * width / 720
+                            size: 10 * width / 720
+                          },
+                          tickfont: {
+                            size: 10 * width / 720
                           },
                           tickmode: "array",
                           tickvals: [0, -5, -10],
@@ -1129,7 +1167,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               yanchor: 'bottom',
                               text: 'Human-Caused Rise in CO2',
                               font: {
-                                size: 12 * width/720,
+                                size: 10 * width/720,
                                 color: '#7e7e7e'
                               },
                               showarrow: false,
@@ -1144,7 +1182,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               yanchor: 'center',
                               text: 'Transition to<br>Agriculture',
                               font: {
-                                size: 12 * width/720,
+                                size: 10 * width/720,
                               },
                               showarrow: false,
                               visible: graph4Year == -10000 ? true : false
@@ -1159,7 +1197,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               yanchor: 'center',
                               text: 'Human Civilizations Develop',
                               font: {
-                                size: 12 * width/720,
+                                size: 10 * width/720,
                               },
                               showarrow: false,
                               visible: graph4Year == -10000 ? true : false
@@ -1174,7 +1212,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               yanchor: 'center',
                               text: '<i>Homo Sapiens</i> Lineage Appears',
                               font: {
-                                size: 12 * width/720,
+                                size: 10 * width/720,
                               },
                               showarrow: false,
                             },
@@ -1348,6 +1386,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                             },
 
                             { // lower bound
@@ -1359,6 +1398,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                             },
 
                             {
@@ -1367,6 +1407,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'markers',
                               type: 'scattergl',
                               hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                               line: {
                                 color: '#4801FF',
                                 size: 5,
@@ -1386,6 +1427,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                             },
 
                             { // lower bound
@@ -1397,6 +1439,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                             },
 
                             { // upper bound
@@ -1406,6 +1449,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                             },
 
                             { // lower bound
@@ -1417,6 +1461,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                             },
 
                             { // upper bound
@@ -1426,6 +1471,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                             },
 
                             { // lower bound
@@ -1437,6 +1483,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
                               hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                             },
 
                             {
@@ -1445,6 +1492,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              hoverlabel: { bgcolor: "#FFF"},
                               line: {
                                 color: '#D8FFA2',
                                 size: 5,
@@ -1464,6 +1512,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             showlegend: false,
                             paper_bgcolor: '#222222',
                             plot_bgcolor: '#222222',
+                            hovermode: 'closest',
 
                             font: {
                               family: 'Graphik Web',
@@ -1476,7 +1525,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               tickformat: ',',
                               color: '#7e7e7e',
                               titlefont: {
-                                size: 12 * width / 720
+                                size: 10 * width / 720
+                              },
+                              tickfont: {
+                                size: 10 * width / 720
                               },
                               zeroline: false,
                               fixedrange: true,
@@ -1492,7 +1544,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               range: [150, 450],
                               fixedrange: true,
                               titlefont: {
-                                size: 12 * width / 720
+                                size: 10 * width / 720
+                              },
+                              tickfont: {
+                                size: 10 * width / 720
                               },
                               showgrid: false,
                               zeroline: false
@@ -1516,7 +1571,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 yanchor: 'bottom',
                                 text: 'Human-Caused Rise in CO2',
                                 font: {
-                                  size: 12 * width/720,
+                                  size: 10 * width/720,
                                   color: '#7e7e7e'
                                 },
                                 showarrow: false,
@@ -1535,7 +1590,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 yanchor: 'center',
                                 text: '2½ Million<br>Years Ago',
                                 font: {
-                                  size: 12 * width/720,
+                                  size: 10 * width/720,
                                 },
                                 showarrow: false,
                               },
