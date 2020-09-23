@@ -2,9 +2,10 @@
 
 body {
   font-size: 24px;
-  color: #222222;
+  background-color: #222222;
   font-family: 'Graphik Web';
   line-height: 36px;
+  color: #ADADAD;
 }
 
 p {
@@ -73,34 +74,22 @@ p {
   margin-bottom: 20px;
   font-size: 16px;
   line-height: 24px;
+  width: 300px;
+  left: calc(600px + 4em);
 }
 
 .red {
-  color: red;
+  color: #EE998B;
 }
 
 .blue {
-  color: blue;
+  color: #9CBBD7;
 }
 
 .green {
   color: #D8FFA2;
 }
 
-@media all and (max-width: 1000px) {
-  .idyll-root {
-    max-width: none;
-    padding: 0;
-  }
-}
-
-@media all and (max-width: 800px) {
-  .idyll-root {
-    max-width: none;
-    padding: 0;
-  }
-
-}
 
 
 /** ARTICLE SPECIFIC */
@@ -116,287 +105,74 @@ p {
   font-weight: bold;
   line-height: 1.5;
   margin: 1em 0 2em 0;
-
 }
 
-
-/** INPUT WIDGETS */
-
-button {
-  background-color: #222222;
-  font-family: 'Graphik Web';
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-input[type=range] {
-  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 100%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
-}
-
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-
-input[type=range]:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-}
-
-input[type=range]::-ms-track {
-  width: 100%;
-  cursor: pointer;
-
-  /* Hides the slider so custom styles can be added */
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-
-/* Special styling for WebKit/Blink */
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-}
-
-/* All the same stuff for Firefox */
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #D8FFA2;
-  cursor: pointer;
-}
-
-/* All the same stuff for IE */
-input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #D8FFA2;
-  cursor: pointer;
-}
-input[type=range] {
-  -webkit-appearance: none;
-  margin: 18px 0;
-  width: 100%;
-}
-input[type=range]:focus {
-  outline: none;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #adadad;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -14px;
-}
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #adadad;
-}
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #adadad;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-  background: #adadad;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-fill-upper {
-  background: #adadad;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: #adadad;
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: #adadad;
-}
-
-
-/** ARTICLE HEADER */
-
-.parametric-long-title {
-  font-size: 56px;
-  color: #D8FFA2;
-  width: 100%;
-  font-weight: 500;
-}
-
-.parametric-article-dek {
-  font-family: 'Editorial New';
-}
-
-.parametric-header-hed-text {
-  border-bottom: solid 1px #222;
-  padding: 2em 0;
-}
-
-.parametric-header-hed {
-  width: 100%;
-  color: #222222;
-}
-
-.parametric-header-metadata-component > div {
-  margin-right: 2em;
-}
-
-.parametric-header-metadata-component > div > *{
-  margin-right: 0.5em;
-}
-
-/** ARTICLE NAV */
-
-.parametric-article-nav {
-  font-size: 16px;
-  line-height: 24px;
-  position: sticky;
-  top: 0;
-  border-bottom: solid 1px #222222;
-  background-color: #ADADAD;
+.parametric-header-text {
   margin: 0;
-  padding: 0.5em 50px;
-  color: #222222;
+  width: auto;
+  max-width: none;
+  border-top: none;
 }
-
-.parametric-article-nav .parametric-nav-links a {
-  font-weight: 300;
-  color: #222222;
-}
-
-
-/** BODY COPY ^/
-
-
-
-
-
-/** DARK MODE */
-/** Comment out the code below this to go back to black on #ADADAD background. */
-
-
-.parametric-article-nav {
+.parametric-header-text .parametric-long-title {
+  font-size: 120px;
+  line-height: 120px;
+  font-weight: bold;
+  font-family: 'Graphik Web';
+  max-width: none;
+  text-align: center;
   color: #D8FFA2;
-  border-bottom-color: #D8FFA2;
-  background-color: #222222;
-}
-.parametric-article-nav .parametric-nav-links a {
-  color: #D8FFA2;
+  margin-left: -25%;
+  margin-right: -25%;
+  width: 150%;
 }
 
-.parametric-header-hed {
-  width: 100%;
-  color: #ADADAD;
-}
-.article-header a {
-  color: #ADADAD;
-}
-
-h2 {
-  color: #D8FFA2;
+.byline-container {
+  justify-content: space-around;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 4em;
 }
 
-.pull-number {
-  color: #ADADAD;
+.article-header {
+  max-width: 100%;
+  width: 1000px;
+  padding: 2em;
+  height: 100vh;
+  text-align: center;
 }
 
-
-body {
-  color: #ADADAD;
-  background-color: #222222;
-}
-.idyll-text-container p {
-  color: #ADADAD;
-}
-.idyll-text-container p a,
-aside a, a {
-  color: #ADADAD;
-  text-decoration: underline;
+.article-header .idyll-text-container {
+  margin-left: 0;
 }
 
-
-button {
-  background-color: #D8FFA2;
-  color: #222222;
+.idyll-text-container {
+  margin: 0 auto;
 }
 
-
-.parametric-author-bio a {
-  color: #ADADAD;
+.parametric-caption {
+  max-width: 960px;
+  margin: 0 auto 2em auto;
+}
+@media all and (max-width: 1000px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
 }
 
-.separator {
-  width: 100%;
-  margin-top: 3em;
-}
-.separator-item {
-  width: 100%;
-  border-bottom: dotted 3px #D8FFA2;
-  margin-bottom: 2px;
-}
+@media all and (max-width: 960px) {
+  .parametric-caption {
+    max-width: calc(100% - 2em);
+    margin: 0 auto 2em auto;
+  }
 
-.idyll-display {
-  color: #ffffff;
-  border-bottom: dotted 2px #D8FFA2;
+}
+@media all and (max-width: 800px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
+
 }

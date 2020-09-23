@@ -1,4 +1,4 @@
-[meta title:"Your Life in CO2" description:"TK Article Description"
+[meta title:"Your Life in CO₂" description:"TK Article Description"
   shareImageUrl:"https://parametric.press/issue-02/tk-article-slug/static/images/share.png"
   shareImageWidth:"880"
   shareImageHeight:"440" /]
@@ -8,7 +8,7 @@
 [Nav fullWidth:true /]
 
 [Header
-  title:`["Your Life", "in CO2"]`
+  title:`["Your Life", "in CO₂"]`
   longTitle:`["Your Life in", "Carbon Dioxide"]`
   date:"May 15, 2020"
   dek:"Why we're living through an extraordinary time."
@@ -351,8 +351,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
           280 ppm
         [/Button]
 
-        [Button 
-          className:`vizppm == 412 ? 'gray' : ''` 
+        [Button
+          className:`vizppm == 412 ? 'gray' : ''`
           onClick:`
             vizppm = 412;
             ppmVizCompleted = true;
@@ -563,11 +563,11 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
             p.preload = function() {
               cake = p.loadImage('static/assets/cake/cake.png');
-              
+
               for (let i=0; i<=9; i++) {
                 numerals.push(p.loadImage('static/assets/cake/numeral'+i+'.png'));
               }
-              
+
               for (let i=1; i<=4; i++) {
                 flame.push(p.loadImage('static/assets/cake/flame'+i+'.png'));
               }
@@ -1343,7 +1343,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   There are 3 things to take away from this graph:
 
                   First, at no point in the past 800,000 years were carbon dioxide levels anywhere near as high as they are today.
-                  We're the first members of our species to experience global carbon dioxide levels as high as they are today. 
+                  We're the first members of our species to experience global carbon dioxide levels as high as they are today.
 
                   Second, when carbon dioxide levels fluctuated in the past, this usually happened over tens of thousands of years.
                   In comparison, our current spike in carbon dioxide was created in just a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).

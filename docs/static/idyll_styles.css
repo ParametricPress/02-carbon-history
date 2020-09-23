@@ -5,8 +5,9 @@ body {
 .idyll-root {
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 0;
   margin-bottom: 60px;
+  max-width: 1440px;
 }
 
 .idyll-text-container {
@@ -1450,10 +1451,6 @@ left: calc(100% - 40px);
 white-space: nowrap;
 }
 
-body {
-  overflow-x: hidden;
-}
-
 .aside {
   font-family: 'Graphik Web';
   font-size: 14px;
@@ -1615,7 +1612,7 @@ a {
   padding: 2em 50px 3em 50px;
   font-family: 'Graphik Web';
   font-size: 16px;
-  width: 100vw;
+  right: 0;
   left: 0;
   position: absolute;
   min-height: 400px;
@@ -1831,6 +1828,13 @@ h2 {
 }
 
 
+@media all and (max-width: 1440px) {
+  .parametric-recirc-next-article {
+    position: relative;
+    left: 0;
+    width: 100vw;
+  }
+}
 
 
 @media all and (max-width: 1200px) {
@@ -1854,6 +1858,7 @@ h2 {
     display: none;
   }
 }
+
 
 @media all and (max-width: 1000px) {
   .idyll-root {
