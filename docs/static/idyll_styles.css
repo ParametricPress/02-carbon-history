@@ -261,8 +261,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://parametric.press/static/fonts/graphik/Graphik-BlackItalic-Web.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/graphik/Graphik-BlackItalic-Web.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-BlackItalic-Web.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/graphik/Graphik-BlackItalic-Web.woff') format('woff');
   font-weight:  800;
   font-style:   italic;
   font-stretch: normal;
@@ -270,8 +270,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://parametric.press/static/fonts/graphik/Graphik-Black-Web.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/graphik/Graphik-Black-Web.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-Black-Web.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/graphik/Graphik-Black-Web.woff') format('woff');
   font-weight:  800;
   font-style:   normal;
   font-stretch: normal;
@@ -279,10 +279,10 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.eot');
-  src: url('https://parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.eot?#iefix') format('embedded-opentype'),
-       url('https://parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.eot');
+  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.eot?#iefix') format('embedded-opentype'),
+       url('https://preview.parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.woff') format('woff');
   font-weight:  700;
   font-style:   italic;
   font-stretch: normal;
@@ -290,8 +290,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://parametric.press/static/fonts/graphik/Graphik-Bold-Web.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/graphik/Graphik-Bold-Web.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-Bold-Web.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/graphik/Graphik-Bold-Web.woff') format('woff');
   font-weight:  700;
   font-style:   normal;
   font-stretch: normal;
@@ -299,8 +299,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://parametric.press/static/fonts/graphik/Graphik-MediumItalic-Web.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/graphik/Graphik-MediumItalic-Web.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-MediumItalic-Web.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/graphik/Graphik-MediumItalic-Web.woff') format('woff');
   font-weight:  500;
   font-style:   italic;
   font-stretch: normal;
@@ -308,8 +308,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://parametric.press/static/fonts/graphik/Graphik-Medium-Web.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/graphik/Graphik-Medium-Web.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-Medium-Web.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/graphik/Graphik-Medium-Web.woff') format('woff');
   font-weight:  500;
   font-style:   normal;
   font-stretch: normal;
@@ -317,8 +317,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://parametric.press/static/fonts/graphik/Graphik-RegularItalic-Web.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/graphik/Graphik-RegularItalic-Web.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-RegularItalic-Web.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/graphik/Graphik-RegularItalic-Web.woff') format('woff');
   font-weight:  400;
   font-style:   italic;
   font-stretch: normal;
@@ -326,8 +326,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://parametric.press/static/fonts/graphik/Graphik-Regular-Web.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/graphik/Graphik-Regular-Web.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-Regular-Web.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/graphik/Graphik-Regular-Web.woff') format('woff');
   font-weight:  400;
   font-style:   normal;
   font-stretch: normal;
@@ -336,20 +336,20 @@ input {
 
 @font-face {
   font-family: 'Bluu';
-  src: url('https://parametric.press/static/fonts/bluu/bluunext-bold-webfont.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/bluu/bluunext-bold-webfont.woff') format('woff'),
-       url('https://parametric.press/static/fonts/bluu/bluunext-bold.ttf') format('truetype'),
-       url('https://parametric.press/static/fonts/bluu/bluunext-bold-webfont.svg#bluu_nextbold') format('svg');
+  src: url('https://preview.parametric.press/static/fonts/bluu/bluunext-bold-webfont.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bold-webfont.woff') format('woff'),
+       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bold.ttf') format('truetype'),
+       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bold-webfont.svg#bluu_nextbold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Bluu';
-  src: url('https://parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.woff2') format('woff2'),
-       url('https://parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.woff') format('woff'),
-       url('https://parametric.press/static/fonts/bluu/bluunext-bolditalic.ttf') format('truetype'),
-       url('https://parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.svg#bluu_nextbold_italic') format('svg');
+  src: url('https://preview.parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.woff') format('woff'),
+       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bolditalic.ttf') format('truetype'),
+       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.svg#bluu_nextbold_italic') format('svg');
   font-weight: normal;
   font-style: italic;
 }
@@ -358,8 +358,8 @@ input {
 
 @font-face {
   font-family: 'Editorial New';
-  src: url('./fonts/EditorialNew-Regular.woff2') format('woff2'),
-       url('./fonts/EditorialNew-Regular.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/editorial/EditorialNew-Regular.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/editorial/EditorialNew-Regular.woff') format('woff');
   font-weight:  400;
   font-style:   normal;
   font-stretch: normal;
@@ -367,8 +367,8 @@ input {
 
 @font-face {
   font-family: 'Tiempos Text';
-  src: url('./fonts/tiempos-text-web-regular.woff2') format('woff2'),
-       url('./fonts/tiempos-text-web-regular.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-regular.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-regular.woff') format('woff');
   font-weight:  400;
   font-style:   normal;
   font-stretch: normal;
@@ -377,8 +377,8 @@ input {
 
 @font-face {
   font-family: 'Tiempos Text';
-  src: url('./fonts/tiempos-text-web-regular-italic.woff2') format('woff2'),
-       url('./fonts/tiempos-text-web-regular-italic.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-regular-italic.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-regular-italic.woff') format('woff');
   font-weight:  400;
   font-style:   italic;
   font-stretch: normal;
@@ -386,8 +386,8 @@ input {
 
 @font-face {
   font-family: 'Tiempos Text';
-  src: url('./fonts/tiempos-text-web-bold.woff2') format('woff2'),
-       url('./fonts/tiempos-text-web-bold.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-bold.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-bold.woff') format('woff');
   font-weight:  700;
   font-style:   normal;
   font-stretch: normal;
@@ -396,8 +396,8 @@ input {
 
 @font-face {
   font-family: 'Tiempos Text';
-  src: url('./fonts/tiempos-text-web-bold-italic.woff2') format('woff2'),
-       url('./fonts/tiempos-text-web-bold-italic.woff') format('woff');
+  src: url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-bold-italic.woff2') format('woff2'),
+       url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-bold-italic.woff') format('woff');
   font-weight:  700;
   font-style:   italic;
   font-stretch: normal;
@@ -1828,11 +1828,326 @@ h2 {
 }
 
 
+
+.idyll-root {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.idyll-mount {
+  overflow-x: hidden;
+}
+
+.parametric-recirc-next-article {
+  /* position: relative; */
+  margin-left: calc(-1 * (100vw - 1440px) / 2);
+  margin-right: calc(-1 * (100vw - 1440px) / 2);
+  width: 100%;
+
+}
+
+.idyll-scroll-graphic > div {
+  max-width: 1440px;
+  padding-right: 50px;
+  padding-top: 150px;
+}
+.pull-number {
+  font-family: 'Editorial New';
+}
+.parametric-header-text {
+  margin: 0;
+  width: calc(100% - 50px);
+}
+body {
+  font-family: 'Graphik Web';
+}
+/** INPUT WIDGETS */
+
+button {
+  background-color: #222222;
+  font-family: 'Graphik Web';
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #D8FFA2;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #D8FFA2;
+  cursor: pointer;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #adadad;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #adadad;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #adadad;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #adadad;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #adadad;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #adadad;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #adadad;
+}
+
+/** ARTICLE NAV */
+
+.parametric-article-nav {
+  font-size: 16px;
+  line-height: 24px;
+  position: sticky;
+  top: 0;
+  border-bottom: solid 1px #222222;
+  background-color: #ADADAD;
+  color: #222222;
+  margin-left: calc((100vw - 1440px) / -2);
+  margin-right: calc((100vw - 1440px) / -2);
+  padding-left: calc((100vw - 1440px) / 2);
+  padding-right: calc((100vw - 1440px) / 2);
+  margin-top: 0;
+}
+
+.parametric-article-nav .parametric-nav-links a {
+  font-weight: 300;
+  color: #222222;
+}
+
+/**
+ DARK  MODE
+*/
+
+.parametric-article-nav {
+  color: #D8FFA2;
+  border-bottom-color: #D8FFA2;
+  background-color: #222222;
+  background: #222222;
+}
+.parametric-article-nav .parametric-nav-links a {
+  color: #D8FFA2;
+}
+
+.parametric-header-hed {
+  width: 100%;
+  color: #ADADAD;
+}
+.article-header a {
+  color: #ADADAD;
+}
+
+h2 {
+  color: #D8FFA2;
+}
+
+.pull-number {
+  color: #ADADAD;
+}
+
+
+body {
+  color: #ADADAD;
+  background-color: #222222;
+}
+.idyll-text-container p {
+  color: #ADADAD;
+}
+.idyll-text-container p a,
+aside a, a {
+  color: #ADADAD;
+  text-decoration: underline;
+}
+
+
+button {
+  background-color: #D8FFA2;
+  color: #222222;
+}
+
+
+.parametric-author-bio a {
+  color: #ADADAD;
+}
+
+.separator {
+  width: 100%;
+  margin-top: 3em;
+}
+.separator-item {
+  width: 100%;
+  border-bottom: dotted 3px #D8FFA2;
+  margin-bottom: 2px;
+}
+
+.idyll-display {
+  color: #ffffff;
+  border-bottom: dotted 2px #D8FFA2;
+}
+
+.parametric-header-hed-text {
+  border-bottom: solid 1px #ADADAD;
+  padding: 2em 0;
+}
+
+.parametric-issue-toc {
+  line-height: 1.2;
+  color: #222222;
+}
+
+.parametric-long-title {
+  font-size: 56px;
+  color: #D8FFA2;
+  width: 100%;
+  font-weight: 500;
+}
+
+.parametric-article-dek {
+  font-family: 'Editorial New';
+  line-height: 1.2;
+  padding-top: 0.5em;
+}
+
+
+.idyll-step p {
+  color: #222222;
+}
+
+
 @media all and (max-width: 1440px) {
   .parametric-recirc-next-article {
     position: relative;
     left: 0;
     width: 100vw;
+  }
+
+  .parametric-article-nav {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 
@@ -1859,7 +2174,6 @@ h2 {
   }
 }
 
-
 @media all and (max-width: 1000px) {
   .idyll-root {
     max-width: 100vw;
@@ -1880,6 +2194,10 @@ h2 {
   .parametric-recirc-next-article {
     margin-left: 0;
     margin-right: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .parametric-article-nav {
     padding-left: 1em;
     padding-right: 1em;
   }
@@ -2031,9 +2349,10 @@ h2 {
 
 body {
   font-size: 24px;
-  color: #222222;
+  background-color: #222222;
   font-family: 'Graphik Web';
   line-height: 36px;
+  color: #ADADAD;
 }
 
 p {
@@ -2102,34 +2421,22 @@ p {
   margin-bottom: 20px;
   font-size: 16px;
   line-height: 24px;
+  width: 300px;
+  left: calc(600px + 4em);
 }
 
 .red {
-  color: red;
+  color: #EE998B;
 }
 
 .blue {
-  color: blue;
+  color: #9CBBD7;
 }
 
 .green {
   color: #D8FFA2;
 }
 
-@media all and (max-width: 1000px) {
-  .idyll-root {
-    max-width: none;
-    padding: 0;
-  }
-}
-
-@media all and (max-width: 800px) {
-  .idyll-root {
-    max-width: none;
-    padding: 0;
-  }
-
-}
 
 
 /** ARTICLE SPECIFIC */
@@ -2145,287 +2452,74 @@ p {
   font-weight: bold;
   line-height: 1.5;
   margin: 1em 0 2em 0;
-
 }
 
-
-/** INPUT WIDGETS */
-
-button {
-  background-color: #222222;
-  font-family: 'Graphik Web';
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-input[type=range] {
-  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 100%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
-}
-
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-
-input[type=range]:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-}
-
-input[type=range]::-ms-track {
-  width: 100%;
-  cursor: pointer;
-
-  /* Hides the slider so custom styles can be added */
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-
-/* Special styling for WebKit/Blink */
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
-}
-
-/* All the same stuff for Firefox */
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #D8FFA2;
-  cursor: pointer;
-}
-
-/* All the same stuff for IE */
-input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #D8FFA2;
-  cursor: pointer;
-}
-input[type=range] {
-  -webkit-appearance: none;
-  margin: 18px 0;
-  width: 100%;
-}
-input[type=range]:focus {
-  outline: none;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #adadad;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -14px;
-}
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #adadad;
-}
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #adadad;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-  background: #adadad;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-fill-upper {
-  background: #adadad;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: #adadad;
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: #adadad;
-}
-
-
-/** ARTICLE HEADER */
-
-.parametric-long-title {
-  font-size: 56px;
-  color: #D8FFA2;
-  width: 100%;
-  font-weight: 500;
-}
-
-.parametric-article-dek {
-  font-family: 'Editorial New';
-}
-
-.parametric-header-hed-text {
-  border-bottom: solid 1px #222;
-  padding: 2em 0;
-}
-
-.parametric-header-hed {
-  width: 100%;
-  color: #222222;
-}
-
-.parametric-header-metadata-component > div {
-  margin-right: 2em;
-}
-
-.parametric-header-metadata-component > div > *{
-  margin-right: 0.5em;
-}
-
-/** ARTICLE NAV */
-
-.parametric-article-nav {
-  font-size: 16px;
-  line-height: 24px;
-  position: sticky;
-  top: 0;
-  border-bottom: solid 1px #222222;
-  background-color: #ADADAD;
+.parametric-header-text {
   margin: 0;
-  padding: 0.5em 50px;
-  color: #222222;
+  width: auto;
+  max-width: none;
+  border-top: none;
 }
-
-.parametric-article-nav .parametric-nav-links a {
-  font-weight: 300;
-  color: #222222;
-}
-
-
-/** BODY COPY ^/
-
-
-
-
-
-/** DARK MODE */
-/** Comment out the code below this to go back to black on #ADADAD background. */
-
-
-.parametric-article-nav {
+.parametric-header-text .parametric-long-title {
+  font-size: 120px;
+  line-height: 120px;
+  font-weight: bold;
+  font-family: 'Graphik Web';
+  max-width: none;
+  text-align: center;
   color: #D8FFA2;
-  border-bottom-color: #D8FFA2;
-  background-color: #222222;
-}
-.parametric-article-nav .parametric-nav-links a {
-  color: #D8FFA2;
+  margin-left: -25%;
+  margin-right: -25%;
+  width: 150%;
 }
 
-.parametric-header-hed {
-  width: 100%;
-  color: #ADADAD;
-}
-.article-header a {
-  color: #ADADAD;
-}
-
-h2 {
-  color: #D8FFA2;
+.byline-container {
+  justify-content: space-around;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 4em;
 }
 
-.pull-number {
-  color: #ADADAD;
+.article-header {
+  max-width: 100%;
+  width: 1000px;
+  padding: 2em;
+  height: 100vh;
+  text-align: center;
 }
 
-
-body {
-  color: #ADADAD;
-  background-color: #222222;
-}
-.idyll-text-container p {
-  color: #ADADAD;
-}
-.idyll-text-container p a,
-aside a, a {
-  color: #ADADAD;
-  text-decoration: underline;
+.article-header .idyll-text-container {
+  margin-left: 0;
 }
 
-
-button {
-  background-color: #D8FFA2;
-  color: #222222;
+.idyll-text-container {
+  margin: 0 auto;
 }
 
-
-.parametric-author-bio a {
-  color: #ADADAD;
+.parametric-caption {
+  max-width: 960px;
+  margin: 0 auto 2em auto;
+}
+@media all and (max-width: 1000px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
 }
 
-.separator {
-  width: 100%;
-  margin-top: 3em;
-}
-.separator-item {
-  width: 100%;
-  border-bottom: dotted 3px #D8FFA2;
-  margin-bottom: 2px;
-}
+@media all and (max-width: 960px) {
+  .parametric-caption {
+    max-width: calc(100% - 2em);
+    margin: 0 auto 2em auto;
+  }
 
-.idyll-display {
-  color: #ffffff;
-  border-bottom: dotted 2px #D8FFA2;
+}
+@media all and (max-width: 800px) {
+  .idyll-root {
+    max-width: none;
+    padding: 0;
+  }
+
 }
