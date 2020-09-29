@@ -51,7 +51,7 @@ input {
 .aside {
   position: absolute;
   width: 300px;
-  right: calc((10vw + 600px + 150px) / -2);
+  left: 750px;
 }
 
 .fixed {
@@ -1269,7 +1269,7 @@ h2 {
 button, input[type=submit] {
   display: block;
   margin: 1em auto;
-  background: #4801FF;
+  background: #adadad;
   font-family: Silkscreen;
   border: none;
   box-shadow: none;
@@ -1505,13 +1505,13 @@ a {
   font-family: 'Graphik Web';
   font-size: 32px;
   color: #ffffff;
-  text-shadow: -1px -1px 0 #4801FF, 1px -1px 0 #4801FF, -1px 1px 0 #4801FF, 1px 1px 0 #4801FF;
+  text-shadow: -1px -1px 0 #adadad, 1px -1px 0 #adadad, -1px 1px 0 #adadad, 1px 1px 0 #adadad;
   transition: all 0.25s;
   cursor: pointer;
 }
 
 .parametric-recirc-next-article a:hover .highlight-hover {
-  color: #4801FF;
+  color: #adadad;
   /* text-shadow: none; */
 }
 
@@ -1540,7 +1540,7 @@ a {
 }
 
 .parametric-caption a {
-  color: #24292e;
+  color: #D8FFA2;
   text-decoration: underline;
 }
 
@@ -1549,7 +1549,7 @@ a {
   text-decoration: underline;
 }
 .parametric-tooltip-trigger:hover {
-  color: #4801FF;
+  color: #adadad;
 }
 
 .parametric-tooltip {
@@ -1841,10 +1841,14 @@ h2 {
 
 .parametric-recirc-next-article {
   /* position: relative; */
-  margin-left: calc(-1 * (100vw - 1440px) / 2);
-  margin-right: calc(-1 * (100vw - 1440px) / 2);
   width: 100%;
+}
 
+@media screen and (min-width: 1400px) {
+  .parametric-recirc-next-article {
+    margin-left: calc(-1 * (100vw - 1440px) / 2);
+    margin-right: calc(-1 * (100vw - 1440px) / 2);
+  }
 }
 
 .idyll-scroll-graphic > div {
@@ -2059,8 +2063,9 @@ input[type=range]:focus::-ms-fill-upper {
   color: #ADADAD;
 }
 
-h2 {
+h1, h2, h3, h4, h6 {
   color: #D8FFA2;
+  font-family: 'Editorial New';
 }
 
 .pull-number {
@@ -2302,19 +2307,6 @@ button {
   .parametric-article-dek {
     font-size: 24px;
   }
-  .parametric-article-nav {
-    margin-left: 0;
-    margin-right: 0;
-    font-size: 24px;
-    line-height: 32px;
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-
-  .parametric-nav-links {
-    font-size: 18px;
-    line-height: 1.5;
-  }
 
   .parametric-header-text {
     top: 0;
@@ -2334,6 +2326,15 @@ button {
     margin-bottom: 1em;
   }
 
+
+	.idyll-text-container img {
+		margin: 2em auto;
+		width: 100%;
+  }
+
+  .idyll-scroll {
+    transform: translateX(-1em);
+  }
 }
 
 @media all and (max-width: 320px) {
@@ -2345,6 +2346,25 @@ button {
 
 
 
+
+@media all and (min-width: 1440px) {
+  .parametric-recirc-next-article {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .parametric-footer {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+  }
+
+  .parametric-article-nav {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
 
 
 body {
