@@ -1194,6 +1194,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               visible: graph4Year == -10000 ? true : false
                             },
 
+                            /*
                             {
                               x: 2019 - 5000,
                               y: 245,
@@ -1208,6 +1209,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               showarrow: false,
                               visible: graph4Year == -10000 ? true : false
                             },
+                            */
 
                             {
                               x: -300000,
@@ -1568,6 +1570,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             },
 
                             annotations: [
+                              /*
                               {
                                 x: 1,
                                 y: 415,
@@ -1582,6 +1585,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 },
                                 showarrow: false,
                               },
+                              */
 
                               makeAnnotation(0.5, graph4Year, 2019, width/720, 'up', '2019', -40 * 0.75 * width/720, 0, 'right', 'center', true),
                               makeAnnotation(0.5, graph4Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true),
@@ -1604,6 +1608,24 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             ],
 
                             shapes: [
+
+                                {
+                                  type: 'line',
+                                  yref: 'y',
+                                  xref: 'paper',
+                                  x0: 0,
+                                  y0: 412,
+                                  x1: 1,
+                                  y1: 412,
+                                  line: {
+                                    color: 'rgba(126, 126, 126, 0.5)',
+                                    width: 2,
+                                    dash: 'dash'
+                                    // Sets the dash style of lines. Set to a dash type string ("solid", "dot", "dash", "longdash", "dashdot", or "longdashdot") or a dash length list in px (eg "5px,10px,2px,2px").
+                                  }
+                                },     
+
+                                /*
                                 {
                                     type: 'rect',
                                     yref: 'y',
@@ -1619,6 +1641,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                         width: 0
                                     }
                                 }
+                                */
                             ],
 
                           });`
