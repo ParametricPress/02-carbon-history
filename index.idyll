@@ -70,7 +70,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
       [br/]
       You guessed that [Display value:guessPercent format:"d" /]% of human carbon dioxide emissions occurred during your lifetime.
 
-      In reality, [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of human-caused carbon dioxide emissions occurred since you were born.
+      In reality, about [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of human-caused carbon dioxide emissions occurred since you were born.
 
       **If you're in high school**, roughly a quarter of all human carbon emissions occurred during your lifetime.
 
@@ -778,7 +778,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             Our carbon dioxide output is *accelerating.*
 
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before.
-            But the steep rise in CO2 levels in your life makes the rise during the Industrial Revolution look like a gentle slope.
+            But the steep rise in CO2 levels during your life makes the rise during the Industrial Revolution look like a gentle slope.
 
             Everyone alive today is living through a great acceleration—an exponential growth of carbon consumption, and consequently, of carbon emissions.
 
@@ -786,7 +786,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
             When you're living through a dramatic change, it's hard to get a sense of perspective.
             To truly grasp the magnitude of this acceleration, we need to zoom out even further.
-            Here's what our current trajectory looks like when seen from the perspective of *all of human civilization*.
+
+            Let's see what our current trajectory looks like from the perspective of *all of human civilization*.
 
           [/TextContainer]
 
@@ -1620,8 +1621,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                 [caption]
                   This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
-                  **Data Source:** Data for light blue curves accessed from [Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years) and compiled from [Dyez et al](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018PA003349), [Martínez-Botí et al](https://www.nature.com/articles/nature14145), [Chalk et al](https://doi.pangaea.de/10.1594/PANGAEA.882545), and [Bärbel Hönisch, et al](https://science.sciencemag.org/content/324/5934/1551.full).
-                  Data for dark blue curves compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE).
+                  **Data Source:** Data for the blue curves (indirect CO2 measurements) are accessed from [Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years) and compiled from [Dyez et al](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018PA003349), [Martínez-Botí et al](https://www.nature.com/articles/nature14145), [Chalk et al](https://doi.pangaea.de/10.1594/PANGAEA.882545), and [Bärbel Hönisch, et al](https://science.sciencemag.org/content/324/5934/1551.full).
+                  Data for the green curve (direct CO2 measurements) is compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE).
                 [/caption]
 
                 [TextContainer]
@@ -1644,24 +1645,24 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                   ## What Comes Next?
 
-                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. And we're [on track](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) to surpass 1.5°C of warming by mid-century, potentially locking in even greater warming.
+                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. And we're [on track to surpass](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) 1.5°C of warming by mid-century, potentially locking in even greater warming.
 
-                  According to a [recent study](https://www.theguardian.com/environment/2020/jul/09/co2-in-earths-atmosphere-nearing-levels-of-15m-years-ago), if we continue at our current (pre COVID-19) rate unabated, in just 5 years we will hit CO2 levels that haven't been seen on Earth in *15 million years*.
+                  According to a [recent study](https://www.theguardian.com/environment/2020/jul/09/co2-in-earths-atmosphere-nearing-levels-of-15m-years-ago), if we continue at our current rate unabated, in just 5 years we will hit CO2 levels that haven't been seen on Earth in *15 million years*.
 
                   The astronaut Chris Hadfield [describes a saying](https://www.ted.com/talks/chris_hadfield_what_i_learned_from_going_blind_in_space) in the space industry: "*There's no problem so bad you can't make it worse*."
 
                   It's true that in the past few decades, we've greatly amplified the climate crisis, heading into territory unseen in millions of years.
 
-                  It's simultaneously true that if we fail to hit the brakes on our emissions, this problem will become significantly worse.
+                  It's simultaneously true that if we fail to hit the brakes on our emissions, this problem will become significantly worse, because every bit of carbon dioxide that we emit incrementally warms the planet.
 
-                  If our current trajectory continues unabated, [in just 30 years](http://folk.uio.no/roberan/img/GCB2019/PNG/s00_2019_Mitigation_Curves_2.0C.png)—a [single generation](https://en.wikipedia.org/wiki/Generation)—we'll have locked in 2°C of warming, a scenario with [devastating consequences](https://www.ipcc.ch/report/ar5/wg2/) for every ecosystem.
+                  At our current (2020) rate of carbon dioxide emissions, in just [30-40 years](https://carbontracker.org/carbon-budgets-where-are-we-now/) we'll have locked in 2°C of warming, a scenario with [devastating consequences](https://www.ipcc.ch/report/ar5/wg2/) for every ecosystem.
 
-                  It took one generation to send us hurtling along our current path, and one generation is also how long we have to mitigate the worst possible future scenarios.
+                  It took one or two generations to launch us into our current accelerating trajectory, and this is also how long we have to mitigate the worst possible future scenarios.
 
                   We’re currently at a precipice in our species’ history, a [branching point](https://rateofchange.substack.com/p/the-rate-of-change) between very different possible futures.
-                  Because CO2 levels are Earth's thermostat, the carbon that we emit in the coming decades will determine Earth’s eventual temperature.
-                  So it's safe to say that we're approaching one of the most consequential turning points in history.
+                  Because CO2 levels are Earth's thermostat, the carbon that we emit in the coming decades will directly determine Earth’s temperature.
 
+                  So it's safe to say we're approaching one of the most consequential turning points in human history.
                   Everyone alive today is living through an extraordinary time.
 
                   What comes next is up to us.
@@ -1804,7 +1805,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
 [AuthorBio]
 
-[b][a href:"https://aatishb.com/"]Aatish Bhatia[/a][/b] is a freelance science writer with a Ph.D. in physics and expertise in science education. You can follow him on [Twitter](https://twitter.com/aatishb) and sign up for his climate newsletter [The Rate of Change](https://rateofchange.substack.com/).
+[b][a href:"https://aatishb.com/"]Aatish Bhatia[/a][/b] is an award-winning science writer and educator with a Ph.D. in physics. You can support his science writing on [Patreon](https://www.patreon.com/aatishb) and sign up for his climate newsletter [The Rate of Change](https://rateofchange.substack.com/).
 
 Edited by TK editor list.
 [/AuthorBio]
