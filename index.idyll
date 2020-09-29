@@ -632,7 +632,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             isVisible:partOneCompleted
             data: graphData
             layout: `(width) => ({
-                      title: 'The History of CO2',
+                      title: 'The History of CO2: Industry',
                       width: width,
                       height: width/1.618,
                       showlegend: false,
@@ -809,7 +809,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             isVisible:partTwoCompleted
             data: graph3Data
             layout: `(width) => ({
-                      title: 'The History of CO2',
+                      title: 'The History of CO2: Civilization',
                       width: width,
                       height: width / 1.618,
                       showlegend: false,
@@ -1058,7 +1058,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
               isVisible:partThreeCompleted
               data: graph4Data
               layout: `(width) => ({
-                        title: 'The History of CO2',
+                        title: 'The History of CO2: Ice Ages',
                         width: width,
                         height: width / 1.618,
                         showlegend: false,
@@ -1140,10 +1140,11 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           easing: 'cubic-in-out'
                         },
 
+                        /*
                         shapes: [
                             {
                                 type: 'rect',
-                                yref: 'y1',
+                                yref: 'y2',
                                 xref: 'x',
                                 x0: 800000,
                                 y0: 280,
@@ -1157,13 +1158,15 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 }
                             }
                         ],
+                        */
 
                         annotations: [
+                            /*
                             {
                               x: 2019,
                               y: 415,
                               xref: 'x',
-                              yref: 'y1',
+                              yref: 'y2',
                               xanchor: 'right',
                               yanchor: 'bottom',
                               text: 'Human-Caused Rise in CO2',
@@ -1172,13 +1175,15 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 color: '#7e7e7e'
                               },
                               showarrow: false,
+                              visible: true
                             },
+                            */
 
                             {
                               x: 2019 - 11000,
                               y: 240,
                               xref: 'x',
-                              yref: 'y1',
+                              yref: 'y2',
                               xanchor: 'center',
                               yanchor: 'center',
                               text: 'Transition to<br>Agriculture',
@@ -1193,7 +1198,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               x: 2019 - 5000,
                               y: 245,
                               xref: 'x',
-                              yref: 'y1',
+                              yref: 'y2',
                               xanchor: 'center',
                               yanchor: 'center',
                               text: 'Human Civilizations Develop',
@@ -1208,7 +1213,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               x: -300000,
                               y: 170,
                               xref: 'x',
-                              yref: 'y1',
+                              yref: 'y2',
                               xanchor: 'center',
                               yanchor: 'center',
                               text: '<i>Homo Sapiens</i> Lineage Appears',
@@ -1222,7 +1227,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             makeAnnotation(0.5, graph4Year, birthYear, width/720, 'up', 'You Were Born! 🎂🎉', -40 * 0.75 * width/720, 0, 'right', 'center', true)
                           ].concat(graph4Year == -200000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -20 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
                            .concat(graph4Year == -400000 ? [makeAnnotation(0.5, graph4Year, 2019-23000, width/720, 'up', 'Peak of<br>Last Ice Age', -20 * 0.75 * width/720, 60 * 0.75 * width/720, 'center', 'top', true)] : [])
-                           //.concat(graph4Year >= -400000 ? [makeAnnotation(0.5, graph4Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -60 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true)] : [])
+                           .concat(graph4Year >= -400000 ? [makeAnnotation(0.5, graph4Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -60 * 0.75 * width/720, 50 * 0.75 * width/720, 'center', 'top', true)] : [])
                            .filter(e => e.x >= graph4Year)
                            .map(e => (
                             {
@@ -1230,7 +1235,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               y: e.y,
                               direction: e.direction,
                               xref: e.xref,
-                              yref: 'y1',
+                              yref: 'y2',
                               xanchor: e.xanchor,
                               yanchor: e.yanchor,
                               text: e.text,
@@ -1507,7 +1512,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   isVisible:partFourCompleted
                   data: graph5Data
                   layout: `(width) => ({
-                            title: 'The History of CO2',
+                            title: 'The History of CO2: Before the Ice Ages',
                             width: width,
                             height: width / 1.618,
                             showlegend: false,
