@@ -1257,25 +1257,25 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             [var name:"showNavigation" value:false /]
             [div className:"buttonwrapper"]
 
-              [Button
-                if:`isTempVisible`
-                onClick:`
-                  if (buttonEnabled) {
+              [Conditional if:`!isTempVisible`]
+                [Button
+                  onClick:`
+                    if (buttonEnabled) {
 
-                    buttonEnabled = false;
-                    isTempVisible = true;
-                    showNavigation = true;
+                      buttonEnabled = false;
+                      isTempVisible = true;
+                      showNavigation = true;
 
-                    setTimeout(() => {
-                      buttonEnabled = true;
-                    }, 1000);
+                      setTimeout(() => {
+                        buttonEnabled = true;
+                      }, 1000);
 
-                  }
-                `
-                 className:`isTempVisible ? 'gray' : ''`
-                ]
-                  Reveal Temperature
-              [/Button]
+                    }
+                  `
+                  ]
+                    Reveal Temperature
+                [/Button]
+              [/Conditional]
 
               [Conditional if:`showNavigation`]
                 [div className:"buttonwrapper"]
