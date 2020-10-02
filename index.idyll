@@ -107,7 +107,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   plot_bgcolor: '#222222',
 
                   xaxis: {
-                    title: 'Age',
+                    title: {
+                      text: 'Age',
+                    },
                     dtick: 5,
                     color: '#7e7e7e',
                     fixedrange: true,
@@ -120,7 +122,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   },
 
                   yaxis: {
-                    title: '% Human CO2 Emissions Emitted Within This Lifetime',
+                    title: {
+                      text: '% Human CO2 Emissions Emitted Within This Lifetime',
+                    },
                     range: [0, 101],
                     color: '#7e7e7e',
                     fixedrange: true,
@@ -141,7 +145,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   margin: {
                       l: 100 * width / 720,
                       r: 50 * width / 720,
-                      b: 100 * width / 720,
+                      b: 50 * width / 720,
                       t: 100 * width / 720,
                       pad: 4 * width / 720
                     },
@@ -151,7 +155,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
       Every age above shows the percentage of human CO2 emissions that occurred within that lifetime.
       *Human CO2 emissions* are defined here as the rise in atmospheric CO2 levels between the pre-industrial value of [280 parts per million](https://www.esrl.noaa.gov/gmd/ccgg/trends/weekly.html) and the 2019 average value.
       This graph is inspired by one created by [link text:"Neil Kaye" url:"https://twitter.com/neilrkaye/status/1129347990777413632" /].
-      [br/][br/]**Data Source:** CO2 values compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+      **Data Source:** CO2 values compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
     [/caption]
 
     [TextContainer]
@@ -423,6 +427,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                     tickfont: {
                       size: 10 * width / 720
                     },
+                    showline: true,
                   },
 
                   yaxis: {
@@ -430,7 +435,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             co2.filter(e => e.year >= graphYear).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.1, // min of yvalues in xrange
                             425
                             ],
-                    title: 'CO2 Level (ppm)',
+                    title: {
+                      text: 'CO2 Level (ppm)',
+                    },
                     tickformat: 'd',
                     fixedrange: true,
                     color: '#7e7e7e',
@@ -440,6 +447,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                     tickfont: {
                       size: 10 * width / 720
                     },
+                    showline: true,
                   },
 
                   margin: {
@@ -486,7 +494,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
         [div className:"buttonwrapper"]
 
-          [Button if:`isTempVisible` onClick:`
+          [Button onClick:`
             if (buttonEnabled) {
 
               buttonEnabled = false;
@@ -656,6 +664,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         tickfont: {
                           size: 10 * width / 720
                         },
+                      showline: true,
                       },
 
                       yaxis: {
@@ -673,6 +682,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         tickfont: {
                           size: 10 * width / 720
                         },
+                      showline: true,
                       },
 
                       margin: {
@@ -836,6 +846,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         tickfont: {
                           size: 10 * width / 720
                         },
+                        showline: true,
                       },
 
                       yaxis: {
@@ -843,7 +854,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 co2.filter(e => e.year >=  graph3Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.15, // min of yvalues in xrange
                                 425
                                 ],
-                        title: 'CO2 Level (ppm)',
+                        title: {
+                          text: 'CO2 Level (ppm)',
+                        },
                         tickformat: 'd',
                         fixedrange: true,
                         zeroline: false,
@@ -854,6 +867,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         tickfont: {
                           size: 10 * width / 720
                         },
+                        showline: true,
                       },
 
                       margin: {
@@ -1029,7 +1043,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         hovertemplate: '%{y:.d} °C deviation<extra></extra>',
                         hoverlabel: { bgcolor: "#FFF"},
                         line: {
-                          color:'red',
+                          color: 'rgba(255, 0, 0, 0.7)',
                           width: 4
                         },
                         opacity: 1,
@@ -1075,7 +1089,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
                         xaxis: {
                           range: [2019 - graph4Year, graph4Year/100],
-                          title: 'Years before 2019',
+                          title: {
+                            text: 'Years before 2019',
+                          },
                           tickformat: ',',
                           color: '#7e7e7e',
                           titlefont: {
@@ -1086,11 +1102,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           },
                           zeroline: false,
                           fixedrange: true,
-                          nticks: 5
+                          nticks: 5,
+                          showline: true,
                         },
 
                         yaxis2: {
-                          title: 'CO2 Level (ppm)',
+                          title: {
+                            text: 'CO2 Level (ppm)',
+                          },
                           overlaying: 'y',
                           side: 'right',
                           range: [160, 420],
@@ -1108,12 +1127,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         },
 
                         yaxis: {
-                          title: 'Temperature Change (°C)',
+                          title: {
+                            text: 'Temperature Change (°C)',
+                          },
                           side: 'left',
                           range: [-12, 17.25],
                           tickformat: 'd',
                           fixedrange: true,
-                          color: 'red',
+                          color: 'rgba(255, 0, 0, 0.7)',
                           titlefont: {
                             size: 10 * width / 720
                           },
@@ -1124,7 +1145,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                           tickvals: [0, -5, -10],
                           showgrid: false,
                           zeroline: false,
-                          visible: isTempVisible
+                          visible: isTempVisible,
                         },
 
                         margin: {
@@ -1530,7 +1551,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             },
 
                             xaxis: {
-                              title: 'Years before 2019',
+                              title: {
+                                text: 'Years before 2019',
+                              },
                               tickformat: ',',
                               color: '#7e7e7e',
                               titlefont: {
@@ -1543,11 +1566,14 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               fixedrange: true,
                               range: [3300000, -10000],
                               //autorange: 'reversed',
-                              nticks: 5
+                              nticks: 5,
+                              showline: true,
                             },
 
                             yaxis: {
-                              title: 'CO2 Level (ppm)',
+                              title: {
+                                text: 'CO2 Level (ppm)',
+                              },
                               tickformat: 'd',
                               color: '#7e7e7e',
                               range: [150, 450],
@@ -1559,7 +1585,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 size: 10 * width / 720
                               },
                               showgrid: false,
-                              zeroline: false
+                              zeroline: false,
                             },
 
                             margin: {
