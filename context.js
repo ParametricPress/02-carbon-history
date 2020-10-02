@@ -3,6 +3,7 @@ var memoize = require("memoizee");
 let myCO2LookupObj = {}; 
 let years = [];
 
+const currentYear = (new Date()).getFullYear();
 const getCO2Level = (year) => myCO2LookupObj[year];
 const getCO2Fraction = (year) => (getCO2Level(2019) - getCO2Level(year)) / (getCO2Level(2019) - 280);
 
@@ -85,6 +86,7 @@ module.exports = (ctx) => {
     // Here I'm going to inject some function that we can use in the
     // browser
     ctx.update({
+       currentYear: currentYear,
        myCO2LookupObj: myCO2LookupObj,
        years: years,
        getCO2Level: getCO2Level,

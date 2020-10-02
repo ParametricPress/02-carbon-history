@@ -626,15 +626,15 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
 
           [br/]
 
+          ## Part 2: Industry
+
           Throughout your life, carbon dioxide levels have been steadily rising.
-          But you've only been around for [Display value:`2020-birthYear-1` format:"d" /] or [Display value:`2020-birthYear` format:"d" /] years.
+          But you've only been around for [Display value:`currentYear - birthYear - 1` format:"d" /] or [Display value:`currentYear - birthYear` format:"d" /] years.
           In comparison, humans have been burning fossil fuels for hundreds of years.
 
           So how does the rise in CO2 *during your life* compare to the rise in CO2 *before you were born*?
 
           To find out, we need to go back to the moment that human societies began consuming fossil fuels on an industrial scale.
-
-          ## Part 2: Industry
 
           [/TextContainer]
 
