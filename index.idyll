@@ -124,6 +124,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   yaxis: {
                     title: {
                       text: '% Human CO2 Emissions Emitted Within This Lifetime',
+                      standoff: 10 * width / 720,
                     },
                     range: [0, 101],
                     color: '#7e7e7e',
@@ -437,6 +438,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             ],
                     title: {
                       text: 'CO2 Level (ppm)',
+                      standoff: 10 * width / 720,
                     },
                     tickformat: 'd',
                     fixedrange: true,
@@ -640,7 +642,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             isVisible:partOneCompleted
             data: graphData
             layout: `(width) => ({
-                      title: 'The History of CO2: Industry',
+                      title: 'The Birth of Industry',
                       width: width,
                       height: width/1.618,
                       showlegend: false,
@@ -664,7 +666,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         tickfont: {
                           size: 10 * width / 720
                         },
-                      showline: true,
+                        showline: true,
                       },
 
                       yaxis: {
@@ -672,7 +674,10 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 co2.filter(e => e.year >= graph2Year).map(e => e.ppm).reduce((a,b) => a < b ? a : b) / 1.25, // min of yvalues in xrange
                                 425
                                 ],
-                        title: 'CO2 Level (ppm)',
+                        title: {
+                          text: 'CO2 Level (ppm)',
+                          standoff: 10 * width / 720,
+                        },
                         tickformat: 'd',
                         fixedrange: true,
                         color: '#7e7e7e',
@@ -682,7 +687,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         tickfont: {
                           size: 10 * width / 720
                         },
-                      showline: true,
+                        showline: true,
                       },
 
                       margin: {
@@ -819,7 +824,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
             isVisible:partTwoCompleted
             data: graph3Data
             layout: `(width) => ({
-                      title: 'The History of CO2: Civilization',
+                      title: 'The Rise of Civilization',
                       width: width,
                       height: width / 1.618,
                       showlegend: false,
@@ -856,6 +861,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 ],
                         title: {
                           text: 'CO2 Level (ppm)',
+                          standoff: 10 * width / 720,
                         },
                         tickformat: 'd',
                         fixedrange: true,
@@ -1072,7 +1078,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
               isVisible:partThreeCompleted
               data: graph4Data
               layout: `(width) => ({
-                        title: 'The History of CO2: Ice Ages',
+                        title: 'The Ice Ages',
                         width: width,
                         height: width / 1.618,
                         showlegend: false,
@@ -1109,6 +1115,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         yaxis2: {
                           title: {
                             text: 'CO2 Level (ppm)',
+                            standoff: 10 * width / 720,
                           },
                           overlaying: 'y',
                           side: 'right',
@@ -1129,6 +1136,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                         yaxis: {
                           title: {
                             text: 'Temperature Change (°C)',
+                            standoff: 10 * width / 720,
                           },
                           side: 'left',
                           range: [-12, 17.25],
@@ -1536,7 +1544,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                   isVisible:partFourCompleted
                   data: graph5Data
                   layout: `(width) => ({
-                            title: 'The History of CO2: Before the Ice Ages',
+                            title: 'Before the Ice Ages',
                             width: width,
                             height: width / 1.618,
                             showlegend: false,
@@ -1573,6 +1581,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                             yaxis: {
                               title: {
                                 text: 'CO2 Level (ppm)',
+                                standoff: 10 * width / 720,
                               },
                               tickformat: 'd',
                               color: '#7e7e7e',
