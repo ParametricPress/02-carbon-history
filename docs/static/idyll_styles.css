@@ -2424,6 +2424,10 @@ p {
   justify-content: center;
 }
 
+.js-plotly-plot .plotly .cursor-pointer {
+  cursor: crosshair !important;
+}
+
 .pull-number {
   font-size: 36px;
   width: 100%;
