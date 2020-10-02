@@ -1423,8 +1423,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
+                              hoverinfo: 'skip',
                             },
 
                             { // lower bound
@@ -1435,8 +1436,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               line: {color: 'transparent'},
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
-                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
+                              hoverinfo: 'skip',
                             },
 
                             {
@@ -1444,8 +1446,8 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               y: ho.map(e => e.CO2),
                               mode: 'markers',
                               type: 'scattergl',
-                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
                               line: {
                                 color: '#4801FF',
                                 size: 5,
@@ -1456,6 +1458,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                 symmetric: true,
                                 value: 30,
                               },
+                              hoverinfo: 'skip',
                             },
 
                             { // upper bound
@@ -1464,8 +1467,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
+                              hoverinfo: 'skip',
                             },
 
                             { // lower bound
@@ -1476,8 +1480,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               line: {color: 'transparent'},
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
-                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
+                              hoverinfo: 'skip',
                             },
 
                             { // upper bound
@@ -1486,8 +1491,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
+                              hoverinfo: 'skip',
                             },
 
                             { // lower bound
@@ -1498,8 +1504,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               line: {color: 'transparent'},
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
-                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
+                              hoverinfo: 'skip',
                             },
 
                             { // upper bound
@@ -1508,8 +1515,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               mode: 'lines',
                               type: 'scattergl',
                               line: {color: 'transparent'},
-                              hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2 Upper Bound: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
+                              hoverinfo: 'skip',
                             },
 
                             { // lower bound
@@ -1520,8 +1528,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               line: {color: 'transparent'},
                               fill: 'tonexty',
                               fillcolor: 'rgba(72, 1, 255, 0.5)',
-                              hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2 Lower Bound: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
+                              hoverinfo: 'skip',
                             },
 
                             {
@@ -1529,12 +1538,13 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                               y: co2.map(e => e.ppm),
                               mode: 'lines',
                               type: 'scattergl',
-                              hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
-                              hoverlabel: { bgcolor: "#FFF"},
+                              //hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
+                              //hoverlabel: { bgcolor: "#FFF"},
                               line: {
                                 color: '#D8FFA2',
                                 size: 5,
                               },
+                              hoverinfo: 'skip',
                             },
 
                           ]`
