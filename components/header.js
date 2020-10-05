@@ -25,7 +25,7 @@ class Header extends React.PureComponent {
                   <div className="parametric-dek" >
                     {this.props.dek}
                   </div>
-                  <div className="byline-container" style={{display: 'flex', flexDirection: 'row', color: '#FFFFFF', fontSize: 12, fontWeight: 500}}>
+                  <div className="byline-container" style={{display: 'flex', flexDirection: 'row', color: '#FFFFFF', fontWeight: 500}}>
                     <div>
                       <div style={{fontWeight: 'bold'}}>
                         Created by
