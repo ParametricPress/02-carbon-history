@@ -38,7 +38,7 @@ To get started, make a guess by dragging the slider below.
 
 [Range value:guessPercent min:0 max:100 /]
 
-I guess that [Display value:guessPercent format:"d" /] percent of all human carbon dioxide emissions occurred during my lifetime.
+I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff"}`]%[/span] of all human carbon dioxide emissions occurred during my lifetime.
 
 [var name:"guessMade" value:false /]
 [Button onClick:`guessMade = true`]
@@ -68,9 +68,9 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
     [TextContainer]
 
       [br/]
-      You guessed that [Display value:guessPercent format:"d" /]% of human carbon dioxide emissions occurred during your lifetime.
+      You guessed that [Display value:guessPercent format:"d" /][span style:`{color: "#fff"}`]%[/span] of human carbon dioxide emissions occurred during your lifetime.
 
-      In reality, about [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of human-caused carbon dioxide emissions occurred since you were born.
+      In reality, about [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/][span style:`{color: "#fff"}`]%[/span] of human-caused carbon dioxide emissions occurred since you were born.
 
       **If you're in high school**, roughly a quarter of all human carbon emissions occurred during your lifetime.
 
@@ -1668,7 +1668,7 @@ I guess that [Display value:guessPercent format:"d" /] percent of all human carb
                                     dash: 'dash'
                                     // Sets the dash style of lines. Set to a dash type string ("solid", "dot", "dash", "longdash", "dashdot", or "longdashdot") or a dash length list in px (eg "5px,10px,2px,2px").
                                   }
-                                },     
+                                },
 
                                 /*
                                 {
