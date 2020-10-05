@@ -1511,10 +1511,16 @@ a {
 }
 
 .parametric-recirc-next-article a:hover .highlight-hover {
-  color: #adadad;
+  text-decoration: underline;
   /* text-shadow: none; */
 }
 
+.parametric-issue-toc a {
+  text-decoration: none;
+}
+.parametric-issue-toc a:hover {
+  text-decoration: underline;
+}
 
 
 .parametric-issue-toc {
@@ -1863,8 +1869,13 @@ h2 {
   margin: 0;
   width: calc(100% - 50px);
 }
+
 body {
   font-family: 'Graphik Web';
+}
+
+ul, ol {
+  font-family: 'Tiempos Text'
 }
 /** INPUT WIDGETS */
 
@@ -2040,6 +2051,15 @@ input[type=range]:focus::-ms-fill-upper {
   font-weight: 300;
   color: #222222;
 }
+
+
+body {
+  overflow-x: hidden !important;
+}
+.parametric-article-nav {
+  overflow-x: visible;
+}
+
 
 /**
  DARK  MODE
@@ -2510,7 +2530,6 @@ p {
   max-width: 100%;
   width: 1000px;
   padding: 2em;
-  height: 100vh;
   text-align: center;
 }
 
@@ -2526,10 +2545,22 @@ p {
   max-width: 960px;
   margin: 0 auto 2em auto;
 }
+
+
+.byline-container {
+  font-size: 18px;
+}
+
+
 @media all and (max-width: 1000px) {
   .idyll-root {
     max-width: none;
     padding: 0;
+  }
+
+  .article-header {
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 
@@ -2538,7 +2569,10 @@ p {
     max-width: calc(100% - 2em);
     margin: 0 auto 2em auto;
   }
-
+  .parametric-header-text .parametric-long-title {
+    font-size: 64px;
+    line-height: 1.2;
+  }
 }
 @media all and (max-width: 800px) {
   .idyll-root {
@@ -2546,7 +2580,32 @@ p {
     padding: 0;
   }
   .idyll-text-container {
+    margin: 0 auto;
+  }
+  .parametric-header-text .parametric-long-title {
+    font-size: 64px;
+    line-height: 1.2;
+  }
+}
+
+
+@media all and (max-width: 600px) {
+  .parametric-header-text .parametric-long-title {
+    font-size: 48px;
+  }
+  .idyll-text-container {
     margin-left: 1em;
     margin-right: 1em;
+  }
+  .byline-container {
+    font-size: 12px;
+  }
+
+}
+
+
+@media all and (max-width: 600px) {
+  .parametric-header-text .parametric-long-title {
+    font-size: 36px;
   }
 }
