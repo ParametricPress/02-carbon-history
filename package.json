@@ -26,6 +26,6 @@
     "p5": "^1.0.0",
     "parametric-components": "^2.1.23",
     "parametric-styles": "^2.2.12",
-    "plotly.js-basic-dist-min": "^1.54.5"
+    "plotly.js-basic-dist-min": "^1.56.0"
   }
 }
