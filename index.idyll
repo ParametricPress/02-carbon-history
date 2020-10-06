@@ -385,7 +385,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
       [/TextContainer]
 
       [var name:"graphYear" value:2019 /]
-      [derived name:"stepSize" value:`(2020 - birthYear) / 7` /]
+      [derived name:"stepSize" value:`(2020 - birthYear) / 5` /]
       [derived name:"graphData" value:`[{
                   x: co2.map(e => e.year),
                   y: co2.map(e => e.ppm),
