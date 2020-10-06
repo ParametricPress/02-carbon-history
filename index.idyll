@@ -3,7 +3,7 @@
   shareImageWidth:"880"
   shareImageHeight:"440" /]
 
-[var name:"parametricSlug" value:"tk-article-slug" /]
+[var name:"parametricSlug" value:"carbon-history" /]
 
 [Nav fullWidth:true /]
 
