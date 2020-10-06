@@ -1,4 +1,4 @@
-[meta title:"Your Life in CO₂" description:"TK Article Description"
+[meta title:"Your Life in CO₂" description:"Why we're living through an extraordinary time."
   shareImageUrl:"https://parametric.press/issue-02/tk-article-slug/static/images/share.png"
   shareImageWidth:"880"
   shareImageHeight:"440" /]
@@ -1878,7 +1878,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
 
 [b][a href:"https://aatishb.com/"]Aatish Bhatia[/a][/b] is an award-winning science writer and educator with a Ph.D. in physics. You can support his science writing on [Patreon](https://www.patreon.com/aatishb) and sign up for his climate newsletter [The Rate of Change](https://rateofchange.substack.com/).
 
-Edited by TK editor list.
+// Edited by TK editor list.
 [/AuthorBio]
 
 [NextArticle slug:parametricSlug fullWidth:true /]
