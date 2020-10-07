@@ -381,7 +381,8 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
         [br/]
         Now that we have a sense for what a *part per million* looks like, we can see how carbon dioxide levels changed during your lifetime.
 
-        We'll start in 2019.
+        The graph below displays the average [span className:"green"]carbon dioxide level[/span] in 2019.
+        Use the button below to see how CO2 levels have changed during your life.
       [/TextContainer]
 
       [var name:"graphYear" value:2019 /]
@@ -418,10 +419,10 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   },
 
                   xaxis: {
-                    range: [graphYear == 2019 ? 2018.5 : graphYear - stepSize + 1, 2019.5],
+                    range: [graphYear == 2019 ? 2018.01 : graphYear - stepSize + 1, 2019.99],
                     tickformat: 'd',
                     fixedrange: true,
-                    color: '#7e7e7e',
+                    color: '#ffffff',
                     titlefont: {
                       size: 10 * width / 720
                     },
@@ -429,6 +430,8 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                       size: 10 * width / 720
                     },
                     showline: true,
+                    linecolor: '#ffffff',
+                    linewidth: 2,
                   },
 
                   yaxis: {
@@ -437,24 +440,26 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                             425
                             ],
                     title: {
-                      text: 'CO2 Level (ppm)',
-                      standoff: 10 * width / 720,
+                      text: 'Carbon Dioxide Level (ppm)',
                     },
                     tickformat: 'd',
                     fixedrange: true,
-                    color: '#7e7e7e',
+                    color: '#D8FFA2',
                     titlefont: {
                       size: 10 * width / 720
                     },
                     tickfont: {
                       size: 10 * width / 720
                     },
-                    showline: true,
+                    tickprefix: '  ',
+                    ticksuffix: '   ',
+                    showline: false,
+                    side: 'right'
                   },
 
                   margin: {
-                      l: 80 * width / 720,
-                      r: 25 * width / 720,
+                      l: 25 * width / 720,
+                      r: 80 * width / 720,
                       b: 25 * width / 720,
                       t: 50 * width / 720,
                       pad: 2 * width / 720
@@ -659,7 +664,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                         range: [graph2Year == birthYear ? graph2Year - stepSize : graph2Year - 50/2, 2019.5],
                         tickformat: 'd',
                         fixedrange: true,
-                        color: '#7e7e7e',
+                        color: '#ffffff',
                         titlefont: {
                           size: 10 * width / 720
                         },
@@ -667,6 +672,8 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                           size: 10 * width / 720
                         },
                         showline: true,
+                        linecolor: '#ffffff',
+                        linewidth: 2,
                       },
 
                       yaxis: {
@@ -675,24 +682,26 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                                 425
                                 ],
                         title: {
-                          text: 'CO2 Level (ppm)',
-                          standoff: 10 * width / 720,
+                          text: 'Carbon Dioxide Level (ppm)',
                         },
                         tickformat: 'd',
                         fixedrange: true,
-                        color: '#7e7e7e',
+                        color: '#D8FFA2',
                         titlefont: {
                           size: 10 * width / 720
                         },
                         tickfont: {
                           size: 10 * width / 720
                         },
-                        showline: true,
+                        tickprefix: '  ',
+                        ticksuffix: '   ',
+                        showline: false,
+                        side: 'right'
                       },
 
                       margin: {
-                          l: 80 * width / 720,
-                          r: 25 * width / 720,
+                          l: 25 * width / 720,
+                          r: 80 * width / 720,
                           b: 25 * width / 720,
                           t: 50 * width / 720,
                           pad: 2 * width / 720
@@ -844,7 +853,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                         tickformat: ',',
                         fixedrange: true,
                         zeroline: false,
-                        color: '#7e7e7e',
+                        color: '#ffffff',
                         titlefont: {
                           size: 10 * width / 720
                         },
@@ -852,6 +861,8 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                           size: 10 * width / 720
                         },
                         showline: true,
+                        linecolor: '#ffffff',
+                        linewidth: 2,
                       },
 
                       yaxis: {
@@ -860,25 +871,27 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                                 425
                                 ],
                         title: {
-                          text: 'CO2 Level (ppm)',
-                          standoff: 10 * width / 720,
+                          text: 'Carbon Dioxide Level (ppm)',
                         },
                         tickformat: 'd',
                         fixedrange: true,
                         zeroline: false,
-                        color: '#7e7e7e',
+                        color: '#D8FFA2',
                         titlefont: {
                           size: 10 * width / 720
                         },
                         tickfont: {
                           size: 10 * width / 720
                         },
-                        showline: true,
+                        tickprefix: '  ',
+                        ticksuffix: '   ',
+                        showline: false,
+                        side: 'right'
                       },
 
                       margin: {
-                          l: 80 * width / 720,
-                          r: 25 * width / 720,
+                          l: 25 * width / 720,
+                          r: 80 * width / 720,
                           b: 50 * width / 720,
                           t: 50 * width / 720,
                           pad: 2 * width / 720
@@ -1099,7 +1112,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                             text: 'Years before 2019',
                           },
                           tickformat: ',',
-                          color: '#7e7e7e',
+                          color: '#ffffff',
                           titlefont: {
                             size: 10 * width / 720
                           },
@@ -1110,12 +1123,13 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                           fixedrange: true,
                           nticks: 5,
                           showline: true,
+                          linecolor: '#ffffff',
+                          linewidth: 2,
                         },
 
                         yaxis2: {
                           title: {
-                            text: 'CO2 Level (ppm)',
-                            standoff: 10 * width / 720,
+                            text: 'Carbon Dioxide Level (ppm)',
                           },
                           overlaying: 'y',
                           side: 'right',
@@ -1130,13 +1144,13 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                             size: 10 * width / 720
                           },
                           showgrid: false,
-                          zeroline: false
+                          zeroline: false,
+                          ticksuffix: '   ',
                         },
 
                         yaxis: {
                           title: {
                             text: 'Temperature Change (°C)',
-                            standoff: 10 * width / 720,
                           },
                           side: 'left',
                           range: [-12, 17.25],
@@ -1153,6 +1167,8 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                           tickvals: [0, -5, -10],
                           showgrid: false,
                           zeroline: false,
+                          tickprefix: '   ',
+                          ticksuffix: ' ',
                           visible: isTempVisible,
                         },
 
@@ -1572,7 +1588,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                                 text: 'Years before 2019',
                               },
                               tickformat: ',',
-                              color: '#7e7e7e',
+                              color: '#ffffff',
                               titlefont: {
                                 size: 10 * width / 720
                               },
@@ -1585,15 +1601,16 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                               //autorange: 'reversed',
                               nticks: 5,
                               showline: true,
+                              linecolor: '#ffffff',
+                              linewidth: 2,
                             },
 
                             yaxis: {
                               title: {
-                                text: 'CO2 Level (ppm)',
-                                standoff: 10 * width / 720,
+                                text: 'Carbon Dioxide Level (ppm)',
                               },
                               tickformat: 'd',
-                              color: '#7e7e7e',
+                              color: '#D8FFA2',
                               range: [150, 450],
                               fixedrange: true,
                               titlefont: {
@@ -1604,11 +1621,15 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                               },
                               showgrid: false,
                               zeroline: false,
+                              showline: false,
+                              side: 'right',
+                              tickprefix: ' ',
+                              ticksuffix: '   ',
                             },
 
                             margin: {
-                                l: 80 * width / 720,
-                                r: 25 * width / 720,
+                                l: 25 * width / 720,
+                                r: 80 * width / 720,
                                 b: 50 * width / 720,
                                 t: 50 * width / 720,
                                 pad: 2 * width / 720
@@ -1702,7 +1723,9 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   [br/]
 
                   You're looking at over 3 million years of history: the entirety of the [Stone Age](https://en.wikipedia.org/wiki/Stone_Age).
-                  The graph shows [span className:"green"]direct measurements[/span] of CO2 (from sampling the air and analyzing ancient ice) overlaid with [span className:"blue"]indirect measurements[/span] (from analyzing fossils of ancient marine life).
+
+                  The graph shows [span className:"green"]direct measurements[/span] of CO2 from sampling the air and analyzing ancient ice, overlaid with [span className:"blue"]indirect measurements[/span] of CO2 from analyzing fossils of ancient marine life.
+                  (The blue regions and error bars represent the range of uncertainty in these indirect measurements.)
 
                   **The takeaway:** Carbon dioxide levels are higher today than they have been in 2.5 million years.
                   The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) that Earth had carbon dioxide levels in the range they are today, global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
@@ -1732,7 +1755,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   We’re currently at a fork in our species’ history, a [branching point](https://rateofchange.substack.com/p/the-rate-of-change) between very different possible futures.
                   Because CO2 is Earth's thermostat, human CO2 emissions in the coming decades will [directly determine](https://twitter.com/hausfath/status/1309206537999585280) Earth's temperature.
 
-                  So it's safe to say we're approaching of the most consequential turning points in human history.
+                  So it's safe to say we're approaching one of the most consequential turning points in human history.
 
                   Everyone alive today is living through an extraordinary time.
 

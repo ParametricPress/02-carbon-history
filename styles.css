@@ -83,11 +83,11 @@ p {
 }
 
 .red {
-  color: #EE998B;
+  color: rgba(255, 0, 0, 0.7);
 }
 
 .blue {
-  color: #9CBBD7;
+  color: rgb(93, 100, 211);
 }
 
 .green {
