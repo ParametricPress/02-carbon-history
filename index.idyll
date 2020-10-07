@@ -799,8 +799,8 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             This graph shows us the history of industrialization as seen through the lens of CO2.
             With every passing decade, the graph grows steeper.
 
-            **Our carbon dioxide output is *accelerating*.**
-
+            [b]Our carbon dioxide output is *accelerating*.[/b]
+            [br/][br/]
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before.
             But the steep rise in CO2 levels during your life makes the rise during the Industrial Revolution look like a gentle slope.
 
@@ -1405,7 +1405,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   Whenever carbon dioxide levels fell in the past, Earth's global temperatures also plunged.
                   And whenever carbon dioxide levels rose, so did the Earth's temperature.
 
-                  **Carbon dioxide is Earth's thermostat.**
+                  [b]Carbon dioxide is Earth's thermostat.[/b]
                   [br/][br/]
                   Which raises the question, have carbon dioxide levels ever been as high as they are today?
                   And if so, what was *that* past climate like?
