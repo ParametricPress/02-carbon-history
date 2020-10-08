@@ -86,7 +86,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
       [/TextContainer]
 
       [var name:"ages" value:`Array(20).fill(0).map((e,i) => 5 * (i+1))` /]
-      [PlotlyComponent
+      [PlotlyComponentHover
         isVisible: birthYearSelected
         data: `[{
                   type: 'bar',
@@ -96,7 +96,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   hoverinfo: 'text',
                   hoverlabel: { bgcolor: "#FFF"},
                   marker: {
-                    color: '#666666'
+                    color: ages.map(e => '#666666'),
                   },
                 }]`
         layout: `(width) => ({
@@ -554,7 +554,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
           Since CO2 levels have been steadily rising every year of your life, you can actually measure your age in terms of the carbon dioxide level at your birth.
 
           [Aside]
-            [span className:"pull-number"]You were born at [Display value:`getCO2Level(birthYear)` format:"d" /] ppm[/span]
+            [span className:"pull-number"] [span className:"graytext"]You were born at[/span] [Display value:`getCO2Level(birthYear)` format:"d" /] [span className:"graytext"]ppm.[/span][/span]
             [span className:"pull-number-text"]
               In [Display value:birthYear format:"d" /], carbon dioxide levels averaged [Display value:`getCO2Level(birthYear)` format:"d" /] parts per million. In [Display value:'2019' /], they averaged [Display value:'412' /] parts per million.
             [/span]
@@ -802,7 +802,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             [b]Our carbon dioxide output is *accelerating*.[/b]
             [br/][br/]
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before.
-            But the steep rise in CO2 levels during your life makes the rise during the Industrial Revolution look like a gentle slope.
+            But the steep rise in CO2 levels during your life, [largely driven by](https://folk.universitetetioslo.no/roberan/img/GCB2019/PNG/s85_2019_Total_Emissions_by_source.png) our growing consumption of [coal, oil, and natural gas](https://ourworldindata.org/fossil-fuels#global-fossil-fuel-consumption), makes the rise during the Industrial Revolution look like a gentle slope.
 
             Everyone alive today is living through a great acceleration—a historically unprecedented growth of carbon consumption, and consequently, of carbon emissions.
 
@@ -1045,7 +1045,10 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
               To understand where we're headed, it helps to know where we came from.
               Our geological past contains important clues that can help us anticipate our future.
 
-              So let's take a journey through the Ice Ages, and see what the past can teach us about our current changing climate.
+              The graph below shows [span className:"green"]carbon dioxide levels[/span] during the Holocene, the geological era in which civilization arose.
+
+              First, reveal the [span className:"red"]temperature curve[/span] to see the relatively stable temperature of the Holocene.
+              Then, travel back through the Ice Ages to see how past [span className:"red"]temperature[/span] lines up with [span className:"green"]CO2[/span].
 
             [/TextContainer]
 
@@ -1317,6 +1320,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
 
                     }
                   `
+                   className:'redbackground'
                   ]
                     Reveal Temperature
                 [/Button]
@@ -1383,27 +1387,27 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
               [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
                   [br/]
-                  At 800,000 years before the present, we're at a time [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution) *Homo Sapiens* evolved.
-
-                  The valleys in this graph are the [Ice Ages](https://en.wikipedia.org/wiki/Glacial_period), when glaciers covered large parts of the globe.
-                  The jagged peaks separating the valleys are warmer periods when glaciers receded, known as [Interglacial periods](https://en.wikipedia.org/wiki/Interglacial).
-
-                  This *paleoclimate* record, reconstructed by analyzing ancient air trapped in frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
+                  At 800,000 years before the present, we're at a time [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution)[span] *Homo Sapiens*[/span] evolved.
 
                   The green curve displays [span className:"green"]carbon dioxide levels[/span], while the red curve displays the shift in [span className:"red"]global temperature[/span] (as compared to the average temperature of the past thousand years).
+
+                  The valleys in this graph are the [Ice Ages](https://en.wikipedia.org/wiki/Glacial_period), when glaciers covered large parts of the globe.
+                  The jagged peaks separating the valleys are the warmer periods when glaciers receded, known as [Interglacial periods](https://en.wikipedia.org/wiki/Interglacial).
+
+                  This *paleoclimate* record, reconstructed by [analyzing ancient air](https://www.climate.gov/news-features/climate-tech/climate-core-how-scientists-study-ice-cores-reveal-earth%E2%80%99s-climate) trapped in frozen bubbles beneath miles of ice, is the most direct evidence we have of how carbon dioxide influences Earth's climate.
 
                   There are 3 things to take away from this graph.
 
                   First, at no point in the past 800,000 years were carbon dioxide levels anywhere near as high as they are today.
                   We're the first members of our species to experience global CO2 levels this high.
 
-                  Second, whenever Earth's carbon dioxide levels fluctuated in the past, this usually happened over tens of thousands of years.
+                  Second, whenever Earth's carbon dioxide levels fluctuated in the past, this usually took many thousands of years.
                   In contrast, our current spike in carbon dioxide was created in just a few generations (and [Display value:`100 * getCO2Fraction(birthYear)` format:"d"/]% of this spike was created in your life alone).
                   On a geological timescale, that's more or less instantaneous.
 
-                  Third, the [span className:"green"]CO2 curve[/span] and the [span className:"red"]temperature curve[/span] rise and fall in sync.
-                  Whenever carbon dioxide levels fell in the past, Earth's global temperatures also plunged.
-                  And whenever carbon dioxide levels rose, so did the Earth's temperature.
+                  Third, [span className:"green"]carbon dioxide[/span] and [span className:"red"]temperature[/span] rise and fall in sync.
+                  Whenever CO2 levels fell in the past, Earth's global temperatures also plunged.
+                  And whenever CO2 levels rose, so did Earth's temperature.
 
                   [b]Carbon dioxide is Earth's thermostat.[/b]
                   [br/][br/]
@@ -1741,7 +1745,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
 
                   ## What's Next?
 
-                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. And we're [on track to surpass](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) 1.5°C of warming by mid-century, potentially locking in even greater warming.
+                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. And we're [on track to surpass](https://www.ipcc.ch/sr15/chapter/spm/spm-a/)[span] 1.5°C[/span] of warming by mid-century, potentially locking in even greater warming.
 
                   According to a [recent study](https://www.theguardian.com/environment/2020/jul/09/co2-in-earths-atmosphere-nearing-levels-of-15m-years-ago), if we continue at our current rate unabated, in just 5 years we will reach CO2 levels that haven't been seen on Earth in *15 million years*.
                   At this rate, we'll likely hit 2°C of warming within [30-40 years](https://carbontracker.org/carbon-budgets-where-are-we-now/)—a scenario with [devastating consequences](https://www.ipcc.ch/report/ar5/wg2/) for every ecosystem.
@@ -1755,7 +1759,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   We’re currently at a fork in our species’ history, a [branching point](https://rateofchange.substack.com/p/the-rate-of-change) between very different possible futures.
                   Because CO2 is Earth's thermostat, human CO2 emissions in the coming decades will [directly determine](https://twitter.com/hausfath/status/1309206537999585280) Earth's temperature.
 
-                  So it's safe to say we're approaching one of the most consequential turning points in human history.
+                  So it's safe to say that we're approaching one of the most consequential turning points in human history.
 
                   Everyone alive today is living through an extraordinary time.
 
