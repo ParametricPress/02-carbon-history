@@ -551,7 +551,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
         [TextContainer]
           [br/]
           We've arrived at [Display value:birthYear format:"d" /], the year that you were born.
-          Since CO2 levels have been steadily rising every year of your life, you can actually measure your age in terms of the carbon dioxide level at your birth.
+          Since CO2 levels have been rising throughout your life, you can express your age in terms of the carbon dioxide level at your birth.
 
           [Aside]
             [span className:"pull-number"] [span className:"graytext"]You were born at[/span] [Display value:`getCO2Level(birthYear)` format:"d" /] [span className:"graytext"]ppm.[/span][/span]
@@ -633,7 +633,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
 
           ## Part 2: Industry
 
-          Throughout your life, carbon dioxide levels have been steadily rising.
+          Throughout your life, carbon dioxide levels have been rapidly rising.
           But you've only been around for [Display value:`currentYear - birthYear - 1` format:"d" /] or [Display value:`currentYear - birthYear` format:"d" /] years.
           In comparison, humans have been burning fossil fuels for hundreds of years.
 
@@ -804,7 +804,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             During the Industrial Revolution, industrialized nations began burning coal at a rate never seen before.
             But the steep rise in CO2 levels during your life, [largely driven by](https://folk.universitetetioslo.no/roberan/img/GCB2019/PNG/s85_2019_Total_Emissions_by_source.png) our growing consumption of [coal, oil, and natural gas](https://ourworldindata.org/fossil-fuels#global-fossil-fuel-consumption), makes the rise during the Industrial Revolution look like a gentle slope.
 
-            Everyone alive today is living through a great acceleration—a historically unprecedented growth of carbon consumption, and consequently, of carbon emissions.
+            Everyone alive today is living through a great acceleration—an unprecedented growth of carbon consumption, and consequently, of carbon emissions.
 
             ## Part 3: Civilization
 
@@ -1035,7 +1035,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
               And since carbon dioxide and climate are closely linked, this was also an era of climate stability.
 
               The world had thawed following [the last Ice Age](https://en.wikipedia.org/wiki/Last_Glacial_Maximum), which ended around 15,000 years ago, giving rise to an era of relatively moderate climate known as the [Holocene](https://en.wikipedia.org/wiki/Holocene).
-              Agriculture, cities, and civilization all got their start along the gently rolling slopes of the Holocene.
+              Agriculture, cities, and civilization all got their start during the Holocene.
 
               Today, we're perched precariously at the peak of a historically unprecedented spike in carbon dioxide.
               When future generations look back at their geological history, they'll see this spike as the moment that ended the stable, moderate climate in which human civilization arose, giving rise to the unstable, extreme climate we're barreling towards today.
@@ -1745,7 +1745,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
 
                   ## What's Next?
 
-                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. And we're [on track to surpass](https://www.ipcc.ch/sr15/chapter/spm/spm-a/)[span] 1.5°C[/span] of warming by mid-century, potentially locking in even greater warming.
+                  Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. And we're [on track to surpass](https://www.ipcc.ch/sr15/chapter/spm/spm-a/)[span] 1.5°C[/span] of warming by mid-century.
 
                   According to a [recent study](https://www.theguardian.com/environment/2020/jul/09/co2-in-earths-atmosphere-nearing-levels-of-15m-years-ago), if we continue at our current rate unabated, in just 5 years we will reach CO2 levels that haven't been seen on Earth in *15 million years*.
                   At this rate, we'll likely hit 2°C of warming within [30-40 years](https://carbontracker.org/carbon-budgets-where-are-we-now/)—a scenario with [devastating consequences](https://www.ipcc.ch/report/ar5/wg2/) for every ecosystem.
