@@ -91,8 +91,8 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
         data: `[{
                   type: 'bar',
                   x: ages,
-                  y: ages.map(e => 100 * getCO2Fraction(2020 - e)),
-                  text: ages.map(e => 100 * getCO2Fraction(2020 - e)).map(e => Math.round(e)+'%'),
+                  y: ages.map(e => 100 * getCO2Fraction(currentYear - e)),
+                  text: ages.map(e => 100 * getCO2Fraction(currentYear - e)).map(e => Math.round(e)+'%'),
                   hoverinfo: 'text',
                   hoverlabel: { bgcolor: "#FFF"},
                   marker: {
@@ -1260,13 +1260,13 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                             */
 
                             {
-                              x: -300000,
+                              x: -250000,
                               y: 170,
                               xref: 'x',
                               yref: 'y2',
                               xanchor: 'center',
                               yanchor: 'center',
-                              text: '<i>Homo Sapiens</i> Lineage Appears',
+                              text: '<i>Homo Sapiens</i> Emerge',
                               font: {
                                 size: 10 * width/720,
                               },
@@ -1387,7 +1387,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
               [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
                   [br/]
-                  At 800,000 years before the present, we're at a time [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution)[span] *Homo Sapiens*[/span] evolved.
+                  At 800,000 years before the present, we're at a time [long before](https://en.wikipedia.org/wiki/Timeline_of_human_evolution#Homo_sapiens)[span] *[Homo Sapiens](https://en.wikipedia.org/wiki/File:Homo_sapiens_lineage.svg#/media/File:Homo_sapiens_lineage.svg)*[/span] evolved.
 
                   The green curve displays [span className:"green"]carbon dioxide levels[/span], while the red curve displays the shift in [span className:"red"]global temperature[/span] (as compared to the average temperature of the past thousand years).
 
@@ -1752,12 +1752,12 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
 
                   The astronaut Chris Hadfield [describes a saying](https://www.ted.com/talks/chris_hadfield_what_i_learned_from_going_blind_in_space) in the space industry: *"There's no problem so bad you can't make it worse."*
 
-                  It's true that in a single generation, we've greatly accelerated the climate crisis, heading into territory unseen in millions of years.
+                  In a single generation, we've greatly accelerated the climate crisis, heading into territory unseen in millions of years.
 
-                  It's simultaneously true that if we fail to slam the brakes on our emissions within the next generation, then this problem will become significantly worse.
+                  And if we fail to slam the brakes on our emissions within the next generation, this problem will become significantly worse.
 
                   We’re currently at a fork in our species’ history, a [branching point](https://rateofchange.substack.com/p/the-rate-of-change) between very different possible futures.
-                  Because CO2 is Earth's thermostat, human CO2 emissions in the coming decades will [directly determine](https://twitter.com/hausfath/status/1309206537999585280) Earth's temperature.
+                  Because CO2 is Earth's thermostat, our CO2 emissions in the coming decades will [directly determine](https://twitter.com/hausfath/status/1309206537999585280) Earth's temperature.
 
                   So it's safe to say that we're approaching one of the most consequential turning points in human history.
 
