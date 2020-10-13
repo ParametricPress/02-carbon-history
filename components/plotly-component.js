@@ -1,7 +1,7 @@
 const React = require('react');
 const D3Component = require('idyll-d3-component');
 const Plotly = require('plotly.js-basic-dist-min');
-const maxHeightRatio = 0.85;
+const maxHeightRatio = 0.75;
 
 class plotlyComponent extends D3Component {
 
