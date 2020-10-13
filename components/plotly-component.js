@@ -1,6 +1,7 @@
 const React = require('react');
 const D3Component = require('idyll-d3-component');
 const Plotly = require('plotly.js-basic-dist-min');
+const maxHeightRatio = 0.85;
 
 class plotlyComponent extends D3Component {
 
@@ -38,9 +39,9 @@ class plotlyComponent extends D3Component {
       //console.log('Plotly Graph Created', this.props);
       let height = width/1.618;
       let viewportHeight = window.innerHeight;
-      if (height > 0.85 * viewportHeight) {
+      if (height > maxHeightRatio * viewportHeight) {
         // ensure that graph doesn't take up more than 85% of screen height
-        width = 0.85 * viewportHeight * 1.618;
+        width = maxHeightRatio * viewportHeight * 1.618;
       }
 
       Plotly.react(this.state.node, this.props.data, this.props.layout(width), {displayModeBar: false});
@@ -62,9 +63,9 @@ class plotlyComponent extends D3Component {
       let width = this.state.node.getBoundingClientRect().width;
       let height = width/1.618;
       let viewportHeight = window.innerHeight;
-      if (height > 0.85 * viewportHeight) {
+      if (height > maxHeightRatio * viewportHeight) {
         // ensure that graph doesn't take up more than 85% of screen height
-        width = 0.85 * viewportHeight * 1.618;
+        width = maxHeightRatio * viewportHeight * 1.618;
       }
 
       Plotly.react(this.state.node, this.props.data, this.props.layout(width), {displayModeBar: false});
