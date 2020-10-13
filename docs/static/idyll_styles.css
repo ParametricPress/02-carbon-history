@@ -2437,7 +2437,7 @@ p {
 
 .redbackground {
   color: #ffffff;
-  background-color: rgba(120, 0, 0);  
+  background-color: rgba(120, 0, 0);
 }
 
 .slider {
@@ -2619,6 +2619,31 @@ input[type="range"] {
 }
 
 
+
+/* RECIRC */
+.parametric-recirc-module {
+  width: 960px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: -25%;
+}
+.parametric-recirc-module > div:nth-of-type(2) {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+}
+.parametric-recirc-module > div:nth-of-type(2) > div {
+  flex: 1;
+  margin: 0 0.5em;
+}
+.parametric-recirc-module > div:nth-of-type(2) > div:first-of-type {
+  margin-left: 0;
+}
+.parametric-recirc-module > div:nth-of-type(2) > div:last-of-type {
+  margin-right: 0;
+}
+
+
 @media all and (max-width: 1000px) {
   .idyll-root {
     max-width: none;
@@ -2640,6 +2665,15 @@ input[type="range"] {
     font-size: 64px;
     line-height: 1.2;
   }
+
+  .parametric-recirc-module {
+    width: calc(100% - 2em);
+    max-width: 95vw;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 @media all and (max-width: 800px) {
   .idyll-root {
@@ -2652,6 +2686,13 @@ input[type="range"] {
   .parametric-header-text .parametric-long-title {
     font-size: 64px;
     line-height: 1.2;
+  }
+
+  .parametric-recirc-module > div:nth-of-type(2) {
+    flex-direction: column;
+  }
+  .parametric-recirc-module > div:nth-of-type(2) > div {
+    margin: 1em 0;
   }
 }
 
