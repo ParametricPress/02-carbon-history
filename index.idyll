@@ -495,6 +495,9 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                 });`
       /]
 
+        **Data Source:** Annualy averaged CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+      [/caption]
+
       [var name:"partOneCompleted" value:false/]
       [var name:"graph2Year" value:`birthYear` /]
       [var name:"buttonEnabled" value:true /]
@@ -542,10 +545,6 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             [/div]
           [/Conditional]
         [/Conditional]
-
-        [caption]
-          **Data Source:** Annualy averaged CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
-        [/caption]
 
       [Conditional if:`partOneCompleted || !readerMode`]
         [TextContainer]
@@ -745,6 +744,10 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                     });`
           /]
 
+        [caption]
+          **Data Source:** Annualy averaged CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
+        [/caption]
+
         [var name:"partTwoCompleted" value:false/]
         [div className:"buttonwrapper"]
 
@@ -788,10 +791,6 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             [/div]
           [/Conditional]
         [/Conditional]
-
-        [caption]
-          **Data Source:** Annualy averaged CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards) and [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (before 1959).
-        [/caption]
 
         [Conditional if:`partTwoCompleted || !readerMode`]
           [TextContainer]
@@ -977,6 +976,10 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                     });`
           /]
 
+          [caption]
+            **Data Source:** CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
+          [/caption]
+
           [var name:"partThreeCompleted" value:false/]
           [div className:"buttonwrapper"]
 
@@ -1020,10 +1023,6 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
               [/div]
             [/Conditional]
           [/Conditional]
-
-        [caption]
-          **Data Source:** CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
-        [/caption]
 
           [Conditional if:`partThreeCompleted || !readerMode`]
             [TextContainer]
@@ -1301,6 +1300,10 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                       });`
             /]
 
+            [caption]
+              **Data Source:** CO₂ data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6080).
+            [/caption]
+
             [derived name:"partFourCompleted" value:`graph4Year == -800000`/]
             [var name:"showNavigation" value:false /]
             [div className:"buttonwrapper"]
@@ -1379,10 +1382,6 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                 [/Conditional]
 
             [/Conditional]
-
-              [caption]
-                **Data Source:** CO₂ data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091).
-              [/caption]
 
               [Conditional if:`partFourCompleted || !readerMode`]
                 [TextContainer]
@@ -1603,10 +1602,13 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                               fixedrange: true,
                               range: [3300000, -10000],
                               //autorange: 'reversed',
-                              nticks: 5,
+                              //nticks: 5,
                               showline: true,
                               linecolor: '#ffffff',
                               linewidth: 2,
+                              tickmode: "array",
+                              tickvals: [0, 1000000, 2000000, 3000000],
+                              ticktext: ['0', '1 Million', '2 Million', '3 Million']
                             },
 
                             yaxis: {
