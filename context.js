@@ -25,7 +25,7 @@ const interpolateCO2LevelCached = memoize(interpolateCO2Level);
 const relativeScale = (year, graphYear, power) => Math.pow((2020 - year)/(2020 - graphYear), power);
 const relativeScaleCached = memoize(relativeScale);
 
-const rescale = (scale, power) => 2 * Math.pow(scale/2, 0.66);
+const rescale = (scale, power) => 2 * Math.pow(scale/2, 0.6);
 const rescaleCached = memoize(rescale);
 
 const makeAnnotation = (power, graphYear, year, scale, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
