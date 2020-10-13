@@ -39,7 +39,7 @@ class plotlyComponent extends D3Component {
       //console.log('Plotly Graph Created', this.props);
       let height = width/1.618;
       let viewportHeight = window.innerHeight;
-      if (height > maxHeightRatio * viewportHeight) {
+      if (width >= 700 && height > maxHeightRatio * viewportHeight) {
         // ensure that graph doesn't take up more than 85% of screen height
         width = maxHeightRatio * viewportHeight * 1.618;
       }
@@ -63,7 +63,7 @@ class plotlyComponent extends D3Component {
       let width = this.state.node.getBoundingClientRect().width;
       let height = width/1.618;
       let viewportHeight = window.innerHeight;
-      if (height > maxHeightRatio * viewportHeight) {
+      if (width >= 700 && height > maxHeightRatio * viewportHeight) {
         // ensure that graph doesn't take up more than 85% of screen height
         width = maxHeightRatio * viewportHeight * 1.618;
       }

@@ -725,19 +725,20 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                           makeAnnotation(0.5, graph2Year, 1989, width/720, 'up', 'Berlin Wall<br>Comes Down 🧱'),
                           makeAnnotation(0.5, graph2Year, 1977, width/720, 'down', 'Star Wars<br>Released'),
                           makeAnnotation(0.5, graph2Year, 1969, width/720, 'up', 'Humans Land<br>on Moon 🚀'),
-                          makeAnnotation(0.5, graph2Year, 1957, width/720, 'down', 'Sputnik<br>Launched 🛰️'),
                           makeAnnotation(0.5, graph2Year, 1945, width/720, 'up', 'World War II<br>Ends'),
                           makeAnnotation(0.5, graph2Year, 1939, width/720, 'down', 'World War II<br>Begins'),
                           makeAnnotation(0.5, graph2Year, 1919, width/720, 'up', 'World War I<br>Ends'),
                           makeAnnotation(0.5, graph2Year, 1914, width/720, 'down', 'World War I<br>Begins'),
-                          makeAnnotation(0.5, graph2Year, 1903, width/720, 'up', 'Wright<br>Brothers<br>Flight 🛩'),
                           makeAnnotation(0.5, graph2Year, 1886, width/720, 'down', 'Statue of Liberty<br>Inaugurated 🗽'),
                           makeAnnotation(0.5, graph2Year, 1851, width/720, 'up', 'Industrial<br>Revolution<br>Ends'),
-                          makeAnnotation(0.5, graph2Year, 1807, width/720, 'down', 'Steamboat<br>Invented 🚢'),
-                          makeAnnotation(0.5, graph2Year, 1804, width/720, 'up', 'Jacquard<br>Loom<br>Invented 🧶'),
                           makeAnnotation(0.5, graph2Year, 1765, width/720, 'down', 'Steam Engine<br>Invented 🚂'),
                           makeAnnotation(0.5, graph2Year, 1760, width/720, 'up', 'Industrial<br>Revolution<br>Begins 🏭', -25 * 0.75 * width/720, 40 * 0.75 * width/720, 'center', 'bottom', true),
-                        ].filter(e => e.x != birthYear)
+                        ]
+                         .concat(width >= 700 ? [makeAnnotation(0.5, graph2Year, 1957, width/720, 'down', 'Sputnik<br>Launched 🛰️')] : [])
+                         .concat(width >= 700 ? [makeAnnotation(0.5, graph2Year, 1903, width/720, 'up', 'Wright<br>Brothers<br>Flight 🛩')] : [])
+                         .concat(width >= 700 ? [makeAnnotation(0.5, graph2Year, 1807, width/720, 'down', 'Steamboat<br>Invented 🚢')] : [])
+                         .concat(width >= 700 ? [makeAnnotation(0.5, graph2Year, 1804, width/720, 'up', 'Jacquard<br>Loom<br>Invented 🧶')] : [])
+                         .filter(e => e.x != birthYear)
                          .filter(e => !(e.direction == 'up' && Math.abs(e.x - birthYear) < 5))
                          .filter(e => e.x >= graph2Year)
                          .filter(e => e.font.size >= 7 * rescaleCached(width/720))
@@ -930,7 +931,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                             yanchor: 'center',
                             text: 'Transition to<br>Agriculture',
                             font: {
-                              size: 10 * width/720,
+                              size: 10 * rescaleCached(width/720),
                             },
                             showarrow: false,
                           },
@@ -946,14 +947,14 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                           makeAnnotation(0.9, graph3Year, -2500, width/720, 'down', 'Mammoth<br>Extinct'),
                           makeAnnotation(0.9, graph3Year, -4000, width/720, 'up', '🌶️ Chilli<br>Peppers<br>Cultivated<br>in Mexico'),
                           makeAnnotation(0.9, graph3Year, -6000, width/720, 'down', '🍚 Rice<br>Cultivated<br>in China'),
-                          makeAnnotation(0.9, graph3Year, -7000, width/720, 'up', '🌽 Corn<br>Cultivated<br>in Mexico'),
-                          makeAnnotation(0.9, graph3Year, -8000, width/720, 'down', 'Mammoth Extinct<br>in Eurasia<br>and Americas'),
                           makeAnnotation(0.9, graph3Year, -8500, width/720, 'up', '🐮 Cattle<br>Domesticated'),
                           makeAnnotation(0.9, graph3Year, -9600, width/720, 'up', '🌾 Wheat<br>Cultivated', -25 * 0.35 * width/720, 40 * 0.35 * width/720, 'center', 'bottom', true)
                         ]
-                         .concat( width > 500 ? [makeAnnotation(0.9, graph3Year, -3300, width/720, 'up', '🍺 Beer brewed<br>from Barley<br>in Iran')] : [])
-                         .concat( width > 500 ? [makeAnnotation(0.9, graph3Year, -3200, width/720, 'down', '✍️ Invention of<br>Writing in<br>Egypt & Sumeria')] : [])
-                         .concat( width > 500 ? [makeAnnotation(0.9, graph3Year, -6000, width/720, 'up', 'Squash<br>Cultivated<br>in Mexico')] : [])
+                         .concat( width >= 700 ? [makeAnnotation(0.9, graph3Year, -3300, width/720, 'up', '🍺 Beer brewed<br>from Barley<br>in Iran')] : [])
+                         .concat( width >= 700 ? [makeAnnotation(0.9, graph3Year, -3200, width/720, 'down', '✍️ Invention of<br>Writing in<br>Egypt & Sumeria')] : [])
+                         .concat( width >= 700 ? [makeAnnotation(0.9, graph3Year, -6000, width/720, 'up', 'Squash<br>Cultivated<br>in Mexico')] : [])
+                         .concat( width >= 700 ? [makeAnnotation(0.9, graph3Year, -7000, width/720, 'up', '🌽 Corn<br>Cultivated<br>in Mexico')] : [])
+                         .concat( width >= 700 ? [makeAnnotation(0.9, graph3Year, -8000, width/720, 'down', 'Mammoth Extinct<br>in Eurasia<br>and Americas')] : [])
                          .filter(e => e.x >= graph3Year)
                          .filter(e => e.font.size >= 5 * rescaleCached(width/720))
                          .map(e => (
@@ -1229,14 +1230,14 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
 
                             {
                               x: 2019 - 11000,
-                              y: 240,
+                              y: 280,
                               xref: 'x',
                               yref: 'y2',
                               xanchor: 'center',
-                              yanchor: 'center',
+                              yanchor: 'bottom',
                               text: 'Transition to<br>Agriculture',
                               font: {
-                                size: 10 * width/720,
+                                size: 10 * rescaleCached(width/720),
                               },
                               showarrow: false,
                               visible: graph4Year == -10000 ? true : false
@@ -1268,7 +1269,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                               yanchor: 'center',
                               text: '<i>Homo Sapiens</i> Emerge',
                               font: {
-                                size: 10 * width/720,
+                                size: 10 * rescaleCached(width/720),
                               },
                               showarrow: false,
                             },
