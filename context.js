@@ -25,7 +25,7 @@ const interpolateCO2LevelCached = memoize(interpolateCO2Level);
 const relativeScale = (year, graphYear, power) => Math.pow((2020 - year)/(2020 - graphYear), power);
 const relativeScaleCached = memoize(relativeScale);
 
-const rescale = (scale, power) => Math.sqrt(2) * Math.pow(scale, power);
+const rescale = (scale, power) => 2 * Math.pow(scale/2, 0.66);
 const rescaleCached = memoize(rescale);
 
 const makeAnnotation = (power, graphYear, year, scale, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
@@ -40,7 +40,7 @@ const makeAnnotation = (power, graphYear, year, scale, direction, annotationText
                           text: annotationText,
                           arrowcolor: '#ADADAD',
                           font: {
-                            size: 10 * rescaleCached(scale, 0.5) * (isLabelStatic ? 1 : relativeScaleCached(year, graphYear, power)),
+                            size: 10 * rescaleCached(scale) * (isLabelStatic ? 1 : relativeScaleCached(year, graphYear, power)),
                           },
                           showarrow: true,
                           arrowhead: 2, // this is an index (arrowhead type) not a size!

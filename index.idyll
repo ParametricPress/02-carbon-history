@@ -490,7 +490,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                     ].filter(e => e.x != birthYear)
                      .filter(e => !(e.direction == 'up' && e.x > birthYear && e.x - birthYear < 5))
                      .filter(e => e.x >= graphYear)
-                     .filter(e => e.font.size >= 5 * rescaleCached(width/720, 0.5))
+                     .filter(e => e.font.size >= 5 * rescaleCached(width/720))
                      .concat(graphYear <= birthYear ? [makeAnnotation(0.5, graphYear, birthYear, width/720, 'up', 'You Were<br>Born!<br>🎂🎉', 0, 40 * 0.75 * width/720)] : [])
                 });`
       /]
@@ -740,7 +740,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                         ].filter(e => e.x != birthYear)
                          .filter(e => !(e.direction == 'up' && Math.abs(e.x - birthYear) < 5))
                          .filter(e => e.x >= graph2Year)
-                         .filter(e => e.font.size >= 7 * rescaleCached(width/720, 0.5))
+                         .filter(e => e.font.size >= 7 * rescaleCached(width/720))
                          .concat([makeAnnotation(0.5, graph2Year, birthYear, width/720, 'up', 'You Were Born!<br>🎂🎉', -25 * 0.75 * width/720, 40 * 0.75 * width/720, 'center', 'bottom', true)])
                     });`
           /]
@@ -955,7 +955,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                           makeAnnotation(0.9, graph3Year, -9600, width/720, 'up', '🌾 Wheat<br>Cultivated', -25 * 0.35 * width/720, 40 * 0.35 * width/720, 'center', 'bottom', true)
                         ]
                          .filter(e => e.x >= graph3Year)
-                         .filter(e => e.font.size >= 5 * rescaleCached(width/720, 0.5))
+                         .filter(e => e.font.size >= 5 * rescaleCached(width/720))
                          .map(e => (
                           {
                             x: 2019 - e.x,
