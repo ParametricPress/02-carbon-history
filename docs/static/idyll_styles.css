@@ -1268,15 +1268,15 @@ h2 {
 
 button, input[type=submit] {
   display: block;
-  margin: 1em auto;
+  margin: 0.5em auto;
   background: #adadad;
-  font-family: Silkscreen;
+  font-family: 'Editorial New';
   border: none;
   box-shadow: none;
   border-radius: 0px;
   color: white;
-  font-size: 14px;
-  padding: 1em 2em;
+  font-size: 18px;
+  padding: 0.5em 2em;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1743,8 +1743,16 @@ a {
 .parametric-recirc-article {
   background: #D8FFA2;
   box-shadow: 8px 8px 0 black;
-  padding: 0.5em 1em;
+  padding: 0.5em;
   margin: 1em 0;
+}
+
+.parametric-recirc-article a {
+  text-decoration: none;
+}
+
+.parametric-recirc-article a:hover {
+  text-decoration: underline;
 }
 
 .parametric-header-text {
@@ -2162,6 +2170,10 @@ button {
 }
 
 
+.parametric-header-metadata-component {
+  flex-wrap: wrap;
+}
+
 @media all and (max-width: 1440px) {
   .parametric-recirc-next-article {
     position: relative;
@@ -2282,6 +2294,12 @@ button {
     margin-right: 0;
   }
 
+  .past-issue-container {
+    position: static !important;
+    margin-bottom: 1em;
+  }
+
+
   .parametric-footer form {
     margin: 1em 0;
   }
@@ -2341,12 +2359,6 @@ button {
   .parametric-header-hed-text {
     top: 60px;
   }
-
-  .past-issue-container {
-    position: static !important;
-    margin-bottom: 1em;
-  }
-
 
 	.idyll-text-container img {
 		margin: 2em auto;
@@ -2437,7 +2449,7 @@ p {
 
 .redbackground {
   color: #ffffff;
-  background-color: rgba(120, 0, 0);  
+  background-color: rgba(120, 0, 0);
 }
 
 .slider {
@@ -2619,6 +2631,31 @@ input[type="range"] {
 }
 
 
+
+/* RECIRC */
+.parametric-recirc-module {
+  width: 960px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: -25%;
+}
+.parametric-recirc-module > div:nth-of-type(2) {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+}
+.parametric-recirc-module > div:nth-of-type(2) > div {
+  flex: 1;
+  margin: 0 0.5em;
+}
+.parametric-recirc-module > div:nth-of-type(2) > div:first-of-type {
+  margin-left: 0;
+}
+.parametric-recirc-module > div:nth-of-type(2) > div:last-of-type {
+  margin-right: 0;
+}
+
+
 @media all and (max-width: 1000px) {
   .idyll-root {
     max-width: none;
@@ -2640,6 +2677,15 @@ input[type="range"] {
     font-size: 64px;
     line-height: 1.2;
   }
+
+  .parametric-recirc-module {
+    width: calc(100% - 2em);
+    max-width: 95vw;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 @media all and (max-width: 800px) {
   .idyll-root {
@@ -2652,6 +2698,13 @@ input[type="range"] {
   .parametric-header-text .parametric-long-title {
     font-size: 64px;
     line-height: 1.2;
+  }
+
+  .parametric-recirc-module > div:nth-of-type(2) {
+    flex-direction: column;
+  }
+  .parametric-recirc-module > div:nth-of-type(2) > div {
+    margin: 1em 0;
   }
 }
 
