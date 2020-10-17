@@ -2448,13 +2448,14 @@ p {
 }
 
 .redbackground {
-  color: #ffffff;
-  background-color: rgba(120, 0, 0);
+  color: #222222;
+  background-color: #EE998B;
 }
 
 .slider {
   width: 100%;
 }
+
 
 .js-plotly-plot {
   display: flex;
@@ -2488,11 +2489,13 @@ p {
 }
 
 .red {
-  color: rgba(255, 0, 0, 0.7);
+  color:#EE998B;
+   /* rgba(255, 0, 0, 0.7); */
 }
 
 .blue {
-  color: rgb(93, 100, 211);
+  color: #9CBBD7;
+   /* rgb(93, 100, 211); */
 }
 
 .green {
@@ -2570,7 +2573,7 @@ p {
 
 .parametric-caption {
   max-width: 960px;
-  margin: 0 auto 2em auto;
+  margin: 1em auto 2em auto;
 }
 
 
@@ -2579,7 +2582,8 @@ p {
 }
 
 select {
-  min-width: 400px;
+  width: 400px;
+  max-width: 100%;
   margin: 1em;
   /* padding: 0.5em; */
   /* background: none; */
@@ -2655,6 +2659,10 @@ input[type="range"] {
   margin-right: 0;
 }
 
+
+.aside .idyll-display {
+  font-size: inherit;
+}
 
 @media all and (max-width: 1000px) {
   .idyll-root {
