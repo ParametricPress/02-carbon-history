@@ -43,32 +43,7 @@ class plotlyComponent extends D3Component {
         width = 0.85 * viewportHeight * 1.618;
       }
 
-      let myPlot = this.state.node;
-
-      Plotly.react(myPlot, this.props.data, this.props.layout(width), {displayModeBar: false});
-
-      myPlot.on('plotly_hover', function(data){
-        if (data.points.length > 0) {
-          var tn = data.points[0].curveNumber;
-          var pn = data.points[0].pointNumber;
-          var colors = data.points[0].data.marker.color;
-          colors[pn] = '#D8FFA2';
-          var update = {'marker':{color: colors}};
-          Plotly.restyle(myPlot, update, [tn]);
-        }
-      });
-
-      myPlot.on('plotly_unhover', function(data){
-        if (data.points.length > 0) {
-          var tn = data.points[0].curveNumber;
-          var pn = data.points[0].pointNumber;
-          var colors = data.points[0].data.marker.color;
-          colors[pn] = '#666666';
-          var update = {'marker':{color: colors}};
-          Plotly.restyle(myPlot, update, [tn]);
-        }
-      });
-
+      Plotly.react(this.state.node, this.props.data, this.props.layout(width), {displayModeBar: false});
 
       this.setState((state) => {
         return {
