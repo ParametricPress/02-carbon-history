@@ -1693,8 +1693,8 @@ a {
 }
 
 .parametric-graphic-hed {
-  font-family: 'Graphik Web';
-  color: #ffffff;
+  font-family: 'Editorial New';
+  color: #adadad;
   font-weight: 600;
   font-size: 20px;
   line-height: 20px;
@@ -1703,7 +1703,7 @@ a {
 
 .parametric-graphic-subhed {
   font-family: 'Graphik Web';
-  color: #7e7e7e;
+  color: #adadad;
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
