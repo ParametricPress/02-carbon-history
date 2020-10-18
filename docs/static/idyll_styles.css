@@ -1270,13 +1270,13 @@ button, input[type=submit] {
   display: block;
   margin: 0.5em auto;
   background: #adadad;
-  font-family: 'Editorial New';
+  font-family: 'Graphik Web';
   border: none;
   box-shadow: none;
   border-radius: 0px;
   color: white;
   font-size: 18px;
-  padding: 0.5em 2em;
+  padding: 0.65em 2em;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1546,8 +1546,11 @@ a {
 }
 
 .parametric-caption a {
-  color: #D8FFA2;
+  color: #adadad;
   text-decoration: underline;
+}
+.parametric-caption a:hover {
+  color: #D8FFA2;
 }
 
 .parametric-tooltip-trigger {
@@ -1714,12 +1717,13 @@ a {
   border-top: 1px solid #2C2C2C;
   justify-content: space-between;
   margin-top: 40px;
-  padding-top: 20px;
+  padding-top: 5px;
   color: #7e7e7e;
 }
 
 .parametric-graphic-source-label-wrapper {
   display: flex;
+  align-items: center;
 }
 
 .parametric-graphic-source-label {
@@ -1738,6 +1742,7 @@ a {
   font-size: 14px;
   font-weight: 600;
 }
+
 
 
 .parametric-recirc-article {
@@ -2109,6 +2114,12 @@ body {
 .idyll-text-container p {
   color: #ADADAD;
 }
+
+.idyll-text-container p strong,
+.idyll-text-container p b {
+  color: #BEBEBE;
+}
+
 .idyll-text-container p a,
 aside a, a {
   color: #ADADAD;
@@ -2121,6 +2132,18 @@ button {
   color: #222222;
 }
 
+.idyll-root .parametric-author-bio {
+  font-family: 'Graphik Web';
+  font-size: 16px;
+  line-height: 1.1;
+  margin: 3em 0 2em;
+}
+.idyll-root .parametric-author-bio p {
+  font-family: 'Graphik Web';
+  font-size: 16px;
+  line-height: 1.1;
+  margin: 3em 0 2em;
+}
 
 .parametric-author-bio a {
   color: #ADADAD;
