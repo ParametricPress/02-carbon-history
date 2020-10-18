@@ -1,5 +1,5 @@
-[meta title:"Your Life in CO₂" description:"Why we're living through an extraordinary time."
-  shareImageUrl:"https://parametric.press/issue-02/tk-article-slug/static/images/share.png"
+[meta title:"Your Personal Carbon History" description:"You’ve lived through a period of unprecedented carbon emissions."
+  shareImageUrl:"https://parametric.press/issue-02/carbon-history/static/images/share.png"
   shareImageWidth:"880"
   shareImageHeight:"440" /]
 
@@ -8,10 +8,10 @@
 [Nav fullWidth:true /]
 
 [Header
-  title:`["Your Life", "in CO₂"]`
-  longTitle:`["Your Life in", "Carbon Dioxide"]`
-  date:"October 2020"
-  dek:"Why we're living through an extraordinary time."
+  title:`["Your Personal", "Carbon History"]`
+  longTitle:`["Your Personal", "Carbon History"]`
+  date:"October, 19 2020"
+  dek:"Why you’ve lived through a period of unprecedented carbon emissions."
   fullWidth:true
   authors:`[{
     name: "Aatish Bhatia",
