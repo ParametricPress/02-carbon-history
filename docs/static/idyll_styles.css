@@ -1270,13 +1270,13 @@ button, input[type=submit] {
   display: block;
   margin: 0.5em auto;
   background: #adadad;
-  font-family: 'Editorial New';
+  font-family: 'Graphik Web';
   border: none;
   box-shadow: none;
   border-radius: 0px;
   color: white;
   font-size: 18px;
-  padding: 0.5em 2em;
+  padding: 0.65em 2em;
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1524,7 +1524,7 @@ a {
 
 
 .parametric-issue-toc {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .parametric-float-right {
@@ -1546,8 +1546,11 @@ a {
 }
 
 .parametric-caption a {
-  color: #D8FFA2;
+  color: #adadad;
   text-decoration: underline;
+}
+.parametric-caption a:hover {
+  color: #D8FFA2;
 }
 
 .parametric-tooltip-trigger {
@@ -1690,8 +1693,8 @@ a {
 }
 
 .parametric-graphic-hed {
-  font-family: 'Graphik Web';
-  color: #ffffff;
+  font-family: 'Editorial New';
+  color: #adadad;
   font-weight: 600;
   font-size: 20px;
   line-height: 20px;
@@ -1700,7 +1703,7 @@ a {
 
 .parametric-graphic-subhed {
   font-family: 'Graphik Web';
-  color: #7e7e7e;
+  color: #adadad;
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
@@ -1713,13 +1716,14 @@ a {
   flex-direction: row;
   border-top: 1px solid #2C2C2C;
   justify-content: space-between;
-  margin-top: 40px;
-  padding-top: 20px;
+  margin-top: 0.5em;
+  padding-top: 5px;
   color: #7e7e7e;
 }
 
 .parametric-graphic-source-label-wrapper {
   display: flex;
+  align-items: center;
 }
 
 .parametric-graphic-source-label {
@@ -1738,6 +1742,7 @@ a {
   font-size: 14px;
   font-weight: 600;
 }
+
 
 
 .parametric-recirc-article {
@@ -2109,6 +2114,12 @@ body {
 .idyll-text-container p {
   color: #ADADAD;
 }
+
+.idyll-text-container p strong,
+.idyll-text-container p b {
+  color: #BEBEBE;
+}
+
 .idyll-text-container p a,
 aside a, a {
   color: #ADADAD;
@@ -2121,6 +2132,18 @@ button {
   color: #222222;
 }
 
+.idyll-root .parametric-author-bio {
+  font-family: 'Graphik Web';
+  font-size: 16px;
+  line-height: 1.1;
+  margin: 3em 0 2em;
+}
+.idyll-root .parametric-author-bio p {
+  font-family: 'Graphik Web';
+  font-size: 16px;
+  line-height: 1.1;
+  margin: 3em 0 2em;
+}
 
 .parametric-author-bio a {
   color: #ADADAD;
@@ -2380,7 +2403,7 @@ button {
 
 
 
-@media all and (min-width: 1440px) {
+@media all and (min-width: 1441px) {
   .parametric-recirc-next-article {
     margin-left: auto;
     margin-right: auto;
@@ -2448,13 +2471,14 @@ p {
 }
 
 .redbackground {
-  color: #ffffff;
-  background-color: rgba(120, 0, 0);
+  color: #222222;
+  background-color: #EE998B;
 }
 
 .slider {
   width: 100%;
 }
+
 
 .js-plotly-plot {
   display: flex;
@@ -2488,11 +2512,13 @@ p {
 }
 
 .red {
-  color: rgba(255, 0, 0, 0.7);
+  color:#EE998B;
+   /* rgba(255, 0, 0, 0.7); */
 }
 
 .blue {
-  color: rgb(93, 100, 211);
+  color: #9CBBD7;
+   /* rgb(93, 100, 211); */
 }
 
 .green {
@@ -2570,7 +2596,7 @@ p {
 
 .parametric-caption {
   max-width: 960px;
-  margin: 0 auto 2em auto;
+  margin: 1em auto 2em auto;
 }
 
 
@@ -2579,7 +2605,8 @@ p {
 }
 
 select {
-  min-width: 400px;
+  width: 400px;
+  max-width: 100%;
   margin: 1em;
   /* padding: 0.5em; */
   /* background: none; */
@@ -2655,6 +2682,10 @@ input[type="range"] {
   margin-right: 0;
 }
 
+
+.aside .idyll-display {
+  font-size: inherit;
+}
 
 @media all and (max-width: 1000px) {
   .idyll-root {

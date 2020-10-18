@@ -1,5 +1,5 @@
-[meta title:"Your Life in CO₂" description:"Why we're living through an extraordinary time."
-  shareImageUrl:"https://parametric.press/issue-02/tk-article-slug/static/images/share.png"
+[meta title:"Your Personal Carbon History" description:"You’ve lived through a period of unprecedented carbon emissions."
+  shareImageUrl:"https://parametric.press/issue-02/carbon-history/static/images/share.png"
   shareImageWidth:"880"
   shareImageHeight:"440" /]
 
@@ -8,10 +8,10 @@
 [Nav fullWidth:true /]
 
 [Header
-  title:`["Your Life", "in CO₂"]`
-  longTitle:`["Your Life in", "Carbon Dioxide"]`
-  date:"October 2020"
-  dek:"Why we're living through an extraordinary time."
+  title:`["Your Personal", "Carbon History"]`
+  longTitle:`["Your Personal", "Carbon History"]`
+  date:"October 19, 2020"
+  dek:"Why you’ve lived through a period of unprecedented carbon emissions."
   fullWidth:true
   authors:`[{
     name: "Aatish Bhatia",
@@ -102,7 +102,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
         layout: `(width) => ({
                   title: 'What Fraction of CO₂ Emissions Happened in a Lifetime?',
                   width: width,
-                  height: width / 1.61803,
+                  height: width / 1.61803 - (128+64),
                   paper_bgcolor: '#222222',
                   plot_bgcolor: '#222222',
 
@@ -406,7 +406,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
         layout: `(width) => ({
                   title: 'Your Life in CO₂',
                   width: width,
-                  height: width/1.618,
+                  height: width/1.618 - 128,
                   showlegend: false,
                   paper_bgcolor: '#222222',
                   plot_bgcolor: '#222222',
@@ -649,7 +649,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             layout: `(width) => ({
                       title: 'The Birth of Industry',
                       width: width,
-                      height: width/1.618,
+                      height: width/1.618 - 64,
                       showlegend: false,
                       paper_bgcolor: '#222222',
                       plot_bgcolor: '#222222',
@@ -836,7 +836,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             layout: `(width) => ({
                       title: 'The Rise of Civilization',
                       width: width,
-                      height: width / 1.618,
+                      height: width / 1.618 - 64,
                       showlegend: false,
                       paper_bgcolor: '#222222',
                       plot_bgcolor: '#222222',
@@ -979,7 +979,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
           /]
 
           [caption]
-            **Data Source:** CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
+            **Data Source:** CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE–1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE–1 BCE).
           [/caption]
 
           [var name:"partThreeCompleted" value:false/]
@@ -1066,6 +1066,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                         hovertemplate: '%{y:.d} °C deviation<extra></extra>',
                         hoverlabel: { bgcolor: "#FFF"},
                         line: {
+                          // color: '#EE998B',
                           color: 'rgba(255, 0, 0, 0.7)',
                           width: 4
                         },
@@ -1097,7 +1098,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
               layout: `(width) => ({
                         title: 'The Ice Ages',
                         width: width,
-                        height: width / 1.618,
+                        height: width / 1.618 - 64,
                         showlegend: false,
                         paper_bgcolor: '#222222',
                         plot_bgcolor: '#222222',
@@ -1160,7 +1161,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                           range: [-12, 17.25],
                           tickformat: 'd',
                           fixedrange: true,
-                          color: 'rgba(255, 0, 0, 0.7)',
+                          color: '#EE998B',
                           titlefont: {
                             size: 10 * width / 720
                           },
@@ -1303,7 +1304,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             /]
 
             [caption]
-              **Data Source:** CO₂ data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6080).
+              **Data Source:** CO₂ data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE–1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE–1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6080).
             [/caption]
 
             [derived name:"partFourCompleted" value:`graph4Year == -800000`/]
@@ -1455,7 +1456,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.5)',
+                              fillcolor: 'rgba(156, 187, 215, 0.6)',
                               //hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                               //hoverlabel: { bgcolor: "#FFF"},
                               hoverinfo: 'skip',
@@ -1469,7 +1470,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                               //hovertemplate: 'CO2: %{y:.d} ppm<extra></extra>',
                               //hoverlabel: { bgcolor: "#FFF"},
                               line: {
-                                color: '#4801FF',
+                                color: '#9CBBD7',
                                 size: 5,
                               },
                               opacity: 0.7,
@@ -1499,7 +1500,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.5)',
+                              fillcolor: 'rgba(156, 187, 215, 0.6)',
                               //hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                               //hoverlabel: { bgcolor: "#FFF"},
                               hoverinfo: 'skip',
@@ -1523,7 +1524,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.5)',
+                              fillcolor: 'rgba(156, 187, 215, 0.6)',
                               //hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                               //hoverlabel: { bgcolor: "#FFF"},
                               hoverinfo: 'skip',
@@ -1547,7 +1548,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                               type: 'scattergl',
                               line: {color: 'transparent'},
                               fill: 'tonexty',
-                              fillcolor: 'rgba(72, 1, 255, 0.5)',
+                              fillcolor: 'rgba(156, 187, 215, 0.6)',
                               //hovertemplate: 'CO₂ Lower Bound: %{y:.d} ppm<extra></extra>',
                               //hoverlabel: { bgcolor: "#FFF"},
                               hoverinfo: 'skip',
@@ -1576,7 +1577,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   layout: `(width) => ({
                             title: 'Before the Ice Ages',
                             width: width,
-                            height: width / 1.618,
+                            height: width / 1.618 - 64,
                             showlegend: false,
                             paper_bgcolor: '#222222',
                             plot_bgcolor: '#222222',
@@ -1724,7 +1725,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                 [caption]
                   This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
                   **Data Source:** Data for the blue curves (indirect CO₂ measurements) are accessed from [Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years) and compiled from [Dyez et al](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018PA003349), [Martínez-Botí et al](https://www.nature.com/articles/nature14145), [Chalk et al](https://doi.pangaea.de/10.1594/PANGAEA.882545), and [Bärbel Hönisch, et al](https://science.sciencemag.org/content/324/5934/1551.full).
-                  Data for the green curve (direct CO₂ measurements) is compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE).
+                  Data for the green curve (direct CO₂ measurements) is compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE–1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE–1 BCE).
                 [/caption]
 
                 [TextContainer]
@@ -1736,8 +1737,10 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   (The blue regions and error bars represent the range of uncertainty in these indirect measurements.)
 
                   **The takeaway:** Carbon dioxide levels are higher today than they have been in 2.5 million years.
-                  The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) that Earth had carbon dioxide levels in the range they are today, global temperatures were [2-3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4-5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
+                  The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) that Earth had carbon dioxide levels in the range they are today, global temperatures were [2–3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4–5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
                   This was the climate of [the Pliocene](https://en.wikipedia.org/wiki/Pliocene), the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), and it serves as an important indicator of where we may be headed.
+
+                  [Recirc slug:parametricSlug /]
 
                   People sometimes say that the climate has always changed.
                   But what this fails to capture is the stunning rate of our current change.
@@ -1752,7 +1755,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   Our carbon dioxide emissions [have already](https://www.ipcc.ch/sr15/chapter/spm/spm-a/) raised Earth's temperature by 1°C. And we're [on track to surpass](https://www.ipcc.ch/sr15/chapter/spm/spm-a/)[span] 1.5°C[/span] of warming by mid-century.
 
                   According to a [recent study](https://www.theguardian.com/environment/2020/jul/09/co2-in-earths-atmosphere-nearing-levels-of-15m-years-ago), if we continue at our current rate unabated, in just 5 years we will reach CO₂ levels that haven't been seen on Earth in *15 million years*.
-                  At this rate, we'll likely hit 2°C of warming within [30-40 years](https://carbontracker.org/carbon-budgets-where-are-we-now/)—a scenario with [devastating consequences](https://www.ipcc.ch/report/ar5/wg2/) for every ecosystem.
+                  At this rate, we'll likely hit 2°C of warming within [30–40 years](https://carbontracker.org/carbon-budgets-where-are-we-now/)—a scenario with [devastating consequences](https://www.ipcc.ch/report/ar5/wg2/) for every ecosystem.
 
                   The astronaut Chris Hadfield [describes a saying](https://www.ted.com/talks/chris_hadfield_what_i_learned_from_going_blind_in_space) in the space industry: *"There's no problem so bad you can't make it worse."*
 
@@ -1774,7 +1777,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                     pauseAnimation: pauseAnimation3
                     onEnterView: `pauseAnimation3 = false`
                     onExitViewFully: `pauseAnimation3 = true`
-                    className: "center"
+                    className: ""
                     resize: partFourCompleted
                     sketch:`(p, parent) => {
 
@@ -1888,6 +1891,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
 
 [EndMatter hasFinished:finished /]
 
+
 [Conditional if:`finished || !readerMode`]
   ## References
 
@@ -1902,7 +1906,6 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
   The idea for this interactive originated from [an essay](https://rateofchange.substack.com/p/the-rate-of-change-july-15-2019) on Aatish's climate newsletter [The Rate of Change](https://rateofchange.substack.com/).
 
 [/Conditional]
-
 
 [AuthorBio]
 
