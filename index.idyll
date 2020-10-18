@@ -26,7 +26,7 @@
 [data name:"co2" source:"CO2.csv" /]
 
 // NOTE: Set readerMode to true before publishing
-[var name:"readerMode" value:false /]
+[var name:"readerMode" value:true /]
 
 Humans have been burning fossil fuels on an industrial scale for hundreds of years.
 So you might guess that your life is just a blip in the centuries-long story of human carbon emissions.
@@ -649,7 +649,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             layout: `(width) => ({
                       title: 'The Birth of Industry',
                       width: width,
-                      height: Math.max(width/1.618 - 64, 200),
+                      height: Math.max(width/1.618 - 64, 400),
                       showlegend: false,
                       paper_bgcolor: '#222222',
                       plot_bgcolor: '#222222',
@@ -836,7 +836,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             layout: `(width) => ({
                       title: 'The Rise of Civilization',
                       width: width,
-                      height: Math.max(width / 1.618 - 64, 200),
+                      height: Math.max(width / 1.618 - 64, 400),
                       showlegend: false,
                       paper_bgcolor: '#222222',
                       plot_bgcolor: '#222222',
@@ -1098,7 +1098,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
               layout: `(width) => ({
                         title: 'The Ice Ages',
                         width: width,
-                        height: Math.max(width / 1.618 - 64, 200),
+                        height: Math.max(width / 1.618 - 64, 400),
                         showlegend: false,
                         paper_bgcolor: '#222222',
                         plot_bgcolor: '#222222',
@@ -1577,7 +1577,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   layout: `(width) => ({
                             title: 'Before the Ice Ages',
                             width: width,
-                            height: Math.max(width / 1.618 - 64, 200),
+                            height: Math.max(width / 1.618 - 64, 400),
                             showlegend: false,
                             paper_bgcolor: '#222222',
                             plot_bgcolor: '#222222',
