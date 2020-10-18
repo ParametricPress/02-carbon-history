@@ -978,7 +978,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
           /]
 
           [caption]
-            **Data Source:** CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE – 1 BCE).
+            **Data Source:** CO₂ levels compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE–1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (12,000 BCE–1 BCE).
           [/caption]
 
           [var name:"partThreeCompleted" value:false/]
@@ -1303,7 +1303,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             /]
 
             [caption]
-              **Data Source:** CO₂ data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6080).
+              **Data Source:** CO₂ data compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE–1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE–1 BCE). Temperature data from [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6080).
             [/caption]
 
             [derived name:"partFourCompleted" value:`graph4Year == -800000`/]
@@ -1724,7 +1724,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                 [caption]
                   This is a variant of a graph created by [Gavin Foster](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years).
                   **Data Source:** Data for the blue curves (indirect CO₂ measurements) are accessed from [Foster Lab](http://www.thefosterlab.org/blog/2020/5/14/co2-in-may-2020-at-417-ppm-highest-in-at-least-25-million-years) and compiled from [Dyez et al](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018PA003349), [Martínez-Botí et al](https://www.nature.com/articles/nature14145), [Chalk et al](https://doi.pangaea.de/10.1594/PANGAEA.882545), and [Bärbel Hönisch, et al](https://science.sciencemag.org/content/324/5934/1551.full).
-                  Data for the green curve (direct CO₂ measurements) is compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE – 1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE – 1 BCE).
+                  Data for the green curve (direct CO₂ measurements) is compiled from [Keeling Curve](https://library.ucsd.edu/dc/object/bb3859642r) (1959 onwards), [Law Dome Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/9959) (1 CE–1959 CE), and [EPICA Dome C Ice Core](https://www.ncdc.noaa.gov/paleo-search/study/6091) (800,000 BCE–1 BCE).
                 [/caption]
 
                 [TextContainer]
@@ -1738,6 +1738,8 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   **The takeaway:** Carbon dioxide levels are higher today than they have been in 2.5 million years.
                   The [last time](https://www.rmets.org/event/pliocene-last-time-earth-had-400-ppm-atmospheric-co2) that Earth had carbon dioxide levels in the range they are today, global temperatures were [2–3°C](https://en.wikipedia.org/wiki/Pliocene#Climate) (4–5°F) warmer, sea levels were [17 meters](https://www.nature.com/articles/s41586-019-1543-2) (55 feet) higher, and there were [forests in Antarctica](https://www.theguardian.com/science/2019/apr/03/south-pole-tree-fossils-indicate-impact-of-climate-change).
                   This was the climate of [the Pliocene](https://en.wikipedia.org/wiki/Pliocene), the geological era that preceded [the Ice Ages](https://en.wikipedia.org/wiki/Pleistocene), and it serves as an important indicator of where we may be headed.
+
+                  [Recirc slug:parametricSlug /]
 
                   People sometimes say that the climate has always changed.
                   But what this fails to capture is the stunning rate of our current change.
