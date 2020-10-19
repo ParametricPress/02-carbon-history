@@ -2496,7 +2496,7 @@ p {
   display: block;
   line-height: 1.25;
   margin-bottom: 5px;
-  color: #222222;
+  color: #adadad;
 }
 
 .aside-container {
@@ -2640,6 +2640,7 @@ select {
   border: solid 1px #D8FFA2;
   transition: none;
   color: #adadad;
+  padding-right: 2em;
 }
 
 select:focus, select:active {
@@ -2736,6 +2737,11 @@ input[type="range"] {
   }
   .parametric-recirc-module > div:nth-of-type(2) > div {
     margin: 1em 0;
+  }
+
+  .aside-container {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
