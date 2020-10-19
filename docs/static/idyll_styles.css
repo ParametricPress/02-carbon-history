@@ -261,8 +261,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-BlackItalic-Web.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/graphik/Graphik-BlackItalic-Web.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/graphik/Graphik-BlackItalic-Web.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/graphik/Graphik-BlackItalic-Web.woff') format('woff');
   font-weight:  800;
   font-style:   italic;
   font-stretch: normal;
@@ -270,8 +270,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-Black-Web.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/graphik/Graphik-Black-Web.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/graphik/Graphik-Black-Web.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/graphik/Graphik-Black-Web.woff') format('woff');
   font-weight:  800;
   font-style:   normal;
   font-stretch: normal;
@@ -279,10 +279,10 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.eot');
-  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.eot?#iefix') format('embedded-opentype'),
-       url('https://preview.parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.eot');
+  src: url('https://parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.eot?#iefix') format('embedded-opentype'),
+       url('https://parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/graphik/Graphik-BoldItalic-Web.woff') format('woff');
   font-weight:  700;
   font-style:   italic;
   font-stretch: normal;
@@ -290,8 +290,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-Bold-Web.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/graphik/Graphik-Bold-Web.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/graphik/Graphik-Bold-Web.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/graphik/Graphik-Bold-Web.woff') format('woff');
   font-weight:  700;
   font-style:   normal;
   font-stretch: normal;
@@ -299,8 +299,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-MediumItalic-Web.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/graphik/Graphik-MediumItalic-Web.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/graphik/Graphik-MediumItalic-Web.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/graphik/Graphik-MediumItalic-Web.woff') format('woff');
   font-weight:  500;
   font-style:   italic;
   font-stretch: normal;
@@ -308,8 +308,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-Medium-Web.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/graphik/Graphik-Medium-Web.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/graphik/Graphik-Medium-Web.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/graphik/Graphik-Medium-Web.woff') format('woff');
   font-weight:  500;
   font-style:   normal;
   font-stretch: normal;
@@ -317,8 +317,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-RegularItalic-Web.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/graphik/Graphik-RegularItalic-Web.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/graphik/Graphik-RegularItalic-Web.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/graphik/Graphik-RegularItalic-Web.woff') format('woff');
   font-weight:  400;
   font-style:   italic;
   font-stretch: normal;
@@ -326,8 +326,8 @@ input {
 
 @font-face {
   font-family: 'Graphik Web';
-  src: url('https://preview.parametric.press/static/fonts/graphik/Graphik-Regular-Web.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/graphik/Graphik-Regular-Web.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/graphik/Graphik-Regular-Web.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/graphik/Graphik-Regular-Web.woff') format('woff');
   font-weight:  400;
   font-style:   normal;
   font-stretch: normal;
@@ -336,20 +336,20 @@ input {
 
 @font-face {
   font-family: 'Bluu';
-  src: url('https://preview.parametric.press/static/fonts/bluu/bluunext-bold-webfont.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bold-webfont.woff') format('woff'),
-       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bold.ttf') format('truetype'),
-       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bold-webfont.svg#bluu_nextbold') format('svg');
+  src: url('https://parametric.press/static/fonts/bluu/bluunext-bold-webfont.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/bluu/bluunext-bold-webfont.woff') format('woff'),
+       url('https://parametric.press/static/fonts/bluu/bluunext-bold.ttf') format('truetype'),
+       url('https://parametric.press/static/fonts/bluu/bluunext-bold-webfont.svg#bluu_nextbold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Bluu';
-  src: url('https://preview.parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.woff') format('woff'),
-       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bolditalic.ttf') format('truetype'),
-       url('https://preview.parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.svg#bluu_nextbold_italic') format('svg');
+  src: url('https://parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.woff') format('woff'),
+       url('https://parametric.press/static/fonts/bluu/bluunext-bolditalic.ttf') format('truetype'),
+       url('https://parametric.press/static/fonts/bluu/bluunext-bolditalic-webfont.svg#bluu_nextbold_italic') format('svg');
   font-weight: normal;
   font-style: italic;
 }
@@ -358,8 +358,8 @@ input {
 
 @font-face {
   font-family: 'Editorial New';
-  src: url('https://preview.parametric.press/static/fonts/editorial/EditorialNew-Regular.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/editorial/EditorialNew-Regular.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/editorial/EditorialNew-Regular.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/editorial/EditorialNew-Regular.woff') format('woff');
   font-weight:  400;
   font-style:   normal;
   font-stretch: normal;
@@ -367,8 +367,8 @@ input {
 
 @font-face {
   font-family: 'Tiempos Text';
-  src: url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-regular.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-regular.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/tiempos/tiempos-text-web-regular.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/tiempos/tiempos-text-web-regular.woff') format('woff');
   font-weight:  400;
   font-style:   normal;
   font-stretch: normal;
@@ -377,8 +377,8 @@ input {
 
 @font-face {
   font-family: 'Tiempos Text';
-  src: url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-regular-italic.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-regular-italic.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/tiempos/tiempos-text-web-regular-italic.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/tiempos/tiempos-text-web-regular-italic.woff') format('woff');
   font-weight:  400;
   font-style:   italic;
   font-stretch: normal;
@@ -386,8 +386,8 @@ input {
 
 @font-face {
   font-family: 'Tiempos Text';
-  src: url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-bold.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-bold.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/tiempos/tiempos-text-web-bold.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/tiempos/tiempos-text-web-bold.woff') format('woff');
   font-weight:  700;
   font-style:   normal;
   font-stretch: normal;
@@ -396,8 +396,8 @@ input {
 
 @font-face {
   font-family: 'Tiempos Text';
-  src: url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-bold-italic.woff2') format('woff2'),
-       url('https://preview.parametric.press/static/fonts/tiempos/tiempos-text-web-bold-italic.woff') format('woff');
+  src: url('https://parametric.press/static/fonts/tiempos/tiempos-text-web-bold-italic.woff2') format('woff2'),
+       url('https://parametric.press/static/fonts/tiempos/tiempos-text-web-bold-italic.woff') format('woff');
   font-weight:  700;
   font-style:   italic;
   font-stretch: normal;
@@ -2074,6 +2074,17 @@ body {
   overflow-x: visible;
 }
 
+p a:hover {
+  color: #D8FFA2;
+}
+
+.idyll-text-container a:hover {
+  color: #D8FFA2;
+}
+
+.parametric-author-bio a:hover {
+  color: #D8FFA2;
+}
 
 /**
  DARK  MODE
