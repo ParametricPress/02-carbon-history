@@ -24,7 +24,7 @@
     "idyll-d3-component": "^2.0.0",
     "memoizee": "^0.4.14",
     "p5": "^1.1.9",
-    "parametric-components": "^2.1.39",
+    "parametric-components": "^2.1.40",
     "parametric-styles": "^2.2.28",
     "plotly.js-basic-dist-min": "^1.57.0"
   }
