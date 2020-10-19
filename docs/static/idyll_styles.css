@@ -2373,6 +2373,9 @@ button {
     overflow: hidden;
   }
 
+  .parametric-issue-toc {
+    font-size: 16px;
+  }
   .parametric-header-image {
     display: none;
   }
@@ -2406,8 +2409,8 @@ button {
 
 @media all and (max-width: 320px) {
   .parametric-issue-toc {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 1.3;
   }
 }
 
