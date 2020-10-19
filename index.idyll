@@ -102,7 +102,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
         layout: `(width) => ({
                   title: 'What Fraction of CO₂ Emissions Happened in a Lifetime?',
                   width: width,
-                  height: Math.max(width / 1.61803 - 96, 400),
+                  height: Math.max(width / 1.61803 - 96, 300),
                   paper_bgcolor: '#222222',
                   plot_bgcolor: '#222222',
 
@@ -406,7 +406,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
         layout: `(width) => ({
                   title: 'Your Life in CO₂',
                   width: width,
-                  height: Math.max(width/1.618 - 96, 400),
+                  height: Math.max(width/1.618 - 96, 300),
                   showlegend: false,
                   paper_bgcolor: '#222222',
                   plot_bgcolor: '#222222',
@@ -649,7 +649,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             layout: `(width) => ({
                       title: 'The Birth of Industry',
                       width: width,
-                      height: Math.max(width/1.618 - 96, 400),
+                      height: Math.max(width/1.618 - 96, 300),
                       showlegend: false,
                       paper_bgcolor: '#222222',
                       plot_bgcolor: '#222222',
@@ -836,7 +836,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
             layout: `(width) => ({
                       title: 'The Rise of Civilization',
                       width: width,
-                      height: Math.max(width / 1.618 - 96, 400),
+                      height: Math.max(width / 1.618 - 96, 300),
                       showlegend: false,
                       paper_bgcolor: '#222222',
                       plot_bgcolor: '#222222',
@@ -1098,7 +1098,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
               layout: `(width) => ({
                         title: 'The Ice Ages',
                         width: width,
-                        height: Math.max(width / 1.618 - 96, 400),
+                        height: Math.max(width / 1.618 - 96, 300),
                         showlegend: false,
                         paper_bgcolor: '#222222',
                         plot_bgcolor: '#222222',
@@ -1577,7 +1577,7 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
                   layout: `(width) => ({
                             title: 'Before the Ice Ages',
                             width: width,
-                            height: Math.max(width / 1.618 - 96, 400),
+                            height: Math.max(width / 1.618 - 96, 300),
                             showlegend: false,
                             paper_bgcolor: '#222222',
                             plot_bgcolor: '#222222',
