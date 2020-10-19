@@ -18,7 +18,7 @@
     role: "author",
     url: "https://aatishb.com/"
   }]`
-  doi:"https://doi.org/10.5281/zenodo.4105532"
+  doi:"https://zenodo.org/badge/latestdoi/245052678"
   archive:"https://parametric-press-archives.s3-us-west-2.amazonaws.com/issue-02.wacz"
   source:`"https://github.com/ParametricPress/02-" + parametricSlug `
 /]
