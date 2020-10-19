@@ -1919,4 +1919,4 @@ I guess that [Display value:guessPercent format:"d" /][span style:`{color: "#fff
 [Footer fullWidth:true /]
 
 // Uncomment before pub
-// [Analytics google:"UA-139053456-1" tag:parametricSlug /]
+[Analytics google:"UA-139053456-1" tag:parametricSlug /]
