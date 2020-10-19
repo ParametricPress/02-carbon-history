@@ -27,11 +27,11 @@ class plotlyComponent extends D3Component {
     });
 
     setTimeout(this.createGraph, 50);
-    
+
   }
 
   createGraph() {
-    
+
     let width = this.state.node.getBoundingClientRect().width;
 
     if (width > 0) {

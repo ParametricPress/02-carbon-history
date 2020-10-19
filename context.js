@@ -25,6 +25,9 @@ const interpolateCO2LevelCached = memoize(interpolateCO2Level);
 const relativeScale = (year, graphYear, power) => Math.pow((2020 - year)/(2020 - graphYear), power);
 const relativeScaleCached = memoize(relativeScale);
 
+const rescale = (scale) => 2 * Math.pow(scale/2, 0.5);
+const rescaleCached = memoize(rescale);
+
 const makeAnnotation = (power, graphYear, year, scale, direction, annotationText, deltaX, deltaY, xAnchor, yAnchor, isLabelStatic = false) => (
                         {
                           x: year,
@@ -37,13 +40,13 @@ const makeAnnotation = (power, graphYear, year, scale, direction, annotationText
                           text: annotationText,
                           arrowcolor: '#ADADAD',
                           font: {
-                            size: (isLabelStatic ? 10 : 10 * relativeScale(year, graphYear, power)) * scale,
+                            size: 10 * rescaleCached(scale) * (isLabelStatic ? 1 : relativeScaleCached(year, graphYear, power)),
                           },
                           showarrow: true,
-                          arrowhead: 2,
-                          arrowwidth: isLabelStatic ? 2 * scale : 2 * scale * relativeScale(year, graphYear, power),
-                          ax: (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : relativeScale(year, graphYear, power)) * (direction == 'up' ? 1 : -0.5) * scale,
-                          ay: (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : relativeScale(year, graphYear, power)) * (direction == 'up' ? 1 : -0.5) * scale,
+                          arrowhead: 2, // this is an index (arrowhead type) not a size!
+                          arrowwidth: 2 * scale * (isLabelStatic ? 1 : relativeScaleCached(year, graphYear, power)),
+                          ax: scale * (!isNaN(deltaX) ? deltaX : -25 ) * (isLabelStatic ? 1 : relativeScaleCached(year, graphYear, power)) * (direction == 'up' ? 1 : -0.5),
+                          ay: scale * (!isNaN(deltaY) ? -deltaY : -40) * (isLabelStatic ? 1 : relativeScaleCached(year, graphYear, power)) * (direction == 'up' ? 1 : -0.5),
                         });
 
 // map & constrain function from p5.js library 
@@ -97,7 +100,9 @@ module.exports = (ctx) => {
        interpolateCO2Level: interpolateCO2Level,
        interpolateCO2LevelCached: interpolateCO2LevelCached,
        relativeScale: relativeScale,
-       relativeScaleCached: relativeScaleCached
+       relativeScaleCached: relativeScaleCached,
+       rescale: rescale,
+       rescaleCached: rescaleCached
     });
 
   })
